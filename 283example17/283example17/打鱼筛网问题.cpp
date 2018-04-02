@@ -1,11 +1,12 @@
 #include "stdio.h"
 
-int a[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };//平年月数组
-int b[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };//闰年月数组
-
 /*
-	判定概念是否为闰年
+如果1个渔夫从2011年1月1日开始每3天打一次渔，两天晒一次网，
+编程实现当输入2011年1月1日之后的任意1天，输出该渔夫是在打渔还是在晒网。
 */
+int a[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+int b[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
 int leap(int year){
 	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
 		return 1;
@@ -15,31 +16,33 @@ int leap(int year){
 	}
 }
 
-/*
-	获取该日期在今年的第几天
-*/
-int date(int year, int month, int day){
-	int sum = 0;
+int days(int year, int month, int day){
+	int num = 0;
 	int i = 0;
-	if (leap(year) == 1){
-		for (i = 0; i < month - 1; i++)
-		{
-			sum += b[i];
+	int numm = 0;
+	int autoyear = 2011;
+
+	for (autoyear; autoyear < year; autoyear++)
+	{
+		if (leap(year) == 1){
+			num += 366;
+		}
+		else{
+			num += 365;
 		}
 	}
-	else{
-		for (i = 0; i < month - 1; i++)
-		{
-			sum += a[i];
+	for (i; i < month; i++){
+		if (leap(year) == 1){
+			numm += b[i];
+		}
+		else{
+			numm += a[i];
 		}
 	}
-	sum += day;
-	return sum;
+	num = num + numm + day;
+	return num;
 }
 
-/*
-	获取输入年月有多少日
-*/
 int judgeDay(int year, int month){
 	int y = leap(year);
 	if (y == 1){
@@ -51,7 +54,7 @@ int judgeDay(int year, int month){
 }
 
 /*
-	主方法
+主方法
 */
 void main(){
 	int year = 0;
@@ -61,7 +64,7 @@ void main(){
 	do{
 		printf("请输入年：\n");
 		scanf_s("%d", &year);
-		if (year > 0){
+		if (year > 2011){
 			break;
 		}
 		else{
@@ -81,14 +84,18 @@ void main(){
 	do{
 		printf("请输入日：\n");
 		scanf_s("%d", &day);
-		if (day > 0 && day <= judgeDay(year,month)){
+		if (day > 0 && day <= judgeDay(year, month)){
 			break;
 		}
 		else{
 			printf("请输入日非法，请重输\n");
 		}
 	} while (true);
-	number = date(year, month, day);
-	printf("这一天为该年的第%d天", number);
+	number = days(year, month, day);
+	if (number % 5 > 0 && number % 5 < 4){
+		printf("在打鱼\n");
+	}
+	else{
+		printf("在晒网\n");
+	}
 }
-
