@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="判断三角形的类型.cpp">
+    <ClCompile Include="直接插入排序.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

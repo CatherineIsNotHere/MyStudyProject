@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4D06E66B-FCB2-478D-ADFA-15728D309B12}</ProjectGuid>
+    <ProjectGuid>{89AE6187-9CB8-42D5-AFD0-F81D8CE62F40}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>My283example18</RootNamespace>
+    <RootNamespace>lesson95</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,7 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="判断三角形的类型.cpp" />
+    <ClCompile Include="交换两个数组的值.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

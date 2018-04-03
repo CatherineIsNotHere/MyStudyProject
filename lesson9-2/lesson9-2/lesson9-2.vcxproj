@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4D06E66B-FCB2-478D-ADFA-15728D309B12}</ProjectGuid>
+    <ProjectGuid>{01101405-490D-4319-AEF6-F3B0E742B14B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>My283example18</RootNamespace>
+    <RootNamespace>lesson92</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,7 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="判断三角形的类型.cpp" />
+    <ClCompile Include="找出数组最大的值.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="判断三角形的类型.cpp">
+    <ClCompile Include="找出数组最大的值.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
