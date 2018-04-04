@@ -2,8 +2,14 @@
 
 
 //插入排序算法
-void sort(int s[]){
-	int i = sizeof(s);
+/*
+	当把数组作为函数的参数时，
+	你无法在程序运行时通过数组参数本身告诉函数该数组的大小，
+	因为函数的数组参数相当于指向该数组第一个元素的指针。
+	这意味着把数组传递给函数的效率非常高，
+	也意味着程序员必须通过某种机制告诉函数数组参数的大小。
+*/
+void sort(int s[],int i){
 	int k = 0;
 	for (int j = 2; j < i; j++){
 		s[0] = s[j];
@@ -29,7 +35,7 @@ void main(){
 		printf("%d  ",a[i]);
 	}
 	printf("\n");
-	sort(a);
+	sort(a,sizeof(a)/sizeof(a[0]));
 	printf("\n排序后的数组为：");
 	for (int i = 0; i < 11; i++)
 	{
