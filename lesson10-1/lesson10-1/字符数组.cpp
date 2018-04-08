@@ -2,7 +2,7 @@
 
 void main(){
 	char arr[] = { 'a', 'b', 'c' };//个数为3
-	char arr2[] = { "abc\"" };//个数为4，最后一个为]\0
+	char arr2[] = { "abc" };//个数为4，最后一个为]\0
 	char arr3[] = "abc\'";
 	int i = sizeof(arr);
 	printf("%d\n", i);
