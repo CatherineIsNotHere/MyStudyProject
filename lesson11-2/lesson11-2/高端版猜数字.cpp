@@ -141,38 +141,37 @@ void startGuess(int num, int count){
 	int guess = 0;
 	int guessTime = 0;
 	do{
-		printf("请输入您要猜的数字，您还有%d次机会：", count);
+		printf("请输入您要猜的数字，您还有%d次机会：\n", count);
 		scanf_s("%d", &guess);
 		guessTime++;
 		if (guess > num){
-			printf("您猜大了！");
+			printf("您猜大了！\n");
 		}
 		else if (guess < num){
-			printf("您猜小了！");
+			printf("您猜小了！\n");
 		}
 		else if (guess == num){
-			printf("恭喜您猜对了，您用了%d次！", guessTime);
+			printf("恭喜您猜对了，您用了%d次！\n", guessTime);
 			break;
 		}
 		else{
-			printf("您介是输的嘛呀！");
+			printf("您介是输的嘛呀！\n");
 			count++;
 		}
 		count--;
 	} while (count > 0);
 	if (count <= 0){
-		printf("很遗憾你没有机会了！");
+		printf("很遗憾你没有机会了！\n");
 	}
 	return;
 }
 
 void level(){
-	char in[5];
+	char in[] = {"0"};
 	while (true)
 	{
 		printf("请选择难度：");
-		scanf_s("%s", &in, 5);
-		printf("%s", in[0]);
+		scanf_s("%c", &in);
 		if (in[0] != '1' && in[0] != '2' && in[0] != '3' && in[0] != '4'&& in[0] != '5' && in[0] != '0'){
 			printf("输入错误，请重新输入\n");
 			continue;
@@ -212,37 +211,40 @@ void level(){
 			break;
 		}
 		else{
-			printf("输入错误，请重新输入");
+			printf("输入错误，请重新输入\n");
 		}
 	}
-	return ;
 }
 
 void main(){
-	char again[5];
-	srand((unsigned)time(NULL));
+
 	while (true){
+		srand((unsigned)time(NULL));
 		if (!first){
-			printf("您是否还要再玩一局（y/n）");
-			scanf_s("%s", &again, 5);
-			printf("%s",again[0]);
-			if (again[0] != 'y'&&again[0] != 'Y'&&again[0] != 'n'&&again[0] != 'N'){
-				printf("能别瞎输么");
+			char again[1];
+			printf("您是否还要再玩一局（y/n）:\n");
+			scanf_s("%c", &again);
+			char a1 = again[0];
+			printf("%d\n",a1);
+			if (a1 != 'y'&&a1 != 'Y'&&a1 != 'n'&&a1 != 'N'){
+				printf("能别瞎输么\n");
+				continue;
 			}
-			else if (again[0] == 'y' || again[0] == 'Y'){
-				printf("继续游戏");
+			else if (a1 == 'y' || a1 == 'Y'){
+				printf("继续游戏\n");
+				system("cls");
 				_print(12);//打印12行的游戏界面
 				level();//获取级别
 				startGuess(num, count);
 				first=false;
 			}
-			else if (again[0] == 'n' || again[0] == 'N'){
-				printf("游戏结束！");
+			else if (a1 == 'n' || a1 == 'N'){
+				printf("游戏结束！\n");
 				getchar();
 				return;
 			}
 			else{
-				printf("你介是输的嘛呀！能别瞎输么");
+				printf("你介是输的嘛呀！能别瞎输么\n");
 			}
 		}
 		else{
