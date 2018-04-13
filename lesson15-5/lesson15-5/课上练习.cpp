@@ -9,6 +9,18 @@ void test1(int t){
 		}
 		printf("\n");
 	}
+	//int s = 0;
+	//for (int i = 1; i < t; i++)
+	//{
+	//	s += i;
+	//}
+	//char* pt = new char[s];
+	//int i = 1;
+	//for (t; t > 0; t--)
+	//{
+	//	pt[i] = '*';
+	//	i++;
+	//}
 
 }
 
