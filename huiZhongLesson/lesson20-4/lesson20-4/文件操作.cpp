@@ -57,18 +57,24 @@ void fileCopy(FILE* fstFile, FILE* scdFile,char* tirdFile){//½«file1ºÍfile2ºÏ²¢µ
 void fileCopyBinery(FILE* fstFile, FILE* scdFile, char* tirdFile){//½«file1ºÍfile2ºÏ²¢µ½file3Ä¿Â¼ÖĞ
 	errno_t err = -1;
 	FILE* file = nullptr;
-	err = fopen_s(&file, tirdFile, "w");
-	char szbuf[1024] = {};
-	do
-	{
-		fgets(szbuf, 1024, fstFile);
-		fputs(szbuf, file);//Ğ´Èë
-	} while (feof(fstFile) == 0);
-	fputs("\n", file);
-	do
-	{
-		fgets(szbuf, 1024, scdFile);
-		fputs(szbuf, file);//Ğ´Èë
-	} while (feof(scdFile) == 0);
+	err = fopen_s(&file, tirdFile, "wb");
+
+	fseek(fstFile, 0, SEEK_END);
+	long size = ftell(fstFile);
+	fseek(fstFile, 0, SEEK_SET);
+	char* pbuf = new char[size];
+	//1.¶ÁÈ¡µÄ×î³õµØÖ·
+	//2.¶ÁÈ¡Êı¾İÀàĞÍ´óĞ¡intÎª4charÎª1
+	//3.¶ÁÈ¡¼¸¸öÖ»ÒªµÚ¶ş¸ö²ÎÊıºÍµÚÈı¸ö²ÎÊıÏà³ËµÈÓÚÎÄ¼ş´óĞ¡¼´¿É
+	//4.¶ÁÈ¡Ä¿±êÎÄ¼ş
+	fread(pbuf, 1, size, fstFile);
+	fwrite(pbuf, 1, size, file);//Ğ´¶ş½øÖÆ  fwrite()º¯Êı´ÓÊı×ébuffer(»º³åÇø)ÖĞ, Ğ´count¸ö´óĞ¡Îªsize(´óĞ¡)µÄ¶ÔÏóµ½stream(Á÷)Ö¸¶¨µÄÁ÷. ·µ»ØÖµÊÇÒÑĞ´µÄ¶ÔÏóµÄÊıÁ¿. 
+	//µÚ¶ş¸ö²ÎÊıºÍµÚÈı¸ö²ÎÊıÏà³ËµÈÓÚarrµÄ´óĞ¡¼´¿É
+	fseek(scdFile, 0, SEEK_END);
+	long size2 = ftell(scdFile);
+	fseek(scdFile, 0, SEEK_SET);
+	char* pbuf2 = new char[size];
+	fread(pbuf2, 1, size2, scdFile);
+	fwrite(pbuf2, 1, size2, file);
 
 }

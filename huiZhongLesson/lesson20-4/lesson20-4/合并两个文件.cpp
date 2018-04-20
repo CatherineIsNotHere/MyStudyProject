@@ -39,14 +39,17 @@ void main(){
 	/*
 		以二进制的方式读取文件
 	*/
-	FILE* fstFileb = openFileBinery("./pic/frowny.bmp");
+	//FILE* fstFileb = openFileBinery("./pic/frowny.bmp");
+	FILE* fstFileb = openFileBinery("./A.txt");
 	if (fstFileb == nullptr){
 		printf("打开失败");
 	}
-	FILE* scdFileb = openFileBinery("./pic/smiley.bmp");
+
+	//FILE* scdFileb = openFileBinery("./pic/smiley.bmp");
+	FILE* scdFileb = openFileBinery("./B.txt");
 	if (scdFileb == nullptr){
 		printf("打开失败");
 	}
-
+	fileCopyBinery(fstFileb, scdFileb, "./C.txt");
 
 }
