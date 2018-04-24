@@ -69,7 +69,7 @@ public:
 
 class Boss{
 public:
-	bool hunting = false;//是否受伤
+	bool hurting = false;//是否受伤
 	bool angle = false; //方向 false 向下移动
 	clock_t ftime;//开火时间
 	clock_t mtime;//移动时间
@@ -94,7 +94,51 @@ public:
 
 	pos del(){
 		setfillcolor(0);
-		//
+		setlinecolor(0);//线条也和背景色一样
+		fillrectangle(x - 20, y - 40, x + 20, y + 40);
+		return pos{ x, y };
+	}
+
+	void fire(EBullet &but){
+		but.on=true;//可以放置子弹
+		but.x = x - 20;//子弹的横纵坐标
+		but.y = y;
+		but.d = clock();
+	}
+
+	void move(){//上下移动
+		if (angle == true){
+			y -= 5;
+		}
+		if (angle==false){
+			y += 5;
+		}
+		if (y>=440){//如果运动到边界
+			angle = true;
+		}
+		if (y<=40){
+			angle = false;
+		}
+	}
+
+	void hurt(){
+		hp -= 4;
+		htime = clock();//记录受伤时间
+		//绘制血量条
+		setfillcolor(0);
+		setlinecolor(WHITE);
+		fillrectangle(160,485,560,510);
+		rectangle(160,485,160+hp*4,510);
+
+		setfillcolor(RGB(230,0,0));
+		setlinecolor(WHITE);
+		fillrectangle(160, 485, 160+hp*4, 510);
+		rectangle(160, 485, 160 + hp * 4, 510);
+
+		hurting = true;
+		if (hp<=0){
+			wined = true;//玩家赢了
+		}
 	}
 };
 
