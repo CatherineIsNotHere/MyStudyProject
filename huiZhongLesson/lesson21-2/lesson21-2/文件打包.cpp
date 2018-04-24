@@ -54,7 +54,6 @@ void main(){
 			fseek(targetFile, sizeof(int)+filecount * sizeof(AllFile),SEEK_SET);
 			fwrite(file, fileDetails[i].fileSize,1,targetFile);
 			fseek(targetFile, point, SEEK_SET);
-
 		}
 		else
 			printf("¶ÁÈ¡ÎÄ¼þ´íÎó");

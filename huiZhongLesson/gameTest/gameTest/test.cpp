@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include "ÎÄ¼þ²Ù×÷.h"
+
+void main(){
+
+
+}
