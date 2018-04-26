@@ -1,14 +1,11 @@
 #include "stdio.h"
-#include "string.h"
-
-struct{
-	int x, y;
-};
 
 void main()
 {
-	char aa[10] = {};
-	printf("%d\n", strlen(aa));
-	printf("%d", sizeof(aa));
-
+	int  x = 3, y = 0, z = 0;
+	int s = x = y + z;
+	if (s)
+		printf("* * * *");
+	else
+		printf("# # # #");
 }
