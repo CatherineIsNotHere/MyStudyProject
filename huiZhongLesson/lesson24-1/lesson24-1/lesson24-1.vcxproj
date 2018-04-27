@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0715E0E7-D22E-4585-8A59-E6D67D0E24B3}</ProjectGuid>
+    <ProjectGuid>{B7738BC6-1D3E-44A4-932C-A58C8449FAB0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>myGameTest</RootNamespace>
+    <RootNamespace>lesson241</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,7 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="测试.cpp" />
+    <ClCompile Include="c++面向对象.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
