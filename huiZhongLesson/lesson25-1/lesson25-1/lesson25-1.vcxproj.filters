@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="getset方法与this.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

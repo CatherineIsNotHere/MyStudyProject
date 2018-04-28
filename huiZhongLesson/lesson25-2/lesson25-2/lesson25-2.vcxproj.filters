@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="拷贝构造.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
