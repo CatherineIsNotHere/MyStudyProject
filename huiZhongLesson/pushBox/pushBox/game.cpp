@@ -9,22 +9,47 @@
 	4：箱子 □
 	8：玩家 ♂
 	*/
-int cor = 0, row = 0;
+enum _state{
+	space = 0,
+	destination = 1,
+	wall = 2,
+	box = 4,
+	player = 8,
+
+} state;
+
+typedef enum _playerDirection
+{
+	none,
+	up,
+	down,
+	left,
+	right,
+}PlayerDirection;
+
+int col = 0, row = 0;//列 行
+int isVictory=0;
+int stepBackforwards = 8;
+int stepBacked = 0;
+int steps = 0;//玩家移动的步数
+PlayerDirection* direction = new PlayerDirection[stepBackforwards] {none};
+
+
 
 int map[13][14] = {
-	{ 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0 },
-	{ 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0 },
-	{ 0, 2, 2, 2, 2, 0, 0, 4, 4, 2, 2, 2, 2, 2 },
-	{ 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2 },
-	{ 0, 2, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2 },
-	{ 0, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2 },
-	{ 2, 2, 2, 2, 4, 2, 2, 0, 0, 0, 0, 0, 0, 2 },
-	{ 2, 0, 0, 0, 4, 0, 2, 0, 0, 0, 8, 0, 0, 2 },
-	{ 2, 0, 4, 0, 4, 0, 2, 0, 2, 2, 2, 2, 2, 2 },
-	{ 2, 2, 0, 0, 4, 0, 2, 0, 2, 1, 1, 1, 2, 0 },
-	{ 0, 2, 0, 2, 2, 0, 0, 0, 0, 1, 1, 1, 2, 0 },
-	{ 0, 2, 0, 0, 0, 0, 2, 2, 1, 1, 1, 1, 2, 0 },
-	{ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0 }
+	{ space, space, space, space, wall, wall, wall, wall, wall, wall, space, space, space, space },
+	{ space, space, space, space, wall, space, space, space, space, wall, space, space, space, space },
+	{ space, wall, wall, wall, wall, space, space, box, box, wall, wall, wall, wall, wall },
+	{ space, wall, space, space, space, wall, space, space, space, wall, space, space, space, wall },
+	{ space, wall, space, box, space, space, space, box, space, space, space, box, space, wall },
+	{ space, wall, space, space, space, wall, wall, space, wall, wall, wall, wall, wall, wall },
+	{ wall, wall, wall, wall, box, wall, wall, space, space, space, space, space, space, wall },
+	{ wall, space, space, space, box, space, wall, space, space, space, player, space, space, wall },
+	{ wall, space, box, space, box, space, wall, space, wall, wall, wall, wall, wall, wall },
+	{ wall, wall, space, space, box, space, wall, space, wall, destination, destination, destination, wall, space },
+	{ space, wall, space, wall, wall, space, space, space, space, destination, destination, destination, wall, space },
+	{ space, wall, space, space, space, space, wall, wall, destination, destination, destination, destination, wall, space },
+	{ space, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, space }
 };
 
 void drawMap(int map[][14]);
@@ -32,6 +57,12 @@ void MoveLeft(int map[][14]);
 void MoveRight(int map[][14]);
 void MoveUp(int map[][14]);
 void MoveDown(int map[][14]);
+void MoveUpBox(int map[][14]);
+void MoveDownBox(int map[][14]);
+void MoveRightBox(int map[][14]);
+void MoveLeftBox(int map[][14]);
+void MoveSpace(int map[][14]);
+void MoveBackwords(int map[][14]);
 
 int main(){
 	drawMap(map);
@@ -44,53 +75,88 @@ int main(){
 		{
 		case 'W':
 		case 'w':
-			MoveUp(map);
+			if (map[row - 1][col] != wall&&map[row - 1][col] != box&&map[row - 1][col] != box + destination)
+				MoveUp(map);//上移
+			if (map[row - 1][col] == box || map[row - 1][col] == box + destination)
+			if (map[row - 2][col] != wall&&map[row - 2][col] != box){
+				MoveUp(map);
+				MoveUpBox(map);
+			}
 			break;
 		case 'A':
 		case 'a':
-			MoveLeft(map);//左移
+			if (map[row][col - 1] != wall&&map[row][col - 1] != box&&map[row][col - 1] != box + destination)
+				MoveLeft(map);//左移
+			if (map[row][col - 1] == box || map[row][col - 1] == box + destination)
+			if (map[row][col - 2] != wall&&map[row][col - 2] != box){
+				MoveLeft(map);
+				MoveLeftBox(map);
+			}
 			break;
 		case 'S':
 		case 's':
-			MoveDown(map);
+			if (map[row + 1][col] != wall&&map[row + 1][col] != box&&map[row + 1][col] != box + destination)
+				MoveDown(map);//下移
+			if (map[row + 1][col] == box || map[row + 1][col] == box + destination)
+			if (map[row + 2][col] != wall&&map[row + 2][col] != box){
+				MoveDown(map);
+				MoveDownBox(map);
+			}
 			break;
 		case 'D':
 		case 'd':
-			MoveRight(map);//右移
+			if (map[row][col + 1] != wall&&map[row][col + 1] != box&&map[row][col + 1] != box + destination)
+				MoveRight(map);//右移
+			if (map[row][col + 1] == box || map[row][col + 1] == box + destination)
+			if (map[row][col + 2] != wall&&map[row][col + 2] != box){
+				MoveRight(map);
+				MoveRightBox(map);
+			}
 			break;
 		default:
 			break;
 		}
 		system("cls");
 		drawMap(map);
+		if (isVictory==10)
+		{
+			system("cls");
+			printf("恭喜胜利!");
+		}
 	}
 	return 0;
 }
 
 void drawMap(int map[13][14]){
 	int i = 0, j = 0;
+	isVictory = 0;
 	for (i = 0; i < 13; i++)
 	{
-		for (j = 0; j  < 14; j ++)
+		for (j = 0; j < 14; j++)
 		{
 			switch (map[i][j])
 			{
-			case 0:
+			case space:
 				printf("  ");
 				break;
-			case 1:
+			case destination:
 				printf("☆");
 				break;
-			case 2:
+			case destination + box:
+				printf("★");
+				isVictory++;
+				break;
+			case wall:
 				printf("■");
 				break;
-			case 4:
+			case box:
 				printf("□");
-				break;
-			case 8:
+				break; 
+			case player:
+			case player + destination:
 				printf("♂");
-				cor = i;
-				row = j;//记录玩家所在位置
+				row = i;
+				col = j;//记录玩家所在位置
 				break;
 			default:
 				break;
@@ -102,21 +168,49 @@ void drawMap(int map[13][14]){
 }
 
 void MoveLeft(int map[][14]){
-	map[cor][row] = 0;
-	map[cor][row-1] = 8;
+	map[row][col] -= player;
+	map[row][col - 1] += player;
 }
 
 void MoveRight(int map[][14]){
-	map[cor][row] = 0;
-	map[cor][row + 1] = 8;
+	map[row][col] -= player;
+	map[row][col + 1] += player;
 }
 void MoveUp(int map[][14]){
-	map[cor][row] = 0;
-	map[cor-1][row] = 8;
+	map[row][col] -= player;
+	map[row - 1][col] += player;
 }
 void MoveDown(int map[][14]){
-	map[cor][row] = 0;
-	map[cor +1][row] = 8;
+	map[row][col] -= player;
+	map[row + 1][col] += player;
+}
+
+void MoveLeftBox(int map[][14]){
+	map[row][col - 2] += box;
+	map[row][col - 1] -= box;
+}
+
+void MoveRightBox(int map[][14]){
+	map[row][col + 2] += box;
+	map[row][col + 1] -= box;
+}
+void MoveUpBox(int map[][14]){
+	map[row - 2][col] += box;
+	map[row - 1][col] -= box;
+}
+void MoveDownBox(int map[][14]){
+	map[row + 2][col] += box;
+	map[row + 1][col] -= box;
 }
 
 
+void MoveBackwords(int map[][14]){
+	if (stepBacked<=stepBackforwards)
+	{
+		switch (direction[stepBackforwards-stepBacked-1])
+		{
+		default:
+			break;
+		}
+	}
+}
