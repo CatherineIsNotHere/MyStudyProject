@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <windows.h>
+
+#include "sysTools.h"
 
 /*
 	0：空地
@@ -19,22 +20,11 @@ enum _state{
 
 } state;
 
-typedef enum _playerDirection
-{
-	none,
-	up,
-	down,
-	left,
-	right,
-}PlayerDirection;
 
 int col = 0, row = 0;//列 行
-int isVictory = 0;
 int stepBackforwards = 8;
 int stepBacked = 0;
 int steps = 0;//玩家移动的步数
-PlayerDirection* direction = new PlayerDirection[stepBackforwards] {none};
-
 
 
 int map[13][14] = {
@@ -64,9 +54,11 @@ void MoveRightBox(int map[][14]);
 void MoveLeftBox(int map[][14]);
 void MoveSpace(int map[][14]);
 void MoveBackwords(int map[][14]);
-void gotoxy(unsigned char x, unsigned char y);
+void IsVictory(int map[13][14]);//是否胜利
 
-int main(){
+
+void main(){
+	HideCursor();//隐藏光标
 	drawMap(map);
 	int num = 0;
 	char key = 0;
@@ -87,7 +79,7 @@ int main(){
 			else {//不是箱子
 				if (map[row - 1][col] != wall)//不是墙
 				MoveUp(map);//上移
-				gotoxy(2*col, row);
+				
 			}
 			break;
 		case 'A':
@@ -132,27 +124,126 @@ int main(){
 			}
 			else
 			{
-				if (map[col + 1][row] != wall)
+				if (map[row][col + 1] != wall)
 					MoveRight(map);//右移
 			}
 			break;
 		default:
 			break;
 		}
-		//system("cls");
-		//drawMap(map);
-		if (isVictory == 10)
-		{
-			system("cls");
-			printf("恭喜胜利!");
-		}
+		IsVictory(map);
 	}
-	return 0;
 }
+void MoveLeft(int map[][14]){
+	map[row][col] -= player;
+	gotoxy(2 * col, row);
+	if (map[row][col]==destination){
+		printf("☆");
+	}
+	else{
+		printf("  ");
+	}
+	map[row][col - 1] += player;
+	gotoxy(2 *(col-1), row);
+	printf("♂");
+	
+}
+
+void MoveRight(int map[][14]){
+	map[row][col] -= player;
+	gotoxy(2 * col, row);
+	if (map[row][col] == destination){
+		printf("☆");
+	}
+	else{
+		printf("  ");
+	}
+	map[row][col + 1] += player;
+	gotoxy(2 * (col + 1), row);
+	printf("♂");
+}
+void MoveUp(int map[][14]){
+	map[row][col] -= player;
+	gotoxy(2 * col, row);
+	if (map[row][col] == destination){
+		printf("☆");
+	}
+	else{
+		printf("  ");
+	}
+	map[row - 1][col] += player;
+	gotoxy(2 * col, row-1);
+	printf("♂");
+}
+void MoveDown(int map[][14]){
+	map[row][col] -= player;
+	gotoxy(2 * col, row);
+	if (map[row][col] == destination){
+		printf("☆");
+	}
+	else{
+		printf("  ");
+	}
+	map[row + 1][col] += player;
+	gotoxy(2 * col, row+1);
+	printf("♂");
+}
+
+void MoveLeftBox(int map[][14]){
+	map[row][col - 2] += box;
+	gotoxy(2 * (col-2), row);
+	if (map[row][col - 2] == destination+box){
+		printf("★");
+	}
+	else{
+		printf("□");
+	}
+	map[row][col - 1] -= box;
+}
+
+void MoveRightBox(int map[][14]){
+	map[row][col + 2] += box;
+	gotoxy(2 * (col + 2), row);
+	if (map[row][col + 2] == destination + box){
+		printf("★");
+	}
+	else{
+		printf("□");
+	}
+	map[row][col + 1] -= box;
+}
+void MoveUpBox(int map[][14]){
+	map[row - 2][col] += box;
+	gotoxy(2 * col, row-2);
+	if (map[row-2][col] == destination + box){
+		printf("★");
+	}
+	else{
+		printf("□");
+	}
+	map[row - 1][col] -= box;
+}
+void MoveDownBox(int map[][14]){
+	map[row + 2][col] += box;
+	gotoxy(2 * col, row+2);
+	if (map[row+2][col] == destination + box){
+		printf("★");
+	}
+	else{
+		printf("□");
+	}
+	map[row + 1][col] -= box;
+}
+
+//TODO
+void MoveBackwords(int map[][14]){//回退功能
+
+}
+
+
 
 void drawMap(int map[13][14]){
 	int i = 0, j = 0;
-	isVictory = 0;
 	for (i = 0; i < 13; i++)
 	{
 		for (j = 0; j < 14; j++)
@@ -167,7 +258,6 @@ void drawMap(int map[13][14]){
 				break;
 			case destination + box:
 				printf("★");
-				isVictory++;
 				break;
 			case wall:
 				printf("■");
@@ -176,7 +266,7 @@ void drawMap(int map[13][14]){
 				printf("□");
 				break;
 			case player:
-			case player + destination:
+			case player+destination:
 				printf("♂");
 				row = i;
 				col = j;//记录玩家所在位置
@@ -189,53 +279,31 @@ void drawMap(int map[13][14]){
 	}
 }
 
-void MoveLeft(int map[][14]){
-	map[row][col] -= player;
-	map[row][col - 1] += player;
-}
-
-void MoveRight(int map[][14]){
-	map[row][col] -= player;
-	map[row][col + 1] += player;
-}
-void MoveUp(int map[][14]){
-	map[row][col] -= player;
-	map[row - 1][col] += player;
-}
-void MoveDown(int map[][14]){
-	map[row][col] -= player;
-	map[row + 1][col] += player;
-}
-
-void MoveLeftBox(int map[][14]){
-	map[row][col - 2] += box;
-	map[row][col - 1] -= box;
-}
-
-void MoveRightBox(int map[][14]){
-	map[row][col + 2] += box;
-	map[row][col + 1] -= box;
-}
-void MoveUpBox(int map[][14]){
-	map[row - 2][col] += box;
-	map[row - 1][col] -= box;
-}
-void MoveDownBox(int map[][14]){
-	map[row + 2][col] += box;
-	map[row + 1][col] -= box;
-}
-
-
-void MoveBackwords(int map[][14]){//回退功能
-
-}
-
-void gotoxy(unsigned char x, unsigned char y)
-{
-	COORD cor;
-	HANDLE hout;
-	cor.X = x;
-	cor.Y = y;
-	hout = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleCursorPosition(hout, cor);
+void IsVictory(int map[13][14]){
+	int i = 0, j = 0;
+	int isVictory = 0;
+	for (i = 0; i < 13; i++)
+	{
+		for (j = 0; j < 14; j++)
+		{
+			switch (map[i][j])
+			{
+			case destination + box:
+				isVictory++;
+				break;
+			case player:
+			case player + destination:
+				row = i;
+				col = j;//记录玩家所在位置
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	if (isVictory == 10)
+	{
+		system("cls");
+		printf("恭喜胜利!");
+	}
 }

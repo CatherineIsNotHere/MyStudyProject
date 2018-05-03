@@ -1,4 +1,3 @@
-#include "stdio.h"
 #include "Í·ÎÄ¼şÁ·Ï°.h"
 
 int g = 100;
