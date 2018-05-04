@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "sysTools.h"
-
+//#include "workMan.h"
 /*
 	0：空地
 	1：目的地 ☆
@@ -20,8 +20,8 @@ enum _state{
 
 } state;
 
-
-int col = 0, row = 0;//列 行
+int iWLX;
+int iWLY;
 int stepBackforwards = 8;
 int stepBacked = 0;
 int steps = 0;//玩家移动的步数
@@ -69,62 +69,62 @@ void main(){
 		{
 		case 'W':
 		case 'w':
-			if (map[row - 1][col] == box || map[row - 1][col] == box + destination)//如果是箱子
+			if (map[iWLY - 1][iWLX] == box || map[iWLY - 1][iWLX] == box + destination)//如果是箱子
 			{
-				if (map[row - 2][col] != wall&&map[row - 2][col] != box){//且箱子后边不是墙或者箱子
+				if (map[iWLY - 2][iWLX] != wall&&map[iWLY - 2][iWLX] != box){//且箱子后边不是墙或者箱子
 					MoveUp(map);
 					MoveUpBox(map);
 				}
 			}
 			else {//不是箱子
-				if (map[row - 1][col] != wall)//不是墙
+				if (map[iWLY - 1][iWLX] != wall)//不是墙
 				MoveUp(map);//上移
 				
 			}
 			break;
 		case 'A':
 		case 'a':
-			if (map[row][col - 1] == box || map[row][col - 1] == box + destination)
+			if (map[iWLY][iWLX - 1] == box || map[iWLY][iWLX - 1] == box + destination)
 			{
-				if (map[row][col - 2] != wall&&map[row][col - 2] != box){
+				if (map[iWLY][iWLX - 2] != wall&&map[iWLY][iWLX - 2] != box){
 					MoveLeft(map);
 					MoveLeftBox(map);
 				}
 			}
 			else
 			{
-				if (map[row][col - 1] != wall)
+				if (map[iWLY][iWLX - 1] != wall)
 					MoveLeft(map);//左移
 			}
 			
 			break;
 		case 'S':
 		case 's':
-			if (map[row + 1][col] == box || map[row + 1][col] == box + destination)
+			if (map[iWLY + 1][iWLX] == box || map[iWLY + 1][iWLX] == box + destination)
 			{
-				if (map[row + 2][col] != wall&&map[row + 2][col] != box){
+				if (map[iWLY + 2][iWLX] != wall&&map[iWLY + 2][iWLX] != box){
 					MoveDown(map);
 					MoveDownBox(map);
 				}
 			}
 			else
 			{
-				if (map[row + 1][col] != wall)
+				if (map[iWLY + 1][iWLX] != wall)
 					MoveDown(map);//下移
 			}
 			break;
 		case 'D':
 		case 'd':
-			if (map[row][col + 1] == box || map[row][col + 1] == box + destination)
+			if (map[iWLY][iWLX + 1] == box || map[iWLY][iWLX + 1] == box + destination)
 			{
-				if (map[row][col + 2] != wall&&map[row][col + 2] != box){
+				if (map[iWLY][iWLX + 2] != wall&&map[iWLY][iWLX + 2] != box){
 					MoveRight(map);
 					MoveRightBox(map);
 				}
 			}
 			else
 			{
-				if (map[row][col + 1] != wall)
+				if (map[iWLY][iWLX + 1] != wall)
 					MoveRight(map);//右移
 			}
 			break;
@@ -135,104 +135,104 @@ void main(){
 	}
 }
 void MoveLeft(int map[][14]){
-	map[row][col] -= player;
-	gotoxy(2 * col, row);
-	if (map[row][col]==destination){
+	map[iWLY][iWLX] -= player;
+	gotoxy(2 * iWLX, iWLY);
+	if (map[iWLY][iWLX]==destination){
 		printf("☆");
 	}
 	else{
 		printf("  ");
 	}
-	map[row][col - 1] += player;
-	gotoxy(2 *(col-1), row);
+	map[iWLY][iWLX - 1] += player;
+	gotoxy(2 *(iWLX-1), iWLY);
 	printf("♂");
 	
 }
 
 void MoveRight(int map[][14]){
-	map[row][col] -= player;
-	gotoxy(2 * col, row);
-	if (map[row][col] == destination){
+	map[iWLY][iWLX] -= player;
+	gotoxy(2 * iWLX, iWLY);
+	if (map[iWLY][iWLX] == destination){
 		printf("☆");
 	}
 	else{
 		printf("  ");
 	}
-	map[row][col + 1] += player;
-	gotoxy(2 * (col + 1), row);
+	map[iWLY][iWLX + 1] += player;
+	gotoxy(2 * (iWLX + 1), iWLY);
 	printf("♂");
 }
 void MoveUp(int map[][14]){
-	map[row][col] -= player;
-	gotoxy(2 * col, row);
-	if (map[row][col] == destination){
+	map[iWLY][iWLX] -= player;
+	gotoxy(2 * iWLX, iWLY);
+	if (map[iWLY][iWLX] == destination){
 		printf("☆");
 	}
 	else{
 		printf("  ");
 	}
-	map[row - 1][col] += player;
-	gotoxy(2 * col, row-1);
+	map[iWLY - 1][iWLX] += player;
+	gotoxy(2 * iWLX, iWLY-1);
 	printf("♂");
 }
 void MoveDown(int map[][14]){
-	map[row][col] -= player;
-	gotoxy(2 * col, row);
-	if (map[row][col] == destination){
+	map[iWLY][iWLX] -= player;
+	gotoxy(2 * iWLX, iWLY);
+	if (map[iWLY][iWLX] == destination){
 		printf("☆");
 	}
 	else{
 		printf("  ");
 	}
-	map[row + 1][col] += player;
-	gotoxy(2 * col, row+1);
+	map[iWLY + 1][iWLX] += player;
+	gotoxy(2 * iWLX, iWLY+1);
 	printf("♂");
 }
 
 void MoveLeftBox(int map[][14]){
-	map[row][col - 2] += box;
-	gotoxy(2 * (col-2), row);
-	if (map[row][col - 2] == destination+box){
+	map[iWLY][iWLX - 2] += box;
+	gotoxy(2 * (iWLX-2), iWLY);
+	if (map[iWLY][iWLX - 2] == destination+box){
 		printf("★");
 	}
 	else{
 		printf("□");
 	}
-	map[row][col - 1] -= box;
+	map[iWLY][iWLX - 1] -= box;
 }
 
 void MoveRightBox(int map[][14]){
-	map[row][col + 2] += box;
-	gotoxy(2 * (col + 2), row);
-	if (map[row][col + 2] == destination + box){
+	map[iWLY][iWLX + 2] += box;
+	gotoxy(2 * (iWLX + 2), iWLY);
+	if (map[iWLY][iWLX + 2] == destination + box){
 		printf("★");
 	}
 	else{
 		printf("□");
 	}
-	map[row][col + 1] -= box;
+	map[iWLY][iWLX + 1] -= box;
 }
 void MoveUpBox(int map[][14]){
-	map[row - 2][col] += box;
-	gotoxy(2 * col, row-2);
-	if (map[row-2][col] == destination + box){
+	map[iWLY - 2][iWLX] += box;
+	gotoxy(2 * iWLX, iWLY-2);
+	if (map[iWLY-2][iWLX] == destination + box){
 		printf("★");
 	}
 	else{
 		printf("□");
 	}
-	map[row - 1][col] -= box;
+	map[iWLY - 1][iWLX] -= box;
 }
 void MoveDownBox(int map[][14]){
-	map[row + 2][col] += box;
-	gotoxy(2 * col, row+2);
-	if (map[row+2][col] == destination + box){
+	map[iWLY + 2][iWLX] += box;
+	gotoxy(2 * iWLX, iWLY+2);
+	if (map[iWLY+2][iWLX] == destination + box){
 		printf("★");
 	}
 	else{
 		printf("□");
 	}
-	map[row + 1][col] -= box;
+	map[iWLY + 1][iWLX] -= box;
 }
 
 //TODO
@@ -268,8 +268,8 @@ void drawMap(int map[13][14]){
 			case player:
 			case player+destination:
 				printf("♂");
-				row = i;
-				col = j;//记录玩家所在位置
+				iWLX = j;//记录玩家所在位置
+				iWLY = i;
 				break;
 			default:
 				break;
@@ -293,8 +293,8 @@ void IsVictory(int map[13][14]){
 				break;
 			case player:
 			case player + destination:
-				row = i;
-				col = j;//记录玩家所在位置
+				iWLX = j;//记录玩家所在位置
+				iWLY = i;
 				break;
 			default:
 				break;

@@ -9,14 +9,7 @@ private:
 	int w_iLocationX;
 	int w_iLocationY;
 	char w_cAvatar;
-	typedef enum w_enDirection
-	{
-		none,
-		up,
-		down,
-		left,
-		right,
-	}workManDirection;
+
 
 public:
 
@@ -27,8 +20,24 @@ public:
 	}
 
 
-	void Move(int map[][14]){
-		
+	void Move(workManDirection drc,int map[][14],workMan& workman){
+		switch (drc)
+		{
+		case up:
+
+			break;
+		case down:
+			
+			break;
+		case left:
+			
+			break;
+		case right:
+			
+			break;
+		default:
+			break;
+		}
 		
 	}
 
@@ -44,7 +53,7 @@ public:
 	int getILocationX(){
 		return w_iLocationX;
 	}
-	int getILocationX(){
+	int getILocationY(){
 		return w_iLocationY;
 	}
 	char getCAvatar(){
@@ -58,6 +67,9 @@ public:
 	}
 	void setIAge(int iAge){
 		this->w_iAge = iAge;
+	}
+	void setILocationY(char avatar){
+		this->w_cAvatar = avatar;
 	}
 	void setILocationX(int x){
 		this->w_iLocationX = x;
