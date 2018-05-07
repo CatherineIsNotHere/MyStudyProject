@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "sysTools.h"
-//#include "workMan.h"
+#include "workMan.h"
 /*
 	0：空地
 	1：目的地 ☆
@@ -11,14 +11,8 @@
 	4：箱子 □
 	8：玩家 ♂
 	*/
-enum _state{
-	space = 0,
-	destination = 1,
-	wall = 2,
-	box = 4,
-	player = 8,
 
-} state;
+
 
 int iWLX;
 int iWLY;
@@ -44,10 +38,7 @@ int map[13][14] = {
 };
 
 void drawMap(int map[][14]);
-void MoveLeft(int map[][14]);
-void MoveRight(int map[][14]);
-void MoveUp(int map[][14]);
-void MoveDown(int map[][14]);
+
 void MoveUpBox(int map[][14]);
 void MoveDownBox(int map[][14]);
 void MoveRightBox(int map[][14]);
@@ -62,6 +53,7 @@ void main(){
 	drawMap(map);
 	int num = 0;
 	char key = 0;
+	workMan man(iWLX, iWLY);
 	while (true)
 	{
 		key = _getch();//暂停程序运行，等待用户键盘输入
@@ -72,13 +64,13 @@ void main(){
 			if (map[iWLY - 1][iWLX] == box || map[iWLY - 1][iWLX] == box + destination)//如果是箱子
 			{
 				if (map[iWLY - 2][iWLX] != wall&&map[iWLY - 2][iWLX] != box){//且箱子后边不是墙或者箱子
-					MoveUp(map);
+					man.Move(up,map);
 					MoveUpBox(map);
 				}
 			}
 			else {//不是箱子
 				if (map[iWLY - 1][iWLX] != wall)//不是墙
-				MoveUp(map);//上移
+					man.Move(up, map);
 				
 			}
 			break;
@@ -87,14 +79,14 @@ void main(){
 			if (map[iWLY][iWLX - 1] == box || map[iWLY][iWLX - 1] == box + destination)
 			{
 				if (map[iWLY][iWLX - 2] != wall&&map[iWLY][iWLX - 2] != box){
-					MoveLeft(map);
+					man.Move(left, map);
 					MoveLeftBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY][iWLX - 1] != wall)
-					MoveLeft(map);//左移
+					man.Move(left, map);
 			}
 			
 			break;
@@ -103,14 +95,14 @@ void main(){
 			if (map[iWLY + 1][iWLX] == box || map[iWLY + 1][iWLX] == box + destination)
 			{
 				if (map[iWLY + 2][iWLX] != wall&&map[iWLY + 2][iWLX] != box){
-					MoveDown(map);
+					man.Move(down, map);
 					MoveDownBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY + 1][iWLX] != wall)
-					MoveDown(map);//下移
+					man.Move(down, map);
 			}
 			break;
 		case 'D':
@@ -118,14 +110,14 @@ void main(){
 			if (map[iWLY][iWLX + 1] == box || map[iWLY][iWLX + 1] == box + destination)
 			{
 				if (map[iWLY][iWLX + 2] != wall&&map[iWLY][iWLX + 2] != box){
-					MoveRight(map);
+					man.Move(right, map);
 					MoveRightBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY][iWLX + 1] != wall)
-					MoveRight(map);//右移
+					man.Move(right, map);
 			}
 			break;
 		default:
@@ -133,60 +125,6 @@ void main(){
 		}
 		IsVictory(map);
 	}
-}
-void MoveLeft(int map[][14]){
-	map[iWLY][iWLX] -= player;
-	gotoxy(2 * iWLX, iWLY);
-	if (map[iWLY][iWLX]==destination){
-		printf("☆");
-	}
-	else{
-		printf("  ");
-	}
-	map[iWLY][iWLX - 1] += player;
-	gotoxy(2 *(iWLX-1), iWLY);
-	printf("♂");
-	
-}
-
-void MoveRight(int map[][14]){
-	map[iWLY][iWLX] -= player;
-	gotoxy(2 * iWLX, iWLY);
-	if (map[iWLY][iWLX] == destination){
-		printf("☆");
-	}
-	else{
-		printf("  ");
-	}
-	map[iWLY][iWLX + 1] += player;
-	gotoxy(2 * (iWLX + 1), iWLY);
-	printf("♂");
-}
-void MoveUp(int map[][14]){
-	map[iWLY][iWLX] -= player;
-	gotoxy(2 * iWLX, iWLY);
-	if (map[iWLY][iWLX] == destination){
-		printf("☆");
-	}
-	else{
-		printf("  ");
-	}
-	map[iWLY - 1][iWLX] += player;
-	gotoxy(2 * iWLX, iWLY-1);
-	printf("♂");
-}
-void MoveDown(int map[][14]){
-	map[iWLY][iWLX] -= player;
-	gotoxy(2 * iWLX, iWLY);
-	if (map[iWLY][iWLX] == destination){
-		printf("☆");
-	}
-	else{
-		printf("  ");
-	}
-	map[iWLY + 1][iWLX] += player;
-	gotoxy(2 * iWLX, iWLY+1);
-	printf("♂");
 }
 
 void MoveLeftBox(int map[][14]){
