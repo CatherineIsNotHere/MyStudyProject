@@ -71,7 +71,6 @@ void main(){
 			else {//不是箱子
 				if (map[iWLY - 1][iWLX] != wall)//不是墙
 					man.Move(up, map);
-				
 			}
 			break;
 		case 'A':

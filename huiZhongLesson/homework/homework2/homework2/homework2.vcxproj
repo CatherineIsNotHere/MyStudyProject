@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DD929356-F3EB-49A8-82F4-105067E729B0}</ProjectGuid>
+    <ProjectGuid>{2E7909F0-CADD-41BD-A19D-116E2877D4AC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>pushBox</RootNamespace>
+    <RootNamespace>homework2</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,15 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="container.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="sysTools.cpp" />
-    <ClCompile Include="workMan.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="container.h" />
-    <ClInclude Include="sysTools.h" />
-    <ClInclude Include="workMan.h" />
+    <ClCompile Include="猜数字.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

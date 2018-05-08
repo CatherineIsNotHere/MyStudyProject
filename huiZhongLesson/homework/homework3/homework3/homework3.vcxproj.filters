@@ -15,28 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="合并数组.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="workMan.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="sysTools.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="container.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sysTools.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="workMan.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="container.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
