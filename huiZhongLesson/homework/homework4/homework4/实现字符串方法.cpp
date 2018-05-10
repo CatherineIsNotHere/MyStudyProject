@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char* myStrcpy(char* str1, char* str2){
 	if (str1 == nullptr&&str2 == nullptr)
@@ -96,6 +97,44 @@ int myStrstr(char* str1, char* str2){
 	return j;
 }
 
+char* MySAVE_PTR = nullptr;//
+
+char* myStrtok(char* s,char* d){
+	if (d==nullptr){
+		return nullptr;
+	}
+
+	char* copys = s;
+	char* t = nullptr;
+	while (*d!='\0'){//通过此循环找到s中由d中所有字符分割的最靠前的字符地址
+		char* newEqual = s;//记录新校验点
+		while (*newEqual != '\0'){
+			newEqual++;
+			if (*newEqual == *d){//找到相同字符，但此时不确定是否为最靠前的相同字符
+				if (t != nullptr&&t>newEqual){//如果指针不为空且不是最靠前的相同字符指针
+					t = newEqual;//更新前沿指针
+				}
+				else if (t != nullptr&&t <= newEqual){//如果是之前指针是最靠前相同字符指针
+				//不进行操作
+				}
+				else if (t==nullptr){//为空直接更新
+					t = newEqual;
+				}
+				break;
+			}
+		}
+		d++;
+	}
+	//找到后进行字符截取
+	static char* slipStr = new char[t - copys]{};
+	for (copys; copys <t; copys++,slipStr++)
+	{
+		*slipStr = *copys;
+	}
+
+	return slipStr;
+}
+
 
 
 void main(){
@@ -126,5 +165,12 @@ void main(){
 	//char* name11 = {"rl"};
 	//int stnum = myStrstr(name10,name11);
 
+	///////////////////////////////////////
+
+	char h[] = {"hello world"};
+	char* de = " ";
+	char* token = nullptr;
+	token = myStrtok(h, de);
+	printf("%s",token);
 	system("pause");
 }
