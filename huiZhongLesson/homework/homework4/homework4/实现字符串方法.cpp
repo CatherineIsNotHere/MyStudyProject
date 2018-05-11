@@ -71,11 +71,11 @@ int myStrstr(char* str1, char* str2){
 		return 0;
 	int i = 0;;
 	int j = 0;;
-	while (*str1!='\0'){//循环str1
+	while (*str1 != '\0'){//循环str1
 		if (*str2 == *str1){
 			char* str3 = str1;
 			char* str4 = str2;
-			j = i+1;
+			j = i + 1;
 			while (*str4 != '\0'){
 				if (*str4 != *str3){
 					j = 0;
@@ -90,49 +90,71 @@ int myStrstr(char* str1, char* str2){
 		}
 		str1++;
 		i++;
-		if (j!=0){
+		if (j != 0){
 			break;
 		}
 	}
 	return j;
 }
 
-char* MySAVE_PTR = nullptr;//
+char* MySAVE_PTR = nullptr;
 
-char* myStrtok(char* s,char* d){
-	if (d==nullptr){
+char* myStrtok(char* s, char* d){
+	if (d == nullptr)
 		return nullptr;
-	}
-
-	char* copys = s;
+	char* copys;
+	if (s == nullptr)
+		copys = MySAVE_PTR;
+	else
+		copys = s;
 	char* t = nullptr;
-	while (*d!='\0'){//通过此循环找到s中由d中所有字符分割的最靠前的字符地址
-		char* newEqual = s;//记录新校验点
+	while (*d != '\0'){//通过此循环找到s中由d中所有字符分割的最靠前的字符地址
+		char* newEqual = copys;//记录新校验点
+		char* isFirstEqual = copys;
 		while (*newEqual != '\0'){
-			newEqual++;
 			if (*newEqual == *d){//找到相同字符，但此时不确定是否为最靠前的相同字符
-				if (t != nullptr&&t>newEqual){//如果指针不为空且不是最靠前的相同字符指针
+				if (newEqual - isFirstEqual == 0){//如果这个字符串前面没有任何东西就匹配，则不标记分割
+					isFirstEqual++;
+					newEqual++;
+					copys++;
+					continue;
+				}
+				if (t != nullptr&&t > newEqual)//如果指针不为空且不是最靠前的相同字符指针
 					t = newEqual;//更新前沿指针
-				}
-				else if (t != nullptr&&t <= newEqual){//如果是之前指针是最靠前相同字符指针
-				//不进行操作
-				}
-				else if (t==nullptr){//为空直接更新
+				else if (t == nullptr)//为空直接更新
 					t = newEqual;
-				}
 				break;
 			}
+			newEqual++;
 		}
 		d++;
 	}
+	MySAVE_PTR = t + 1;
 	//找到后进行字符截取
-	static char* slipStr = new char[t - copys]{};
-	for (copys; copys <t; copys++,slipStr++)
+	int size = t - copys;
+	char* slipStr = new char[size + 1]{};
+	char* slipStrBegin = slipStr;
+	for (size; size > 0; size--)
 	{
 		*slipStr = *copys;
+		copys++;
+		slipStr++;
 	}
-
+	slipStr = slipStrBegin;
 	return slipStr;
+}
+
+char* myStrchr(const char *s, int c)//字符串查找字符
+{
+	if (s == NULL)
+		return NULL;
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return (char *)s;
+		s++;
+	}
+	return NULL;
 }
 
 
@@ -167,10 +189,17 @@ void main(){
 
 	///////////////////////////////////////
 
-	char h[] = {"hello world"};
-	char* de = " ";
-	char* token = nullptr;
-	token = myStrtok(h, de);
-	printf("%s",token);
+	//char h[] = { "hello world" };
+	//char* de = " l";
+	//char* token = nullptr;
+	//token = myStrtok(h, de);
+	//printf("%s\n", token);
+	//token = myStrtok(nullptr, de);
+	//printf("%s\n", token);
+
+	char h[] = { "hellao world" };
+	int ch = 97;
+	char* location = myStrchr(h,ch);
+	printf("%xd\n",location);
 	system("pause");
 }
