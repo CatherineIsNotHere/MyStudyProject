@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include "workMan.h"
-#include "sysTools.h"
+
 
 
 workMan::workMan(){

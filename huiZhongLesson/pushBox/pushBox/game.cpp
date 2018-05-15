@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <conio.h>
-#include <stdlib.h>
-
+#include "allSysInclude.h"
 #include "sysTools.h"
 #include "workMan.h"
+#include "container.h"
 /*
 	0：空地
 	1：目的地 ☆
@@ -19,7 +17,7 @@ int iWLY;
 int stepBackforwards = 8;
 int stepBacked = 0;
 int steps = 0;//玩家移动的步数
-
+int boxNum = 0;
 
 int map[13][14] = {
 	{ space, space, space, space, wall, wall, wall, wall, wall, wall, space, space, space, space },
@@ -38,19 +36,23 @@ int map[13][14] = {
 };
 
 void drawMap(int map[][14]);
-
+void initBox(int map[13][14]);
 void MoveUpBox(int map[][14]);
 void MoveDownBox(int map[][14]);
 void MoveRightBox(int map[][14]);
 void MoveLeftBox(int map[][14]);
-void MoveSpace(int map[][14]);
+//void MoveSpace(int map[][14]);
 void MoveBackwords(int map[][14]);
 void IsVictory(int map[13][14]);//是否胜利
 
 
+static container* boxes;
+
+
 void main(){
 	HideCursor();//隐藏光标
-	drawMap(map);
+	drawMap(map);//画地图
+	initBox(map);
 	int num = 0;
 	char key = 0;
 	workMan man(iWLX, iWLY);
@@ -126,6 +128,8 @@ void main(){
 	}
 }
 
+
+
 void MoveLeftBox(int map[][14]){
 	map[iWLY][iWLX - 2] += box;
 	gotoxy(2 * (iWLX-2), iWLY);
@@ -177,10 +181,9 @@ void MoveBackwords(int map[][14]){//回退功能
 
 }
 
-
-
-void drawMap(int map[13][14]){
+static void drawMap(int map[][14]){
 	int i = 0, j = 0;
+	
 	for (i = 0; i < 13; i++)
 	{
 		for (j = 0; j < 14; j++)
@@ -201,6 +204,7 @@ void drawMap(int map[13][14]){
 				break;
 			case box:
 				printf("□");
+				boxNum++;
 				break;
 			case player:
 			case player+destination:
@@ -214,6 +218,26 @@ void drawMap(int map[13][14]){
 		}
 		printf("\n");
 	}
+}
+
+static void initBox(int map[13][14]) {
+	boxes = new container[boxNum];
+	int k = 0;
+	for (int i = 0; i < 13; i++)
+	{
+		for (int j = 0; j < 14; j++)
+		{
+			if (map[i][j] == box) {
+				boxes[k].setILocationX(j);
+				boxes[k].setIlocationY(i);
+				k++;
+			}
+		}
+	}
+	//for (int i = 0; i < boxNum; i++)
+	//{
+	//	printf("%d,%d\n",boxes[i].getILocationX(),boxes[i].getILocationY());
+	//}
 }
 
 void IsVictory(int map[13][14]){

@@ -1,5 +1,8 @@
 #include "container.h"
 
+container::container(){
+	
+}
 
 container::container(int x, int y){
 	this->c_iLocationX = x;
@@ -38,3 +41,4 @@ int container::getILocationX(){
 int container::getILocationY(){
 	return c_iLocationY;
 }
+

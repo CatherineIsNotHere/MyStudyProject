@@ -1,30 +1,19 @@
 #pragma once;
+#include "allSysInclude.h"
+#include "pushBoxEnum.h"
+#include "sysTools.h"
 
 
-extern enum workManDirection
-{
-	none,
-	up,
-	down,
-	left,
-	right,
-};
 
-extern enum pbstate{
-	space = 0,
-	destination = 1,
-	wall = 2,
-	box = 4,
-	player = 8,
 
-};
+
 class workMan{
 private:
 	char* w_pName;
 	char w_cGender;
-	int w_iAge;
-	int w_iLocationX;
-	int w_iLocationY;
+	unsigned int w_iAge;
+	unsigned int w_iLocationX;
+	unsigned int w_iLocationY;
 	char w_cAvatar;
 public:
 	workMan();

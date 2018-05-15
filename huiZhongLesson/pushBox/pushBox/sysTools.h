@@ -1,5 +1,5 @@
 #pragma once;//编译一次
-#include <windows.h>
+#include "allSysInclude.h"
 
 void HideCursor();//去掉光标闪烁
 

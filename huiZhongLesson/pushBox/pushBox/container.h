@@ -1,18 +1,20 @@
 #pragma once
+#include "allSysInclude.h"
+#include "pushBoxEnum.h"
 
 class container{
 private:
-	int c_iContainerNum;
-	char* c_cKind;
-	float c_fWeight;
-	int c_iLocationX;
-	int c_iLocationY;
+	unsigned int c_iContainerNum;//箱号
+	char* c_cKind;//箱子类型
+	float c_fWeight;//箱子重量
+	unsigned int c_iLocationX;//坐标X
+	unsigned int c_iLocationY;//坐标Y
 public:
 	container();
 	container(int x, int y);
 	~container();
 	void setIContainerNum(int num);
-	void setCKind(char k[20]);
+	void setCKind(char* k);
 	void setFWeight(float w);
 	void setILocationX(int x);
 	void setIlocationY(int y);
