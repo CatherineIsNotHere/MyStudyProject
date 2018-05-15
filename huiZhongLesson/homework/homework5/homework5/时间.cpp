@@ -17,7 +17,6 @@ public:
 		{
 			cout << hour << ':' << minute << ':' << second << endl;
 			Sleep(1000);
-			system("cls");
 			second++;
 			if (second % 60 == 0)
 			{
@@ -38,7 +37,6 @@ public:
 		{
 			cout << hour << ':' << minute << ':' << second << endl;
 			Sleep(1000);
-			system("cls");
 			if (!(minute < 0 && hour < 0 && second < 0)){
 				second--;
 				if (second % 60 < 0)
@@ -70,20 +68,20 @@ private:
 int main()
 {
 	int model;
-	cout << "     选择计时方法 " << endl;
-	cout << "  1.递增" << endl;
-	cout << "  2.递减" << endl;
+	cout << "请选择计时方式 " << endl;
+	cout << "  1.递增计时" << endl;
+	cout << "  2.递减计时" << endl;
 	scanf("%d", &model);
 	CTime t(0, 1, 10);
 	switch (model)
 	{
 	case 1:
 
-		cout << "执行正计时方法" << endl;
+		cout << "执行正计时" << endl;
 		t.AddTime();
 		break;
 	case 2:
-		cout << "执行倒计时方法" << endl;
+		cout << "执行倒计时" << endl;
 		t.SubTime();
 		break;
 	default:
