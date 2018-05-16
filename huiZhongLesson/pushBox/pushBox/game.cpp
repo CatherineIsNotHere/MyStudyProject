@@ -66,13 +66,14 @@ void main(){
 			if (map[iWLY - 1][iWLX] == box || map[iWLY - 1][iWLX] == box + destination)//如果是箱子
 			{
 				if (map[iWLY - 2][iWLX] != wall&&map[iWLY - 2][iWLX] != box){//且箱子后边不是墙或者箱子
-					man.Move(up,map);
+					man.Move(dirUp,map);
+					
 					MoveUpBox(map);
 				}
 			}
 			else {//不是箱子
 				if (map[iWLY - 1][iWLX] != wall)//不是墙
-					man.Move(up, map);
+					man.Move(dirUp, map);
 			}
 			break;
 		case 'A':
@@ -80,14 +81,14 @@ void main(){
 			if (map[iWLY][iWLX - 1] == box || map[iWLY][iWLX - 1] == box + destination)
 			{
 				if (map[iWLY][iWLX - 2] != wall&&map[iWLY][iWLX - 2] != box){
-					man.Move(left, map);
+					man.Move(dirLeft, map);
 					MoveLeftBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY][iWLX - 1] != wall)
-					man.Move(left, map);
+					man.Move(dirLeft, map);
 			}
 			
 			break;
@@ -96,14 +97,14 @@ void main(){
 			if (map[iWLY + 1][iWLX] == box || map[iWLY + 1][iWLX] == box + destination)
 			{
 				if (map[iWLY + 2][iWLX] != wall&&map[iWLY + 2][iWLX] != box){
-					man.Move(down, map);
+					man.Move(dirDown, map);
 					MoveDownBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY + 1][iWLX] != wall)
-					man.Move(down, map);
+					man.Move(dirDown, map);
 			}
 			break;
 		case 'D':
@@ -111,14 +112,14 @@ void main(){
 			if (map[iWLY][iWLX + 1] == box || map[iWLY][iWLX + 1] == box + destination)
 			{
 				if (map[iWLY][iWLX + 2] != wall&&map[iWLY][iWLX + 2] != box){
-					man.Move(right, map);
+					man.Move(dirRight, map);
 					MoveRightBox(map);
 				}
 			}
 			else
 			{
 				if (map[iWLY][iWLX + 1] != wall)
-					man.Move(right, map);
+					man.Move(dirRight, map);
 			}
 			break;
 		default:

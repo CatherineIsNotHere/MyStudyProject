@@ -17,3 +17,4 @@ void gotoxy(unsigned char x, unsigned char y)//ÒÆ¶¯¹â±ê
 	hout = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorPosition(hout, cor);
 }
+

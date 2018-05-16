@@ -31,6 +31,6 @@ public:
 	void setILocationY(char avatar);
 	void setILocationX(int x);
 	void setILocationY(int y);
-	void Move(workManDirection drc, int map[][14]);
+	void Move(Direction drc, int map[][14]);
 };
 

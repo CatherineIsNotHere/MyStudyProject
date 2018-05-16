@@ -41,4 +41,7 @@ int container::getILocationX(){
 int container::getILocationY(){
 	return c_iLocationY;
 }
+void container::Move(Direction drc, int map[][14]){
+	
+}
 
