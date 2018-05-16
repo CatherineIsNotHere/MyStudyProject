@@ -11,9 +11,10 @@ extern enum pbstate {//推箱子状态 0空格 1目的地 2墙 4箱子 8工人
 
 extern enum Direction//往哪走
 {
-	dirNone,
-	dirUp,
-	dirDown,
-	dirLeft,
-	dirRight,
+	dirNone=0,
+	dirUp=-1,
+	dirDown=1,
+	dirLeft=-2,
+	dirRight=2,
 };
+

@@ -4,17 +4,14 @@
 #include "sysTools.h"
 
 
-
-
-
 class workMan{
 private:
-	char* w_pName;
-	char w_cGender;
-	unsigned int w_iAge;
-	unsigned int w_iLocationX;
-	unsigned int w_iLocationY;
-	char w_cAvatar;
+	char* w_pName;//工人姓名
+	char w_cGender;//工人性别
+	unsigned int w_iAge;//工人年龄
+	unsigned int w_iLocationX;//工人所在x轴位置
+	unsigned int w_iLocationY;//工人所在Y轴位置
+	char w_cAvatar;//工人头像
 public:
 	workMan();
 	workMan(int w_iLocationX, int w_iLocationY);

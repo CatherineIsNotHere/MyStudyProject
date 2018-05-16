@@ -42,6 +42,32 @@ int container::getILocationY(){
 	return c_iLocationY;
 }
 void container::Move(Direction drc, int map[][14]){
+	map[this->c_iLocationY][this->c_iLocationX] -= box;
+	switch (drc)
+	{
+	case dirUp:
+		this->c_iLocationY -= 1;
+		break;
+	case dirDown:
+		this->c_iLocationY += 1;
+		break;
+	case dirLeft:
+		this->c_iLocationX -= 1;
+		break;
+	case dirRight:
+		this->c_iLocationX += 1;
+		break;
+	default:
+		break;
+	}
+	map[this->c_iLocationY][this->c_iLocationX] += box;
+	gotoxy(2 * c_iLocationX, c_iLocationY);
+	if (map[c_iLocationY][c_iLocationX] == destination + box) {
+		printf("бя");
+	}
+	else {
+		printf("бї");
+	}
 	
 }
 
