@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="一位数组解决问题.cpp">
+    <ClCompile Include="一维数组解决问题.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
