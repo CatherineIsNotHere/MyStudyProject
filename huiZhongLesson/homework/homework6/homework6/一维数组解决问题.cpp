@@ -1,17 +1,17 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
 
 /*
-	Ê¹ÓÃ1Î¬Êı×é½â¾öÎÊÌâ£º
-	Êı×éµÄ¹é²¢£»Êı×éµÄÅÅĞò£»Êı×éµÄ²éÕÒ£»Êı×éµÄ×î´óÖµºÍ×îĞ¡Öµ£»Êı×éµÄÄæĞòÊä³ö£»Êı×é³¤¶È£»
-	9¹¬¸ñÊä³ö£»Ê¹ÓÃ×Ö·ûÊı×éÀ´±íÊ¾52ÕÅÆË¿ËÅÆ£¬È»ºóÏ´ÅÆºóÊä³ö£¬ÒªÇóÃ¿ĞĞÊä³ö13ÕÅÅÆ
+	ä½¿ç”¨1ç»´æ•°ç»„è§£å†³é—®é¢˜ï¼š
+	æ•°ç»„çš„å½’å¹¶ï¼›æ•°ç»„çš„æ’åºï¼›æ•°ç»„çš„æŸ¥æ‰¾ï¼›æ•°ç»„çš„æœ€å¤§å€¼å’Œæœ€å°å€¼ï¼›æ•°ç»„çš„é€†åºè¾“å‡ºï¼›æ•°ç»„é•¿åº¦ï¼›
+	9å®«æ ¼è¾“å‡ºï¼›ä½¿ç”¨å­—ç¬¦æ•°ç»„æ¥è¡¨ç¤º52å¼ æ‰‘å…‹ç‰Œï¼Œç„¶åæ´—ç‰Œåè¾“å‡ºï¼Œè¦æ±‚æ¯è¡Œè¾“å‡º13å¼ ç‰Œ
 	*/
 
 /*
-	Êı×éµÄ¹é²¢
+	æ•°ç»„çš„å½’å¹¶
 	*/
 //int* mergeArr(int* arr1, int* arr2, int mergeSize){
 //	static int* arr3 = new int[mergeSize]{};
@@ -24,7 +24,7 @@ using namespace std;
 //}
 
 /*
-	Êı×éµÄÅÅĞò£¨Ã°Åİµ¹Ğò£©
+	æ•°ç»„çš„æ’åºï¼ˆå†’æ³¡å€’åºï¼‰
 	*/
 //int* sortPop(int* arr, int arrsz){
 //	int t = 0;
@@ -42,7 +42,7 @@ using namespace std;
 //	return arr;
 //}
 /*
-	Êı×éµÄ²éÕÒ
+	æ•°ç»„çš„æŸ¥æ‰¾
 	*/
 //int scanArr(int* arr, int arrsz, int num){
 //	int k = -1;
@@ -55,7 +55,7 @@ using namespace std;
 //}
 
 /*
-	Êı×éµÄ×î´óÖµ
+	æ•°ç»„çš„æœ€å¤§å€¼
 	*/
 //int arrMax(int* arr, int arrsz){
 //	int maxNum = arr[0];
@@ -65,7 +65,7 @@ using namespace std;
 //	return maxNum;
 //}
 /*
-	Êı×éµÄ×îĞ¡Öµ
+	æ•°ç»„çš„æœ€å°å€¼
 	*/
 //int arrMin(int* arr, int arrsz){
 //	int minNum = arr[0];
@@ -76,97 +76,178 @@ using namespace std;
 //}
 
 /*
-	Êı×éµÄÄæĞòÊä³ö
+	æ•°ç»„çš„é€†åºè¾“å‡º
 	*/
 //void arrInvert(int* arr, int arrsz){
-//	cout << "ÄæĞòÊä³öÎª£º";
+//	cout << "é€†åºè¾“å‡ºä¸ºï¼š";
 //	for (int i = arrsz - 1; i >= 0; i--)
 //		cout << arr[i] << ",";
 //	cout << endl;
 //}
 
 /*
-	¾Å¹¬¸ñÊä³ö
-*/
+	ä¹å®«æ ¼è¾“å‡º
+	*/
 
 
 void main(){
-
-	//Êı×éµÄ¹é²¢
+	//æ•°ç»„çš„å½’å¹¶
 	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 	//int arr2[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 	//int* arr3 = mergeArr(arr1, arr2, 20);
-	//cout << "Êı×é1Îª£º";
+	//cout << "æ•°ç»„1ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << arr1[i] << ",";
 	//cout << endl;
-	//cout << "Êı×é2Îª£º";
+	//cout << "æ•°ç»„2ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << arr2[i] << ",";
 	//cout << endl;
-	//cout << "ºÏ²¢ºóÊı×éÎª£º";
+	//cout << "åˆå¹¶åæ•°ç»„ä¸ºï¼š";
 	//for (int i = 0; i < 20; i++)
 	//	cout << *arr3++ << ",";
 	//cout << endl;
 
-	//Êı×éµÄÅÅĞò
+	//æ•°ç»„çš„æ’åº
 	//int arrSort[16] = { 5, 10, 6, 2, 1, 8, 9, 50, 2, 4, 3, 8, 64, 2, 78, 3 };
-	//cout << "ÅÅĞòÇ°£º";
+	//cout << "æ’åºå‰ï¼š";
 	//for (int i = 0; i < 16; i++)
 	//	cout << arrSort[i] << ",";
 	//cout << endl;
 	//sortPop(arrSort, 16);
-	//cout << "ÅÅĞòºó£º";
+	//cout << "æ’åºåï¼š";
 	//for (int i = 0; i < 16; i++)
 	//	cout << arrSort[i] << ",";
 	//cout << endl;
 
-	//Êı×éµÄ²éÕÒ
+	//æ•°ç»„çš„æŸ¥æ‰¾
 	//int arrScan[10] = { 5, 7, 8, 9, 6, 2, 4, 1, 3, 5 };
-	//cout << "Òª±éÀúµÄÊı×éÎª£º";
+	//cout << "è¦éå†çš„æ•°ç»„ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << arrScan[i] << ",";
 	//cout << endl;
 	//int c = 5;
-	//cout << "Òª²éÕÒµÄÊıÎª£º" << c << endl;
+	//cout << "è¦æŸ¥æ‰¾çš„æ•°ä¸ºï¼š" << c << endl;
 	//int a = scanArr(arrScan, 10, c);
-	//cout << "²éÕÒºó¸ÃÊıÔÚµÚ" << a << "Î»" << endl;
+	//cout << "æŸ¥æ‰¾åè¯¥æ•°åœ¨ç¬¬" << a << "ä½" << endl;
 
-	//Êı×éµÄ×î´óÖµºÍ×îĞ¡Öµ
+	//æ•°ç»„çš„æœ€å¤§å€¼å’Œæœ€å°å€¼
 	//int arrmm[10] = { 5, 8, 9, 4, 6, 1, 3, 7, 20, 15 };
-	//cout << "Ô­Êı×éÎª£º";
+	//cout << "åŸæ•°ç»„ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << arrmm[i]<<",";
 	//cout << endl;
-	//cout << "×î´óÖµÎª£º" << arrMax(arrmm,10)<<endl;
-	//cout << "×îĞ¡ÖµÎª£º" << arrMin(arrmm, 10) << endl;
+	//cout << "æœ€å¤§å€¼ä¸ºï¼š" << arrMax(arrmm,10)<<endl;
+	//cout << "æœ€å°å€¼ä¸ºï¼š" << arrMin(arrmm, 10) << endl;
 
-	//Êı×éµÄÄæĞòÊä³ö
+	//æ•°ç»„çš„é€†åºè¾“å‡º
 	//int arrIn[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	//cout << "Ô­Êı×éÎª£º";
+	//cout << "åŸæ•°ç»„ä¸ºï¼š";
 	//for (int i = 0; i < 10; i++)
 	//	cout << arrIn[i] << ",";
 	//cout << endl;
 	//arrInvert(arrIn, 10);
 
 	//int arrszof[5] = {1,2,3,4,5};
-	//cout << "Ô­Êı×éÎª£º";
+	//cout << "åŸæ•°ç»„ä¸ºï¼š";
 	//for (int i = 0; i < 5; i++)
 	//	cout << arrszof[i];
 	//cout << endl;
-	//cout<<"Êı×éµÄ³¤¶ÈÎª£º"<<sizeof(arrszof)/sizeof(int)<<endl;
+	//cout<<"æ•°ç»„çš„é•¿åº¦ä¸ºï¼š"<<sizeof(arrszof)/sizeof(int)<<endl;
 
-	//9¹¬¸ñµÄÊä³ö
+	//9å®«æ ¼çš„è¾“å‡º
+	//srand((int)time(NULL));
+	//int arrNine[9] = {};//åŸæ•°ç»„
+	//int arrDouble[4] = { 2, 4, 6, 8 };
+	//arrNine[4] = 5;//å›ºå®šå€¼
+	//int num = 0;
+	//for (int i = 0; i < 2; i++)//å››è§’å›ºå®š
+	//{
+	//	num = rand() % 4;
+	//	if (arrDouble[num] == -1){
+	//		i--;
+	//		continue;
+	//	}
+	//	if (i == 0){
+	//		arrNine[0] = arrDouble[num];
+	//		arrNine[8] = 15 - arrNine[0] - arrNine[4];
+	//	}
+	//	if (i==1){
+	//		arrNine[2] = arrDouble[num];
+	//		arrNine[6] = 15-arrNine[2]-arrNine[4];
+	//	}
+	//	arrDouble[num] = -1;
+	//	arrDouble[3 - num] = -1;
+	//}
+	////ä¸­é—´å€¼ç›´æ¥ç®—å‡ºæ¥
+	//arrNine[1] = 15 - arrNine[2] - arrNine[0];
+	//arrNine[3] = 15 - arrNine[0] - arrNine[6];
+	//arrNine[5] = 15 - arrNine[2] - arrNine[8];
+	//arrNine[7] = 15 - arrNine[8] - arrNine[6];
+	//for (int i = 0; i < 9; i++)
+	//{
+	//	cout << "|" << arrNine[i] << "|";
+	//	if (i%3==2){
+	//		cout << endl;
+	//	}
+	//}
+
+	//ä½¿ç”¨å­—ç¬¦æ•°ç»„è¡¨ç¤º52å¼ æ‰‘å…‹ç‰Œï¼Œå¹¶æ´—ç‰Œè¾“å‡ºï¼›
 	srand((int)time(NULL));
-	int arrNine[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	int arrGarb[9] = {};
-	int num = 0;
-	for (int i = 0; i < 9; i++)
-	{
-		num=rand() % 10;
-		for (int j = 0; j < 9; j++)
+	char puke[52] = { 0 };
+	char color[4] = { 1, 14, 27, 40 };//çº¢æ¡ƒï¼Œé»‘æ¡ƒï¼Œæ¢…èŠ±ï¼Œæ–¹ç‰‡
+	char pnum[13] = { 1, 2,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+	int csz = 4;
+	int numsz = 13;
+	int inum = 0;//å·²ç»ç”Ÿæˆç‰Œçš„ä¸ªæ•° åˆ°52åœæ­¢
+	int pukenum = 0;
+	int colornum = 0;
+	bool canUse = true;
+	while (true){
+		pukenum = rand() % numsz;
+		colornum = rand() % csz;
+		for (int i = 0; i < inum; i++)//ç”Ÿæˆçš„é‡å¤puke
 		{
+			if (pnum[pukenum] + color[colornum] == puke[i]){
+				canUse = false;
+				break;
+			}
 		}
+		if (canUse){
+			if ((int)color[colornum]==1)
+				cout << "çº¢æ¡ƒ" << (int)pnum[pukenum] <<",";
+			else if ((int)color[colornum] == 14)
+				cout << "é»‘æ¡ƒ" << (int)pnum[pukenum] << ",";
+			else if ((int)color[colornum] == 27)
+				cout << "æ¢…èŠ±" << (int)pnum[pukenum] << ",";
+			else if ((int)color[colornum] == 40)
+				cout << "æ–¹ç‰‡" << (int)pnum[pukenum] << ",";
+			else
+				cout << "é”™è¯¯" << endl;
+			puke[inum] = pnum[pukenum] + color[colornum];
+			inum++;
+			if (inum%13==0){
+				cout << endl;
+			}
+
+		}
+		if (inum>=52){
+			break;
+		}
+		canUse = true;
+		//ä»¥ä¸Šå³å¯å®ç°åŠŸèƒ½ã€‚
+		//int allcolor = 0;
+		//for (int i = 1; i <= numsz; i++)
+		//{
+		//	for (inum; inum > 0; inum--){
+		//		if (color[csz - 1] + i == puke[inum]){
+		//			allcolor++;
+		//		}
+		//	}
+		//}
+		//if (allcolor==13){
+		//	csz--;
+		//}
 	}
 
 	system("pause");
