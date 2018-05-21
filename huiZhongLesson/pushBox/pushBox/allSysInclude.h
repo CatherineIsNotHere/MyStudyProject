@@ -5,4 +5,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <string>
-//using namespace std;
+#include <fstream>
+#include <sstream>
+#include <iostream>
+using namespace std;

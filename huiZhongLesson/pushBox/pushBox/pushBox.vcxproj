@@ -81,13 +81,18 @@
   <ItemGroup>
     <ClCompile Include="container.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="loadSavePushBox.cpp" />
+    <ClCompile Include="pushBoxMap.cpp" />
     <ClCompile Include="sysTools.cpp" />
+    <ClCompile Include="testIO.cpp" />
     <ClCompile Include="workMan.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="loadSavePushBox.h" />
     <ClInclude Include="pushBoxEnum.h" />
     <ClInclude Include="allSysInclude.h" />
     <ClInclude Include="container.h" />
+    <ClInclude Include="pushBoxMap.h" />
     <ClInclude Include="sysTools.h" />
     <ClInclude Include="workMan.h" />
   </ItemGroup>

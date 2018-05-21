@@ -2,6 +2,8 @@
 #include "sysTools.h"
 #include "workMan.h"
 #include "container.h"
+#include "loadSavePushBox.h"
+
 /*
 	0：空地
 	1：目的地 ☆
@@ -9,9 +11,6 @@
 	4：箱子 □
 	8：玩家 ♂
 	*/
-
-
-
 static Direction stepBacked = dirNone;
 static Direction step = dirNone;
 static int steps = 0;
@@ -59,7 +58,8 @@ static void IsVictory();//是否胜利
 
 
 void main() {
-	startPushBox();
+	fileToMap();
+	//startPushBox();
 }
 
 void startPushBox() {
@@ -83,10 +83,10 @@ void startPushBox() {
 			{
 				if (map[iWLY - 2][iWLX] != wall && map[iWLY - 2][iWLX] != box) {//且箱子后边不是墙或者箱子
 					step = dirUp;
-					man->Move(step, map);
-					movebox =findBox(iWLX, iWLY - 1);
-					movebox->Move(step, map);
-					stepBacked = (Direction)((int)step*(-1));
+					man->Move(step, map);//移动工人
+					movebox =findBox(iWLX, iWLY - 1);//找到箱子
+					movebox->Move(step, map);//移动箱子
+					stepBacked = (Direction)((int)step*(-1));//回退功能赋值
 				}
 				else{
 					validStep = false;
@@ -256,7 +256,9 @@ static void drawMap() {
 	printf("%d步", steps);
 	printf("\n\n\n 按W,A,S,D控制工人,\n 按E键回退,\n 按Q键退出游戏。\n");
 }
-
+/*
+	初始化箱子
+*/
 static void initBox() {
 	boxes = new container[boxNum];
 	int k = 0;
@@ -273,6 +275,9 @@ static void initBox() {
 	}
 }
 
+/*
+	寻找箱子
+*/
 static container* findBox(int x, int y)
 {
 	container* scanboxes = boxes;
@@ -283,7 +288,9 @@ static container* findBox(int x, int y)
 	}
 
 }
-
+/*
+	是否胜利
+*/
 static void IsVictory() {
 	int i = 0, j = 0;
 	int isVictory = 0;
