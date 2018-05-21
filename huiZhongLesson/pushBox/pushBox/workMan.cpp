@@ -44,7 +44,7 @@ void workMan::setCGender(char cGender){
 void workMan::setIAge(int iAge){
 	this->w_iAge = iAge;
 }
-void workMan::setILocationY(char avatar){
+void workMan::setCAvatar(char avatar){
 	this->w_cAvatar = avatar;
 }
 void workMan::setILocationX(int x){

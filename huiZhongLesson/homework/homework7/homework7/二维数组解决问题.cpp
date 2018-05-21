@@ -12,7 +12,8 @@ using namespace std;
 
 
 void main(){
-	/*char arr[5][4]{{ 0, 0, 0, 0 }, {1,1,1,1}, {2,2,2,2}, {3,3,3,3}, {4,4,4,4}};
+	char arr[5][4]{{ 0, 0, 0, 0 }, {1,1,1,1}, {2,2,2,2}, {3,3,3,3}, {4,4,4,4}};
+	cout << "字符和数字的映射关系:" << endl;
 	cout << "替换前:"<<endl;
 	for (int i = 0; i < 5; i++)
 	{
@@ -43,7 +44,8 @@ void main(){
 	cout << arr[i][j];
 	}
 	cout << endl;
-	}*/
+	}
+	cout << endl;
 
 	char arr2[20][13]{{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 	{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, },
@@ -113,11 +115,9 @@ void main(){
 			default:
 				break;
 			}
-			
 			for (int i = 0; i < 20; i++)
 			{
 				for (int j = 0; j < 13; j++)
-				{
 					switch (arr2[i][j])
 					{
 					case 1:
@@ -132,7 +132,6 @@ void main(){
 					default:
 						break;
 					}
-				}
 				cout << endl;
 			}
 		}
@@ -141,7 +140,6 @@ void main(){
 			for (int i = 0; i < 20; i++)
 			{
 				for (int j = 0; j < 13; j++)
-				{
 					switch (arr2[i][j])
 					{
 					case 1:
@@ -156,18 +154,16 @@ void main(){
 					default:
 						break;
 					}
-				}
 				cout << endl;
 			}
 			arr2[a][b] = 0;//左上
 			arr2[a][d] = 0;//右上
 			a += 1;
 			c += 1;
-			Sleep(100);
+			Sleep(1000);
 		}
-		if (c>=19){
+		if (c>=19)
 			break;
-		}
 	}
 	system("pause");
 }

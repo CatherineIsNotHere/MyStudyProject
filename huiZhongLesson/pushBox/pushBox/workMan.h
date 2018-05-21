@@ -25,7 +25,7 @@ public:
 	void setPname(char* pName);
 	void setCGender(char cGender);
 	void setIAge(int iAge);
-	void setILocationY(char avatar);
+	void setCAvatar(char avatar);
 	void setILocationX(int x);
 	void setILocationY(int y);
 	void Move(Direction drc, int map[][14]);

@@ -43,6 +43,13 @@ int container::getILocationY(){
 }
 void container::Move(Direction drc, int map[][14]){
 	map[this->c_iLocationY][this->c_iLocationX] -= box;
+	gotoxy(2 * this->c_iLocationX, this->c_iLocationY);
+	if (map[this->c_iLocationY][this->c_iLocationX] == destination){
+		printf("¡î");
+	}
+	else if (map[this->c_iLocationY][this->c_iLocationX] == space){
+		printf("  ");
+	}
 	switch (drc)
 	{
 	case dirUp:
