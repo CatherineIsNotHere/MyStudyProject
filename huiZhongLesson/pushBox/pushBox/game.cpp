@@ -2,8 +2,7 @@
 #include "sysTools.h"
 #include "workMan.h"
 #include "container.h"
-#include "loadSavePushBox.h"
-
+#include "pushBoxMap.h"
 /*
 	0：空地
 	1：目的地 ☆
@@ -15,59 +14,54 @@ static Direction stepBacked = dirNone;
 static Direction step = dirNone;
 static int steps = 0;
 static int boxNum = 0;
+static int destinationNum = 0;
 static container* boxes;//箱子用静态全局变量
+static pushBoxMap* _pushBoxMap = new pushBoxMap();
 static workMan* man = new workMan();
+static string fileStage = "001";
 
-//int map[13][14] = {
-//	{ space, space, space, space, wall, wall, wall, wall, wall, wall, space, space, space, space },
-//	{ space, space, space, space, wall, space, space, space, space, wall, space, space, space, space },
-//	{ space, wall, wall, wall, wall, space, space, box, box, wall, wall, wall, wall, wall },
-//	{ space, wall, space, space, space, wall, space, space, space, wall, space, space, space, wall },
-//	{ space, wall, space, box, space, space, space, box, space, space, space, box, space, wall },
-//	{ space, wall, space, space, space, wall, wall, space, wall, wall, wall, wall, wall, wall },
-//	{ wall, wall, wall, wall, box, wall, wall, space, space, space, space, space, space, wall },
-//	{ wall, space, space, space, box, space, wall, space, space, space, player, space, space, wall },
-//	{ wall, space, box, space, box, space, wall, space, wall, wall, wall, wall, wall, wall },
-//	{ wall, wall, space, space, box, space, wall, space, wall, destination, destination, destination, wall, space },
-//	{ space, wall, space, wall, wall, space, space, space, space, destination, destination, destination, wall, space },
-//	{ space, wall, space, space, space, space, wall, wall, destination, destination, destination, destination, wall, space },
-//	{ space, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, wall, space }
-//};
-
-int map[13][14] = {
-	{ 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0 },
-	{ 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0 },
-	{ 0, 2, 2, 2, 2, 0, 0, 4, 4, 2, 2, 2, 2, 2 },
-	{ 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2 },
-	{ 0, 2, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 2 },
-	{ 0, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2 },
-	{ 2, 2, 2, 2, 4, 2, 2, 0, 0, 0, 0, 0, 0, 2 },
-	{ 2, 0, 0, 0, 4, 0, 2, 0, 0, 0, 8, 0, 0, 2 },
-	{ 2, 0, 4, 0, 4, 0, 2, 0, 2, 2, 2, 2, 2, 2 },
-	{ 2, 2, 0, 0, 4, 0, 2, 0, 2, 1, 1, 1, 2, 0 },
-	{ 0, 2, 0, 2, 2, 0, 0, 0, 0, 1, 1, 1, 2, 0 },
-	{ 0, 2, 0, 0, 0, 0, 2, 2, 1, 1, 1, 1, 2, 0 },
-	{ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0 }
-};
-void startPushBox();//开始推箱子主方法
+static int fileToMap();//读取地图
+static void startPushBox();//开始推箱子主方法
 static void drawMap();//画地图
-static void initBox();//箱子初始化
+static void initBoxAndDestination();//箱子初始化
 static container* findBox(int x, int y);//寻找工人所推箱子
-static void MoveBackwords(workMan* man,container* cont);//回退功能
+static void MoveBackwords(workMan* man, container* cont);//回退功能
 static void IsVictory();//是否胜利
+static void overStage();//重置关卡数据
+static void gameSaves();//进度保存
+static string readSaves();//读取进度
+static void endGame();//游戏结束
 
-
-void main() {
-	fileToMap();
-	//startPushBox();
+static void endGame() {
+	overStage();
+	delete _pushBoxMap;
+	delete[] man;
+	delete[] boxes;
+	_pushBoxMap = nullptr;
+	man = nullptr;
+	boxes = nullptr;
 }
 
-void startPushBox() {
+void main() {
+	string retry = readSaves();
+	if (retry.length() != 0) {
+		fileStage = retry;
+	}
+	startPushBox();
+}
+
+static void startPushBox() {
+
+	if (!fileToMap())//读取地图
+	{
+		endGame();
+		return;
+	}
 	HideCursor();//隐藏光标
 	drawMap();//画地图
-	initBox();
+	initBoxAndDestination();
 	char key = 0;
-	container* movebox=nullptr;
+	container* movebox = nullptr;
 	bool validStep = false;
 	while (true)
 	{
@@ -79,102 +73,102 @@ void startPushBox() {
 		{
 		case 'W':
 		case 'w':
-			if (map[iWLY - 1][iWLX] == box || map[iWLY - 1][iWLX] == box + destination)//如果是箱子
+			if (_pushBoxMap->m_imap[iWLY - 1][iWLX] == box || _pushBoxMap->m_imap[iWLY - 1][iWLX] == box + destination)//如果是箱子
 			{
-				if (map[iWLY - 2][iWLX] != wall && map[iWLY - 2][iWLX] != box) {//且箱子后边不是墙或者箱子
+				if (_pushBoxMap->m_imap[iWLY - 2][iWLX] != wall && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {//且箱子后边不是墙或者箱子
 					step = dirUp;
-					man->Move(step, map);//移动工人
-					movebox =findBox(iWLX, iWLY - 1);//找到箱子
-					movebox->Move(step, map);//移动箱子
+					man->Move(step, _pushBoxMap->m_imap);//移动工人
+					movebox = findBox(iWLX, iWLY - 1);//找到箱子
+					movebox->Move(step, _pushBoxMap->m_imap);//移动箱子
 					stepBacked = (Direction)((int)step*(-1));//回退功能赋值
 				}
-				else{
+				else {
 					validStep = false;
 				}
 			}
-			else if (map[iWLY - 1][iWLX] != wall) {//不是墙
+			else if (_pushBoxMap->m_imap[iWLY - 1][iWLX] != wall) {//不是墙
 				step = dirUp;
-				man->Move(step, map);
+				man->Move(step, _pushBoxMap->m_imap);
 				movebox = nullptr;
 				stepBacked = (Direction)((int)step*(-1));
 			}
-			else{
+			else {
 				validStep = false;
 			}
-			
+
 			break;
 		case 'A':
 		case 'a':
-			if (map[iWLY][iWLX - 1] == box || map[iWLY][iWLX - 1] == box + destination)
+			if (_pushBoxMap->m_imap[iWLY][iWLX - 1] == box || _pushBoxMap->m_imap[iWLY][iWLX - 1] == box + destination)
 			{
-				if (map[iWLY][iWLX - 2] != wall && map[iWLY][iWLX - 2] != box) {
+				if (_pushBoxMap->m_imap[iWLY][iWLX - 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX - 2] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
 					step = dirLeft;
-					man->Move(step, map);
+					man->Move(step, _pushBoxMap->m_imap);
 					movebox = findBox(iWLX - 1, iWLY);
-					movebox->Move(step, map);
+					movebox->Move(step, _pushBoxMap->m_imap);
 					stepBacked = (Direction)((int)step*(-1));
 				}
-				else{
+				else {
 					validStep = false;
 				}
 			}
-			else if (map[iWLY][iWLX - 1] != wall) {
+			else if (_pushBoxMap->m_imap[iWLY][iWLX - 1] != wall) {
 				step = dirLeft;
-				man->Move(step, map);
+				man->Move(step, _pushBoxMap->m_imap);
 				movebox = nullptr;
 				stepBacked = (Direction)((int)step*(-1));
 			}
-			else{
+			else {
 				validStep = false;
 			}
 			break;
 		case 'S':
 		case 's':
-			if (map[iWLY + 1][iWLX] == box || map[iWLY + 1][iWLX] == box + destination)
+			if (_pushBoxMap->m_imap[iWLY + 1][iWLX] == box || _pushBoxMap->m_imap[iWLY + 1][iWLX] == box + destination)
 			{
-				if (map[iWLY + 2][iWLX] != wall && map[iWLY + 2][iWLX] != box) {
+				if (_pushBoxMap->m_imap[iWLY + 2][iWLX] != wall && _pushBoxMap->m_imap[iWLY + 2][iWLX] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
 					step = dirDown;
-					man->Move(step, map);
+					man->Move(step, _pushBoxMap->m_imap);
 					movebox = findBox(iWLX, iWLY + 1);
-					movebox->Move(step, map);
+					movebox->Move(step, _pushBoxMap->m_imap);
 					stepBacked = (Direction)((int)step*(-1));
 				}
-				else{
+				else {
 					validStep = false;
 				}
 			}
-			else if (map[iWLY + 1][iWLX] != wall) {
+			else if (_pushBoxMap->m_imap[iWLY + 1][iWLX] != wall) {
 				step = dirDown;
-				man->Move(step, map);
+				man->Move(step, _pushBoxMap->m_imap);
 				movebox = nullptr;
 				stepBacked = (Direction)((int)step*(-1));
 			}
-			else{
+			else {
 				validStep = false;
 			}
 			break;
 		case 'D':
 		case 'd':
-			if (map[iWLY][iWLX + 1] == box || map[iWLY][iWLX + 1] == box + destination)
+			if (_pushBoxMap->m_imap[iWLY][iWLX + 1] == box || _pushBoxMap->m_imap[iWLY][iWLX + 1] == box + destination)
 			{
-				if (map[iWLY][iWLX + 2] != wall && map[iWLY][iWLX + 2] != box) {
+				if (_pushBoxMap->m_imap[iWLY][iWLX + 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX + 2] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
 					step = dirRight;
-					man->Move(step, map);
-					movebox=findBox(iWLX + 1, iWLY);
-					movebox->Move(step, map);
+					man->Move(step, _pushBoxMap->m_imap);
+					movebox = findBox(iWLX + 1, iWLY);
+					movebox->Move(step, _pushBoxMap->m_imap);
 					stepBacked = (Direction)((int)step*(-1));
 				}
-				else{
+				else {
 					validStep = false;
 				}
 			}
-			else if (map[iWLY][iWLX + 1] != wall) {
+			else if (_pushBoxMap->m_imap[iWLY][iWLX + 1] != wall) {
 				step = dirRight;
-				man->Move(step, map);
+				man->Move(step, _pushBoxMap->m_imap);
 				movebox = nullptr;
 				stepBacked = (Direction)((int)step*(-1));
 			}
-			else{
+			else {
 				validStep = false;
 			}
 			break;
@@ -184,7 +178,7 @@ void startPushBox() {
 				MoveBackwords(man, movebox);
 				steps -= 2;
 			}
-			else{
+			else {
 				validStep = false;
 			}
 			break;
@@ -207,20 +201,21 @@ void startPushBox() {
 	回退功能
 */
 static void MoveBackwords(workMan* man, container* cont) {
-	man->Move(stepBacked, map);
-	if (cont!=nullptr) {
-		cont->Move(stepBacked,map);
+	man->Move(stepBacked, _pushBoxMap->m_imap);
+	if (cont != nullptr) {
+		cont->Move(stepBacked, _pushBoxMap->m_imap);
 	}
 	stepBacked = dirNone;
 }
 
 static void drawMap() {
+	system("cls");
 	int i = 0, j = 0;
 	for (i = 0; i < 13; i++)
 	{
 		for (j = 0; j < 14; j++)
 		{
-			switch (map[i][j])
+			switch (_pushBoxMap->m_imap[i][j])
 			{
 			case space:
 				printf("  ");
@@ -251,7 +246,7 @@ static void drawMap() {
 		printf("\n");
 	}
 	gotoxy(2 * 1, 14);
-	printf("第x关");
+	printf("第%d关", _pushBoxMap->getIstage());
 	gotoxy(2 * 12, 14);
 	printf("%d步", steps);
 	printf("\n\n\n 按W,A,S,D控制工人,\n 按E键回退,\n 按Q键退出游戏。\n");
@@ -259,18 +254,20 @@ static void drawMap() {
 /*
 	初始化箱子
 */
-static void initBox() {
+static void initBoxAndDestination() {
 	boxes = new container[boxNum];
 	int k = 0;
 	for (int i = 0; i < 13; i++)
 	{
 		for (int j = 0; j < 14; j++)
 		{
-			if (map[i][j] == box) {
+			if (_pushBoxMap->m_imap[i][j] == box) {
 				boxes[k].setILocationX(j);
 				boxes[k].setIlocationY(i);
 				k++;
 			}
+			else if (_pushBoxMap->m_imap[i][j] == destination || _pushBoxMap->m_imap[i][j] == destination + player || _pushBoxMap->m_imap[i][j] == destination + box)
+				destinationNum++;
 		}
 	}
 }
@@ -298,7 +295,7 @@ static void IsVictory() {
 	{
 		for (j = 0; j < 14; j++)
 		{
-			switch (map[i][j])
+			switch (_pushBoxMap->m_imap[i][j])
 			{
 			case destination + box:
 				isVictory++;
@@ -313,9 +310,130 @@ static void IsVictory() {
 			}
 		}
 	}
-	if (isVictory == 10)
+	if (isVictory == destinationNum)
 	{
+		gameSaves();
+		overStage();
 		system("cls");
-		printf("恭喜胜利!");
+		/*printf("恭喜胜利!");
+		cout << "是否继续（Y/N）?" << endl;
+		bool isContinue = false;
+		switch (getchar())
+		{
+		case 'Y':
+		case 'y':
+			isContinue = true;
+			system("cls");
+			break;
+		case 'N':
+		case 'n':
+			isContinue = false;
+			system("cls");
+			cout << "谢谢捧场！" << endl;
+			system("pause");
+			return;
+		default:
+			break;
+		}
+		if (isContinue) {*/
+		int next = stoi(fileStage);
+		next++;
+		fileStage = to_string(next);
+		string nStage = "";
+		if (next > 0 && next < 10)
+			nStage = "00";
+		else if (next >= 10 && next < 100)
+			nStage = "0";
+		else if (next >= 100)
+			nStage = "";
+		nStage.append(fileStage);
+		fileStage = nStage;
+		startPushBox();
 	}
+	//}
+}
+/*
+	读取地图
+*/
+static int fileToMap() {
+	string mapUrl = "./maps/";
+	mapUrl.append(fileStage);
+	mapUrl.append(".txt");
+	ifstream ifs(mapUrl);
+	if (ifs.is_open()) {//成功打开
+		_pushBoxMap->clearMap();
+		int stage = 0;
+		ifs >> stage;
+		_pushBoxMap->setIstage(stage);
+		int j = 0;
+		for (int i = 0; i < 13; i++)//13行
+		{
+			string st;
+			ifs >> st;
+			j = 0;
+			for (string::iterator ist = st.begin(); ist != st.end(); ist++) {
+				char a = *ist;
+				char* ab = &a;
+				_pushBoxMap->m_imap[i][j] = atoi(ab);
+				j++;
+				if (j >= 14)
+					break;
+			}
+		}
+		ifs.close();
+		return 1;
+	}
+	else {
+		system("cls");
+		cout << "恭喜全部通关" << endl;
+		return 0;
+	}
+}
+
+/*
+	保存进度
+*/
+static void gameSaves() {
+	ofstream outfile("./saves/playerSave.txt");
+	outfile << fileStage << endl;
+	outfile.close();
+}
+/*
+	读取进度
+*/
+static string readSaves() {
+	string st = "";
+	ifstream ifs("./saves/playerSave.txt");
+	ifs >> st;
+	cout << "您当前在第" << st << "关,是否继续关卡（Y/N）" << endl;
+	bool retry = false;
+	switch (getchar())
+	{
+	case 'Y':
+	case 'y':
+		retry = false;
+		break;
+	case 'N':
+	case 'n':
+		retry = true;
+		break;
+	default:
+		break;
+	}
+	ifs.close();
+	if (retry)
+		return "";
+	else
+		return st;
+}
+
+/*
+	重置关卡数据
+*/
+static void overStage() {
+	steps = 0;
+	boxNum = 0;
+	destinationNum = 0;
+	step = dirNone;
+	stepBacked = dirNone;
 }

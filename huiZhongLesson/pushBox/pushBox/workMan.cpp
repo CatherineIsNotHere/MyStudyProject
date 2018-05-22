@@ -13,8 +13,8 @@ workMan::workMan(int w_iLocationX, int w_iLocationY)
 };
 
 workMan::~workMan(){
-	delete[] w_pName;
-	w_pName = nullptr;
+	/*delete w_pName;
+	w_pName = nullptr;*/
 }
 
 char* workMan::getPName(){
@@ -64,8 +64,6 @@ void workMan::Move(Direction drc, int map[][14]){
 	else{
 		printf("  ");
 	}
-	//int InewX = 0;
-	//int InewY = 0;
 	switch (drc)
 	{
 	case dirUp:

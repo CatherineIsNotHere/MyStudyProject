@@ -8,17 +8,16 @@ class pushBoxMap
 public:
 	pushBoxMap();
 	~pushBoxMap();
-	void drawMap();
+	//void drawMap();
 	int getIstage();
 	int getInumber();
-	int** getImap();
 	void setIstage(int stage);
 	void setInumber(int number);
-	void setImap(int** map);
+	void clearMap();
+	int m_imap[13][14];
 private:
 	int line = 13;
 	int m_istage = 0;
-	int** m_imap;
 	int m_inumber=0;
 };
 

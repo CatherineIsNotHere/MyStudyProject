@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -81,14 +81,12 @@
   <ItemGroup>
     <ClCompile Include="container.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="loadSavePushBox.cpp" />
     <ClCompile Include="pushBoxMap.cpp" />
     <ClCompile Include="sysTools.cpp" />
     <ClCompile Include="testIO.cpp" />
     <ClCompile Include="workMan.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="loadSavePushBox.h" />
     <ClInclude Include="pushBoxEnum.h" />
     <ClInclude Include="allSysInclude.h" />
     <ClInclude Include="container.h" />

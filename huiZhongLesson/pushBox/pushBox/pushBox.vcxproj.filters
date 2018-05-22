@@ -33,9 +33,6 @@
     <ClCompile Include="testIO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="loadSavePushBox.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sysTools.h">
@@ -54,9 +51,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="pushBoxMap.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="loadSavePushBox.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
