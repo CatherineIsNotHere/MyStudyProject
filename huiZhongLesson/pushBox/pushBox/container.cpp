@@ -41,7 +41,7 @@ int container::getILocationX(){
 int container::getILocationY(){
 	return c_iLocationY;
 }
-void container::Move(Direction drc, int map[][14]){
+void container::Move(Direction drc, int map[][16]){
 	map[this->c_iLocationY][this->c_iLocationX] -= box;
 	gotoxy(2 * this->c_iLocationX, this->c_iLocationY);
 	if (map[this->c_iLocationY][this->c_iLocationX] == destination){

@@ -32,15 +32,6 @@ static void gameSaves();//进度保存
 static string readSaves();//读取进度
 static void endGame();//游戏结束
 
-static void endGame() {
-	overStage();
-	delete _pushBoxMap;
-	delete[] man;
-	delete[] boxes;
-	_pushBoxMap = nullptr;
-	man = nullptr;
-	boxes = nullptr;
-}
 
 void main() {
 	string retry = readSaves();
@@ -191,7 +182,7 @@ static void startPushBox() {
 		}
 		if (validStep) {
 			steps++;
-			gotoxy(2 * 12, 14);
+			gotoxy(2 * 14, 16);
 			printf("%d步", steps);
 		}
 		IsVictory();
@@ -211,9 +202,9 @@ static void MoveBackwords(workMan* man, container* cont) {
 static void drawMap() {
 	system("cls");
 	int i = 0, j = 0;
-	for (i = 0; i < 13; i++)
+	for (i = 0; i < 14; i++)
 	{
-		for (j = 0; j < 14; j++)
+		for (j = 0; j < 16; j++)
 		{
 			switch (_pushBoxMap->m_imap[i][j])
 			{
@@ -245,9 +236,9 @@ static void drawMap() {
 		}
 		printf("\n");
 	}
-	gotoxy(2 * 1, 14);
+	gotoxy(2 * 2, 16);
 	printf("第%d关", _pushBoxMap->getIstage());
-	gotoxy(2 * 12, 14);
+	gotoxy(2 * 14, 16);
 	printf("%d步", steps);
 	printf("\n\n\n 按W,A,S,D控制工人,\n 按E键回退,\n 按Q键退出游戏。\n");
 }
@@ -257,9 +248,9 @@ static void drawMap() {
 static void initBoxAndDestination() {
 	boxes = new container[boxNum];
 	int k = 0;
-	for (int i = 0; i < 13; i++)
+	for (int i = 0; i < 14; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < 16; j++)
 		{
 			if (_pushBoxMap->m_imap[i][j] == box) {
 				boxes[k].setILocationX(j);
@@ -291,9 +282,9 @@ static container* findBox(int x, int y)
 static void IsVictory() {
 	int i = 0, j = 0;
 	int isVictory = 0;
-	for (i = 0; i < 13; i++)
+	for (i = 0; i < 14; i++)
 	{
-		for (j = 0; j < 14; j++)
+		for (j = 0; j < 16; j++)
 		{
 			switch (_pushBoxMap->m_imap[i][j])
 			{
@@ -315,27 +306,7 @@ static void IsVictory() {
 		gameSaves();
 		overStage();
 		system("cls");
-		/*printf("恭喜胜利!");
-		cout << "是否继续（Y/N）?" << endl;
-		bool isContinue = false;
-		switch (getchar())
-		{
-		case 'Y':
-		case 'y':
-			isContinue = true;
-			system("cls");
-			break;
-		case 'N':
-		case 'n':
-			isContinue = false;
-			system("cls");
-			cout << "谢谢捧场！" << endl;
-			system("pause");
-			return;
-		default:
-			break;
-		}
-		if (isContinue) {*/
+
 		int next = stoi(fileStage);
 		next++;
 		fileStage = to_string(next);
@@ -350,7 +321,6 @@ static void IsVictory() {
 		fileStage = nStage;
 		startPushBox();
 	}
-	//}
 }
 /*
 	读取地图
@@ -366,7 +336,7 @@ static int fileToMap() {
 		ifs >> stage;
 		_pushBoxMap->setIstage(stage);
 		int j = 0;
-		for (int i = 0; i < 13; i++)//13行
+		for (int i = 0; i < 14; i++)//14行
 		{
 			string st;
 			ifs >> st;
@@ -376,7 +346,7 @@ static int fileToMap() {
 				char* ab = &a;
 				_pushBoxMap->m_imap[i][j] = atoi(ab);
 				j++;
-				if (j >= 14)
+				if (j >= 16)
 					break;
 			}
 		}
@@ -436,4 +406,16 @@ static void overStage() {
 	destinationNum = 0;
 	step = dirNone;
 	stepBacked = dirNone;
+}
+/*
+	游戏结束释放内存
+*/
+static void endGame() {
+	overStage();
+	delete _pushBoxMap;
+	delete[] man;
+	delete[] boxes;
+	_pushBoxMap = nullptr;
+	man = nullptr;
+	boxes = nullptr;
 }

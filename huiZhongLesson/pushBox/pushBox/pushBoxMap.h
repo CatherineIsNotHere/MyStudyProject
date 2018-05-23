@@ -14,9 +14,9 @@ public:
 	void setIstage(int stage);
 	void setInumber(int number);
 	void clearMap();
-	int m_imap[13][14];
+	int m_imap[14][16];
 private:
-	int line = 13;
+	int line = 14;
 	int m_istage = 0;
 	int m_inumber=0;
 };

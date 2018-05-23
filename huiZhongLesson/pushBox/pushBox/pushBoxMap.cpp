@@ -28,9 +28,9 @@ void pushBoxMap::setInumber(int number){
 };
 
 void pushBoxMap::clearMap() {
-	for (int i = 0; i < 13; i++)
+	for (int i = 0; i < 14; i++)
 	{
-		for (int j = 0; j < 14; j++)
+		for (int j = 0; j < 16; j++)
 		{
 			this->m_imap[i][j]=0;
 		}

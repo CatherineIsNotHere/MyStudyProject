@@ -24,5 +24,5 @@ public:
 	float getFWeight();
 	int getILocationX();
 	int getILocationY();
-	void Move(Direction drc, int map[][14]);
+	void Move(Direction drc, int map[][16]);
 };

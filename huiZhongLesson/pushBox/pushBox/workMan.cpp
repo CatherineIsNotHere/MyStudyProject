@@ -55,7 +55,7 @@ void workMan::setILocationY(int y){
 }
 
 
-void workMan::Move(Direction drc, int map[][14]){
+void workMan::Move(Direction drc, int map[][16]){
 	map[this->w_iLocationY][this->w_iLocationX] -= player;
 	gotoxy(2 * this->w_iLocationX, this->w_iLocationY);
 	if (map[this->w_iLocationY][this->w_iLocationX] == destination){
