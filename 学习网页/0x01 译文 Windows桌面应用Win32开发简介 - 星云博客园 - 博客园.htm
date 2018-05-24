@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0x01 译文:Windows桌面应用Win32开发简介 - 星云博客园 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-coffee.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-coffee-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/xingyunblog/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/xingyunblog/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/xingyunblog/wlwmanifest.xml">
+<script async="" src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js"></script><script type="text/javascript" src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/encoder.js"></script><script src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery-2.js"></script>
+<script type="text/javascript">var currentBlogApp = 'xingyunblog', cb_enable_mathjax=true;var isLogined=false;</script>
+<script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'blogpost-body', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] },
+            'HTML-CSS': { linebreaks: { automatic: true } },
+            SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/MathJax.js"></script>
+<script src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/xingyunblog/"><img id="blogLogo" src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/xingyunblog/">星云博客园</a></h1>
+<h2>学无止境！</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/xingyunblog/">首页</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/xingyunblog/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/xingyunblog/rss"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats">
+<!--done-->
+随笔- 178&nbsp;
+文章- 55&nbsp;
+评论- 97&nbsp;
+</div>
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/xingyunblog/p/7142445.html">0x01 译文:Windows桌面应用Win32开发简介</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>本节课将简单介绍下使用C++开发Windows桌面应用的一些基础知识</p>
+<blockquote>
+<p>&nbsp;目录：</p>
+<p>准备你的开发环境</p>
+<p>Windows 代码规范</p>
+<p>操作字符串</p>
+<p>什么是一个Window?</p>
+<p>WinMain:程序的入口点</p>
+</blockquote>
+<h1>1. 准备你的开发环境</h1>
+<h2 class="x-hidden-focus">安装 Windows SDK</h2>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;要用C或者C++开发Windows 程序，你必须安装&nbsp;<a class="x-hidden-focus" href="http://go.microsoft.com/fwlink/?LinkID=129787" target="_blank">Microsoft Windows Software Development Kit (SDK)</a>&nbsp; 或者一个包括Windows SDK的开发环境。</p>
+<p>这个Windows SDK 包含了头文件和编译链接你的程序所需的类库，这个Windows SDK 也包括Visual C++ 编译和链接命令行工具。</p>
+<p>尽管你用这个命令行工具可以编译和链接运行你的程序，但是还是建议你安装一个功能比较齐全的Microsoft Visual Studio.</p>
+<p>Visual C++ Express 是一个免费的可下载的Visual C++ 软件，Visual Studio Community是 Visual Studio Express 的更新替代产品。</p>
+<p>Windows SDK 集成IDE 下载（官方推荐）：<a href="https://www.visualstudio.com/zh-hans/vs/visual-studio-express/" target="_blank">https://www.visualstudio.com/zh-hans/vs/visual-studio-express/</a></p>
+<p>Tips:</p>
+<blockquote>
+<p>这个Windows SDK 不支持硬件驱动的开发，在这个也不作讨论。</p>
+<p>如果想学习这方面的开发，请移步<a href="https://docs.microsoft.com/zh-cn/windows-hardware/drivers/gettingstarted/index" target="_blank">https://docs.microsoft.com/zh-cn/windows-hardware/drivers/gettingstarted/index</a></p>
+</blockquote>
+<p>&nbsp;<span style="text-decoration: line-through">Microsoft Visual 
+C++ 2010 Express（已过时）是微软推出的一款免费软件，它比Microsoft Visual C++ 6.0 Enterprise 
+Edition的兼容性和标准支持更好，比Microsoft Visual Studio 2010 Ultimate的体积更小。</span></p>
+<p><span style="text-decoration: line-through">&nbsp;如果你对使用Visual C++ 2010 Express感兴趣，可以移步查看详细教程：</span><a href="https://msdn.microsoft.com/en-us/library/ff742833.aspx" target="_blank">https://msdn.microsoft.com/en-us/library/ff742833.aspx</a></p>
+<h1>Windows代码规范</h1>
+<p>如果你是一个开发Windows程序的新手，当你第一次看到一个WIndows程序的时候你可能会感到困惑。</p>
+<p>因为这个代码往往会出现像<strong class="x-hidden-focus">DWORD_PTR</strong>&nbsp;和&nbsp;<strong class="x-hidden-focus">LPRECT </strong>一样充满了奇怪的类型定义和一些像<strong><em>hWnd</em></strong>&nbsp;和&nbsp;<strong><em class="x-hidden-focus">pwsz</em></strong>&nbsp;变量（这称为匈牙利命名法）。学习这些代码规范是值得的。</p>
+<p>绝大多数Windows API由函数或&nbsp;Component Object Model（COM）组件对象模型接口组成。</p>
+<p>很少有Windows API提供的C++类。（一个显著的例外是GDI+，一种二维图形API）</p>
+<p>Windows的头文件包含很多类型，这些很多都定义在头文件<strong>WinDef.h</strong> 中，下面这些是你经常会遇到的。</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709194903681-975519416.png" alt=""></p>
+<p>你可以看到，在这些有一定数量的冗余类型。其中一些重叠仅仅是由于Windows API的历史。这里列出的类型有固定的大小，在32位和64个应用程序中的大小相同。例如，<strong class="x-hidden-focus">DWORD</strong>类型总是32位的</p>
+<h4 class="x-hidden-focus">Boolean Type</h4>
+<p><strong>BOOL</strong>是一个整数类型的值，用于布尔上下文定义。头文件 WinDef.h 也使用bool值定义了两个。</p>
+<p><strong class="x-hidden-focus">BOOL</strong>&nbsp;is a typedef for an
+ integer value that is used in a Boolean context. The header file 
+WinDef.h also defines two values for use with&nbsp;<strong>BOOL</strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">#define</span> FALSE    0 
+<span style="color: #0000ff">#define</span> TRUE     1</pre>
+</div>
+<p>尽管布尔类型TRUE可以定义为任何一个非0的数字，但是你最好遵守规范总是TRUE设置为1</p>
+<p>正确的方式</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">//</span><span style="color: #008000"> Right way.</span>
+BOOL result =<span style="color: #000000"> SomeFunctionThatReturnsBoolean();
+</span><span style="color: #0000ff">if</span><span style="color: #000000"> (result) 
+{ 
+    ...
+}</span></pre>
+</div>
+<p>错误的方式</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000">//</span><span style="color: #008000"> Wrong!</span>
+<span style="color: #0000ff">if</span> (result ==<span style="color: #000000"> TRUE) 
+{
+    ... 
+}</span></pre>
+</div>
+<p>Tips:注意<strong class="x-hidden-focus">BOOL</strong>是一个整数型且不可与C++ <strong>bool</strong>型互换。</p>
+<p><strong>指针类型：</strong></p>
+<p>&nbsp;Windows定义了很多表格&nbsp;<em>pointer-to-X 类型</em>. 他们通常在名字的前面有前缀 &nbsp;<em>P-</em>&nbsp;or&nbsp;<em class="x-hidden-focus">LP-</em>&nbsp;.例如,&nbsp;<strong>LPRECT</strong>&nbsp;是一个指向矩形的指针类型 ，&nbsp;这个矩形是一个描述了一个矩形的结构体.</p>
+<p>下面这样是等价的</p>
+<div class="cnblogs_code">
+<pre>RECT*  rect;  <span style="color: #008000">//</span><span style="color: #008000"> Pointer to a RECT structure.</span>
+LPRECT rect;  <span style="color: #008000">//</span><span style="color: #008000"> The same</span>
+PRECT  rect;  <span style="color: #008000">//</span><span style="color: #008000"> Also the same.</span></pre>
+</div>
+<p>历史上，P代表“指针”，LP代表“长指针”。长指针（也叫远指针）从16位Windows的延期，当他们需要解决内存范围以外的当前段。保留了LP前缀，使它更容易将32位Windows的16位代码移植到32位窗口中。</p>
+<p><span style="background-color: #ffff00">但是今天没有区别——指针就是指针。</span></p>
+<p>&nbsp;<strong>指针精度类型</strong></p>
+<p>以下数据类型始终是指针的大小，即32位应用程序中的32位宽，64位应用程序中的位宽为64位。大小是在编译时确定的。</p>
+<p><span style="background-color: #ffff00">当32位应用程序在64位Windows上运行时，这些数据类型仍为4字节宽。（64位应用程序不能在32位Windows上运行，因此不会出现相反的情况。）</span></p>
+<ul>
+<li><strong class="x-hidden-focus">DWORD_PTR</strong></li>
+<li class="x-hidden-focus"><strong>INT_PTR</strong></li>
+<li><strong>LONG_PTR</strong></li>
+<li><strong>ULONG_PTR</strong></li>
+<li><strong class="x-hidden-focus">UINT_PTR</strong></li>
+</ul>
+<p>&nbsp;These types are used in situations where an integer might be 
+cast to a pointer. They are also used to define variables for pointer 
+arithmetic and to define loop counters that iterate over the full range 
+of bytes in memory buffers. More generally, they appear in places where 
+an existing 32-bit value was expanded to 64 bits on 64-bit Windows.</p>
+<p>在将整数转换为指针的情况下使用这些类型。它们还用于定义指针算术的变量，并定义循环计数器，迭代内存缓冲区中的所有字节。更一般地，它们出现在64位窗口上现有32位值被扩展到64位的地方。</p>
+<p><strong>Hungarian Notation 匈牙利命名法</strong></p>
+<p>匈牙利符号是将前缀添加到变量名中的实践，以便提供有关变量的附加信息。（符号的发明者查尔斯·西蒙尼是匈牙利人，因此得名）。</p>
+<h1>&nbsp;操作字符串</h1>
+<p>Windows本身支持UI元素，Unicode字符串的文件名，等等。Unicode是首选字符编码，因为它支持所有字符集和语言。
+Windows是Unicode字符使用UTF-16编码，其中每个字符被编码为一个16位的值。UTF-16字符称为宽字符，以区别于8位ANSI字
+符。Visual C++编译器支持宽字符的内置数据类型</p>
+<p><strong><em>WinNT.h</em></strong> &nbsp;头文件中也定义了以下类型</p>
+<div class="cnblogs_code">
+<pre>typedef wchar_t WCHAR;</pre>
+</div>
+<p>你会看到在MSDN的例子代码的两个版本。若要声明宽字符文字或宽字符串文字，请将 <span style="background-color: #ffff00">L</span> 置于文字之前。</p>
+<div class="cnblogs_code">
+<pre>wchar_t a = L<span style="color: #800000">'</span><span style="color: #800000">a</span><span style="color: #800000">'</span><span style="color: #000000">;
+wchar_t </span>*str = L<span style="color: #800000">"</span><span style="color: #800000">hello</span><span style="color: #800000">"</span>;</pre>
+</div>
+<p>这里有一些其他的字符串相关的定义，你会看到：</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709204433243-440407995.png" alt=""></p>
+<p><strong>Unicode和ANSI函数</strong></p>
+<p>&nbsp;当微软向Windows引入Unicode支持时，它通过提供两组并行API，一个用于ANSI字符串，另一组用于Unicode字符串，从而缓解了过渡。</p>
+<p>例如，设置窗口标题栏的文本有两个函数：</p>
+<div class="cnblogs_code">
+<pre>SetWindowTextA //takes an ANSI <span style="color: #0000ff">string</span><span style="color: #000000">.
+SetWindowTextW //takes a Unicode </span><span style="color: #0000ff">string</span>.</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;实际上真正使用的时候会加上判断这样定义</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">#ifdef UNICODE
+</span><span style="color: #0000ff">#define</span> SetWindowText  SetWindowTextW
+<span style="color: #0000ff">#else</span>
+<span style="color: #0000ff">#define</span> SetWindowText  SetWindowTextA
+<span style="color: #0000ff">#endif</span> </pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;在MSDN中，函数的名字记录SetWindowText函数下，即使那是真的宏的名字，不是实际的函数名。</p>
+<p>新的应用程序应该总是调用Unicode版本。许多世界语言都需要Unicode。<span style="background-color: #ffff00">如果使用ANSI字符串，将不可能本地化应用程序</span>。</p>
+<p>ANSI版本的效率也较低，因为操作系统必须在运行时将ANSI字符串转换为Unicode。</p>
+<p>根据你的喜好，你可以调用Unicode功能明确，如setwindowtextw，或者使用宏。MSDN上的示例代码通常会调用宏，但两种形式是完全等价的。<span style="background-color: #ffff00">Windows中大多数更新的API只有Unicode版本，没有相应的ANSI版本</span>。</p>
+<p>&nbsp;当应用程序需要同时支持Windows NT以及Windows 95、Windows 98和Windows Me 时，根据目标平台编译ANSI或unicode字符串相同的代码是非常有用的。</p>
+<p>为此，<span style="background-color: #ffff00">Windows SDK提供了将字符串映射到Unicode或ANSI的宏，这取决于平台</span>。</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709205105118-305572489.png" alt=""></p>
+<p>下面是个例子：</p>
+<div class="cnblogs_code">
+<pre>SetWindowText(TEXT(<span style="color: #800000">"</span><span style="color: #800000">My Application</span><span style="color: #800000">"</span>));</pre>
+</div>
+<p>解析如下：</p>
+<div class="cnblogs_code">
+<pre>SetWindowTextW(L<span style="color: #800000">"</span><span style="color: #800000">My Application</span><span style="color: #800000">"</span>); <span style="color: #008000">//</span><span style="color: #008000"> Unicode function with wide-character string.</span>
+<span style="color: #000000">
+SetWindowTextA(</span><span style="color: #800000">"</span><span style="color: #800000">My Application</span><span style="color: #800000">"</span>);  <span style="color: #008000">//</span><span style="color: #008000"> ANSI function.</span></pre>
+</div>
+<p><strong class="x-hidden-focus">TEXT</strong>&nbsp;和&nbsp;<strong class="x-hidden-focus">TCHAR &nbsp;</strong>宏今天已经很少用了，因为所有的应用程序都应该使用Unicode ，然而你可能在MSDN看到一些这样的代码：</p>
+<p>然而，你可能会在旧的代码和一些MSDN代码例子看到他们。<br>微软C运行时库的标题定义了一组类似的宏</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">#ifdef _UNICODE
+</span><span style="color: #0000ff">#define</span> _tcslen     wcslen
+<span style="color: #0000ff">#else</span>
+<span style="color: #0000ff">#define</span> _tcslen     strlen
+<span style="color: #0000ff">#endif</span> </pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="background-color: #ffff00">&nbsp;注意：有些标题使用预处理器符号Unicode，别人用_unicode使用下划线前缀。总是定义这两个符号。当你创建一个新项目，Visual C++将它们通过默认的方式设置。</span></p>
+<h1>&nbsp;什么是Window?</h1>
+<p>&nbsp;显然，Windows是Windows的中心。它们是如此重要，以至于他们在操作系统之后命名了操作系统。</p>
+<p>但是什么是窗口？当你想到一个窗口，你可能会想到这样的东西：</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709210414103-1368902048.png" alt=""></p>
+<p>这种类型的窗口称为应用程序窗口或主窗口。它通常有一个标题栏、最小化和最大化按钮以及其他标准UI元素的框架。</p>
+<p>该框架称为窗口的非客户端区域，之所以称为“窗口”，是因为操作系统负责管理窗口的那部分。框架内的区域是客户区。这是您的程序管理的窗口的一部分。</p>
+<p>这里是另一种类型的窗口：</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709210613978-1955151307.png" alt=""></p>
+<p>如果您是Windows编程新手，您可能会惊讶于UI控件，如按钮和编辑框本身就是Windows。UI控件和应用程序窗口之间的主要区别在于控件本身并不存在。</p>
+<p>相反，控件相对于应用程序窗口定位。当拖动应用程序窗口时，控件将随它移动，如您所期望的那样。另外，控件和应用程序窗口可以相互通信。</p>
+<p>（例如，应用程序窗口从按钮接收单击通知。）</p>
+<p>因此, 当你考虑window时, 不要把它简单地认为是个应用窗口，取而代之的是一种编程结构：</p>
+<blockquote>
+<p>占据屏幕的某一部分。<br>在某一时刻可能不可见。<br>知道如何画自己。<br>响应来自用户或操作系统的事件。</p>
+
+
+
+
+
+
+
+</blockquote>
+<h3 class="x-hidden-focus">Parent Windows and Owner Windows&nbsp;<strong>父窗口和所有者窗口</strong></h3>
+<p>在UI控件的情况下，控件窗口被称为应用程序窗口的子窗口。应用程序窗口是控件窗口的父窗口。父窗口提供用于定位子窗口的坐标系统。有父窗口会影响窗口外观的各个方面；例如，子窗口被裁剪，这样子窗口的任何部分都不能出现在其父窗口的边框外面。<br>另一种关系是应用程序窗口和模式对话框窗口之间的关系。当应用程序显示一个模态对话框时，应用程序窗口是所有者窗口，而对话框是一个拥有窗口。拥有的窗口总是出现在它的所有者窗口前面。当所有者被最小化时，它被隐藏，并在所有者被销毁的同时被销毁。<br>下图显示了一个应用程序，其中显示一个带有两个按钮的对话框：</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709211103306-1057832180.png" alt=""></p>
+<p>这个应用窗口有自己的对话框窗口，这个对话框窗口是父窗口中的两个按钮</p>
+<p>下面是这两者之间的关系：</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709211259603-506764873.png" alt=""></p>
+<h3 class="x-hidden-focus">Window Handles</h3>
+<p>窗口对象既有代码和数据，但他们都不是C++类。相反，<span style="background-color: #ffff00">程序使用一个称为Handle（句柄）的值引用一个窗口</span>。</p>
+<p>一个Handle 是一个不透明类型。本质上，它只是操作系统用来标识对象的一个数字。您可以将窗口视为创建所有窗口的大表。它使用此表通过Hanlder查找窗口。（无论是它是如何工作的内部是不重要的。）</p>
+<p>窗口的数据类型Hanlder是一个<strong>HWND</strong>，这通常是明显的“aitch-wind“。窗口句柄是由函数返回：<strong>CreateWindow</strong>和<strong>CreateWindowEx</strong>创建窗口。</p>
+<p>在一个窗口进行操作，你通常会调用一些函数有一个窗口的句柄值作为参数。例如，复位窗口在屏幕上，调用<strong>MoveWindow</strong>函数：</p>
+<div class="cnblogs_code">
+<pre>BOOL MoveWindow(HWND hWnd, <span style="color: #0000ff">int</span> X, <span style="color: #0000ff">int</span> Y, <span style="color: #0000ff">int</span> nWidth, <span style="color: #0000ff">int</span> nHeight, BOOL bRepaint);</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;第一个参数是要移动的窗口的句柄。其他参数指定窗口的新位置和窗口是否应该重绘.</p>
+<p>记住句柄不是指针。如果窗口是一个变量，包含一个hanlder，试图引用句柄HWND &nbsp;<span style="background-color: #ffff00">*hwnd</span> 这样写是错误的。</p>
+<p><strong>屏幕和窗口坐标</strong></p>
+<p>坐标是以设备无关的像素来度量的。在讨论图形时，我们将更多地讨论与设备无关的像素的与设备无关的部分。<br>根据您的任务，您可以测量相对于屏幕的坐标，相对于窗口（包括帧），或相对于窗口的客户端区域。</p>
+<p>例如，您将使用屏幕坐标在屏幕上定位窗口，但您将使用客户机坐标在窗口中绘图。在每种情况下，原点（0, 0）总是区域的左上角。</p>
+<p><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/622489-20170709214021150-2101196199.png" alt=""></p>
+<h1 class="title x-hidden-focus">WinMain: 程序入口点</h1>
+<p>每一个Windows程序，都有一个入口函数，叫做<strong>WinMain</strong>或<strong>wWinMain</strong>。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">int</span> WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, <span style="color: #0000ff">int</span> nCmdShow);</pre>
+</div>
+<p>&nbsp;</p>
+<p>这四个参数的意义：</p>
+<blockquote>
+<p>hInstance : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;是一种叫做“实例的句柄”或“处理模块”的操作系统使用这个值来确定可执行文件（EXE）时，在内存中加载。实例句柄是某些Windows功能-例如，加载图标或位图。</p>
+<p>hprevinstance: &nbsp; &nbsp;没有意义。它在16位窗口中使用，但现在总是0。</p>
+<p>pcmdline: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;包含命令行参数作为一个Unicode字符串。</p>
+<p>ncmdshow: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;是一个标志，是应用程序的主窗口将被最小化，最大化，或显示正常。</p>
+</blockquote>
+<p>函数返回一个int类型的值。操作系统不使用该返回值，但你可以使用返回值将状态代码发送给您编写的其他程序。</p>
+<p><strong>WINAPI&nbsp;</strong>的调用约定。调用约定定义函数如何从调用者接收参数。例如，它定义了参数出现在堆栈上的顺序。只要确保你wWinMain函数如下声明。</p>
+<p><strong class="x-hidden-focus">WinMain </strong>函数和<strong class="x-hidden-focus"> wWinMain</strong>是相同的，唯一不同的是命令行参数作为一个ANSI字符串，Unicode 版本是首选。</p>
+<p>你可以使用ANSI WinMain 函数，尽管你编译的程序是以Unicode编码。要得到一个Unicode字符编码的命令行参数，可以调用&nbsp;<strong class="x-hidden-focus"><a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/ms683156(v=vs.85).aspx">GetCommandLine</a>&nbsp;函数。</strong></p>
+<p>这个函数将返回一个单一的字符串，如果你想作为一个参数式阵列的参数，通过这个字符串<a href="https://msdn.microsoft.com/zh-cn/library/windows/desktop/bb776391(v=vs.85).aspx"><strong class="x-hidden-focus">CommandLineToArgvW</strong></a>。</p>
+<p>CRT内部主要做一些额外的工作。例如，静态初始化器是之前调用wWinMain。虽然可以告诉链接器使用不同的入口点函数，但如果链接到CRT，则使用默认值。</p>
+<p>否则，将跳过CRT初始化代码，结果不可预测。（例如，全局对象初始化不正确）。</p>
+<p>这是一个空的函数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+    PSTR lpCmdLine, INT nCmdShow)
+{
+    </span><span style="color: #0000ff">return</span> <span style="color: #800080">0</span><span style="color: #000000">;
+}</span></pre>
+</div>
+<p>现在你已经拥有了入口点并理解了一些基本术语和编码约定，下篇博文我们就可以创建一个完整的窗口程序了。</p>
+<p>&nbsp;</p></div><div id="MySignature" style="display: block;">*********************
+
+
+交流即分享，分享才能进步！
+
+不对之处，还请各位前辈多多指教。
+
+                            by 星云
+
+
+********************</div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/xingyunblog/category/568893.html" target="_blank">C++</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7142445,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('75d5815b-b0c0-e311-8d02-90b11c0b17d6');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/xingyunblog/" target="_blank"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/20140602033101.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/xingyunblog/">星云博客园</a><br>
+            <a href="http://home.cnblogs.com/u/xingyunblog/followees">关注 - 10</a><br>
+            <a href="http://home.cnblogs.com/u/xingyunblog/followers">粉丝 - 85</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('75d5815b-b0c0-e311-8d02-90b11c0b17d6');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7142445,'Digg')">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(7142445,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/xingyunblog/p/7142154.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/xingyunblog/p/7142154.html" title="发布于2017-07-09 18:31">0x00 译文:Windows桌面应用入门选择</a><br><a href="http://www.cnblogs.com/xingyunblog/p/7202843.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/xingyunblog/p/7202843.html" title="发布于2017-07-18 22:11">0x00-Kali Linux 系列入门篇</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2017-07-09 22:02</span> <a href="http://www.cnblogs.com/xingyunblog/">星云博客园</a> 阅读(<span id="post_view_count">1273</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=7142445" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(7142445);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=182190,cb_entryId=7142445,cb_blogApp=currentBlogApp,cb_blogUserGuid='75d5815b-b0c0-e311-8d02-90b11c0b17d6',cb_entryCreatedDate='2017/7/9 22:02:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.yunqi2050.com/" target="_blank">【活动】2050 大会 - 年青人因科技而团聚（5.26-5.27 杭州·云栖小镇）</a><br><a href="http://clickc.admaster.com.cn/c/a105960,b2436452,c1705,i0,m101,8a1,8b2,h" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-DevCloud')">【推荐】华为云7大明星产品0元免费使用</a><br><a href="https://cloud.tencent.com/act/first_purchase?fromSource=gwzcw.919198.919198.919198" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-腾讯云')">【活动】腾讯云云服务器新购特惠，5折上云</a><br><a href="http://challenge.xfyun.cn/?ch=bk" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-xfyun')">【大赛】2018首届“顶天立地”AI开发者大赛</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a onclick="ga('send', 'event', 'Link', 'click', 'C1');" href="https://cloud.tencent.com/product/tac?fromSource=gwzcw.924353.924353.924353" target="_blank"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/24442-20180509134043877-1617765201.jpg" alt="腾讯云0509" width="300" height="250"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/597073/" target="_blank">百度不需要“二号人物” 只有李彦宏才是老板</a><br> ·  <a href="https://news.cnblogs.com/n/597072/" target="_blank">独家调查：谁偷了我的海淘额度，背后有怎样的黑色利益链？</a><br> ·  <a href="https://news.cnblogs.com/n/597071/" target="_blank">谷歌独立AR头盔硬件细节曝光 与微软HoloLens不一样</a><br> ·  <a href="https://news.cnblogs.com/n/597070/" target="_blank">特朗普敦促美国邮政将亚马逊的运费标准提高一倍</a><br> ·  <a href="https://news.cnblogs.com/n/597069/" target="_blank">Ubuntu 18.10正式开启：新主题、Android集成、节能优化</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/9667/" target="_blank"><img src="0x01%20%E8%AF%91%E6%96%87%20Windows%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8Win32%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B%20-%20%E6%98%9F%E4%BA%91%E5%8D%9A%E5%AE%A2%E5%9B%AD%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/TB1iQKbhqmWBuNjy1XaXXXCbXXa-468-60.jpg" alt="" style="width: 468px; height: 60px;"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/576411/" target="_blank">你可以把编程当做一项托付终身的职业</a><br> ·  <a href="http://kb.cnblogs.com/page/596164/" target="_blank">评审的艺术——谈谈现实中的代码评审</a><br> ·  <a href="http://kb.cnblogs.com/page/577233/" target="_blank">如何高效学习</a><br> ·  <a href="http://kb.cnblogs.com/page/578689/" target="_blank">如何成为优秀的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/594930/" target="_blank">菜鸟工程师的超神之路 -- 从校园到职场</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/xingyunblog/">星云博客园</a><br>园龄：<a href="https://home.cnblogs.com/u/xingyunblog/" title="入园时间：2014-04-10">4年1个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/xingyunblog/followers/">85</a><br>关注：<a href="https://home.cnblogs.com/u/xingyunblog/followees/">10</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('75d5815b-b0c0-e311-8d02-90b11c0b17d6')">+加关注</a></div><script>getFollowStatus('75d5815b-b0c0-e311-8d02-90b11c0b17d6')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="Calendar" cellspacing="0" cellpadding="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/04/01');return false;">&lt;</a></td><td align="center">2018年5月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/06/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center"><a href="http://www.cnblogs.com/xingyunblog/archive/2018/05/08.html"><u>8</u></a></td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center"><a href="http://www.cnblogs.com/xingyunblog/archive/2018/05/14.html"><u>14</u></a></td><td align="center">15</td><td align="center">16</td><td align="center"><a href="http://www.cnblogs.com/xingyunblog/archive/2018/05/17.html"><u>17</u></a></td><td align="center"><a href="http://www.cnblogs.com/xingyunblog/archive/2018/05/18.html"><u>18</u></a></td><td class="CalTodayDay" align="center"><a href="http://www.cnblogs.com/xingyunblog/archive/2018/05/19.html"><u>19</u></a></td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk" type="text">&nbsp;<input onclick="zzk_go()" value="找找看" id="btnZzk" class="btn_my_zzk" type="button"></div>
+<div id="widget_my_google" class="div_my_zzk"><input name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk" type="text">&nbsp;<input onclick="google_go()" value="谷歌搜索" class="btn_my_zzk" type="button"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/xingyunblog/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/xingyunblog/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/xingyunblog/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/xingyunblog/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/xingyunblog/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass('itemListLink', 'itemListLin_con');return false;" href="#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/xingyunblog/p/9055488.html">1. 关于Java 软件工程师应该知道或掌握的技术栈</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/9049356.html">2. Python 计算两个IP段之间的有效IP地址</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/9037592.html">3. Spring Boot 2.0 Intellij Idea 中图文详解打包成可执行Jar</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/9010463.html">4. Java 并发多线程处理优秀博文整理</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/8926246.html">5. 揭开Docker的神秘面纱</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/8927157.html">6. VMWare Workstation虚拟机 安装Centos7 图文指南</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/8907084.html">7. 2. 解题报告~买卖股票的最佳时机 II</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/8902194.html">8. 1. 解题报告~从排序数组中删除重复项</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/8798098.html">9. 揭开Redis的神秘面纱</a></li><li><a href="http://www.cnblogs.com/xingyunblog/articles/8807888.html">10. 转：Alpha、Beta、RC、GA、PRE版本的区别</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(182)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/xingyunblog/category/1031999.html">AngularJS</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/xingyunblog/category/568872.html">C(16)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/xingyunblog/category/600212.html">C#(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/xingyunblog/category/568893.html">C++(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/xingyunblog/category/1204750.html">Docker(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/xingyunblog/category/1192890.html">Dubbo(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/xingyunblog/category/1015881.html">Groovy</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/xingyunblog/category/644583.html">HTML5/CSS3(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/xingyunblog/category/1015878.html">IOS</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/xingyunblog/category/1219305.html">Java EE- Hibernate(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/xingyunblog/category/1015879.html">Java EE-Grails</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/xingyunblog/category/1011539.html">Java EE-Spring(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/xingyunblog/category/1193325.html">Java EE-Spring Cloud(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/xingyunblog/category/1218774.html">Java EE-Spring WebFlux</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/xingyunblog/category/1187508.html">Java EE-SpringBoot(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/xingyunblog/category/1181802.html">Java EE-SpringMVC</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/xingyunblog/category/581290.html">Java EE-Struts2(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/xingyunblog/category/593270.html">Java ME(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/xingyunblog/category/580376.html">Java SE(34)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/xingyunblog/category/1015883.html">Kotlin</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="http://www.cnblogs.com/xingyunblog/category/1203279.html">LeetCode(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="http://www.cnblogs.com/xingyunblog/category/569053.html">Linux(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_22" href="http://www.cnblogs.com/xingyunblog/category/1186685.html">Lucene(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_23" href="http://www.cnblogs.com/xingyunblog/category/1198211.html">NoSQL- Redis(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_24" href="http://www.cnblogs.com/xingyunblog/category/1015876.html">PHP(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_25" href="http://www.cnblogs.com/xingyunblog/category/1015877.html">Python(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_26" href="http://www.cnblogs.com/xingyunblog/category/1015890.html">React Native</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_27" href="http://www.cnblogs.com/xingyunblog/category/568903.html">SQL- MySQL (4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_28" href="http://www.cnblogs.com/xingyunblog/category/595657.html">SQL- SQL server(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_29" href="http://www.cnblogs.com/xingyunblog/category/594991.html">VF(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_30" href="http://www.cnblogs.com/xingyunblog/category/1219302.html">版本控制-SVN</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_31" href="http://www.cnblogs.com/xingyunblog/category/1189103.html">博客模板(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_32" href="http://www.cnblogs.com/xingyunblog/category/590496.html">操作系统(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_33" href="http://www.cnblogs.com/xingyunblog/category/1015897.html">极客作品秀</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_34" href="http://www.cnblogs.com/xingyunblog/category/592320.html">计算机组成原理(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_35" href="http://www.cnblogs.com/xingyunblog/category/1013365.html">逆向安全</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_36" href="http://www.cnblogs.com/xingyunblog/category/568886.html">批处理(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_37" href="http://www.cnblogs.com/xingyunblog/category/618573.html">神兵利器(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_38" href="http://www.cnblogs.com/xingyunblog/category/583224.html">渗透安全(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_39" href="http://www.cnblogs.com/xingyunblog/category/609716.html">数据结构(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_40" href="http://www.cnblogs.com/xingyunblog/category/593766.html">心情故事(17)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(181)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/xingyunblog/archive/2018/05.html">2018年5月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/xingyunblog/archive/2018/04.html">2018年4月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/xingyunblog/archive/2018/03.html">2018年3月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/xingyunblog/archive/2017/09.html">2017年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/xingyunblog/archive/2017/08.html">2017年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/xingyunblog/archive/2017/07.html">2017年7月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/xingyunblog/archive/2017/06.html">2017年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/xingyunblog/archive/2017/04.html">2017年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/xingyunblog/archive/2017/03.html">2017年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/xingyunblog/archive/2017/01.html">2017年1月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/xingyunblog/archive/2016/12.html">2016年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/xingyunblog/archive/2015/08.html">2015年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/xingyunblog/archive/2015/03.html">2015年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/xingyunblog/archive/2015/01.html">2015年1月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/xingyunblog/archive/2014/12.html">2014年12月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/xingyunblog/archive/2014/11.html">2014年11月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/xingyunblog/archive/2014/10.html">2014年10月 (16)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/xingyunblog/archive/2014/09.html">2014年9月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/xingyunblog/archive/2014/08.html">2014年8月 (22)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/xingyunblog/archive/2014/07.html">2014年7月 (44)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/xingyunblog/archive/2014/06.html">2014年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/xingyunblog/archive/2014/05.html">2014年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/xingyunblog/archive/2014/04.html">2014年4月 (15)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleCategory">
+<h3 class="catListTitle">文章分类<span style="font-size:11px;font-weight:normal">(53)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/xingyunblog/category/667345.html">Android</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/xingyunblog/category/597790.html">C(3)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/xingyunblog/category/603240.html">C#(6)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/xingyunblog/category/594433.html">Delphi(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_4" href="http://www.cnblogs.com/xingyunblog/category/1218891.html">DNS(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_5" href="http://www.cnblogs.com/xingyunblog/category/1218869.html">Docker(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_6" href="http://www.cnblogs.com/xingyunblog/category/593761.html">dos命令(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_7" href="http://www.cnblogs.com/xingyunblog/category/598853.html">Java(4)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_8" href="http://www.cnblogs.com/xingyunblog/category/620104.html">JavaEE(4)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_9" href="http://www.cnblogs.com/xingyunblog/category/1204780.html">Linux(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_10" href="http://www.cnblogs.com/xingyunblog/category/593764.html">MySQL(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_11" href="http://www.cnblogs.com/xingyunblog/category/1218894.html">Nginx(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_12" href="http://www.cnblogs.com/xingyunblog/category/1218717.html">Spring News(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_13" href="http://www.cnblogs.com/xingyunblog/category/593758.html">SQLserver(5)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_14" href="http://www.cnblogs.com/xingyunblog/category/593763.html">帮助文献(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_15" href="http://www.cnblogs.com/xingyunblog/category/1218916.html">比特币(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_16" href="http://www.cnblogs.com/xingyunblog/category/593759.html">操作系统(4)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_17" href="http://www.cnblogs.com/xingyunblog/category/1168401.html">代码审计(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_18" href="http://www.cnblogs.com/xingyunblog/category/593762.html">关注漏洞(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_19" href="http://www.cnblogs.com/xingyunblog/category/1218910.html">汇编语言(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_20" href="http://www.cnblogs.com/xingyunblog/category/609446.html">计算机网络(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_21" href="http://www.cnblogs.com/xingyunblog/category/595765.html">计算机优化(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_22" href="http://www.cnblogs.com/xingyunblog/category/1219005.html">名人轶事(2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_23" href="http://www.cnblogs.com/xingyunblog/category/593760.html">批处理(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_24" href="http://www.cnblogs.com/xingyunblog/category/1197528.html">其他(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_25" href="http://www.cnblogs.com/xingyunblog/category/1218927.html">区块链(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_26" href="http://www.cnblogs.com/xingyunblog/category/714808.html">小说(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_27" href="http://www.cnblogs.com/xingyunblog/category/595146.html">心理学(1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_28" href="http://www.cnblogs.com/xingyunblog/category/1218993.html">自由软件许可证GPL(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleArchive">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(55)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://www.cnblogs.com/xingyunblog/archives/2018/05.html" rel="nofollow">2018年5月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_1" href="http://www.cnblogs.com/xingyunblog/archives/2018/04.html" rel="nofollow">2018年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_2" href="http://www.cnblogs.com/xingyunblog/archives/2018/02.html" rel="nofollow">2018年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_3" href="http://www.cnblogs.com/xingyunblog/archives/2017/03.html" rel="nofollow">2017年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_4" href="http://www.cnblogs.com/xingyunblog/archives/2016/04.html" rel="nofollow">2016年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_5" href="http://www.cnblogs.com/xingyunblog/archives/2015/07.html" rel="nofollow">2015年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_6" href="http://www.cnblogs.com/xingyunblog/archives/2015/03.html" rel="nofollow">2015年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_7" href="http://www.cnblogs.com/xingyunblog/archives/2015/01.html" rel="nofollow">2015年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_8" href="http://www.cnblogs.com/xingyunblog/archives/2014/12.html" rel="nofollow">2014年12月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_9" href="http://www.cnblogs.com/xingyunblog/archives/2014/10.html" rel="nofollow">2014年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_10" href="http://www.cnblogs.com/xingyunblog/archives/2014/09.html" rel="nofollow">2014年9月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_11" href="http://www.cnblogs.com/xingyunblog/archives/2014/08.html" rel="nofollow">2014年8月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_12" href="http://www.cnblogs.com/xingyunblog/archives/2014/07.html" rel="nofollow">2014年7月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_13" href="http://www.cnblogs.com/xingyunblog/archives/2014/06.html" rel="nofollow">2014年6月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_14" href="http://www.cnblogs.com/xingyunblog/archives/2014/05.html" rel="nofollow">2014年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_15" href="http://www.cnblogs.com/xingyunblog/archives/2014/04.html" rel="nofollow">2014年4月 (3)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">MD5密码查询</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_4_Link_0" href="http://www.cmd5.com/" rel="nofollow" target="_blank">cmd5查询</a> </li>
+
+<li><a id="CatList_LinkList_4_Link_1" href="http://www.somd5.com/" rel="nofollow" target="_blank">somd5</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">帮助文档</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_5_Link_0" href="http://msdn.microsoft.com/library/" rel="nofollow" target="_blank">Microsoft API </a> </li>
+
+<li><a id="CatList_LinkList_5_Link_1" href="http://www.yesky.com/imagesnew/software/vbscript/html/jsgrpRegExpSyntax.htm" rel="nofollow" target="_blank">正则表达式</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">经典博客</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_6_Link_0" href="http://www.webbaozi.com/" rel="nofollow" target="_blank">Bao zi's 博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_1" href="https://www.joelonsoftware.com/" rel="nofollow" target="_blank">JOEL ON SOFTWARE</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_2" href="https://blog.csdn.net/googdev" rel="nofollow" target="_blank">Stormzhang CSDN博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_3" href="http://jm.taobao.org/" rel="nofollow" target="_blank">阿里中间件团队博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_4" href="http://blog.didispace.com/" rel="nofollow" target="_blank">程序员DD</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_5" href="http://www.ityouknow.com/" rel="nofollow" target="_blank">纯洁的微笑</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_6" href="http://www.520geek.cn/" rel="nofollow" target="_blank">个人主页</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_7" href="https://blog.csdn.net/guolin_blog" rel="nofollow" target="_blank">郭霖CSDN博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_8" href="http://www.lcode.org/" rel="nofollow" target="_blank">江清清的技术专栏</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_9" href="https://blog.csdn.net/luoshengyang" rel="nofollow" target="_blank">老罗CSDN博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_10" href="https://tech.meituan.com/" rel="nofollow" target="_blank">美团点评技术团队</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_11" href="http://www.jcodecraeer.com/" rel="nofollow" target="_blank">泡在网上的日子</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_12" href="http://www.ruanyifeng.com/home.html" rel="nofollow" target="_blank">阮一峰的个人网站</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_13" href="http://blog.csdn.net/hadues" rel="nofollow" target="_blank">我的CSDN's blog</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_14" href="http://0day.pub/" rel="nofollow" target="_blank">无名's blog</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_15" href="http://aipp.me/" rel="nofollow" target="_blank">小神博客</a> </li>
+
+<li><a id="CatList_LinkList_6_Link_16" href="https://blog.csdn.net/lmj623565791" rel="nofollow" target="_blank">张鸿洋 CSDN博客</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList关注漏洞的网址">
+<h3 class="catListTitle">漏洞汇集网址</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_7_Link_0" href="http://sebug.net/" rel="nofollow" target="_blank">Sebug漏洞库</a> </li>
+
+<li><a id="CatList_LinkList_7_Link_1" href="http://www.sebug.net/" rel="nofollow" target="_blank">tomcat漏洞库</a> </li>
+
+<li><a id="CatList_LinkList_7_Link_2" href="http://www.wooyun.org/" rel="nofollow" target="_blank">乌云漏洞提交平台</a> </li>
+
+<li><a id="CatList_LinkList_7_Link_3" href="http://www.cnnvd.org.cn/" rel="nofollow" target="_blank">中国国家信息安全漏洞库</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList音乐下午茶——故事微小说">
+<h3 class="catListTitle">轻松一刻</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_8_Link_0" href="http://i.56.com/hitea56/album" rel="nofollow" target="_blank">音乐下午茶—故事微小说</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">网络知识论坛</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_9_Link_0" href="http://www.xfocus.net/index.html" rel="nofollow">安全焦点</a> </li>
+
+<li><a id="CatList_LinkList_9_Link_1" href="http://bbs.fishc.com/portal.php" rel="nofollow" target="_blank">小甲鱼编程学习论坛</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">源码网址</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_10_Link_0" href="http://www.codefans.net/" rel="nofollow" target="_blank">源码爱好者</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">在线刷题</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_11_Link_0" href="http://acm.nyist.edu.cn/JudgeOnline/problemset.php" rel="nofollow" target="_blank">南阳理工ACM</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">站长工具箱</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_12_Link_0" href="http://tool.lu/httpcode/" rel="nofollow" target="_blank">HTTP请求码</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_1" href="http://virusscan.jotti.org/en" rel="nofollow" target="_blank">Jotti's Malware（多引擎查毒网站）</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_2" href="http://app.xunjiepdf.com/" rel="nofollow" target="_blank">PDF转Word在线工具</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_3" href="http://www.virscan.org/" rel="nofollow" target="_blank">Virscan（全球知名的多引擎查毒网站）</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_4" href="https://www.virustotal.com/zh-cn/" rel="nofollow" target="_blank">Virus Total（著名的多引擎查毒网站）</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_5" href="http://yzxss.sinaapp.com/appserv/zhuanma.swf" rel="nofollow" target="_blank">Xss在线转码网址</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_6" href="http://s.chinaz.com/" rel="nofollow" target="_blank">服务器常用软件</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_7" href="http://fuwuqixitongshibie.51240.com/?q=" rel="nofollow" target="_blank">服务器系统识别</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_8" href="http://www.poco.cn/" rel="nofollow" target="_blank">图片外链</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_9" href="http://myapp.alifeifei.net/app/urlzip/box/" rel="nofollow" target="_blank">网址缩短工具</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_10" href="http://www.qt86.com/" rel="nofollow" target="_blank">艺术字在线生成</a> </li>
+
+<li><a id="CatList_LinkList_12_Link_11" href="http://www.zhaodll.com/" rel="nofollow" target="_blank">找dll下载</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	129634
+	</li><li class="liRank">
+		排名 -	2350
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/xingyunblog/p/8926246.html#3970488">1. Re:揭开Docker的神秘面纱</a></li>
+        <li class="recent_comment_body">加油博主</li>
+        <li class="recent_comment_author">--老馄饨</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/xingyunblog/p/3871611.html#3859982">2. Re:12.JAVA之GUI编程打开与保存文件</a></li>
+        <li class="recent_comment_body">@海东士哦，抱歉，刚看到。 // 打开菜单项监听 openItem.addActionListener(new ActionListener() { public......</li>
+        <li class="recent_comment_author">--星云博客园</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/xingyunblog/p/3871611.html#3819395">3. Re:12.JAVA之GUI编程打开与保存文件</a></li>
+        <li class="recent_comment_body">星云，想问问你如何在你这个的基础上导入excel文件呢，我知道使用poi包进行读取excel，但是不知道如何利用按钮单击事件选中文件后然后读取，可以指导指导么</li>
+        <li class="recent_comment_author">--海东士</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/xingyunblog/p/6243179.html#3766811">4. Re:Java MyBatis 插入数据库返回主键</a></li>
+        <li class="recent_comment_body">MyBatis 插入数据库返回主键 是在什么情况下要这样用的？怎么从来没遇到过。。。</li>
+        <li class="recent_comment_author">--星辰海</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/xingyunblog/p/6220203.html#3731058">5. Re:Struts2实现ajax的两种方式</a></li>
+        <li class="recent_comment_body">@迷失的鱼少了哪一半？哪里有问题么？...</li>
+        <li class="recent_comment_author">--星云博客园</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/xingyunblog/p/6243179.html">1. Java MyBatis 插入数据库返回主键(55142)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/6220203.html">2. Struts2实现ajax的两种方式(13976)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3870207.html">3. 10.JAVA之GUI编程弹出对话框Dialog(12549)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3660074.html">4. C++中的std详解(12354)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3841031.html">5. 2.JAVA之GUI编程布局(10387)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/xingyunblog/p/3927488.html">1. 从c#角度看万能密码SQL注入漏洞(20)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3764002.html">2. C语言中两位ASCII码可以表示汉字(17)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3831221.html">3. 1.安卓开发之环境搭建(9)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3934583.html">4. 账号密码管理系统Access版本(8)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3657580.html">5. 考察printf函数返回值(6)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/xingyunblog/p/3831221.html">1. 1.安卓开发之环境搭建(8)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/6243179.html">2. Java MyBatis 插入数据库返回主键(4)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/4138328.html">3. MyBatis框架郭哥视频学习笔记(2)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3764002.html">4. C语言中两位ASCII码可以表示汉字(2)</a></li><li><a href="http://www.cnblogs.com/xingyunblog/p/3756732.html">5. 解决java代码测试http协议505错误(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 星云博客园
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

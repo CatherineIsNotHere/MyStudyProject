@@ -196,19 +196,7 @@ void main(){
 			break;
 		}
 		canUse = true;
-		//以上即可实现功能。
-		//int allcolor = 0;
-		//for (int i = 1; i <= numsz; i++)
-		//{
-		//	for (inum; inum > 0; inum--){
-		//		if (color[csz - 1] + i == puke[inum]){
-		//			allcolor++;
-		//		}
-		//	}
-		//}
-		//if (allcolor==13){
-		//	csz--;
-		//}
+		//复杂度较大
 	}
 
 	system("pause");
