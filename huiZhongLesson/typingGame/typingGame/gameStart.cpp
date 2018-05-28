@@ -28,14 +28,27 @@ char map[23][36] = { { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 }
 };
 
-void printMap();
-void main(){
-	HideCursor();
-	printMap();
+void printMap();//¥Ú”°µÿÕº
+int typeLetterNum = 0;
+void printKey() {
+	while (true) {
+		int key = 0;
+		if (_kbhit()) {
+			key = _getch();
+			gotoxy(typeLetterNum, 24);
+			cout << (char)key;
+			typeLetterNum++;
+		}
+	}
+}
+
+void wordDown() {
 	int wordY = 1;
 	int wordx = 6;
 	int wsize = word[0].length();
-	while (true){
+	while (true) {
+
+		Sleep(1000);
 		for (string::iterator wdit = word[0].begin(); wdit != word[0].end(); wdit++)
 		{
 			gotoxy(wordx, wordY);
@@ -45,12 +58,21 @@ void main(){
 		wordx = 6;
 		for (int i = 0; i < wsize; i++)
 		{
-			gotoxy(wordx + i, wordY-1);
+			gotoxy(wordx + i, wordY - 1);
 			cout << "  ";
 		}
 		wordY++;
-		Sleep(1000);
 	}
+}
+
+void main(){
+	HideCursor();
+	printMap();
+	thread t_wd(wordDown);
+	t_wd.detach();
+	printKey();
+	/*thread t_pk(printKey);
+	t_pk.join();*/
 }
 
 void printMap(){
