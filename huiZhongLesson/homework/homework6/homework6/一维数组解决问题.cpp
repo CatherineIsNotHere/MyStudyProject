@@ -11,7 +11,7 @@ using namespace std;
 	*/
 
 void main(){
-	//数组的归并
+	//数组的归并排序
 	int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 	int arr2[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 	int arr3[20] = {};
@@ -27,33 +27,19 @@ void main(){
 	for (int i = 0; i < sizeof(arr2) / sizeof(int); i++)
 		cout << arr2[i] << ",";
 	cout << endl;
-	cout << "合并后数组为：";
-	for (int i = 0; i < 20; i++)
-		cout << arr3[i] << ",";
-	cout << endl;
-	cout << endl;
-
-	//数组的排序
-	int arrSort[16] = { 5, 10, 6, 2, 1, 8, 9, 50, 2, 4, 3, 8, 64, 2, 78, 3 };
-	cout << "排序前：";
-	for (int i = 0; i < sizeof(arrSort) / sizeof(int); i++)
-		cout << arrSort[i] << ",";
-	cout << endl;
 	int t = 0;
-	for (int i = 0; i < sizeof(arrSort) / sizeof(int); i++)
-	{
-		for (int j = i + 1; j < sizeof(arrSort) / sizeof(int); j++)
+	for (int i = 0; i < sizeof(arr3) / sizeof(int); i++)
+		for (int j = i + 1; j < sizeof(arr3) / sizeof(int); j++)
 		{
-			if (arrSort[i] < arrSort[j]){
-				t = arrSort[i];
-				arrSort[i] = arrSort[j];
-				arrSort[j] = t;
+			if (arr3[i] < arr3[j]){
+				t = arr3[i];
+				arr3[i] = arr3[j];
+				arr3[j] = t;
 			}
 		}
-	}
-	cout << "排序后：";
-	for (int i = 0; i < sizeof(arrSort) / sizeof(int); i++)
-		cout << arrSort[i] << ",";
+	cout << "归并排序后：";
+	for (int i = 0; i < sizeof(arr3) / sizeof(int); i++)
+		cout << arr3[i] << ",";
 	cout << endl;
 	cout << endl;
 
