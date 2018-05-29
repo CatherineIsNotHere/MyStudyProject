@@ -87,6 +87,8 @@
     <ResourceCompile Include="lesson40-2.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bmp\图标.bmp" />
+    <Image Include="bmp\图标2.bmp" />
     <Image Include="icos\32.ico" />
     <Image Include="icos\favicon.ico" />
   </ItemGroup>

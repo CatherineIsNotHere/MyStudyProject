@@ -252,12 +252,14 @@ static void initBoxAndDestination() {
 	{
 		for (int j = 0; j < 16; j++)
 		{
-			if (_pushBoxMap->m_imap[i][j] == box) {
+			if (_pushBoxMap->m_imap[i][j] == box || _pushBoxMap->m_imap[i][j] == destination + box) {
 				boxes[k].setILocationX(j);
 				boxes[k].setIlocationY(i);
 				k++;
 			}
-			else if (_pushBoxMap->m_imap[i][j] == destination || _pushBoxMap->m_imap[i][j] == destination + player || _pushBoxMap->m_imap[i][j] == destination + box)
+			else if (_pushBoxMap->m_imap[i][j] == destination || _pushBoxMap->m_imap[i][j] == destination + player )
+				destinationNum++;
+			if (_pushBoxMap->m_imap[i][j] == destination + box)
 				destinationNum++;
 		}
 	}
