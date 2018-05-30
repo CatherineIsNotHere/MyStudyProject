@@ -33,6 +33,7 @@ void printMap();//¥Ú”°µÿÕº
 void printKey();
 int typeLetterNum = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 void printInput() {
 	while (true) {
 		int key = 0;
@@ -52,6 +53,8 @@ void wordDown() {
 	while (true) {
 =======
 >>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
+=======
+>>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
 
 
 void main(){
@@ -60,8 +63,13 @@ void main(){
 	thread t_wd(wordDown);
 	t_wd.detach();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	//printInput();
 	thread t_pk(printInput);
+=======
+	//printKey();
+	thread t_pk(printKey);
+>>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
 =======
 	//printKey();
 	thread t_pk(printKey);
