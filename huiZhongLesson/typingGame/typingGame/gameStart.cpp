@@ -28,18 +28,43 @@ char map[23][36] = { { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 }
 };
 
+void wordDown();
 void printMap();//¥Ú”°µÿÕº
+void printKey();
 int typeLetterNum = 0;
-void printKey() {
-	while (true) {
-		int key = 0;
-		if (_kbhit()) {
-			key = _getch();
-			gotoxy(typeLetterNum, 24);
-			cout << (char)key;
-			typeLetterNum++;
+
+
+void main(){
+	HideCursor();
+	printMap();
+	thread t_wd(wordDown);
+	t_wd.detach();
+	//printKey();
+	thread t_pk(printKey);
+	t_pk.join();
+}
+
+void printMap(){
+	for (int i = 0; i < 23; i++)
+	{
+		for (int j = 0; j < 36; j++)
+		{
+			switch (map[i][j])
+			{
+			case 1:
+				cout << "°ı";
+				break;
+			case 0:
+				cout << "  ";
+				break;
+			default:
+				cout << map[i][j];
+				break;
+			}
 		}
+		cout << endl;
 	}
+
 }
 
 void wordDown() {
@@ -65,35 +90,14 @@ void wordDown() {
 	}
 }
 
-void main(){
-	HideCursor();
-	printMap();
-	thread t_wd(wordDown);
-	t_wd.detach();
-	printKey();
-	/*thread t_pk(printKey);
-	t_pk.join();*/
-}
-
-void printMap(){
-	for (int i = 0; i < 23; i++)
-	{
-		for (int j = 0; j < 36; j++)
-		{
-			switch (map[i][j])
-			{
-			case 1:
-				cout << "°ı";
-				break;
-			case 0:
-				cout << "  ";
-				break;
-			default:
-				cout << map[i][j];
-				break;
-			}
+void printKey() {
+	while (true) {
+		int key = 0;
+		if (_kbhit()) {
+			key = _getch();
+			gotoxy(typeLetterNum, 24);
+			cout << (char)key;
+			typeLetterNum++;
 		}
-		cout << endl;
 	}
-
 }
