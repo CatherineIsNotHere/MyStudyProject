@@ -92,7 +92,7 @@ static void startPushBox() {
 		case 'a':
 			if (_pushBoxMap->m_imap[iWLY][iWLX - 1] == box || _pushBoxMap->m_imap[iWLY][iWLX - 1] == box + destination)
 			{
-				if (_pushBoxMap->m_imap[iWLY][iWLX - 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX - 2] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
+				if (_pushBoxMap->m_imap[iWLY][iWLX - 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX - 2] != box && _pushBoxMap->m_imap[iWLY][iWLX - 2] != box + destination) {
 					step = dirLeft;
 					man->Move(step, _pushBoxMap->m_imap);
 					movebox = findBox(iWLX - 1, iWLY);
@@ -117,7 +117,7 @@ static void startPushBox() {
 		case 's':
 			if (_pushBoxMap->m_imap[iWLY + 1][iWLX] == box || _pushBoxMap->m_imap[iWLY + 1][iWLX] == box + destination)
 			{
-				if (_pushBoxMap->m_imap[iWLY + 2][iWLX] != wall && _pushBoxMap->m_imap[iWLY + 2][iWLX] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
+				if (_pushBoxMap->m_imap[iWLY + 2][iWLX] != wall && _pushBoxMap->m_imap[iWLY + 2][iWLX] != box && _pushBoxMap->m_imap[iWLY + 2][iWLX] != box + destination) {
 					step = dirDown;
 					man->Move(step, _pushBoxMap->m_imap);
 					movebox = findBox(iWLX, iWLY + 1);
@@ -142,7 +142,7 @@ static void startPushBox() {
 		case 'd':
 			if (_pushBoxMap->m_imap[iWLY][iWLX + 1] == box || _pushBoxMap->m_imap[iWLY][iWLX + 1] == box + destination)
 			{
-				if (_pushBoxMap->m_imap[iWLY][iWLX + 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX + 2] != box && _pushBoxMap->m_imap[iWLY - 2][iWLX] != box + destination) {
+				if (_pushBoxMap->m_imap[iWLY][iWLX + 2] != wall && _pushBoxMap->m_imap[iWLY][iWLX + 2] != box && _pushBoxMap->m_imap[iWLY][iWLX + 2] != box + destination) {
 					step = dirRight;
 					man->Move(step, _pushBoxMap->m_imap);
 					movebox = findBox(iWLX + 1, iWLY);
@@ -216,6 +216,7 @@ static void drawMap() {
 				break;
 			case destination + box:
 				printf("бя");
+				boxNum++;
 				break;
 			case wall:
 				printf("бЎ");
@@ -257,7 +258,7 @@ static void initBoxAndDestination() {
 				boxes[k].setIlocationY(i);
 				k++;
 			}
-			else if (_pushBoxMap->m_imap[i][j] == destination || _pushBoxMap->m_imap[i][j] == destination + player )
+			else if (_pushBoxMap->m_imap[i][j] == destination || _pushBoxMap->m_imap[i][j] == destination + player)
 				destinationNum++;
 			if (_pushBoxMap->m_imap[i][j] == destination + box)
 				destinationNum++;
