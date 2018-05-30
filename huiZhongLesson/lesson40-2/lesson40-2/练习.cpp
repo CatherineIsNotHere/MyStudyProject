@@ -7,6 +7,8 @@
 LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);
 static TCHAR szAppName[] = TEXT("MyWindow");
 HWND hToolbar;
+HWND hStatusBar;
+UINT_PTR ID_TIMER;
 
 HWND MakeToolbar(HWND hwnd){
 	INITCOMMONCONTROLSEX InitCtrlEx;
@@ -55,6 +57,46 @@ HWND MakeToolbar(HWND hwnd){
 
 	return hwnd;
 }
+/*
+	名称：MakeStatusBar
+	功能：创建状态栏
+	参数：HWND
+*/
+HWND MakeStatusBar(HWND hwnd){
+	HWND hStatus;
+	hStatus = CreateWindow(STATUSCLASSNAME, __TEXT(""), WS_CHILD | WS_VISIBLE,
+		0, 0, 0, 0,
+		hwnd, NULL,
+		GetModuleHandle(NULL),NULL);
+	return hStatus;
+}
+
+/*
+	名称：setStatus
+	功能：将状态栏划分成多格
+	参数：hwnd主窗口句柄，hstatus状态栏句柄
+*/
+int setStatus(HWND hwnd,HWND hStatus){
+	int Rightend[3];
+	RECT WinRect;
+	GetClientRect(hwnd,&WinRect);
+	Rightend[0] = WinRect.right / 3;
+	Rightend[1] = WinRect.right * 2 / 3;
+	Rightend[2] = WinRect.right;
+	SendMessage(hStatus,SB_SETPARTS,(WPARAM)3,(LPARAM)Rightend);
+	return 1;
+}
+
+/*
+	名称：setStatusText
+	功能：设置状态栏某一格的标题
+	参数：hStatus状态栏句柄，i第i格，txt标题
+*/
+int setStatusText(HWND hStatus,int i,char *txt){
+	SendMessage(hStatus, SB_SETTEXT, (WPARAM)i, (LPARAM)txt);
+	return 1;
+}
+
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevsInstance, PSTR szCmdLine, int iCmdShow){
 	HWND hwnd;
@@ -96,7 +138,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevsInstance, PSTR szCmdLine
 		DispatchMessage(&msg);
 	}
 	return msg.wParam;
-
 }
 
 LRESULT CALLBACK wndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam){
@@ -115,6 +156,7 @@ LRESULT CALLBACK wndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam){
 		EndPaint(hwnd, &ps);
 		break;
 	case WM_DESTROY:
+		KillTimer(hwnd,ID_TIMER);
 		PostQuitMessage(0);
 		break;
 	case WM_COMMAND:
@@ -141,6 +183,22 @@ LRESULT CALLBACK wndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam){
 	case WM_CREATE:
 		//InitCommonControls();
 		MakeToolbar(hwnd);
+		hStatusBar = MakeStatusBar(hwnd);
+		setStatus(hwnd, hStatusBar);
+		SetTimer(hwnd, ID_TIMER, 1000, NULL);
+		break;
+	case WM_SIZE:
+		SendMessage(hToolbar, message, wParam, lParam);
+		SendMessage(hStatusBar, message, wParam, lParam);
+		setStatus(hwnd,hStatusBar);
+		break;
+	case WM_TIMER:
+	{SYSTEMTIME st;
+	GetLocalTime(&st);
+	char str[512] = { 0 };
+	sprintf_s(str, sizeof(str),"%2d:%2d:%2d", st.wHour, st.wMinute, st.wSecond);
+	setStatusText(hStatusBar, 1, str);
+	}
 		break;
 	default:
 		return DefWindowProc(hwnd, message, wParam, lParam);
