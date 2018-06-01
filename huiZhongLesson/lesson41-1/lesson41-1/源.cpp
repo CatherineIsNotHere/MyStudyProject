@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <windowsx.h>
 #include "resource.h"
 
 //LPCWSTR Caption = __TEXT("Application Programing Interface");
@@ -11,6 +12,13 @@ LRESULT CALLBACK DlgProc(HWND hWndDlg, UINT msg, WPARAM wParam, LPARAM lParam){
 	HWND hh;
 	HWND hhh;
 	wchar_t s[512] = {};
+	HINSTANCE hinst = GetModuleHandle(NULL);
+	static HWND hListBox;
+	static HWND hCombo;
+	int iSelectedIndex;
+	TCHAR strSelectedItem[32];
+	TCHAR szMessage[32];
+	auto uCount=0;
 	switch (msg)
 	{
 	case WM_INITDIALOG:
@@ -61,12 +69,44 @@ LRESULT CALLBACK DlgProc(HWND hWndDlg, UINT msg, WPARAM wParam, LPARAM lParam){
 		//	10, 200, 200, 300,
 		//	hWndDlg, (HMENU)1000, inst, NULL
 		//	);
+		//下拉列表框
+		CreateWindow(TEXT("BUTTON"), TEXT("FRAME"), WS_CHILD | WS_VISIBLE | BS_GROUPBOX, 300, 5, 101, 115, hWndDlg, (HMENU)5000, hinst, NULL);
+		hListBox = CreateWindow(TEXT("LISTBOX"),
+			NULL,WS_CHILD|WS_VSCROLL|WS_TABSTOP|LBS_STANDARD,
+			300,25,100,100,
+			hWndDlg, (HMENU)4000,
+			hinst,NULL
+			);
+		ShowWindow(hListBox,SW_SHOW);
+		ListBox_AddString(hListBox,TEXT("father"));
+		ListBox_AddString(hListBox, TEXT("mother"));
+		//SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)"Father");
+		//SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)"Mother");
+		SendMessage(hListBox,LB_ADDSTRING,0,(LPARAM)(TEXT("Daughter")));
+		SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(TEXT("Son")));
+		SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(TEXT("Bother")));
+		SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(TEXT("Sister")));
+
+		//组合框
+		hCombo = CreateWindowEx(0, TEXT("COMBOBOX"), TEXT("Simple"),WS_CHILD|WS_VISIBLE|CBS_DROPDOWNLIST|WS_VSCROLL,
+			30,200,150,80,
+			hWndDlg,(HMENU)1001,hinst,NULL
+			);
+		SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)(TEXT("1")));
+		SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)(TEXT("3")));
+		SendMessage(hCombo, CB_INSERTSTRING, 1, (LPARAM)(TEXT("2")));
+		SendMessage(hCombo, CB_SETCURSEL, 2, 0);
 		break;
 	case WM_COMMAND:
-		switch (wParam)
+		switch (LOWORD(wParam))
 		{
 		case IDOK:
-			if (IsDlgButtonChecked(hWndDlg, 150) == BST_CHECKED){
+			//SendMessage(hCombo,CB_DELETESTRING,0,0);//删除第几个数据
+			//SendMessage(hCombo,CB_RESETCONTENT,0,0);//清楚combobox所有数据
+			//uCount = SendMessage(hCombo,CB_GETCOUNT,0,0);
+			SendMessage(hCombo, CB_GETLBTEXT, 1, (LPARAM)szMessage);
+			MessageBox(0, szMessage, TEXT("获取第二项的数据"), 0);
+			/*if (IsDlgButtonChecked(hWndDlg, 150) == BST_CHECKED){
 				MessageBox(0,TEXT("男人"),TEXT("你是"),0);
 			}
 			else if (IsDlgButtonChecked(hWndDlg, 160) == BST_CHECKED){
@@ -86,9 +126,21 @@ LRESULT CALLBACK DlgProc(HWND hWndDlg, UINT msg, WPARAM wParam, LPARAM lParam){
 			}
 			if (IsDlgButtonChecked(hWndDlg, 240) == BST_CHECKED){
 				OutputDebugString(TEXT("选中了大象"));
-			}
-			
+			}*/
 			//EndDialog(hWndDlg, 0);
+			break;
+		case 4000:
+			switch (HIWORD(wParam))
+			{
+			case LBN_DBLCLK:
+				iSelectedIndex = ListBox_GetCurSel(hListBox);
+				ListBox_GetText(hListBox, iSelectedIndex, (LPCTSTR)strSelectedItem);
+				MessageBox(NULL, strSelectedItem, TEXT("Exercise"), 33);
+				ListBox_DeleteString(hListBox, iSelectedIndex);
+				break;
+			default:
+				break;
+			}
 			break;
 		case 100:
 			GetDlgItemText(hWndDlg,500,s,512);
