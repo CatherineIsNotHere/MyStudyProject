@@ -24,6 +24,12 @@
     <ClInclude Include="words.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="typeWord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="typeGameEnum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sysTools.cpp">
@@ -33,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="gameStart.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="typeWord.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
