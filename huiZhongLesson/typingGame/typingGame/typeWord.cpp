@@ -3,13 +3,17 @@
 typedWord::typedWord() {
 
 }
-typedWord::typedWord(const string wNum, const string EWord, const string CWord)
-	:tw_sNum(wNum),
-	tw_sEnglishW(EWord),
-	tw_sChineseW(CWord)
+typedWord::typedWord(const string wNum, const string EWord, const string CWord, const int loationX)
+:tw_sNum(wNum),
+tw_sEnglishW(EWord),
+tw_sChineseW(CWord),
+tw_iLocationX(loationX)
 {
 	this->tw_iEWordSize = EWord.length();
-	this->tw_iCWordSize = CWord.length() * 2;
+	this->tw_iCWordSize = CWord.length();
+	this->tw_iExist = 1;
+	this->tw_iLocationY = 0;
+	this->tw_iWordLevel = 1;
 }
 typedWord::~typedWord() {
 
@@ -74,32 +78,19 @@ void typedWord::setIExist(const int exist) {
 void typedWord::wordDown() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
-	int sptx = ptx;
 	string word = this->getSEnglishW();
-	for (int i = 0; i < this->getIEWordSize(); i++)//清空原单词位置
-	{
-		gotoxy(sptx + i, pty);
-		cout << "  ";
-	}
-	this->setILocationY(pty + 1);
-	pty = this->getILocationY();
-	for (string::iterator wdit = word.begin(); wdit != word.end(); wdit++)//打印下落后的单词
-	{
-		gotoxy(ptx, pty);
-		cout << *wdit;
-		ptx++;
-	}
-	ptx = this->getILocationX();
+	pty++;
+	this->setILocationY(pty);
+	gotoxy(ptx, pty, word, -1);//打印单词
+	if (pty>1)
+		gotoxy(ptx, pty - 1, " ", this->getIEWordSize());//清空原位置单词
+	
 }
 
 void typedWord::wordDisappear() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
-	for (int i = 0; i < this->getIEWordSize(); i++)//清空单词
-	{
-		gotoxy(ptx + i, pty);
-		cout << "  ";
-	}
+	gotoxy(ptx, pty, " ", this->getIEWordSize());//清空单词
 }
 
 

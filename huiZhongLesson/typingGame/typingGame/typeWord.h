@@ -8,7 +8,7 @@
 class typedWord {
 public:
 	typedWord();
-	typedWord(const string wNum, const string EWord, const string CWord);
+	typedWord(const string wNum, const string EWord, const string CWord,const int loationX);
 	~typedWord();
 
 	string getSNum();
