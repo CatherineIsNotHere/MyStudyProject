@@ -30,10 +30,10 @@ char map[23][36] = { { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 }
 };
 
-
 void printMap();//打印地图
 void printKey();
 int typeLetterNum = 0;
+int letterNum = 1;
 typedWord* tws;
 
 typedWord* tw1 = new typedWord("001", "hello", "你好");
@@ -43,34 +43,36 @@ typedWord* tw2 = new typedWord("002", "world", "世界");
 void wordMove() {
 	tws = new typedWord[2];
 	int i = 0;
-	//tws[0] = *tw1;
-	//tws[0].setILocationX(10);
-	//tws[0].setILocationY(0);
-	//tws[0].wordDown();
-	//
-	//tws[1] = *tw2;
-	//tws[1].setILocationX(20);
-	//tws[1].setILocationY(0);
-	//tws[1].wordDown();
 	time_t t1;
 	time_t t2;
+	tws[0] = *tw1;//todo 记得读取文档中所有单词
+	tws[0].setILocationX(10);
+	tws[0].setILocationY(0);
+	tws[1] = *tw2;
+	tws[1].setILocationX(20);
+	tws[1].setILocationY(0);
 	time(&t1);
 	while (true)
 	{
 		Sleep(1000);
+		for (int i = 0; i < letterNum; i++)
+		{
+			tws[i].wordDown();
+		}
 		time(&t2);
 		if (t2-t1>=5) {
-			cout << "OK";
+			if (letterNum<2){//todo 判定是否达到单词容纳上限
+				letterNum++;
+			}
 			t1 = t2;
 		}
-
 	}
+
 }
 
 void main() {
 	HideCursor();
 	printMap();
-	wordMove();
 	thread t_wd(wordMove);
 	t_wd.detach();
 	printKey();
@@ -78,7 +80,7 @@ void main() {
 	t_pk.join();*///此处使用线程会使得打印有可能会出现在方框内
 }
 
-void printMap() {
+void printMap(){
 	for (int i = 0; i < YSize; i++)
 	{
 		for (int j = 0; j < XSize; j++)
@@ -101,36 +103,37 @@ void printMap() {
 
 }
 
-//void wordDown() {
-//	int wordY = 1;
-//	int wordx = 6;
-//	int wsize = word[0].length();
-//	while (true) {
-//
-//		Sleep(1000);
-//		for (string::iterator wdit = word[0].begin(); wdit != word[0].end(); wdit++)
-//		{
-//			gotoxy(wordx, wordY);
-//			cout << *wdit;
-//			wordx++;
-//		}
-//		wordx = 6;
-//		for (int i = 0; i < wsize; i++)
-//		{
-//			gotoxy(wordx + i, wordY - 1);
-//			cout << "  ";
-//		}
-//		wordY++;
-//	}
-//}
-
+/*
+	打字栏
+*/
 void printKey() {
 	while (true) {
 		int key = 0;
 		if (_kbhit()) {
 			key = _getch();
-			gotoxy(typeLetterNum, YSize + 1);
-			cout << (char)key;
+			gotoxy(typeLetterNum, YSize);
+			if (typeLetterNum > 20&&key!=13)
+				continue;
+			switch (key)
+			{
+			case 'A':case 'a':case 'B':case 'b':case 'C':case 'c':case 'D':case 'd':case 'E':case 'e':case 'F':case 'f':case 'G'://52个字母
+			case 'g':case 'H':case 'h':case 'I':case 'i':case 'J':case 'j':case 'K':case 'k':case 'L':case 'l':case 'M':case 'm':
+			case 'N':case 'n':case 'O':case 'o':case 'P':case 'p':case 'Q':case 'q':case 'R':case 'r':case 'S':case 's':case 'T':
+			case 't':case 'U':case 'u':case 'V':case 'v':case 'W':case 'w':case 'X':case 'x':case 'Y':case 'y':case 'Z':case 'z':
+				cout << (char)key;
+				break;
+			case 13:
+				for (int i = 0; i < typeLetterNum; i++)
+				{
+					gotoxy(i, YSize);
+					cout << " ";
+				}
+				typeLetterNum = 0;
+				break;
+			default:
+				break;
+			}
+			
 			typeLetterNum++;
 		}
 	}

@@ -65,8 +65,8 @@ void typedWord::setICWordSize(const int size) {
 	this->tw_iCWordSize = size;
 }
 void typedWord::wordDown() {
-	int ptx = ptx = this->getILocationX();
-	int pty = 0;
+	int ptx = this->getILocationX();
+	int pty = this->getILocationY();
 	int sptx = ptx;
 	string word = this->getSEnglishW();
 	for (int i = 0; i < this->getIEWordSize(); i++)//清空原单词位置
