@@ -1,5 +1,7 @@
 #include "allSysInclude.h"
 #include "sysTools.h"
+#include "typeGameEnum.h"
+#include "typeWord.h"
 
 string word[2] = { "hello", "world" };
 
@@ -28,59 +30,58 @@ char map[23][36] = { { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 }
 };
 
-void wordDown();
+
 void printMap();//打印地图
 void printKey();
 int typeLetterNum = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-void printInput() {
-	while (true) {
-		int key = 0;
-		if (_kbhit()) {
-			key = _getch();
-			gotoxy(typeLetterNum, 24);
-			cout << (char)key;
-			typeLetterNum++;
+typedWord* tws;
+
+typedWord* tw1 = new typedWord("001", "hello", "你好");
+typedWord* tw2 = new typedWord("002", "world", "世界");
+
+
+void wordMove() {
+	tws = new typedWord[2];
+	int i = 0;
+	//tws[0] = *tw1;
+	//tws[0].setILocationX(10);
+	//tws[0].setILocationY(0);
+	//tws[0].wordDown();
+	//
+	//tws[1] = *tw2;
+	//tws[1].setILocationX(20);
+	//tws[1].setILocationY(0);
+	//tws[1].wordDown();
+	time_t t1;
+	time_t t2;
+	time(&t1);
+	while (true)
+	{
+		Sleep(1000);
+		time(&t2);
+		if (t2-t1>=5) {
+			cout << "OK";
+			t1 = t2;
 		}
+
 	}
 }
 
-void wordDown() {
-	int wordY = 1;
-	int wordx = 6;
-	int wsize = word[0].length();
-	while (true) {
-=======
->>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
-=======
->>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
-
-
-void main(){
+void main() {
 	HideCursor();
 	printMap();
-	thread t_wd(wordDown);
+	wordMove();
+	thread t_wd(wordMove);
 	t_wd.detach();
-<<<<<<< HEAD
-<<<<<<< HEAD
-	//printInput();
-	thread t_pk(printInput);
-=======
-	//printKey();
-	thread t_pk(printKey);
->>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
-=======
-	//printKey();
-	thread t_pk(printKey);
->>>>>>> 8067176e26ac3a6c65db99deaa7f8799794bd0d2
-	t_pk.join();
+	printKey();
+	/*thread t_pk(printKey);
+	t_pk.join();*///此处使用线程会使得打印有可能会出现在方框内
 }
 
-void printMap(){
-	for (int i = 0; i < 23; i++)
+void printMap() {
+	for (int i = 0; i < YSize; i++)
 	{
-		for (int j = 0; j < 36; j++)
+		for (int j = 0; j < XSize; j++)
 		{
 			switch (map[i][j])
 			{
@@ -100,35 +101,35 @@ void printMap(){
 
 }
 
-void wordDown() {
-	int wordY = 1;
-	int wordx = 6;
-	int wsize = word[0].length();
-	while (true) {
-
-		Sleep(1000);
-		for (string::iterator wdit = word[0].begin(); wdit != word[0].end(); wdit++)
-		{
-			gotoxy(wordx, wordY);
-			cout << *wdit;
-			wordx++;
-		}
-		wordx = 6;
-		for (int i = 0; i < wsize; i++)
-		{
-			gotoxy(wordx + i, wordY - 1);
-			cout << "  ";
-		}
-		wordY++;
-	}
-}
+//void wordDown() {
+//	int wordY = 1;
+//	int wordx = 6;
+//	int wsize = word[0].length();
+//	while (true) {
+//
+//		Sleep(1000);
+//		for (string::iterator wdit = word[0].begin(); wdit != word[0].end(); wdit++)
+//		{
+//			gotoxy(wordx, wordY);
+//			cout << *wdit;
+//			wordx++;
+//		}
+//		wordx = 6;
+//		for (int i = 0; i < wsize; i++)
+//		{
+//			gotoxy(wordx + i, wordY - 1);
+//			cout << "  ";
+//		}
+//		wordY++;
+//	}
+//}
 
 void printKey() {
 	while (true) {
 		int key = 0;
 		if (_kbhit()) {
 			key = _getch();
-			gotoxy(typeLetterNum, 24);
+			gotoxy(typeLetterNum, YSize + 1);
 			cout << (char)key;
 			typeLetterNum++;
 		}

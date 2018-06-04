@@ -13,11 +13,14 @@
   <ItemGroup>
     <ClInclude Include="allSysInclude.h" />
     <ClInclude Include="sysTools.h" />
+    <ClInclude Include="typeGameEnum.h" />
+    <ClInclude Include="typeWord.h" />
     <ClInclude Include="words.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameStart.cpp" />
     <ClCompile Include="sysTools.cpp" />
+    <ClCompile Include="typeWord.cpp" />
     <ClCompile Include="words.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
