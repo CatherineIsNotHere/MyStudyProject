@@ -19,6 +19,7 @@ public:
 	int getILocationY();
 	int getIEWordSize();
 	int getICWordSize();
+	int getIExist();
 
 	void setSNum(const string wNum);
 	void setIWordLevel(const int level);
@@ -28,8 +29,10 @@ public:
 	void setILocationY(const int locationY);
 	void setIEWordSize(const int size);
 	void setICWordSize(const int size);
+	void setIExist(const int exist);
 
-	void wordDown();
+	void wordDown();//向下
+	void wordDisappear();//消失
 	void wordUp(const int locationX);
 
 private:
@@ -41,4 +44,5 @@ private:
 	int tw_iLocationY;//单词所在Y坐标
 	int tw_iEWordSize;//英文单词长度
 	int tw_iCWordSize;//中文单词长度
+	int tw_iExist;//出现
 };

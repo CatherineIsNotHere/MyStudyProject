@@ -39,6 +39,9 @@ int typedWord::getIEWordSize() {
 int typedWord::getICWordSize() {
 	return this->tw_iCWordSize;
 }
+int typedWord::getIExist() {
+	return this->tw_iExist;
+}
 
 void typedWord::setSNum(const string wNum) {
 	this->tw_sNum = wNum;
@@ -64,6 +67,10 @@ void typedWord::setIEWordSize(const int size) {
 void typedWord::setICWordSize(const int size) {
 	this->tw_iCWordSize = size;
 }
+void typedWord::setIExist(const int exist) {
+	this->tw_iExist = exist;
+}
+
 void typedWord::wordDown() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
@@ -84,6 +91,18 @@ void typedWord::wordDown() {
 	}
 	ptx = this->getILocationX();
 }
+
+void typedWord::wordDisappear() {
+	int ptx = this->getILocationX();
+	int pty = this->getILocationY();
+	for (int i = 0; i < this->getIEWordSize(); i++)//Çå¿Õµ¥´Ê
+	{
+		gotoxy(ptx + i, pty);
+		cout << "  ";
+	}
+}
+
+
 void typedWord::wordUp(const int locationX) {
 
 }
