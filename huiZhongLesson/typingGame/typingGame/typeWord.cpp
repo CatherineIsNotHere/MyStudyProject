@@ -78,19 +78,39 @@ void typedWord::setIExist(const int exist) {
 void typedWord::wordDown() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
-	string word = this->getSEnglishW();
+	string word = "";
+	int wordSize = 0;
+	if (this->getIExist() == 1)
+	{
+		word = this->getSEnglishW();
+		wordSize = this->getIEWordSize();
+	}
+	else if (this->getIExist() == 2)
+	{
+		word = this->getSChineseW();
+		wordSize = this->getICWordSize();
+	}
 	pty++;
 	this->setILocationY(pty);
 	gotoxy(ptx, pty, word, -1);//打印单词
 	if (pty>1)
-		gotoxy(ptx, pty - 1, " ", this->getIEWordSize());//清空原位置单词
+		gotoxy(ptx, pty - 1, " ", wordSize);//清空原位置单词
 	
 }
 
 void typedWord::wordDisappear() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
-	gotoxy(ptx, pty, " ", this->getIEWordSize());//清空单词
+	int wordSize = 0;
+	if (this->getIExist() == 1)
+	{
+		wordSize = this->getIEWordSize();
+	}
+	else if (this->getIExist() == 2)
+	{
+		wordSize = this->getICWordSize();
+	}
+	gotoxy(ptx, pty, " ", wordSize);//清空单词
 }
 
 

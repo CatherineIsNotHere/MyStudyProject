@@ -36,10 +36,6 @@ LRESULT CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 			(rc.bottom - rc.top) / 10,
 			TRUE
 			);
-		//SendMessage(hwndPB, PBM_SETBKCOLOR, 0, (LPARAM)color);//设置进度条背景颜色
-		//SendMessage(hwndPB,PBM_SETRANGE,0,MAKELPARAM(0,150));//设置范围
-		//SendMessage(hwndPB,PBM_GETRANGE,TRUE,(LPARAM)&range);//获取范围
-		//SendMessage(hwndPB,PBM_DELTAPOS,WPARAM((range.iHigh-range.iLow)/20),0);//设置当前值
 
 		break;
 	case WM_DESTROY:
