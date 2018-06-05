@@ -19,6 +19,8 @@ static container* boxes;//箱子用静态全局变量
 static pushBoxMap* _pushBoxMap = new pushBoxMap();
 static workMan* man = new workMan();
 static string fileStage = "001";
+static string urlmap = "../src/maps/";
+static string urlsave = "../src/saves/playerSave.txt";
 
 static int fileToMap();//读取地图
 static void startPushBox();//开始推箱子主方法
@@ -329,7 +331,7 @@ static void IsVictory() {
 	读取地图
 */
 static int fileToMap() {
-	string mapUrl = "./maps/";
+	string mapUrl =urlmap;
 	mapUrl.append(fileStage);
 	mapUrl.append(".txt");
 	ifstream ifs(mapUrl);
@@ -367,7 +369,7 @@ static int fileToMap() {
 	保存进度
 */
 static void gameSaves() {
-	ofstream outfile("./saves/playerSave.txt");
+	ofstream outfile(urlsave);
 	outfile << fileStage << endl;
 	outfile.close();
 }
@@ -376,7 +378,7 @@ static void gameSaves() {
 */
 static string readSaves() {
 	string st = "";
-	ifstream ifs("./saves/playerSave.txt");
+	ifstream ifs(urlsave);
 	ifs >> st;
 	cout << "您当前在第" << st << "关,是否继续关卡（Y/N）" << endl;
 	bool retry = false;

@@ -44,5 +44,5 @@ private:
 	int tw_iLocationY;//单词所在Y坐标
 	int tw_iEWordSize;//英文单词长度
 	int tw_iCWordSize;//中文单词长度
-	int tw_iExist;//出现
+	int tw_iExist;//出现状态0.不出现1.输出英文2.输出中文3.已输出完毕
 };

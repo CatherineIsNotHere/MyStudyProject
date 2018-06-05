@@ -79,16 +79,14 @@ void typedWord::wordDown() {
 	int ptx = this->getILocationX();
 	int pty = this->getILocationY();
 	string word = "";
-	int wordSize = 0;
+	int wordSize = this->getIEWordSize()>this->getICWordSize()? this->getIEWordSize(): this->getICWordSize();
 	if (this->getIExist() == 1)
 	{
 		word = this->getSEnglishW();
-		wordSize = this->getIEWordSize();
 	}
 	else if (this->getIExist() == 2)
 	{
 		word = this->getSChineseW();
-		wordSize = this->getICWordSize();
 	}
 	pty++;
 	this->setILocationY(pty);
