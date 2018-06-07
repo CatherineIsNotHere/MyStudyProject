@@ -5,8 +5,8 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-#define WIDTH    26    //宽
-#define HEIGHT   26    //高
+#define WIDTH    24    //宽
+#define HEIGHT   24    //高
 #define WALL     1     //墙
 #define ROAD     0     //路
 #define START    2     //入口

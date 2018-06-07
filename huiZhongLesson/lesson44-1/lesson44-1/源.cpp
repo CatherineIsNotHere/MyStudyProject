@@ -6,6 +6,7 @@
 static TCHAR szAppName[] = TEXT("MyWindow");
 void fileDialog(HWND);
 void colorDialog(HWND);
+void fontDialog(HWND);
 LRESULT CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 	HINSTANCE inst = GetModuleHandle(NULL);
 	static HWND hWndEdit;
@@ -39,12 +40,13 @@ LRESULT CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 			colorDialog(hwnd);
 			break;
 		case IDC_FONT_DIALOG:
+			fontDialog(hwnd);
 			break;
 		default:
 			break;
 		}
 	case WM_DROPFILES:
-	
+
 		break;
 	case WM_SIZE:
 		break;
@@ -103,7 +105,7 @@ void fileDialog(HWND hwnd){
 	TCHAR szFile[MAX_PATH] = TEXT("default");
 	TCHAR szFilter[] = TEXT("文本文件(*.txt)\0*.txt\0")
 		TEXT("数据文件(*.dat)\0*.dat\0")TEXT("All Files(*.*)\0*.*\0\0");
-	ZeroMemory(&ofn,sizeof(ofn));
+	ZeroMemory(&ofn, sizeof(ofn));
 	ofn.lStructSize = sizeof(ofn);
 	ofn.hwndOwner = hwnd;
 	ofn.lpstrFilter = szFilter;
@@ -116,25 +118,47 @@ void fileDialog(HWND hwnd){
 		//将选择的文件输出到窗口
 		LPWSTR file = ofn.lpstrFile;
 		HDC hDC = GetDC(hwnd);
-		TextOut(hDC,200,50,ofn.lpstrFile,_tcslen(ofn.lpstrFile));
-		ReleaseDC(hwnd,hDC);
+		TextOut(hDC, 200, 50, ofn.lpstrFile, _tcslen(ofn.lpstrFile));
+		ReleaseDC(hwnd, hDC);
 	}
 }
 void colorDialog(HWND hwnd){
 	CHOOSECOLOR cc;
 	static COLORREF acrCustClr[16];
-	ZeroMemory(&cc,sizeof(cc));
+	ZeroMemory(&cc, sizeof(cc));
 	cc.lStructSize = sizeof(cc);
 	cc.hwndOwner = hwnd;
 	cc.lpCustColors = (LPDWORD)acrCustClr;
 	if (ChooseColor(&cc)){
-	//用选择的颜色画一个实心矩形
-		RECT rect = {240, 160,340 , 210 };
+		//用选择的颜色画一个实心矩形
+		RECT rect = { 240, 160, 340, 210 };
 		HDC hDC = GetDC(hwnd);
 		HBRUSH hBrush = CreateSolidBrush(cc.rgbResult);
-		SelectObject(hDC,hBrush);
-		FillRect(hDC,&rect,hBrush);
+		SelectObject(hDC, hBrush);
+		FillRect(hDC, &rect, hBrush);
 		DeleteObject(hBrush);
+		ReleaseDC(hwnd, hDC);
+	}
+}
+void fontDialog(HWND hwnd){
+	CHOOSEFONT cf;
+	LOGFONT lf;
+	ZeroMemory(&cf,sizeof(cf));
+	cf.lStructSize = sizeof(cf);
+	cf.hwndOwner = hwnd;
+	cf.lpLogFont = &lf;
+	cf.Flags = CF_SCREENFONTS | CF_EFFECTS;
+	if (ChooseFont(&cf))
+	{
+		TCHAR str[] = TEXT("FONT 测试");
+		HFONT hFONT = CreateFontIndirect(cf.lpLogFont);
+		DWORD rgbCurrent = cf.rgbColors;
+		HDC hDC = GetDC(hwnd);
+		SelectObject(hDC,hFONT);
+		SetTextColor(hDC,cf.rgbColors);
+		TextOut(hDC,200,170,str,_tcslen(str));
+		DeleteObject(hFONT);
 		ReleaseDC(hwnd,hDC);
+
 	}
 }
