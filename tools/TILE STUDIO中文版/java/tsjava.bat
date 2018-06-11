@@ -1,0 +1,1 @@
+java -cp .\;.\lib\golden_0_2_0.jar;.\lib\xstream-1.1.jar com.cliqr.gamedev.PlatformGame

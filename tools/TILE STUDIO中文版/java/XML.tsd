@@ -1,0 +1,82 @@
+; --------------------------------------------------------
+; Tile Studio Definition for generating XML files
+;
+; Version 1.0 - 12. February, 2005
+; Paul Rene Jørgensen, <paulrene@gmail.com>
+; --------------------------------------------------------
+
+#tileset
+#tilebitmap gfx\\<TileSetIdentifier>.bmp 320
+#end tilebitmap
+#end tileset
+
+
+#file <ProjectName>.xml
+\<?xml version="1.0" encoding="ISO-8859-1" ?\>
+
+\<project\>
+  \<name\><ProjectName>\</name\>
+  \<author\><Author>\</author\>
+  \<notes\><Notes>\</notes\>
+  \<copyright\><Copyright>\</copyright\>
+  \<date\><CurrentDate>\</date\>\<time\><CurrentTime>\</time\>
+  \<generator\>Tile Studio <TSVersion>\</generator\>
+  \<tileSetCount\><TileSetCount>\</tileSetCount\>
+  \<tileSetList\>
+
+#tileset
+  \<tileset\>
+    \<index\><TileSetNumber>\</index\>
+    \<identifier\><TileSetIdentifier>\</identifier\>
+    \<tileWidth\><TileWidth>\</tileWidth\>
+    \<tileHeight\><TileHeight>\</tileHeight\>
+    \<tileBitmap\>gfx\\<TileSetIdentifier>.bmp\</tileBitmap\>
+    \<horizontalTileCount\><HorizontalTileCount>\</horizontalTileCount\>
+    \<verticalTileCount\><VerticalTileCount>\</verticalTileCount\>
+    \<tileSetBitmapWidth\><TileSetBitmapWidth>\</tileSetBitmapWidth\>
+    \<tileSetBitmapHeight\><TileSetBitmapHeight>\</tileSetBitmapHeight\>
+    \<transparentRed\><TransparentColorR>\</transparentRed\>
+    \<transparentGreen\><TransparentColorG>\</transparentGreen\>
+    \<transparentBlue\><TransparentColorB>\</transparentBlue\>
+    \<overlap\><overlap>\</overlap\>
+    \<tileCount\><TileCount>\</tileCount\>
+    \<sequenceCount\><SequenceCount>\</sequenceCount\>
+    \<sequenceList\>
+#sequence
+    \<sequence\>
+      \<index\><SequenceNumber>\</index\>
+      \<spriteName\><SpriteName>\</spriteName\>
+      \<spriteNumber\><SpriteNumber>\</spriteNumber\>
+      \<spriteLength\><SpriteLength>\</spriteLength\>
+      \<frameCount\><SequenceLength>\</frameCount\>
+      \<frameList\>\n
+#sequencedata "" "" ""
+      \<frame\>\<frameDelay\><FrameCount>\</frameDelay\>\<tileNumber\><TileNumber>\</tileNumber\>\</frame\>\n
+#end sequencedata
+      \</frameList\>
+    \</sequence\>
+#end sequence
+    \</sequenceList\>
+    \<mapCount\><MapCount>\</mapCount\>
+    \<mapList\>
+#map
+    \<map\>
+      \<index\><MapNumber>\</index\>
+      \<identifier\><MapIdentifier>\</identifier\>
+      \<width\><MapWidth>\</width\>\<height\><MapHeight>\</height\>
+      \<scrollX\><ScrollX>\</scrollX\>\<scrollY\><ScrollY>\</scrollY\>
+      \<cellList\>
+#mapdata "\n" "\n" "\n" "\n"
+        \<cell\>\<tileNumber\><TileNumber>\</tileNumber\>\<bounds\><Bounds>\</bounds\>\<mapCode\><MapCode>\</mapCode\>\</cell\>
+#end mapdata
+      \</cellList\>
+    \</map\>
+#end map
+    \</mapList\>
+  
+  \</tileset\>
+#end tileset
+  \</tileSetList\>
+
+\</project\>
+#end file

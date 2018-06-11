@@ -1,0 +1,49 @@
+            Tile Studio 使用說明
+     前言：
+在許多的遊戲場景中，地圖無疑是最為重要的，設計合理而豐富的地圖才能更好的表現一個遊戲的主旨，因此，地圖的好壞直接關係到遊戲的成功。
+      地圖的拼圖，關卡的設計等等都是遊戲場景設計的難點，必須要有一個強有力的工具支援，才能為遊戲的開發提供良好的支撐。
+1、	使用Tile Studio
+Tile Studio 由 圖塊編輯器(tile editor) 和地圖編輯器(map editor) 組成，專門用於遊戲設計。該軟體並不支援大型點陣圖的編輯比如某些普通的繪圖程式。Tile Studio對小型點陣圖（從8*8圖元到64*64圖元）的支援最好。但是，更大或者更小的點陣圖同樣能夠使用。
+在該軟體中，你只可以設計圖像和關卡，而不是完整的遊戲。你需要通過真正的程式設計語言來完成你的遊戲。為了使用你在該軟體中創建的圖像和關卡，程式設計者需要在Tile Studio軟體和你的遊戲程式之間創建一個介面，在TileStudio中以（.tsd 檔）為尾碼，通常我們可以把它稱為腳本。此外，你還需要設計一些解析函數來解析腳本檔。
+2、	導入圖塊
+使用Tile Studio，你能夠很輕鬆的從已經存在的BMP或者PNG檔中 “Import Tiles”（導入圖塊集合）。
+操作步驟：
+File | Import Tiles
+ 
+                     
+Tile Width與 Tile Height：設定每一個圖塊的寬和高。
+Horizontal space 和 Vertical space 忽略。
+Clip from left：從左邊的具體位置開始拆分圖像。
+Clip from top：從頂端的具體位置拆分圖像。
+3 使用圖塊編輯工具
+ 
+圖2
+ 選擇這支鉛筆用於繪製圖元。實現在每一個圖塊上面的修改。同時還可以“繪製”透明色。
+  刷子工具與鉛筆類似，不過能夠更加寬的線條。
+
+  這個視窗裏面的線條用於顯示當前線條的寬度，通過左建點擊能夠使線條寬度增加，點擊右鍵能夠使線條寬度減小。
+  用於繪製不同的基本形狀
+  使用該命令用於填充任何區域。
+  用於添加一些特殊的效果
+  用於選擇多個圖塊（Tile）
+
+3、	地圖編輯器
+ 通過 Ctrl+Tab，在圖塊編輯器與地圖編輯器之間轉換。
+操作步驟：
+File| New Map.
+在出現的視窗中設置將要創建的地圖的屬性
+  
+
+使用地圖編輯器，你能夠創建一個具有複雜的圖層的圖塊集。當你把某個圖塊貼上地圖以後，也可以對該圖塊進行垂直，水準，鏡像的翻轉，同樣也可以將多個圖塊( Tile)組和為一個新的圖(Tile).
+ 
+
+然後，就可以在導入的圖塊集裏面選擇需要的圖塊在地圖上繪製。
+ 
+4 編寫自己的腳本
+操作步驟：
+Code | Code Generation Setting
+ 
+在該視窗編輯自己的腳本檔（.tsd）
+5 導出地圖代碼
+Code | Generate Code
+生成的代碼檔將位於導入圖像的目錄下。

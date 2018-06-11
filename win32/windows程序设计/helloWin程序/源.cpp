@@ -26,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hinstance,HINSTANCE hPrevinstance,PSTR szCmdLine,in
 	hwnd = CreateWindow(
 		szAppName,//window class name
 		TEXT("The Hello Program"),//window caption
-		WS_OVERLAPPEDWINDOW,//windowa style
+		WS_OVERLAPPEDWINDOW,//windows style
 		CW_USEDEFAULT,//initial x position
 		CW_USEDEFAULT,//initial y position
 		CW_USEDEFAULT,//initial x size
@@ -51,7 +51,7 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam) {
 	RECT rect;
 	switch (message) {
 	case WM_CREATE:
-		PlaySound(TEXT("hellowin.wav"),NULL,SND_FILENAME|SND_ASYNC);
+		//PlaySound(TEXT("hellowin.wav"),NULL,SND_FILENAME|SND_ASYNC);
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(hwnd,&ps);
