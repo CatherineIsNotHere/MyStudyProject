@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetWindowPos Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetWindowPos" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetWindowPos Function</H1>
+
+<P><CODE class="declare">Declare Function SetWindowPos Lib &quot;user32.dll&quot; (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long</CODE>
+
+<P><B>SetWindowPos</B> moves a window to a new location.  Its physical coordinates, dimensions, and Z-order position (the Z-order determines which windows are on top of others) can be set.  The function returns 0 if an error occured or a non-zero value if successful.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the window to move.
+<DT><VAR>hWndInsertAfter</VAR><DD>Either the handle of the window to position this window behind, or one of the <A href="../constants/insertafterflags.html">insert after flags</A> stating where in the Z-order to put the window.
+<DT><VAR>x</VAR><DD>The x coordinate of the upper-left corner of the window.
+<DT><VAR>y</VAR><DD>The y coordinate of the upper-left corner of the window.
+<DT><VAR>cx</VAR><DD>The x coordinate of the lower-right corner of the window.
+<DT><VAR>cy</VAR><DD>The y coordinate of the lower-right corner of the window.
+<DT><VAR>wFlags</VAR><DD>Zero or more of the <A href="../constants/setwindowposflags.html">SetWindowPos flags</A> stating how to move the window.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Move Form1 to the upper-left corner of the screen
+'  and above any other windows
+flags = SWP_NOSIZE Or SWP_DRAWFRAME  ' don't resize, but redraw window
+' (the cx and cy parameters are ignored because of SWP_NOSIZE)
+x = SetWindowPos(Form1.hWnd, HWND_TOPMOST, 0, 0, 0, 0, flags)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getwindowrect.html">GetWindowRect</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/setwindowpos.html">http://members.aol.com/Borg953/api/functions/setwindowpos.html</A>
+</ADDRESS>
+</BODY>
+</HTML>
+

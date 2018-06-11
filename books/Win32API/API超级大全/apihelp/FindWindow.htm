@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>FindWindow</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="FindWindow">FindWindow</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function FindWindow Lib &quot;user32&quot; Alias 
+    &quot;FindWindowA&quot; (ByVal lpClassName As String, ByVal lpWindowName As String) As 
+    Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">寻找窗口列表中第一个符合指定条件的顶级窗口（在vb里使用：FindWindow最常见的一个用途是获得ThunderRTMain类的隐藏窗口的句柄；该类是所有运行中vb执行程序的一部分。获得句柄后，可用api函数<a
+    href="GetWindowText.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetWindowText.htm">GetWindowText</a>取得这个窗口的名称；该名也是应用程序的标题）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，找到窗口的句柄。如未找到相符窗口，则返回零。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpClassName</td>
+    <td width="75%">String，指向包含了窗口类名的空中止（C语言）字串的指针；或设为零，表示接收任何类</td>
+  </tr>
+  <tr>
+    <td width="25%">lpWindowName</td>
+    <td width="75%">String，指向包含了窗口文本（或标签）的空中止（C语言）字串的指针；或设为零，表示接收任何窗口标题</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">很少要求同时按类与窗口名搜索。为向自己不准备参数传递一个零，最简便的办法是传递vbNullString常数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">示例</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Dim hw&amp;, cnt&amp;<br>
+    Dim rttitle As String * 256<br>
+    hw&amp; = FindWindow(&quot;ThunderRT5Main&quot;, vbNullString) ' ThunderRTMain under VB4<br>
+    cnt = GetWindowText(hw&amp;, rttitle, 255)<br>
+    MsgBox Left$(rttitle, cnt), 0, &quot;RTMain title&quot;</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#FindWindow">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Exit Windows Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Exit Windows Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Exit Windows Flags</H1>
+
+<P><PRE><CODE class="tc">Const EWX_LOGOFF = 0
+Const EWX_SHUTDOWN = 1
+Const EWX_REBOOT = 2
+Const EWX_FORCE = 4</CODE></PRE>
+
+<P>The <B>exit Windows flags</B> tell how to end the Windows session.  They can be combined, as long as a contradictory pair are not used together (like <VAR>EWX_SHUTDOWN</VAR> and <VAR>EWX_REBOOT</VAR>).
+
+<DL>
+<DT><VAR>EWX_LOGOFF</VAR><DD>Log off the network.
+<DT><VAR>EWX_SHUTDOWN</VAR><DD>Shut down Windows and, if the computer supports it, powers down.
+<DT><VAR>EWX_REBOOT</VAR><DD>Perform a full reboot.
+<DT><VAR>EWX_FORCE</VAR><DD>Force any running applications to quit instead of asking the user to close them.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/exitwindowsex.html">ExitWindowsEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/exitwindowsflags.html">http://members.aol.com/Borg953/api/constants/exitwindowsflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

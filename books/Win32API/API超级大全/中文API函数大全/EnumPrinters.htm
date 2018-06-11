@@ -1,0 +1,124 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnumPrinters</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="EnumPrinters">EnumPrinters</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function EnumPrinters Lib &quot;winspool.drv&quot;
+    Alias &quot;EnumPrintersA&quot; (ByVal flags As Long, ByVal name As String, ByVal Level As
+    Long, pPrinterEnum As Byte, ByVal cdBuf As Long, pcbNeeded As Long, pcReturned As Long) As
+    Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">枚举系统中安装的打印机</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="7">flags</td>
+    <td width="77%" colspan="2">Long，一个或多个下述标志</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_LOCAL</td>
+    <td width="38%">枚举本地打印机（包括Windows 95中的网络打印机）。名字会被忽略</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_NAME</td>
+    <td width="38%">枚举由name参数指定的打印机。其中的名字可以是一个供应商、域或服务器。如name为NULL，则枚举出可用的打印机</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_SHARE</td>
+    <td width="38%">枚举共享打印机（必须同其他常数组合使用）</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_CONNECTIONS</td>
+    <td width="38%">枚举网络连接列表中的打印机（即使目前没有连接——仅适用于NT）</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_NETWORK</td>
+    <td width="38%">枚举通过网络连接的打印机。级别（Level）必须为1。仅适用于NT</td>
+  </tr>
+  <tr>
+    <td width="37%">PRINTER_ENUM_REMOTE</td>
+    <td width="38%">枚举通过网络连接的打印机和打印服务器。级别必须为1。仅适用于NT</td>
+  </tr>
+  <tr>
+    <td width="25%">name</td>
+    <td width="77%" colspan="2">String，vbNullString表示枚举同本机连接的打印机。否则由标志和级别决定</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="77%" colspan="2">Long，1，2，4或5（4仅适用于NT；5仅适用于Win95和NT
+    4.0），指定欲枚举的结构的类型。如果是1，则name参数由标志设置决定。如果是2或5，那么name就代表欲对其打印机进行枚举的服务器的名字；或者为vbNullString。如果是4，那么只有PRINTER_ENUM_LOCAL和PRINTER_ENUM_CONNECTIONS才有效。名字必须是vbNullString</td>
+  </tr>
+  <tr>
+    <td width="25%">pPrinterEnum</td>
+    <td width="77%" colspan="2">Byte，包含PRINTER_ENUM_x结构的缓冲区，其中的x代表级别（Level）</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuf</td>
+    <td width="77%" colspan="2">Long，pPrinterEnum缓冲区中的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcbNeeded</td>
+    <td width="77%" colspan="2">Long，指向一个Long型变量的指针，该变量用于保存请求的缓冲区长度，或者实际读入的字节数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcReturned</td>
+    <td width="77%" colspan="2">Long，载入缓冲区的结构数量（用于那些能返回多个结构的函数）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">第4和第5级将它们的结构建立在系统注册表的基础上，而且比第2级快得多。后者要求每台打印机都处于打开状态<br>
+    请参考微软Win32手册，了解这个函数进一步的情况</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#EnumPrinters">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

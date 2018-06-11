@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: EqualRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,EqualRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>EqualRect Function</H1>
+
+<P><CODE class="declare">Declare Function EqualRect Lib &quot;user32.dll&quot; (lpRect1 As <A href="../types/rect.html">RECT</A>, lpRect2 As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>EqualRect</B> determines of two rectangles are equal.  Rectangles are considered equal if and only if the upper-left and lower-right corners (the points that define the rectangles) of one rectangle are equal to those of another.  In other words, two rectangles are equal if and only if they are exactly the same.  The function returns 1 if the two rectangles are equal and 0 if they are unequal.
+
+<DL>
+<DT><VAR>lpRect1</VAR><DD>The first of the two rectangles to check.
+<DT><VAR>lpRect2</VAR><DD>The second of the two rectangles to check.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim r As RECT, s As RECT
+' Check to see if the rectangles are equal
+' This example uses the SetRect API to define a rectangle
+x = SetRect(r, 50, 50, 150, 150)  ' (50, 50)-(150, 150)
+x = SetRect(s, 50, 50, 150, 150)  ' (50, 50)-(150, 150)
+Debug.Print EqualRect(r, s)  ' returns 1 -- they are equal
+x = SetRect(s, 100, 100, 200, 200)  ' (100, 100)-(200, 200)
+Debug.Print EqualRect(r, s)  ' returns 0 -- they are unequal</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="copyrect.html">CopyRect</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/equalrect.html">http://members.aol.com/Borg953/api/functions/equalrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

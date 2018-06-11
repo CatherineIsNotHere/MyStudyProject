@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegLoadKey</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegLoadKey</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegLoadKey Lib &quot;advapi32.dll&quot; 
+    Alias &quot;RegLoadKeyA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal lpFile 
+    As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">从以前用<a href="RegSaveKey.htm">RegSaveKey</a>函数创建的一个文件里装载注册表信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，HKEY_LOCAL_MACHINE、HKEY_USERS或者用<a
+    href="RegConnectRegistry.htm">RegConnectRegistry</a>创建的一个子项</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSubKey</td>
+    <td width="75%">String，要创建的新子项的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFile</td>
+    <td width="75%">String，包含了注册信息的那个文件的名字</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LockFileEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="LockFileEx">LockFileEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function LockFileEx Lib &quot;kernel32&quot; Alias 
+    &quot;LockFileEx&quot; (ByVal hFile As Long, ByVal dwFlags As Long, ByVal dwReserved As 
+    Long, ByVal nNumberOfBytesToLockLow As Long, ByVal nNumberOfBytesToLockHigh As Long, 
+    lpOverlapped As OVERLAPPED) As Long</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">与<a href="LockFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LockFile.htm">LockFile</a>相似，只是它提供了更多的功能</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hFile</td>
+    <td width="76%" colspan="2">Long，欲锁定文件的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">dwFlags</td>
+    <td width="76%" colspan="2">Long，指定下述一个或两个常数</td>
+  </tr>
+  <tr>
+    <td width="37%">LOCKFILE_FAIL_IMMEDIATELY</td>
+    <td width="38%">指出如锁定失败，函数应返回一个错误。否则，应用程序线程就会暂时挂起，并一直等待，直到能进行锁定为止</td>
+  </tr>
+  <tr>
+    <td width="37%">LOCKFILE_EXCLUSIVE_LOCK</td>
+    <td width="38%">指出锁定区域不可由另一个线程或进程读写。否则这个区域就只能防范“写”——其他进程仍然能够读取锁定区域的内容</td>
+  </tr>
+  <tr>
+    <td width="25%">dwReserved</td>
+    <td width="76%" colspan="2">Long，未使用，设为零</td>
+  </tr>
+  <tr>
+    <td width="25%">nNumberOfBytesToLockLow</td>
+    <td width="76%" colspan="2">Long，锁定区域包含字符数的低32位</td>
+  </tr>
+  <tr>
+    <td width="25%">nNumberOfBytesToLockHigh</td>
+    <td width="76%" colspan="2">Long，锁定区域包含字符数的高32位</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOverlapped</td>
+    <td width="76%" colspan="2">OVERLAPPED，包含了文件中相对于锁定区域起始处的偏移量</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3"><p align="left">锁定区域不可重叠操作（即多个进程同时操作）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#LockFileEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

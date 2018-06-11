@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetDIBits</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetDIBits">GetDIBits</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function GetDIBits Lib &quot;gdi32&quot; Alias
+    &quot;GetDIBits&quot; (ByVal aHDC As Long, ByVal hBitmap As Long, ByVal nStartScan As
+    Long, ByVal nNumScans As Long, lpBits As Any, lpBI As BITMAPINFO, ByVal wUsage As Long) As
+    Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">将来自一幅位图的二进制位复制到一幅与设备无关的位图里</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，非零表示成功，零表示失败。在Windows 95中，返回值是返回的扫描线数量</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">aHDC</td>
+    <td width="77%" colspan="2">Long，定义了与设备有关位图hBitmap的配置信息的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hBitmap</td>
+    <td width="77%" colspan="2">Long，源位图的句柄。绝对不能将这幅位图选入设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">nStartScan</td>
+    <td width="77%" colspan="2">Long，欲复制到DIB中的第一条扫描线的编号</td>
+  </tr>
+  <tr>
+    <td width="25%">nNumScans</td>
+    <td width="77%" colspan="2">Long，欲复制的扫描线数量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBits</td>
+    <td width="77%" colspan="2">Any，指向一个缓冲区的指针。这个缓冲区将用于装载采用DIB格式的信息，但不取回数据（用ByVal传递零值）</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBI</td>
+    <td width="77%" colspan="2">BITMAPINFO，对lpBits DIB的格式及颜色进行说明的一个结构。在BITMAPINFOHEADER结构中，从biSize到biCompression之间的所有字段都必须初始化</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">wUsage</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_PAL_COLORS</td>
+    <td width="38%">在颜色表中装载一个16位所以数组，它们与当前选定的调色板有关</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_RGB_COLORS</td>
+    <td width="38%">在颜色表中装载RGB颜色</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">起始扫描线与起点有关。除非将BITMAPINFOHEADER结构的biHeight字段设为负值，否则起点就位于左下角</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetDIBits">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

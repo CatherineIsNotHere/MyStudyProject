@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetDC Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetDC" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetDC Function</H1>
+
+<P><CODE class="declare">Declare Function GetDC Lib &quot;user32.dll&quot; (ByVal hWnd As Long) As Long</CODE>
+
+<P><B>GetDC</B> returns the device context (DC) of a window or similar object, given its handle.  When you are finished using the device context, you should use <A href="releasedc.html">ReleaseDC</A> to free up system resources.  This function has the same effect as using a VB object's <VAR>.hDC</VAR> property.  If you try to get the device context of something that is not a device (i.e., pass the function a handle to a file) or another error occurs, the function will instead return 0.
+
+<DL>
+<DT><VAR>hWnd</VAR><DD>The handle of the object to get the device context of.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' The two Print commands will return the same value
+Debug.Print Form1.hDC
+x = GetDC(Form1.hWnd)
+Debug.Print x</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="releasedc.html">ReleaseDC</A><BR>
+<B>Category:</B> <A href="../index.html#devices" rel="index">Devices</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getdc.html">http://members.aol.com/Borg953/api/functions/getdc.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

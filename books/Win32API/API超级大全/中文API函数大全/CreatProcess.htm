@@ -1,0 +1,143 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreatProcess</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">CreatProcess</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function CreateProcess Lib &quot;kernel32&quot; Alias 
+    &quot;CreateProcessA&quot; (ByVal lpApplicationName As String, ByVal lpCommandLine As 
+    String, lpProcessAttributes As SECURITY_ATTRIBUTES, lpThreadAttributes As 
+    SECURITY_ATTRIBUTES, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, 
+    lpEnvironment As Any, ByVal lpCurrentDriectory As String, lpStartupInfo As STARTUPINFO, 
+    lpProcessInformation As PROCESS_INFORMATION) As Long<br> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">说明</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">创建一个新进程</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">返回值</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a 
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">参数表</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">参数</td> 
+    <td width="75%">类型及说明</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpApplicationName</td> 
+    <td width="75%">String，要执行的应用程序的名字。可设为vbNullString；在这种情况下，应用程序的名字应在lpCommandLine参数的起始处出现</td> 
+  </tr> 
+  <tr> 
+    <td width="25%" rowspan="7">lpCommandLine</td> 
+    <td width="75%">String，要执行的命令行。可用GetCommandLine函数取得一个进程使用的命令行。windows会尽可能地根据下述搜索顺序来查找执行文件：</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（1）包含了父进程执行文件的目录</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（2）父进程当前的目录</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（3）由<a href="GetSystemDirectory.htm" tppabs="http://www.gxbcts.com/airfly/api/GetSystemDirectory.htm">GetSystemDirectory</a>返回的系统目录</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（4）仅适于windows NT：16位系统目录</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（5）由<a href="GetSystemDirectory.htm" tppabs="http://www.gxbcts.com/airfly/api/GetSystemDirectory.htm">GetSystemDirectory</a>返回的windows目录</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">（6）由PATH环境变量指定的目录</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpProcessAttributes</td> 
+    <td width="75%">SECURITY_ATTRIBUTES，指定一个SECURITY_ATTRIBUTES结构，或传递零值表示采用不允许继承的默认描述符。该参数定义进程的安全特性</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpThreadAttributes</td> 
+    <td width="75%">SECURITY_ATTRIBUTES，指定一个SECURITY_ATTRIBUTES结构，或传递零值表示采用不允许继承的默认描述符。该参数定义进程之主进程的安全特性</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">bInheritHandles</td> 
+    <td width="75%">Long，TRUE表示允许当前进程中的所有句柄都由新建的子进程继承</td> 
+  </tr> 
+  <tr> 
+    <td width="25%" rowspan="7">dwCreationFlags</td> 
+    <td width="75%">Long，来自API32.TXT文件的一个或多个下述常数之一，它们都带有前缀CREATE_。下面这些用于VB程序员：</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">CREATE_SEPARATE_WOW_VDM（仅适用于NT）：启动一个16位的windows应用程序时，强迫它在自己的内存空间运行</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">CREATE_SHARED_WOW_VDM（仅适用于NT）：启动一个16位的windows应用程序时，强迫它在共享的16位虚拟机内运行</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">CREATE_SUSPENDED：立即挂起新进程。除非调用ResumeThread函数。</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">IDLE_PRIORITY_CLASS：新进程应该有非常低的优先级，只有在系统空闲的时候才能运行。基本值是4</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">HIGH_PRIORITY_CLASS：新进程应该有非常高的优先级，基本值是13</td> 
+  </tr> 
+  <tr> 
+    <td width="75%">NORMAL_PRIORITY_CLASS：标准优先级。如进程位于前台，则基本值是9；如在后台。则优先值是7</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpEnvironment</td> 
+    <td width="75%">任何类型，指向一个环境块的指针</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpCurrentDriectory</td> 
+    <td width="75%">String，新进程的当前目录路径</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpStartupInfo</td> 
+    <td width="75%">STARTUPINFO，指定一个STARTUPINFO结构，其中包含了创建进程时使用的附加信息</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpProcessInformation</td> 
+    <td width="75%">PROCESS_INFORMATION，该结构用于容纳新进程的进程和线程标识。大多数情况下，一旦这个函数返回，父应用程序都会关闭两个句柄。</td> 
+  </tr> 
+</table> 
+</center></div><div align="center"><center> 
+ 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%"><p align="right">Top</td> 
+  </tr> 
+</table> 
+</center></div> 
+</body> 
+</html> 

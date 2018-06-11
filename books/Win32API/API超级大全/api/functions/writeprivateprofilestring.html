@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: WritePrivateProfileString Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,WritePrivateProfileString" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>WritePrivateProfileString Function</H1>
+
+<P><CODE class="declare">Declare Function WritePrivateProfileString Lib &quot;kernel32.dll&quot; Alias &quot;WritePrivateProfileStringA&quot; (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal lpString As String, ByVal lpFileName As String) As Long</CODE>
+
+<P><B>WritePrivateProfileString</B> sets a value inside of any INI file.  This function can also be used to set numerical values if they are in string form, for example using &quot;1&quot;.  If the INI file you try to write to does not exist, it will be created.  Likewise, if the section or value does not exist, it will also be created.  The function returns 0 if an error occurs, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpApplicationName</VAR><DD>The section of the INI file to write to.
+<DT><VAR>lpKeyName</VAR><DD>The name of the value to set.
+<DT><VAR>lpString</VAR><DD>The string to set as the value.
+<DT><VAR>lpFileName</VAR><DD>The filename of the INI file to write to.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Set the &quot;StatusBar&quot; setting in the [Options]
+'  section of &quot;C:\MyApps\dummy.ini&quot;
+x = WritePrivateProfileString(&quot;Options&quot;, &quot;StatusBar&quot;, &quot;1&quot;, &quot;C:\MyApps\dummy.ini&quot;)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getprivateprofilestring.html">GetPrivateProfileString</A>, <A href="writeprofilestring.html">WriteProfileString</A><BR>
+<B>Category:</B> <A href="../index.html#inifiles" rel="index">INI Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/writeprivateprofilestring.html">http://members.aol.com/Borg953/api/functions/writeprivateprofilestring.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

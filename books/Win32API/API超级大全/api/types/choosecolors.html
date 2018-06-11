@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: CHOOSECOLORS Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,CHOOSECOLOR,CHOOSECOLORS" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>CHOOSECOLORS Type</H1>
+
+<P><PRE><CODE class="tc">Type CHOOSECOLORS
+  lStructSize As Long
+  hwndOwner As Long
+  hInstance As Long
+  rgbResult As Long
+  lpCustColors As String
+  flags As Long
+  lCustData As Long
+  lpfnHook As Long
+  lpTemplateName As String
+End Type</CODE></PRE>
+<P><B>CHOOSECOLORS</B>-type variables work with <A href="../functions/choosecolor.html">ChooseColor</A> to create a Choose Color dialog box.  This type holds both the data passed to the function and the data returned from it.  (Note: The name of this data type is actually CHOOSECOLOR, but I renamed it in this guide because it would cause a conflict with case-insensitive languages like Visual Basic.)
+
+<DL>
+<DT><VAR>lStructSize</VAR><DD>The length in bytes of the entire variable (use the Len() function).
+<DT><VAR>hwndOwner</VAR><DD>The handle of the window opening the ChooseColor dialog.
+<DT><VAR>hInstance</VAR><DD>?
+<DT><VAR>rgbResult</VAR><DD>Set to the default color before calling <A href="../functions/choosecolor.html">ChooseColor</A>.  Receives the color the user selected, if any, when the box closes.
+<DT><VAR>lpCustColors</VAR><DD>A string holding the list of custom colors.  For more information, see <A href="../functions/choosecolor.html">ChooseColor</A>.
+<DT><VAR>flags</VAR><DD>Zero or more <A href="../constants/colordialogflags.html">color dialog flags</A> determining how to create the dialog box.
+<DT><VAR>lCustData</VAR><DD>?
+<DT><VAR>lpfnHook</VAR><DD>?
+<DT><VAR>lpTemplateName</VAR><DD>?
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/choosecolor.html">ChooseColor</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/choosecolors.html">http://members.aol.com/Borg953/api/types/choosecolors.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

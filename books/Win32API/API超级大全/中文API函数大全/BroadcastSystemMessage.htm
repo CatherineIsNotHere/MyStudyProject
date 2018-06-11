@@ -1,0 +1,148 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>BroadcastSystemMessage</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="BroadcastSystemMessage">BroadcastSystemMessage</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function BroadcastSystemMessage Lib
+    &quot;user32&quot; Alias &quot;BroadcastSystemMessage&quot; (ByVal dw As Long, pdw As
+    Long, ByVal un As Long, ByVal wParam As Long, ByVal lParam As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">将一条系统消息广播给系统中所有的顶级窗口</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，大于零表示成功；-1表示出错。如设置了BSF_QUERY，而且至少有一个消息接收者返回零，那么这个函数返回零</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="8">dw</td>
+    <td width="78%" colspan="2">Long，下述常数的一个或多个</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_FLUSHDISK</td>
+    <td width="38%">每次处理完一条消息后，都对磁盘进行刷新（将未存盘的数据存下来</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_FORCEIFHUNG</td>
+    <td width="38%">如目标处于挂起状态，则在设定的超时后到期返回</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_IGNORECURRENTTASK</td>
+    <td width="38%">发送任务不接收消息</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_LPARAMBUFFER</td>
+    <td width="38%">lParam指向一个内存缓冲区</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_NOHANG</td>
+    <td width="38%">跳过被挂起的所有进程</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_POSTMESSAGE</td>
+    <td width="38%">投递消息。不与BSF_LPARAMBUFFER和BSF_QUERY兼容</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_QUERY</td>
+    <td width="38%">将消息顺序发给进程，只有前一个返回TRUE时，才进入下一个进程</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">pdw</td>
+    <td width="78%" colspan="2">Long，下述常数的一个或多个</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_ALLCOMPONENTS</td>
+    <td width="38%">消息进入能够接收消息的每一个系统组件</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_APPLICATIONS</td>
+    <td width="38%">消息到达应用程序</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_INSTALLABLEDRIVERS</td>
+    <td width="38%">消息到达可安装的驱动程序</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_NETDRIVERS</td>
+    <td width="38%">消息到达网络驱动程序</td>
+  </tr>
+  <tr>
+    <td width="38%">BSF_VXDS</td>
+    <td width="38%">消息到达系统设备驱动程序</td>
+  </tr>
+  <tr>
+    <td width="25%">un</td>
+    <td width="78%" colspan="2">Long，消息编号</td>
+  </tr>
+  <tr>
+    <td width="25%">wParam</td>
+    <td width="78%" colspan="2">Long，由消息决定</td>
+  </tr>
+  <tr>
+    <td width="25%">lParam</td>
+    <td width="78%" colspan="2">Long，由消息决定。如指定了BSF_LPARAMBUFFER，这就是位于调用进程地址空间的一个内存缓冲区的地址，而且缓冲区的第一个16位字包含了缓冲区的长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#BroadcastSystemMessage">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

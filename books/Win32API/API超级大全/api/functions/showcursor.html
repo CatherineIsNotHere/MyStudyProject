@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: ShowCursor Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,ShowCursor" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>ShowCursor Function</H1>
+
+<P><CODE class="declare">Declare Function ShowCursor Lib &quot;user32.dll&quot; (ByVal bShow As Long) As Long</CODE>
+
+<P><B>ShowCursor</B> either shows or hides the mouse cursor.  This is not done directly, but rather by incrementing or decrementing a counter.  Each function call raises or lowers the counter by 1.  If the counter is negative, the cursor is invisible.  It if it non-negative, the cursor is visible.  The function returns the value of the counter after changing it.
+
+<DL>
+<DT><VAR>bShow</VAR><DD>If zero, decrements the counter by 1.  If non-zero, increments the counter by 1.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Hide the cursor
+Do
+  x = ShowCursor(0)  ' decrement by 1
+Loop Until x &lt; 0  ' continue until cursor is hidden
+' Show the cursor
+Do
+  x = ShowCursor(1)  ' increment by 1
+Loop Until x &gt;= 0  ' continue until cursor is visible</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#mouse" rel="index">Mouse</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/showcursor.html">http://members.aol.com/Borg953/api/functions/showcursor.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

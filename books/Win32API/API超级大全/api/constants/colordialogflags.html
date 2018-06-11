@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Color Dialog Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Color Dialog Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Color Dialog Flags</H1>
+
+<P><PRE><CODE class="tc">Const CC_RGBINIT = &amp;H1
+Const CC_FULLOPEN = &amp;H2
+Const CC_PREVENTFULLOPEN = &amp;H4
+Const CC_SHOWHELP = &amp;H8
+Const CC_SOLIDCOLOR = &amp;H80
+Const CC_ANYCOLOR = &amp;H100</CODE></PRE>
+
+<P>The <B>color dialog flags</B> tell Windows how to render the Choose Color dialog box.  The flags can be combined as long as they do not contradict each other (for example, using <VAR>CC_FULLOPEN</VAR> and <VAR>CC_PREVENTFULLOPEN</VAR> together would cause an error).
+
+<DL>
+<DT><VAR>CC_RGBINIT</VAR><DD>Make the color specified by <VAR>rgbResult</VAR> be the default color.
+<DT><VAR>CC_FULLOPEN</VAR><DD>Automatically display the Define Custom Colors half of the dialog box.
+<DT><VAR>CC_PREVENTFULLOPEN</VAR><DD>Disable the button that opens the Define Custom Colors half of the dialog box.
+<DT><VAR>CC_SHOWHELP</VAR><DD>Display the Help button.  (Unfortunately, I don't know how to make the button do anything.)
+<DT><VAR>CC_SOLIDCOLOR</VAR><DD>Return the solid-color equivalent of the selected color.
+<DT><VAR>CC_ANYCOLOR</VAR><DD>Return the textured-color equivalent of the selected color even if it is not solid.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/choosecolor.html">ChooseColor</A> (used through <A href="../types/choosecolors.html">CHOOSECOLORS</A>)<BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/colordialogflags.html">http://members.aol.com/Borg953/api/constants/colordialogflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

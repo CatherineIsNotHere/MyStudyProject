@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ActivateKeyboardLayout</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">ActivateKeyboardLayout</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function ActivateKeyboardLayout Lib
+    &quot;user32&quot; Alias &quot;ActivateKeyboardLayout&quot; (ByVal HKL As Long, ByVal
+    flags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">激活一个新的键盘布局。键盘布局定义了按键在一种物理性键盘上的位置与含义</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，如执行成功，返回前一个键盘布局的句柄；零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">HKL</td>
+    <td width="77%">Long，指定一个键盘布局的句柄。这个布局是随同<a
+    href="LoadKeyboardLayout.htm" tppabs="http://www.gxbcts.com/airfly/api/LoadKeyboardLayout.htm">LoadKeyboardLayout</a> 或 <a
+    href="GetKeyboardLayoutList.htm" tppabs="http://www.gxbcts.com/airfly/api/GetKeyboardLayoutList.htm">GetKeyboardLayoutList</a>函数载入的。也可用HKL_NEXT常数激活下一个已装载布局；或用HKL_PREV载入前一个布局</td>
+  </tr>
+  <tr>
+    <td width="25%">flags</td>
+    <td width="77%">Long，将指定的键盘移至内部键盘布局列表的起始处</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

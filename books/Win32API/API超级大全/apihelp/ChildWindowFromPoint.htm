@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ChildWindowFromPoint</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ChildWindowFromPoint,ChildWindowFromPointEx">ChildWindowFromPoint,ChildWindowFromPointEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Declare Function ChildWindowFromPoint Lib &quot;user32&quot; 
+    Alias &quot;ChildWindowFromPoint&quot; (ByVal hWnd As Long, ByVal xPoint As Long, ByVal 
+    yPoint As Long) As Long<br>
+    Declare Function ChildWindowFromPointEx Lib &quot;user32&quot; Alias 
+    &quot;ChildWindowFromPointEx&quot; (ByVal hWnd As Long, ByVal pt As POINTAPI, ByVal un As 
+    Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">返回父窗口中包含了指定点的第一个子窗口的句柄</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Long，发现包含了指定点的第一个子窗口的句柄。如未发现任何窗口，则返回hWnd（父窗口的句柄）。如指定点位于父窗口外部，则返回零</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hWnd</td>
+    <td width="75%" colspan="2">Long，父窗口的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">xPoint</td>
+    <td width="75%" colspan="2">Long，点的X坐标，以像素为单位</td>
+  </tr>
+  <tr>
+    <td width="25%">yPoint</td>
+    <td width="75%" colspan="2">Long，点的Y坐标，以像素为单位</td>
+  </tr>
+  <tr>
+    <td width="25%">pt</td>
+    <td width="75%" colspan="2"><a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>，点的坐标，以像素为单位</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">un</td>
+    <td width="75%" colspan="2">Long，（只适用于ChildWindowFromPointEx）控制对窗口的搜索。参见下表</td>
+  </tr>
+  <tr>
+    <td width="38%">CWP_ALL</td>
+    <td width="37%">测试所有窗口</td>
+  </tr>
+  <tr>
+    <td width="38%">CWP_SKIPINVISIBLE</td>
+    <td width="37%">忽略不可见窗口</td>
+  </tr>
+  <tr>
+    <td width="38%">CWP_SKIPDISABLED</td>
+    <td width="37%">忽略已屏蔽的窗口</td>
+  </tr>
+  <tr>
+    <td width="38%">CWP_SKIPTRANSPARENT </td>
+    <td width="37%">忽略透明窗口</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ChildWindowFromPoint,ChildWindowFromPointEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<HTML><HEAD><TITLE>API技巧之十</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Run%20an%20Application%20Only%20Once_files/default.css" rel=stylesheet 
+type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%"><font color=#ffffff size=6>让应用程序只运行一次</font></td>
+  </tr>
+  <tr> 
+    <td width="100%"> 
+      <p>在我的网页上已经有一种让应用程序只运行一次的办法，这里给大家提供方法比其他地方的方法更具有实用性，当然，使用那种全凭您个人的爱好！</p>
+      <p>让应用程序只运行一次可以使应用程序的设计更方便与可靠，下面我们将讨论如何让应用程序只运行一次。</p>
+      <p>当用户双击应用程序图标时，首先检查应用程序是否已经运行，如果它已经运行的话，就将它的窗口在屏幕的最上层显示出来，这需要使用一些ＳＤＫ函数，以下是具体的做法：</p>
+      <p>1. 创建一个非可视化用户对象n_cst_win32sdk，该对象有以下的局部函数与外函数:</p>
+      <p>外部函数: <br>
+        FUNCTION boolean ShowWindow( ulong winhandle,&amp; int wincommand ) Library 
+        "user32" FUNCTION boolean BringWindowToTop( ulong HWND )&amp; Library 
+        "user32" FUNCTION long FindWindowA( ulong Winhandle, &amp; string wintitle 
+        ) Library "user32" </p>
+      <p>局部函数 :<br>
+        Of_FindWindowByTitle( string as_wintitle ) Return FindWindowA( 0, as_wintitle 
+        ) Of_ShowWindow( unsignedlong al_winhandle ) Return ShowWindow( al_winhandle, 
+        5 ) Of_BringToTop( unsignedlong al_winhandle ) Return BringWindowToTop( 
+        al_winhandle ) </p>
+      <p>2. 创建一个带有close按钮的测试窗口w_tes，窗口标题为First Window</p>
+      <p>3. 在应用程序的Open事件中增加如下代码:</p>
+      <pre>n_cst_win32sdk  lnv_sdk
+long            ll_winhandle
+
+If Not IsValid( lnv_sdk ) Then
+   lnv_sdk     =      Create n_cst_win32sdk
+End if  
+ll_winhandle = &amp;
+   lnv_sdk.of_FindWindowByTitle( "First Window" )
+If ll_winhandle &gt; 0 Then
+   lnv_sdk.of_BringToTop( ll_winhandle )
+   lnv_sdk.of_ShowWindow( ll_winhandle )
+   destroy lnv_sdk
+   Return
+End If
+Open( w_sdktest )</pre>
+      <p>注释：如果找到w_test窗口，表示应用程序已经执行，直接将它带到屏幕的最上层即可。</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

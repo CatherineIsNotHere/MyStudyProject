@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetPrinterDriver</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetPrinterDriver</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetPrinterDriver Lib
+    &quot;winspool.drv&quot; Alias &quot;GetPrinterDriverA&quot; (ByVal hPrinter As Long,
+    ByVal pEnvironment As String, ByVal Level As Long, pDriverInfo As Byte, ByVal cdBuf As
+    Long, pcbNeeded As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">针对指定的打印机，获取与打印机驱动程序有关的信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hPrinter</td>
+    <td width="75%">Long，一个已打开的打印机的句柄（用OpenPrinter获得）</td>
+  </tr>
+  <tr>
+    <td width="25%">pEnvironment</td>
+    <td width="75%">String，欲获取的驱动程序环境（如：Windows NT x86）。如设为vbNullString，表示使用当前（本地）系统环境</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="75%">Long，1，2或3（仅适用于Windows 95 和 NT 4.0）</td>
+  </tr>
+  <tr>
+    <td width="25%">pDriverInfo</td>
+    <td width="75%">Byte，载入一个 DRIVER_INFO_x结构的缓冲区。其中的x代表级别（Level）设置</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuf</td>
+    <td width="77%">Long，pDriverInfo缓冲区中的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcbNeeded</td>
+    <td width="77%">Long，指向一个Long型变量的指针，该变量用于保存请求的缓冲区长度，或者实际读入的字节数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

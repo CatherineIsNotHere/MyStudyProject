@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LZOpenFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="LZOpenFile">LZOpenFile</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function LZOpenFile Lib &quot;lz32.dll&quot; Alias 
+    &quot;LZOpenFileA&quot; (ByVal lpszFile As String, lpOf As OFSTRUCT, ByVal style As Long) 
+    As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">该函数能执行大量不同的文件处理，而且兼容于压缩文件</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，如函数执行成功，且样式（style）参数不为OF_READ，就返回常规的文件句柄，具体请参考<a
+    href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数的说明。如样式参数为OF_READ，而且文件是压缩的，就会返回一个特殊的文件句柄，以便由<a
+    href="LZCopy.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LZCopy.htm">LZCopy</a>， <a href="LZRead.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LZRead.htm">LZRead</a> 和 <a href="LZSeek.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LZSeek.htm">LZSeek</a>函数使用。如出错，返回如下表所示的一个常数：</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_BADINHANDLE</td>
+    <td width="75%">源文件无效</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_BADOUTHANDLE</td>
+    <td width="75%">目标文件无效</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_GLOBALLOC</td>
+    <td width="75%">内部解压缓冲区的内存容量不足</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_GLOBLOCK</td>
+    <td width="75%">内部解压缓冲区的句柄无效</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_READ</td>
+    <td width="75%">无效的源文件格式</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_UNKNOWNALG</td>
+    <td width="75%">解压DLL不能识别源文件采用的压缩算法</td>
+  </tr>
+  <tr>
+    <td width="25%">LZERROR_WRITE</td>
+    <td width="75%">在磁盘上写入输出文件时出错，通常是由于磁盘空间不足造成的</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszFile</td>
+    <td width="75%">String，欲打开的文件名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOf</td>
+    <td width="75%">OFSTRUCT，该结构填充的数据包括与本次处理的文件和结果有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">style</td>
+    <td width="75%">Long，处理方式标志常数的一种组合。参考<a
+    href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数的<a href="OpenFile.htm#表OpenFile-1" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm#表OpenFile-1">标志常数表</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">参考<a href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#LZOpenFile">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

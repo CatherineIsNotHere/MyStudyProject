@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>POLYTEXT</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">POLYTEXT——参考<a href="PolyTextOut.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/PolyTextOut.htm">PolyTextOut</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Type POLYTEXT<br>
+    x As Long<br>
+    y As Long<br>
+    n As Long<br>
+    lpStr As String<br>
+    uiFlags As Long<br>
+    rcl As RECT<br>
+    pdx As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">This structure describes the location and contents of strings 
+    to draw for the <a href="PolyTextOut.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/PolyTextOut.htm">PolyTextOut</a> function</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="75%" colspan="2">Long，定义了字串的参考位置。根据设备场景当前的文本对齐设置，字串会对齐这个参考点</td>
+  </tr>
+  <tr>
+    <td width="25%">n</td>
+    <td width="75%" colspan="2">Long，字串的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpStr</td>
+    <td width="75%" colspan="2">String，欲描绘的字串</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">uiFlags</td>
+    <td width="75%" colspan="2">Long，可设为下述一个或多个常数：</td>
+  </tr>
+  <tr>
+    <td width="38%">ETO_CLIPPED</td>
+    <td width="37%">将输出剪切成由rcl字段指定的一个矩形</td>
+  </tr>
+  <tr>
+    <td width="38%">ETO_OPAQUE</td>
+    <td width="37%">用当前背景色填充rcl矩形</td>
+  </tr>
+  <tr>
+    <td width="25%">rcl</td>
+    <td width="75%" colspan="2"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，用于指定约束矩形（如已经设置了ETO_CLIPPED）</td>
+  </tr>
+  <tr>
+    <td width="25%">pdx</td>
+    <td width="75%" colspan="2">Long，指定一个内存块的地址。该地址包含了一个Long型数组，用于装载每个字符的宽度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

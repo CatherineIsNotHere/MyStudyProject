@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>BY_HANDLE_FILE_INFORMATION</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="BY_HANDLE_FILE_INFORMATION">BY_HANDLE_FILE_INFORMATION</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type BY_HANDLE_FILE-INFORMATION ' 52 Bytes<br>
+    dwFileAttributes As Long<br>
+    ftCreationTime As FILETIME<br>
+    ftLastAccessTime As FILETIME<br>
+    ftLastWriteTime As FILETIME<br>
+    dwVolumeSerialNumber As Long<br>
+    nFileSizeHigh As Long<br>
+    nFileSizeLow As Long<br>
+    nNumberOfLinks As Long<br>
+    nFileIndexHigh As Long<br>
+    nFileIndexLow As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Used by the <a href="GetFileInformationByHandle.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetFileInformationByHandle.htm">GetFileInformationByHandle</a> 
+    function to retrieve information about a file.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">dwFileAttributes</td>
+    <td width="75%">Long，Refer to the <a href="#File Attribute Types table">File Attribute 
+    Types table</a> that follows.</td>
+  </tr>
+  <tr>
+    <td width="25%">ftCreationTime</td>
+    <td width="75%"><a href="FILETIME.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/FILETIME.htm">FILETIME</a>，Time of file creation. Zero if file 
+    system does not support file creation time.</td>
+  </tr>
+  <tr>
+    <td width="25%">ftLastAccessTime</td>
+    <td width="75%"><a href="FILETIME.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/FILETIME.htm">FILETIME</a>，Time of last access to this file. 
+    Zero if file system does not support file last access time.</td>
+  </tr>
+  <tr>
+    <td width="25%">ftLastWriteTime</td>
+    <td width="75%"><a href="FILETIME.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/FILETIME.htm">FILETIME</a>，Time of last write operation to this 
+    file.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwVolumeSerialNumber</td>
+    <td width="75%">Long，Serial number of the volume that contains the file.</td>
+  </tr>
+  <tr>
+    <td width="25%">nFileSizeHigh</td>
+    <td width="75%">Long，High-order word of the file size.</td>
+  </tr>
+  <tr>
+    <td width="25%">nFileSizeLow</td>
+    <td width="75%">Long，Low-order word of the file size.</td>
+  </tr>
+  <tr>
+    <td width="25%">nNumberOfLinks</td>
+    <td width="75%">Long，Number of links to this file. Always 1 for the FAT file system and 
+    HPFS.</td>
+  </tr>
+  <tr>
+    <td width="25%">nFileIndexHigh</td>
+    <td width="75%">Long，High-order word of a unique identifier associated with the file.</td>
+  </tr>
+  <tr>
+    <td width="25%">nFileIndexLow</td>
+    <td width="75%">Long，Low-order word of a unique identifier associated with the file. Use 
+    this element and the dwVolumeSerialNumber to uniquely identify a file.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><a name="File Attribute Types table">File Attribute Types 
+    table</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">FILE_ATTRIBUTE_ARCHIVE&nbsp;&nbsp;&nbsp; Archive file.<br>
+    FILE_ATTRIBUTE_COMPRESSED&nbsp;&nbsp;&nbsp; The file or directory is compressed.<br>
+    FILE_ATTRIBUTE_DIRECTORY&nbsp;&nbsp;&nbsp; File is a directory.<br>
+    FILE_ATTRIBUTE_HIDDEN&nbsp;&nbsp;&nbsp; File is hidden.<br>
+    FILE_ATTRIBUTE_NORMAL&nbsp;&nbsp;&nbsp; File is normal (no other file attributes are 
+    specified).<br>
+    FILE_ATTRIBUTE_READONLY&nbsp;&nbsp;&nbsp; File is read-only.<br>
+    FILE_ATTRIBUTE_SYSTEM&nbsp;&nbsp;&nbsp; File is a system file.<br>
+    FILE_ATTRIBUTE_NORMAL&nbsp;&nbsp;&nbsp; File is a temporary file.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">dwFileAttributes字段包含了带有FILE_ATTRIBUTE_???前缀的一个或多个常数的组合，它们对文件属性进行了描述。nNumberOfLinks则列出了NFS下对一个文件的链接数量。nFileIndexHigh和nFileIndexLow字段合并起来构成一个64位数字，它对磁盘卷中的一个文件进行了唯一标志</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#BY_HANDLE_FILE_INFORMATION">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

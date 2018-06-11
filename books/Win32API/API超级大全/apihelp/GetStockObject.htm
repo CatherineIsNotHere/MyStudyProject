@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetStockObject</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetStockObject">GetStockObject</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="104%" colspan="5">VB声明</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">Declare Function GetStockObject Lib &quot;gdi32&quot; Alias 
+    &quot;GetStockObject&quot; (ByVal nIndex As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">说明</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">取得一个固有对象（Stock）。这是可由任何应用程序使用的windows标准对象之一</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">返回值</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">Long，指向指定对象的一个句柄。零表示出错</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="79%" colspan="4">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="10">nIndex</td>
+    <td width="79%" colspan="4">Long，下述表格中定义的任何常数之一</td>
+  </tr>
+  <tr>
+    <td width="18%">BLACK_BRUSH</td>
+    <td width="19%">黑色刷子</td>
+    <td width="19%">DKGRAY_BRUSH</td>
+    <td width="19%">黑灰色刷子</td>
+  </tr>
+  <tr>
+    <td width="18%">GRAY_BRUSH</td>
+    <td width="19%">灰色刷子</td>
+    <td width="19%">HOLLOW_BRUSH</td>
+    <td width="19%">凹刷子</td>
+  </tr>
+  <tr>
+    <td width="18%">LTGRAY_BRUSH</td>
+    <td width="19%">浅灰色刷子</td>
+    <td width="19%">NULL_BRUSH</td>
+    <td width="19%">空刷子</td>
+  </tr>
+  <tr>
+    <td width="18%">WHITE_BRUSH</td>
+    <td width="19%">白色刷子</td>
+    <td width="19%">BLACK_PEN</td>
+    <td width="19%">黑色画笔</td>
+  </tr>
+  <tr>
+    <td width="18%">NULL_PEN</td>
+    <td width="19%">空画笔</td>
+    <td width="19%">WHITE_PEN</td>
+    <td width="19%">白色画笔</td>
+  </tr>
+  <tr>
+    <td width="18%">ANSI_FIXED_FONT</td>
+    <td width="19%">采用windows（ANSI）字符集的等宽字体</td>
+    <td width="19%">ANSI_VAR_FONT</td>
+    <td width="19%">采用windows（ANSI）字符集的不等宽字体</td>
+  </tr>
+  <tr>
+    <td width="18%">DEVICE_DEFAULT_FONT</td>
+    <td width="19%">设备使用的默认字体（NT）</td>
+    <td width="19%">DEFAULT_GUI_FONT</td>
+    <td width="19%">用户界面的默认字体，包括菜单和对话框字体（Windows 95）</td>
+  </tr>
+  <tr>
+    <td width="18%">OEM_FIXED_FONT</td>
+    <td width="19%">OEM字符集的固有字体</td>
+    <td width="19%">SYSTEM_FONT</td>
+    <td width="19%">屏幕系统字体。这是用于菜单、对话框等等的默认不等宽字体</td>
+  </tr>
+  <tr>
+    <td width="18%">SYSTEM_FIXED_FONT</td>
+    <td width="19%">屏幕系统字体。这是用于菜单、对话框等等的默认等宽字体（在windows 
+    3.0之前使用）</td>
+    <td width="19%">DEFAULT_PALETTE</td>
+    <td width="19%">默认调色板</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5">注解</td>
+  </tr>
+  <tr>
+    <td width="104%" colspan="5"><p align="left">固有刷子的起点可能不会改变。不应用<a
+    href="DeleteObject.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DeleteObject.htm">DeleteObject</a>函数删除这些对象。不要对那些不具备CS_HREDRAW 
+    和 CS_VREDRAW类样式的窗口使用DK_GRAY_BRUSH，GRAY_BRUSH 和 LTGRAY_BRUSH刷子</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetStockObject">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

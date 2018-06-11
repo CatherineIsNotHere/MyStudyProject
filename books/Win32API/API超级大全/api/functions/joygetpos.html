@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: joyGetPos Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,joyGetPos" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>joyGetPos Function</H1>
+
+<P><CODE class="declare">Declare Function joyGetPos Lib &quot;winmm.dll&quot; (ByVal uJoyID As Long, pji As <A href="../types/joyinfo.html">JOYINFO</A>) As Long</CODE>
+
+<P><B>joyGetPos</B> reads the current position and status of a joystick.  This information is put into the variable passed as <VAR>pji</VAR>.  The function returns 0 if the joystick is connected and working, or a non-zero value if it is not.
+
+<DL>
+<DT><VAR>uJoyID</VAR><DD>The ID number of the joystick to read, starting at 0.
+<DT><VAR>pji</VAR><DD>Variable that receives the joystick's current position and status.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the joystick's x and y coordinates
+Dim pos As JOYINFO
+x = joyGetPos(0, pos)
+Debug.Print &quot;Coordinates:&quot; pos.wXpos; pos.wYpos</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#joysticks" rel="index">Joysticks</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/joygetpos.html">http://members.aol.com/Borg953/api/functions/joygetpos.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

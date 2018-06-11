@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>VkKeyScan</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">VkKeyScan, VkKeyScanEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function VkKeyScan% Lib &quot;user32&quot; Alias 
+    &quot;VkKeyScanA&quot; (ByVal cChar As Byte)<br>
+    Declare Function VkKeyScanEx% Lib &quot;user32&quot; Alias &quot;VkKeyScanExA&quot; (ByVal 
+    ch As Byte, ByVal dwhkl As Long)</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">针对Windows字符集中一个ASCII字符，判断虚拟键码和Shift键的状态</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，低字包含了虚拟键码。高字则包含了下述标志：<br>
+    位0指出 Shift 键已经按下；位1指出 Ctrl 键已经按下；位2指出 Alt 
+    键已经按下</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">ch</td>
+    <td width="77%">Byte，欲转换的字符的ASCII值</td>
+  </tr>
+  <tr>
+    <td width="25%">dwhkl</td>
+    <td width="77%">Long，转换时作为依据的键盘布局</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">数字小键盘的转换会被忽略。这个函数可用于获取发送WM_KEYDOWN 
+    和 WM_KEYUP消息时应使用的正确参数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

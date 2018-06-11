@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ExpandEnvironmentStrings</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ExpandEnvironmentStrings">ExpandEnvironmentStrings</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function ExpandEnvironmentStrings Lib
+    &quot;kernel32&quot; Alias &quot;ExpandEnvironmentStringsA&quot; (ByVal lpSrc As String,
+    ByVal lpDst As String, ByVal nSize As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">扩充环境字串。具体操作过程与命令行处理的所为差不多。也就是说，将由百分号封闭起来的环境变量名转换成那个变量的内容。比如，“%path%”会扩充成完整路径。在vb里经常用于为新进程创建一个环境块</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，lpDst要求的缓冲区的大小。如nSize小于这个数字（也就是说，缓冲区太小，以至不能全容下扩充过后的字串），那么lpDst不会被载入。可利用这个结果改变字串的大小。零表示遇到错误。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSrc</td>
+    <td width="77%">String，欲扩充的字串</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDst</td>
+    <td width="77%">String，扩充过后的字串</td>
+  </tr>
+  <tr>
+    <td width="25%">nSize</td>
+    <td width="77%">Long，lpDst的长度。注意预先对lpDst进行初始化，使其与这个长度相符</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">示例</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">Dim s$, dl&amp;<br>
+    Dim y As String * 5<br>
+    s$ = &quot;%PATH%&quot;<br>
+    dl&amp; = ExpandEnvironmentStrings(s$, y, 499)<br>
+    Print y</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ExpandEnvironmentStrings">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

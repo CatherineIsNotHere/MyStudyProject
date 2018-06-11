@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>AdjustWindowRect</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="AdjustWindowRect, AdjustWindowRectEx">AdjustWindowRect,AdjustWindowRectEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function AdjustWindowRect Lib &quot;user32&quot; 
+    Alias &quot;AdjustWindowRect&quot; (lpRect As RECT, ByVal dwStyle As Long, ByVal bMenu As 
+    Long) As Long<br> 
+    Declare Function AdjustWindowRectEx Lib &quot;user32&quot; Alias 
+    &quot;AdjustWindowRectEx&quot; (lpRect As RECT, ByVal dsStyle As Long, ByVal bMenu As 
+    Long, ByVal dwEsStyle As Long) As Long</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">说明</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">在给定一种窗口样式的前提下，计算获得目标客户区矩形所需的窗口大小</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">返回值</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">Long，如执行成功，则返回非零值；如失败，返回零值。会设置<a 
+    href="GetLastError.htm" tppabs="GetLastError.htm">GetLastError</a></td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">参数表</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">参数</td> 
+    <td width="75%">类型及说明</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpRect</td> 
+    <td width="75%"><a href="RECT.htm" tppabs="RECT.htm">RECT</a>，最初包含要求的客户区。由函数设为目标窗口矩形大小</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">dwStyle</td> 
+    <td width="75%">Long，窗口样式</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">bMenu</td> 
+    <td width="75%">Long，如窗口有菜单，则设为TRUE（非零）</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">dwEsStyle</td> 
+    <td width="75%">Long，扩展窗口样式（只适用于AdjustWindowRectEx）</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">注解</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">在调用本函数前，先用<a href="GetWindowLong.htm" tppabs="http://www.gxbcts.com/airfly/api/GetWindowLong.htm">GetWindowLong</a>取得一个窗体的样式。如菜单占用两行以上的空间，则函数不能正确计算大小。如程序使用了多行标题，则应使用<a 
+    href="GetSystemMetrics.htm" tppabs="GetSystemMetrics.htm">GetSystemMetrics</a></td> 
+  </tr> 
+</table> 
+</center></div><div align="center"><center> 
+ 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%"><p align="right"><a href="#AdjustWindowRect, AdjustWindowRectEx">Top</a></td> 
+  </tr> 
+</table> 
+</center></div> 
+</body> 
+</html> 

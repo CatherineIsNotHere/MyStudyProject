@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>FILETIME</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">FILETIME</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type FILETIME ' 8 Bytes <br>
+    dwLowDateTime As Long<br>
+    dwHighDateTime As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">windows提供了一种特殊的机制，可以记录文件的访问及创建时间。在win32环境中，这些信息以64位值的形式保存，量度的是自1601年1月1日以来经历的100ns时间单位数量（64-bit 
+    number specifying the elapsed time since January 1, 1601, in 100-nanosecond increments.）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">dwLowDateTime</td>
+    <td width="75%" rowspan="2">Long，Low and high-order 32 bits of the file time</td>
+  </tr>
+  <tr>
+    <td width="25%">dwHighDateTime</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">文件时间在系统中通常用“协同世界时间”（UTC）的格式保存，但同时提供了在UTC及本地时间之间转换的函数。FILETIME结构里可包含UTC或本地时间——由我们自行决定在结构中包含什么时间</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

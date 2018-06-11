@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegReplaceKey</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegReplaceKey</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegReplaceKey Lib &quot;advapi32.dll&quot; 
+    Alias &quot;RegReplaceKeyA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal 
+    lpNewFile As String, ByVal lpOldFile As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">用一个磁盘文件保存的信息替换注册表信息；并创建一个备份，在其中包含当前注册表信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，一个已打开项的句柄，或指定一个标准项名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSubKey</td>
+    <td width="75%">String，要替换的子项名称。它必须直接位于HKEY_LOCAL_MACHINE 
+    或 HKEY_USERS控制项的下方</td>
+  </tr>
+  <tr>
+    <td width="25%">lpNewFile</td>
+    <td width="75%">String，包含了注册表信息的一个文件的名字。这个文件是用<a
+    href="RegSaveKey.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RegSaveKey.htm">RegSaveKey</a>函数创建的</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOldFile</td>
+    <td width="75%">String，对当前注册表信息进行备份的一个文件的名字</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

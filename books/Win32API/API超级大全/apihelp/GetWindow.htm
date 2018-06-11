@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetWindow</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetWindow">GetWindow</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function GetWindow Lib &quot;user32&quot; Alias 
+    &quot;GetWindow&quot; (ByVal hwnd As Long, ByVal wCmd As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">获得一个窗口的句柄，该窗口与某源窗口有特定的关系</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，由wCmd决定的一个窗口的句柄。如没有找到相符窗口，或者遇到错误，则返回零值。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="77%" colspan="2">Long，源窗口</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="7">wCmd</td>
+    <td width="77%" colspan="2">Long，指定结果窗口与源窗口的关系，它们建立在下述常数基础上：</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_CHILD</td>
+    <td width="38%">寻找源窗口的第一个子窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_HWNDFIRST</td>
+    <td width="38%">为一个源子窗口寻找第一个兄弟（同级）窗口，或寻找第一个顶级窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_HWNDLAST</td>
+    <td width="38%">为一个源子窗口寻找最后一个兄弟（同级）窗口，或寻找最后一个顶级窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_HWNDNEXT</td>
+    <td width="38%">为源窗口寻找下一个兄弟窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_HWNDPREV</td>
+    <td width="38%">为源窗口寻找前一个兄弟窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">GW_OWNER</td>
+    <td width="38%">寻找窗口的所有者</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">兄弟或同级是指在整个分级结构中位于同一级别的窗口。如某个窗口有五个子窗口，那五个窗口就是兄弟窗口。尽管<a
+    name="GetWindow">GetWindow</a>可用于枚举窗口，但倘若要在枚举过程中重新定位、创建和清除窗口，那么<a
+    href="EnumWindows.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/EnumWindows.htm">EnumWindows</a>和<a href="EnumChildWindows.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/EnumChildWindows.htm">EnumChildWindows</a>更为可靠</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetWindow">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

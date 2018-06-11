@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MapWindowPoints</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="MapWindowPoints">MapWindowPoints</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function MapWindowPoints&amp; Lib &quot;user32&quot; 
+    (ByVal hwndFrom As Long, ByVal hwndTo As Long, lppt As POINTAPI, ByVal cPoints As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">将一个窗口客户区坐标的点转换到另一窗口的客户区坐标系统（在vb里使用：无论向函数传递单独一个点，还是传递数组中的第一个<a
+    href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>结构，都要特别谨慎。数组中的条目数量至少等于由cPoints参数指定的数量）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，低字代表映射过程中添加给每个点的水平偏移，高字则代表垂直偏移</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwndFrom</td>
+    <td width="75%">Long，定义源坐标的窗口。用零或桌面窗口句柄指定屏幕坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">hwndTo</td>
+    <td width="75%">Long，定义目标坐标的窗口。用零或桌面窗口句柄指定屏幕坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">lppt</td>
+    <td width="75%"><a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>，点结构中待转换的第一个条目。注意<a
+    href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>结构在内存中组织成两个连续的<a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>结构。这样就可为该函数创建一个别名，并使用<a
+    href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>结构；而不是<a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>结构。如这样做时，注意将cPoints的值加倍</td>
+  </tr>
+  <tr>
+    <td width="25%">cPoints</td>
+    <td width="75%">Long，欲转换的点数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在vb自带的api查看器中复制的声明为：Declare 
+    Function MapWindowPoints Lib &quot;user32&quot; Alias &quot;MapWindowPoints&quot; (ByVal 
+    hwndFrom As Long, ByVal hwndTo As Long, lppt As Any, ByVal cPoints As Long) As Long，请注意：lppt 
+    As Any</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#MapWindowPoints">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

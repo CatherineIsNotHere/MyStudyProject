@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegSaveKey</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegSaveKey</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegSaveKey Lib &quot;advapi32.dll&quot; 
+    Alias &quot;RegSaveKeyA&quot; (ByVal hKey As Long, ByVal lpFile As String, 
+    lpSecurityAttributes As SECURITY_ATTRIBUTES) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">将一个项以及它的所有子项都保存到一个磁盘文件</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，一个已打开项的句柄，或指定一个标准项名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFile</td>
+    <td width="75%">String，要在其中保存注册表信息的一个磁盘文件的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSecurityAttributes</td>
+    <td width="75%">SECURITY_ATTRIBUTES，为保存的信息提供的安全信息。可设为NULL，表示采用默认的安全信息（变成ByVal 
+    As Long，并传递零值）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

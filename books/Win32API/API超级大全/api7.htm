@@ -1,0 +1,55 @@
+
+<HTML><HEAD><TITLE>API糢糢荱X蒛P諹H甎@芔8遀0</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Get%20Volume%20Information_files/default.css" rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%"> 
+      <div align="center"><font color=#ffffff size=6>取得驱动器的卷标</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">我想建立一个新的资源管理器部件，来仿真Windows的资源管理器应用程序，为了显示驱动器列表与卷标信息，使用下面的程序可以取得卷标与序列号： 
+      <p>1.建立一个非可视用户对象NVO并加入局部外部函数引用:</p>
+      <pre>function long GetVolumeInformationA( ref string ls_RootPath, &amp;
+   ref string ls_VolName, long ll_VolLen, long ll_volserial, &amp;
+   long ll_maxcomplen, long ll_systemflags, &amp;
+   ref string ls_SystemName,&amp;
+   long ll_SystemLen ) Library 'kernel32'</pre>
+      <p>2.然后定义一个GetVolumeName函数（以字符串为参数，并返回一个字符串）,在函数中增加如下的代码：</p>
+      <pre>// Call the API function to get the volume
+// label from a drive letter
+String ls_Volume
+String ls_Drive, ls_FileSys, ls_Flags
+Long ll_Serial, ll_Max, ll_Flags, ll_RC, ll_FileSys
+Long ll_Volume
+
+ls_Drive = as_Volume
+ls_Volume = Space(32)
+ls_FileSys = Space(32)
+ll_Volume = Len( ls_Volume )
+ll_FileSys = Len( ls_Filesys )
+
+ll_RC = GetVolumeInformationA( ls_Drive, ls_Volume, ll_Volume, &amp;
+	ll_Serial, ll_Max, ll_Flags, ls_FileSys, ll_FileSys )
+
+IF ll_RC = 0 THEN 
+	ls_Volume = ''
+ELSE
+	ls_Volume = Trim( ls_Volume )
+END IF
+
+RETURN ls_Volume</pre>
+      <p>调用函数时将驱动器名字作为参数。</p>
+    </td>
+  </tr>
+  </tbody> 
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

@@ -1,0 +1,163 @@
+
+<HTML><HEAD><TITLE>API技巧之八</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../C-C++%20Datatype%20Conversion_files/default.css" rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>C/C++数据类型转换</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>下表所列的数据类型并非C与C++的全部数据类型，但它们是编写PowerBuilder与C/C++接口程序中最常用的数据类型，其中第一个表在PowerBuilder到C的转换，一般在C代理生成器中使用。第二个表是C/C++到Powerbuilder的转换，用于编写DLL库。 
+      </p>
+      <div align=center> 
+        <center>
+          <table border=0 width="80%">
+            <tbody> 
+            <tr> 
+              <td bgcolor=#210073 width="50%"><font color=#ffffff 
+                  size=4>PowerBuilder数据类型</font></td>
+              <td bgcolor=#210073 width="50%"><font color=#ffffff 
+                  size=4>C/C++ 数据类型</font></td>
+            </tr>
+            <tr> 
+              <td width="50%">Blob</td>
+              <td width="50%">PBBlob</td>
+            </tr>
+            <tr> 
+              <td width="50%">Boolean</td>
+              <td width="50%">int</td>
+            </tr>
+            <tr> 
+              <td width="50%">Character</td>
+              <td width="50%">char</td>
+            </tr>
+            <tr> 
+              <td width="50%">Date</td>
+              <td width="50%">PBDate</td>
+            </tr>
+            <tr> 
+              <td width="50%">DateTime</td>
+              <td width="50%">PBDateTime</td>
+            </tr>
+            <tr> 
+              <td width="50%">Decimal</td>
+              <td width="50%">PBDecimal</td>
+            </tr>
+            <tr> 
+              <td width="50%">Double</td>
+              <td width="50%">double</td>
+            </tr>
+            <tr> 
+              <td width="50%">Integer</td>
+              <td width="50%">int</td>
+            </tr>
+            <tr> 
+              <td width="50%">Real</td>
+              <td width="50%">float</td>
+            </tr>
+            <tr> 
+              <td width="50%">String</td>
+              <td width="50%">PBString</td>
+            </tr>
+            <tr> 
+              <td width="50%">Time</td>
+              <td width="50%">PBTime</td>
+            </tr>
+            <tr> 
+              <td width="50%">UnSignedInteger</td>
+              <td width="50%">unsigned int</td>
+            </tr>
+            </tbody>
+          </table>
+        </center>
+      </div>
+      <p>&nbsp;</p>
+      <div align=center> 
+        <center>
+          <table border=0 width="80%">
+            <tbody> 
+            <tr> 
+              <td bgcolor=#210073 width="50%"><font color=#ffffff 
+                  size=4>C/C++ 数据类型</font></td>
+              <td bgcolor=#210073 width="50%"><font color=#ffffff 
+                  size=4>PowerBuilder 数据类型</font></td>
+            </tr>
+            <tr> 
+              <td width="50%">BOOL</td>
+              <td width="50%">Boolean</td>
+            </tr>
+            <tr> 
+              <td width="50%">WORD</td>
+              <td width="50%">UnSignedInteger</td>
+            </tr>
+            <tr> 
+              <td width="50%">DWORD</td>
+              <td width="50%">UnSignedLong</td>
+            </tr>
+            <tr> 
+              <td width="50%">HANDLE</td>
+              <td width="50%">UnSignedLong</td>
+            </tr>
+            <tr> 
+              <td width="50%">HWND</td>
+              <td width="50%">UnSignedLong</td>
+            </tr>
+            <tr> 
+              <td width="50%">LPSTR</td>
+              <td width="50%">String Ref</td>
+            </tr>
+            <tr> 
+              <td width="50%">LPBYTE</td>
+              <td width="50%">String Ref</td>
+            </tr>
+            <tr> 
+              <td width="50%">LPINT</td>
+              <td width="50%">Long Ref</td>
+            </tr>
+            <tr> 
+              <td width="50%">char</td>
+              <td width="50%">Blob{1}</td>
+            </tr>
+            <tr> 
+              <td width="50%">int</td>
+              <td width="50%">Integer</td>
+            </tr>
+            <tr> 
+              <td width="50%">unsigned int</td>
+              <td width="50%">UnSignedInt</td>
+            </tr>
+            <tr> 
+              <td width="50%">long</td>
+              <td width="50%">Long</td>
+            </tr>
+            <tr> 
+              <td width="50%">ULONG/unsigned long</td>
+              <td width="50%">UnSignedLong</td>
+            </tr>
+            <tr> 
+              <td width="50%">double</td>
+              <td width="50%">Double</td>
+            </tr>
+            <tr> 
+              <td width="50%">char *</td>
+              <td width="50%">String Ref</td>
+            </tr>
+            </tbody>
+          </table>
+        </center>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

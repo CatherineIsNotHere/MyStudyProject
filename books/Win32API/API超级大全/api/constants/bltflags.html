@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Blt Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Blt Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Blt Flags</H1>
+
+<P><PRE><CODE class="tc">Const SRCAND = &amp;H8800C6
+Const SRCCOPY = &amp;HCC0020
+Const SRCERASE = &amp;H440328
+Const SRCINVERT = &amp;H660046
+Const SRCPAINT = &amp;HEE0086</CODE></PRE>
+
+<P>The <B>Blt flags</B> tell the Bltting functions what method to use when transfering a piece of an image from the source to the target device.  Exactly one flag must be used -- they cannot be combined.  The Ands, Ors, etc. are binary operations performed on a pixel-by-pixel basis with the colors in the source and target.  The result is the color that appears.
+
+<DL>
+<DT><VAR>SRCAND</VAR><DD>destination = image And destination
+<DT><VAR>SRCCOPY</VAR><DD>destination = image
+<DT><VAR>SRCERASE</VAR><DD>destination = image And (Not destination)
+<DT><VAR>SRCINVERT</VAR><DD>destination = image Xor destination
+<DT><VAR>SRCPAINT</VAR><DD>destination = image Or destination
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/bitblt.html">BitBlt</A>, <A href="../functions/stretchblt.html">StretchBlt</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/bltflags.html">http://members.aol.com/Borg953/api/constants/bltflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MapViewOfFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="MapViewOfFile, MapViewOfFileEx">MapViewOfFile, 
+    MapViewOfFileEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function MapViewOfFile&amp; Lib &quot;kernel32&quot; 
+    (ByVal hFileMappingObject As Long, ByVal dwDesiredAccess As Long, ByVal dwFileOffsetHigh 
+    As Long, ByVal dwFileOffsetLow As Long, ByVal dwNumberOfBytesToMap As Long)<br>
+    Declare Function MapViewOfFileEx&amp; Lib &quot;kernel32&quot; (ByVal hFileMappingObject 
+    As Long, ByVal dwDesiredAccess As Long, ByVal dwFileOffsetHigh As Long, ByVal 
+    dwFileOffsetLow As Long, ByVal dwNumberOfBytesToMap As Long, lpBaseAddress As Any)</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">将一个文件映射对象映射到当前应用程序的地址空间。MapViewOfFileEx允许我们指定一个基本地址来进行映射</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，文件映射在内存中的起始地址。零表示出错。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hFileMappingObject</td>
+    <td width="76%" colspan="2">Long，文件映射对象的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">dwDesiredAccess</td>
+    <td width="76%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_MAP_WRITE</td>
+    <td width="38%">映射可读可写。文件映射对象必须通过PAGE_READWRITE访问创建</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_MAP_READ</td>
+    <td width="38%">映射只读。文件映射对象必须通过PAGE_READ 或 PAGE_READWRITE访问创建</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_MAP_ALL_ACCESS</td>
+    <td width="38%">与FILE_MAP_WRITE相同</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_MAP_COPY</td>
+    <td width="38%">映射时保留写操作的副本。文件映射对象必须用PAGE_WRITECOPY访问在win95下创建</td>
+  </tr>
+  <tr>
+    <td width="25%">dwFileOffsetHigh</td>
+    <td width="76%" colspan="2">Long，文件中映射起点的高32位地址</td>
+  </tr>
+  <tr>
+    <td width="25%">dwFileOffsetLow</td>
+    <td width="76%" colspan="2">Long，文件中映射起点的低32位地址</td>
+  </tr>
+  <tr>
+    <td width="25%">dwNumberOfBytesToMap</td>
+    <td width="76%" colspan="2">Long，文件中要映射的字节数。用零映射整个文件映射对象</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBaseAddress</td>
+    <td width="76%" colspan="2">Long，指定映射文件映射对象的地址。如这个地址处没有足够的内存空间，那么对MapViewOfFileEx的调用会失效。零表示允许windows寻找一个地址</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3"><p align="left">dwFileOffsetLow和dwFileOffsetHigh必须反映一个偏移距离，它由系统的内存分配精度决定。例如，假设系统的内存精度是64KB（即最小分配单位是64KB），则这些值必须是64KB的整数倍。大多数应用程序都简单的用零从文件的起始处开始映射。lpBaseAddress也必须是内存分配精度的整数倍</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">其他</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">声明中的参数类型为Any，而参数表中都是Long，我也不明白。但关于这个函数的英文资料的确是这样的。</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#MapViewOfFile, MapViewOfFileEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

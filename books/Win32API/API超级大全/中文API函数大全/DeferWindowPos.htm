@@ -1,0 +1,161 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DeferWindowPos</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DeferWindowPos">DeferWindowPos</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function DeferWindowPos Lib &quot;user32&quot; Alias 
+    &quot;DeferWindowPos&quot; (ByVal hWinPosInfo As Long, ByVal hwnd As Long, ByVal 
+    hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As 
+    Long, ByVal wFlags As Long) As Long</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">说明</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">该函数为特定的窗口指定一个新窗口位置，并将其输入由<a 
+    href="BeginDeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/BeginDeferWindowPos.htm">BeginDeferWindowPos</a>创建的结构，以便在<a 
+    href="EndDeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/EndDeferWindowPos.htm">EndDeferWindowPos</a>函数执行期间更新</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">返回值</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">Long，返回一个新句柄，它指向的结构包含了位置更新信息。这个句柄应在对DeferWindowPos的后续调用以及对<a 
+    href="EndDeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/EndDeferWindowPos.htm">EndDeferWindowPos</a>的结束调用中用到。如出错，则返回零值</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">参数表</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">参数</td> 
+    <td width="78%" colspan="2">类型及说明</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">hWinPosInfo</td> 
+    <td width="78%" colspan="2">Long，由<a href="BeginDeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/BeginDeferWindowPos.htm">BeginDeferWindowPos</a>为后续对DeferWindowPos的调用返回的句柄</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">hwnd</td> 
+    <td width="78%" colspan="2">Long，欲定位的窗口</td> 
+  </tr> 
+  <tr> 
+    <td width="25%" rowspan="5">hWndInsertAfter</td> 
+    <td width="78%" colspan="2">Long，窗口句柄。在窗口列表中，窗口hwnd会排列于这个窗口后面。也可用下述值之一：</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">HWND_BOTTOM</td> 
+    <td width="38%">将窗口置于窗口列表底部</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">HWND_TOP</td> 
+    <td width="38%">将窗口置于Z序列顶部；Z序列是窗口针对分级结构中一个给定级别显示的顺序</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">HWND_TOPMOST</td> 
+    <td width="38%">将窗口置于列表顶部，位于任何最顶级窗口的前面（请参考WS_EX_TOPMOST样式位）</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">HWND_NOTOPMOST</td> 
+    <td width="38%">将窗口置于列表顶部，位于任何最顶级窗口的后面</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">x</td> 
+    <td width="78%" colspan="2">Long，窗口新的x坐标。如hwnd是个子窗口，那么x用父窗口的客户区坐标表示</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">y</td> 
+    <td width="78%" colspan="2">Long，窗口新的y坐标。如hwnd是个子窗口，那么y用父窗口的客户区坐标表示</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">cx</td> 
+    <td width="78%" colspan="2">Long，指定新窗口宽度</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">cy</td> 
+    <td width="78%" colspan="2">Long，指定新窗口高度</td> 
+  </tr> 
+  <tr> 
+    <td width="25%" rowspan="11">wFlags</td> 
+    <td width="78%" colspan="2">Long，包含了旗标的一个整数，如下所示：</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_DRAWFRAME</td> 
+    <td width="38%">围绕窗口画一个框</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_HIDEWINDOW</td> 
+    <td width="38%">隐藏窗口</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOACTIVATE</td> 
+    <td width="38%">不激活窗口</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOMOVE</td> 
+    <td width="38%">保持当前位置（x和y设定将被忽略）</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOREDRAW</td> 
+    <td width="38%">窗口不自动重画</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOSIZE</td> 
+    <td width="38%">保持当前大小（cx和cy会被忽略）</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOZORDER</td> 
+    <td width="38%">保持在窗口列表的当前位置（hWndInsertAfter会被忽略）</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_SHOWWINDOW</td> 
+    <td width="38%">显示窗口</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOOWNERZORDER</td> 
+    <td width="38%">不改变Z序列的所有者</td> 
+  </tr> 
+  <tr> 
+    <td width="37%">SWP_NOSENDCHANGING</td> 
+    <td width="38%">窗口不发出WM_WINDOWPOSCHANGING消息</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3">注解</td> 
+  </tr> 
+  <tr> 
+    <td width="103%" colspan="3"><p align="left">请参考对<a href="SetWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/SetWindowPos.htm">SetWindowPos</a>函数的注解。同时参考<a 
+    href="BeginDeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/BeginDeferWindowPos.htm">BeginDeferWindowPos</a>和<a href="EndDeferWindowPos.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/EndDeferWindowPos.htm">EndDeferWindowPos</a></td> 
+  </tr> 
+</table> 
+</center></div><div align="center"><center> 
+ 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%"><p align="right"><a href="#DeferWindowPos">Top</a></td> 
+  </tr> 
+</table> 
+</center></div> 
+</body> 
+</html> 

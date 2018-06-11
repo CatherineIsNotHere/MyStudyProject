@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CPINFO</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9">CPINFO</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">Type CPINFO<br>
+    MaxCharSize As Long ' max length (Byte) of a char<br>
+    DefaultChar(MAX_DEFAULTCHAR) As Byte ' default character<br>
+    LeadByte(MAX_LEADBYTES) As Byte ' lead byte ranges<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2"><p align="left">用于容纳代码页信息的一个结构，参考<a
+    href="GetCPInfo.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetCPInfo.htm">GetCPInfo</a>函数</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型与说明</td>
+  </tr>
+  <tr>
+    <td width="25%">MaxCharSize</td>
+    <td width="75%">Long，随同这个字符集中一个字符的最大尺寸载入；可能为1或2</td>
+  </tr>
+  <tr>
+    <td width="25%">DefaultChar</td>
+    <td width="75%">Byte，指出将这个代码页转换到另一个的时候，如使用了另一个代码页没有的字符，应在一个字串中放置什么字符代替</td>
+  </tr>
+  <tr>
+    <td width="25%">LeadByte</td>
+    <td width="75%">Byte，代表一个字节对数组。在这个数组中，每对字节都为某双字节字符集（DBCS）指定了一系列前导字节。例如，假定数组的头两个字节是89和93。这意味着在当前代码页中，值89到93是前导字节（放在最前面的字节），而后面跟随的字节是相同字符的一部分。如某个字符集采用了五个前导字节，那么总共可以包含的字符数是：(256-5)+5*256</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

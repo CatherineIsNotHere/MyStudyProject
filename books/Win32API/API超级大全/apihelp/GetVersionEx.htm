@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetVersionEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetVersionEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetVersionEx Lib &quot;kernel32&quot; Alias 
+    &quot;GetVersionExA&quot; (ByVal lpVersionInformation As OSVERSIONINFO) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">在一个OSVERSIONINFO结构中载入与平台和操作系统有关的版本信息</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpVersionInformation</td>
+    <td width="77%"><a href="OSVERSIONINFO.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OSVERSIONINFO.htm">OSVERSIONINFO</a>，用于装载版本信息的结构。在正式调用函数之前，必须先将这个结构的dwOSVersionInfoSize字段设为结构的大小（148）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

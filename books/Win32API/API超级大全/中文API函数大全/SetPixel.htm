@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetPixel</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetPixel</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function SetPixel Lib &quot;gdi32&quot; Alias
+    &quot;SetPixel&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal crColor
+    As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">在指定的设备场景中设置一个像素的RGB值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，指定点的实际RGB颜色。如设备不支持指定的准确颜色，则返回的值会与crColor有所不同。如指定的点不能设置，则会返回-1（例如，指定的点可能位于设备场景剪切区外面）。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="77%">Long，要设置的点，用逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">crColor</td>
+    <td width="77%">Long，指定像素的新RGB颜色</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">可用<a href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>判断一个设备是否支持这个函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

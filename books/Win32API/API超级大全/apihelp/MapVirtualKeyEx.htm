@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MapVirtualKeyEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="MapVirtualKeyEx">MapVirtualKeyEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function MapVirtualKeyEx Lib &quot;user32&quot; Alias 
+    &quot;MapVirtualKeyExA&quot; (ByVal uCode As Long, ByVal uMapType As Long, ByVal dwhkl As 
+    Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">根据指定的映射类型，执行不同的扫描码和字符转换</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，取决于uMapType参数</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">uCode</td>
+    <td width="77%">Long，欲转换的源字符或代码</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="2">uMapType</td>
+    <td width="77%">Long，控制映射类型，如下所示</td>
+  </tr>
+  <tr>
+    <td width="77%">0—— uCode是个虚拟键码。函数返回相应的扫描码<br>
+    1—— uCode是个扫描码。函数返回相应的虚拟键码<br>
+    2—— uCode是个虚拟键码。函数返回相应的ASCII值（未加Shift组合键）。针对死键，高位设为1。如果出错，返回NULL</td>
+  </tr>
+  <tr>
+    <td width="25%">dwhkl</td>
+    <td width="77%">Long，键盘布局的句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">利用这个函数，可在扫描码及附加的虚拟键码间转换。这些虚拟键码包括VK_LSHIFT 
+    和 VK_RSHIFT等。这样一来，便可为表面上两个完全一样的键（也包括Ctrl 
+    和 Alt）区分左键和右键</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#MapVirtualKeyEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

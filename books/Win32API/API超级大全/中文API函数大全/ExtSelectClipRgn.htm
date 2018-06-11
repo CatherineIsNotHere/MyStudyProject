@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ExtSelectClipRgn</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ExtSelectClipRgn">ExtSelectClipRgn</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function ExtSelectClipRgn Lib &quot;gdi32&quot; Alias
+    &quot;ExtSelectClipRgn&quot; (ByVal hdc As Long, ByVal hRgn As Long, ByVal fnMode As Long)
+    As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">将指定区域组合到设备场景的当前剪裁区</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，返回下列常数之一，以描述所得剪裁区：<br>
+    COMPLEXREGION：区域边界互相交叠<br>
+    SIMPLEREGION：区域边界没有互相交叠<br>
+    NULLREGION：区域为空<br>
+    ERRORAPI：发生了错误</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，剪裁区将被修改的设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hRgn</td>
+    <td width="77%" colspan="2">Long，源区域句柄。若fnMode为RGN_COPY，它可为NULL</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">fnMode</td>
+    <td width="77%" colspan="2">Long，下列常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">RGN_AND</td>
+    <td width="38%">新剪裁区包括即属hRgn又属当前剪裁区的部分</td>
+  </tr>
+  <tr>
+    <td width="37%">RGN_COPY</td>
+    <td width="38%">新剪裁区为hRgn区域</td>
+  </tr>
+  <tr>
+    <td width="37%">RGN_DIFF</td>
+    <td width="38%">新剪裁区为当前剪裁区除掉其在hRgn区内的部分</td>
+  </tr>
+  <tr>
+    <td width="37%">RGN_OR</td>
+    <td width="38%">新剪裁区包括属hRgn或当前属当前剪裁区的部分</td>
+  </tr>
+  <tr>
+    <td width="37%">RGN_XOR</td>
+    <td width="38%">新剪裁区包括属hRgn或当前属当前剪裁区的部分，但要除去同属两者的部分</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">本函数对hRgn区域没有影响，执行后可毁去（destroy）该区域</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ExtSelectClipRgn">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

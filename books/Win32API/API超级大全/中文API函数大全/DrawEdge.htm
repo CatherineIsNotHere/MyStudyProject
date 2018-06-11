@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawEdge</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">DrawEdge</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function DrawEdge Lib &quot;user32&quot; Alias
+    &quot;DrawEdge&quot; (ByVal hdc As Long, qrc As RECT, ByVal edge As Long, ByVal grfFlags
+    As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">用指定的样式描绘一个矩形的边框</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，TRUE（非零）表示成功，否则返回零。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a>。（在vb里使用：推荐使用。利用这个函数，我们没有必要再使用许多3D边框和面板。所以就资源和内存的占用率来说，这个函数的效率要高得多。它可在一定程度上提升性能）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，要在其中绘图的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">qrc</td>
+    <td width="77%"><a href="RECT.htm" tppabs="http://www.gxbcts.com/airfly/api/RECT.htm">RECT</a>，要为其描绘边框的矩形</td>
+  </tr>
+  <tr>
+    <td width="25%">edge</td>
+    <td width="77%">Long，带有前缀BDR_的两个常数的组合。一个指定内部边框是上凸还是下凹；另一个则指定外部边框。有时能换用带EDGE_前缀的常数。</td>
+  </tr>
+  <tr>
+    <td width="25%">grfFlags</td>
+    <td width="77%">Long，带有BF_前缀的常数的组合</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">由于这是一个GDI函数，所以矩形坐标是逻辑坐标</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

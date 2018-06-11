@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RegCreateKeyEx Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RegCreateKeyEx" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RegCreateKeyEx Function</H1>
+
+<P><CODE class="declare">Declare Function RegCreateKeyEx Lib &quot;advapi32.dll&quot; Alias &quot;RegCreateKeyExA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal Reserved As Long, ByVal lpClass As String, ByVal dwOptions As Long, ByVal samDesired As Long, lpSecurityAttributes As <A href="../types/security_attributes.html">SECURITY_ATTRIBUTES</A>, phkResult As Long, lpdwDisposition As Long) As Long</CODE>
+
+<P><B>RegCreateKeyEx</B> creates a new registry key.  If the key you want to create already exists, the existing key will be open (as if <A href="regopenkeyex.html">RegOpenKeyEx</A> had been used).  The handle to the created/opened key is put into the variable passed as <VAR>phkResult</VAR>.  The function returns 0 if successful, or a non-zero error code if an error occurs.
+
+<DL>
+<DT><VAR>hKey</VAR><DD>Either a handle to an open registry key or one of the <A href="../constants/registrybasekeyflags.html">registry base key flags</A> to create the new key under.
+<DT><VAR>lpSubkey</VAR><DD>The name of the new key to create.
+<DT><VAR>Reserved</VAR><DD>Reserved.  Set to 0.
+<DT><VAR>lpClass</VAR><DD>The name of the class or object type of the key.  You can specify an empty string.
+<DT><VAR>dwOptions</VAR><DD>Set to 0 if you want the key to be saved to the registry.  Set to 1 if you want the key to be destroyed when Windows shuts down (i.e., do not save).
+<DT><VAR>samDesired</VAR><DD>One or more of the <A href="../constants/registryaccessflags.html">regsitry access flags</A> specifying the desired read/write access.
+<DT><VAR>lpSecurityAttributes</VAR><DD>For Windows NT, the level of security to give the key.  For other versions of Windows, set its members to zero.
+<DT><VAR>phkResult</VAR><DD>Variable that receives the handle to the new/opened registry key.
+<DT><VAR>lpdwDisposition</VAR><DD>Variable that receives 1 if a new key was created, or 2 if an already-existing key was opened.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Create and set the Data value under the key:
+' HKEY_CURRENT_USER\Software\Dummy\DummyApp\1.0\
+Dim secattr As SECURITY_ATTRIBUTES
+' The next three lines give default values for secattr
+secattr.lpSecurityDescriptor = 0  ' default security level
+secattr.bInheritHandle = True  ' might as well allow it
+secattr.nLength = Len(secattr)  ' store size of variable
+subkey = &quot;Software\Dummy\DummyApp\1.0&quot;  ' key name
+x = RegCreateKeyEx(HKEY_CURRENT_USER, subkey, 0, &quot;&quot;, 0, KEY_READ, secattr, hregkey, newopen)
+' if created, newopen = 1; if not, newopen = 2
+If x <> 0 Then  ' error creating key -- abort!
+  Debug.Print &quot;Could not open registry key.&quot;
+  Exit Sub
+End If
+'(put rest of code here)
+x = RegCloseKey(hregkey)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="regclosekey.html">RegCloseKey</A>, <A href="regopenkeyex.html">RegOpenKeyEx</A><BR>
+<B>Category:</B> <A href="../index.html#registry" rel="index">Registry</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/regcreatekeyex.html">http://members.aol.com/Borg953/api/functions/regcreatekeyex.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

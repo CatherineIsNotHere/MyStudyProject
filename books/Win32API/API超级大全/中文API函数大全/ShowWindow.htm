@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ShowWindow</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ShowWindow">ShowWindow</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function ShowWindow Lib &quot;user32&quot; Alias
+    &quot;ShowWindow&quot; (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">控制窗口的可见性（在vb里使用：针对vb窗体及控件，请使用对应的vb属性）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，如窗口之前是可见的，则返回TRUE（非零），否则返回FALSE（零）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="77%" colspan="2">Long，窗口句柄，要向这个窗口应用由nCmdShow指定的命令</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="11">nCmdShow</td>
+    <td width="77%" colspan="2">Long，为窗口指定可视性方面的一个命令。请用下述任何一个常数</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_HIDE</td>
+    <td width="38%">隐藏窗口，活动状态给令一个窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_MINIMIZE</td>
+    <td width="38%">最小化窗口，活动状态给令一个窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_RESTORE</td>
+    <td width="38%">用原来的大小和位置显示一个窗口，同时令其进入活动状态</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOW</td>
+    <td width="38%">用当前的大小和位置显示一个窗口，同时令其进入活动状态</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWMAXIMIZED</td>
+    <td width="38%">最大化窗口，并将其激活</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWMINIMIZED</td>
+    <td width="38%">最小化窗口，并将其激活</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWMINNOACTIVE</td>
+    <td width="38%">最小化一个窗口，同时不改变活动窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWNA</td>
+    <td width="38%">用当前的大小和位置显示一个窗口，不改变活动窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWNOACTIVATE</td>
+    <td width="38%">用最近的大小和位置显示一个窗口，同时不改变活动窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SW_SHOWNORMAL</td>
+    <td width="38%">与SW_RESTORE相同</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ShowWindow">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ScrollWindow</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ScrollWindow">ScrollWindow</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function ScrollWindow Lib &quot;user32&quot; Alias 
+    &quot;ScrollWindow&quot; (ByVal hWnd As Long, ByVal XAmount As Long, ByVal YAmount As 
+    Long, lpRect As RECT, lpClipRect As RECT) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">滚动窗口客户区的全部或一部分</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hWnd</td>
+    <td width="75%">Long，待滚动窗口的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">XAmount</td>
+    <td width="75%">Long，水平滚动的距离。正值向右滚动，负值向左滚动</td>
+  </tr>
+  <tr>
+    <td width="25%">YAmount</td>
+    <td width="75%">Long，垂直滚动的距离。正值向下滚动，负值向上滚动</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRect</td>
+    <td width="75%"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，用客户区坐标表示的一个矩形，它定义了客户区要滚动的一个部分。如设为NULL，则滚动整个客户区。在NULL的情况下，子窗口和控件的位置也会随同任何无效区域移动。否则，子窗口和无效区域不会一起移动。因此，在滚动之前，如指定了lpRect，一个明智的做法是先调用<a
+    href="UpdateWindow.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/UpdateWindow.htm">UpdateWindow</a>函数</td>
+  </tr>
+  <tr>
+    <td width="25%">lpClipRect</td>
+    <td width="75%"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，指定剪切区域。只有这个矩形的区域才可能滚动。该矩形优先于lpRect。可设为NULL</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ScrollWindow">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

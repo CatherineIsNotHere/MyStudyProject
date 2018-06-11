@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>Escape</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">Escape</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function Escape Lib &quot;gdi32&quot; Alias
+    &quot;Escape&quot; (ByVal hdc As Long, ByVal nEscape As Long, ByVal nCount As Long, ByVal
+    lpInData As String, lpOutData As Any) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">一个灵活的设备控制函数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，对于QUERYESCSUPPORT，如支持指定的换码，则返回TRUE（非零）；否则返回零。对于PASSTHROUGH，大于零值表示成功；如指定的换码不支持，则返回零；如果出错，则返回负值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">nEscape</td>
+    <td width="75%">Long，换码数量，由API32.TXT文件中的一个常数定义。这决定了具体的运作方式。请参考注解</td>
+  </tr>
+  <tr>
+    <td width="25%">nCount</td>
+    <td width="75%">Long，lpInData缓冲区的大小，用字节数表示</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInData</td>
+    <td width="75%">String，由换码类型决定。对于QUERYESCSUPPORT，这代表指向一个整数变量的指针，那个变量包含了要测试的换码值。对于PASSTHROUGH，这代表指向一个数据块的指针，那个数据块包含于要发送数据的头16位字节数量中。数据块剩余的部分包含了要发送给打印机的实际数据缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutData</td>
+    <td width="75%">Any，指定一个输出缓冲区，它的具体使用由换码决定。它不由QUERYESCSUPPORT或PASSTHROUGH使用，而且应设为NULL（ByVal
+    0&amp;）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">只有两个换码在Win32环境中经常用到。请用QUERYESCSUPPORT换码判断一个换码是否得到了驱动程序的支持。用PASSTHROUGH换码将原始数据直接发给一台打印机。其他换码在Win32仍然得到了支持，但目的只是为了与Win16保持兼容</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

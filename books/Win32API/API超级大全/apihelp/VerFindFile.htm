@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>VerFindFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="VerFindFile">VerFindFile</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function VerFindFile Lib &quot;version.dll&quot; 
+    Alias &quot;VerFindFileA&quot; (ByVal uFlags As Long, ByVal szFileName As String, ByVal 
+    szWinDir As String, ByVal szAppDir As String, ByVal szCurDir As String, lpuCurDirLen As 
+    Long, ByVal szDestDir As String, lpuDestDirLen As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">用这个函数决定一个文件应安装到哪里</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，下述值之一：</td>
+  </tr>
+  <tr>
+    <td width="25%">VFF_CURNEDEST</td>
+    <td width="75%">指出文件现有版本不应在由szDestDir参数指定的目录中，那个目录是由函数建议安装新版本的地方</td>
+  </tr>
+  <tr>
+    <td width="25%">VFF_FILEINUSE</td>
+    <td width="75%">指出现有文件当时正在使用，而且不要在此时删除</td>
+  </tr>
+  <tr>
+    <td width="25%">VFF_BUFFTOOSMALL</td>
+    <td width="75%">指出szDestDir或szCurDir缓冲区的一个或两个都太小，不足以容下目录名</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">uFlags</td>
+    <td width="75%">Long，目前只定义了VFFF_ISSHAREDFILE，它指出文件可由多个应用程序共享。如指定了这个标志，该函数会建议将文件安装到windows或系统目录。如这个参数为零，则函数会建议将文件安装到应用程序目录</td>
+  </tr>
+  <tr>
+    <td width="25%">szFileName</td>
+    <td width="75%">String，要安装的文件名。注意这个字串不应包括文件的路径</td>
+  </tr>
+  <tr>
+    <td width="25%">szWinDir</td>
+    <td width="75%">String，设为windows目录。目录名称是用<a
+    href="GetWindowsDirectory.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetWindowsDirectory.htm">GetWindowsDirectory</a>函数取得的</td>
+  </tr>
+  <tr>
+    <td width="25%">szAppDir</td>
+    <td width="75%">String，应用程序以及所有相关文件的安装目录的完整路径名称</td>
+  </tr>
+  <tr>
+    <td width="25%">szCurDir</td>
+    <td width="75%">String，指定一个字串缓冲区，用于容纳包含了文件现有版本的目录。如文件版本不存在，则在缓冲区中载入源文件的目录。注意必须为这个缓冲区至少分配MAX_PATH个字符的空间</td>
+  </tr>
+  <tr>
+    <td width="25%">lpuCurDirLen</td>
+    <td width="75%">Long，szCurDir缓冲区的长度。这个函数会设为实际装载到缓冲区的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">szDestDir</td>
+    <td width="75%">String，指定一个缓冲区，用于装载应在其中安装新文件的一个目录名。注意至少要为这个缓冲区分配MAX_PATH个字符的空间</td>
+  </tr>
+  <tr>
+    <td width="25%">lpuDestDirLen</td>
+    <td width="75%">Long，szDestDir缓冲区的长度。这个变量会设为实际装载到缓冲区的字符数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#VerFindFile">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

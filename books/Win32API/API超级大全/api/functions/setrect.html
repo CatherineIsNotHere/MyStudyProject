@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetRect Function</H1>
+
+<P><CODE class="declare">Declare Function SetRect Lib &quot;user32.dll&quot; (lpRect As <A href="../types/rect.html">RECT</A>, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long</CODE>
+
+<P><B>SetRect</B> sets the position and size of a rectangle.  The two coordinates specified are the upper-left and lower-right corners of the rectangle.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpRect</VAR><DD>The rectangle to set the position and size of.
+<DT><VAR>X1</VAR><DD>The x coordinate of the upper-left corner of the rectangle.
+<DT><VAR>Y1</VAR><DD>The y coordinate of the upper-left corner of the rectangle.
+<DT><VAR>X2</VAR><DD>The x coordinate of the lower-right corner of the rectangle.
+<DT><VAR>Y2</VAR><DD>The y coordinate of the lower-right corner of the rectangle.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Set the position of rectangle r
+' (This could also be done by setting its .Left, .Top, etc. values manually)
+Dim r As RECT
+x = SetRect(r, 50, 20, 100, 70)  ' r = (50,20)-(100,70)</CODE></PRE>
+
+<B>Related Call:</B> <A href="setrectempty.html">SetRectEmpty</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/setrect.html">http://members.aol.com/Borg953/api/functions/setrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

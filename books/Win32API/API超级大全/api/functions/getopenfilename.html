@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetOpenFileName Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetOpenFileName" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetOpenFileName Function</H1>
+
+<P><CODE class="declare">Declare Function GetOpenFileName Lib &quot;comdlg32.dll&quot; Alias &quot;GetOpenFileNameA&quot; (pOPENFILENAME As <A href="../types/openfilename.html">OPENFILENAME</A>) As Long</CODE>
+
+<P><B>GetOpenFileName</B> opens the standard Windows 95 Open File dialog box.  All of the information you need to pass to the function to set up the dialog box are passed inside <VAR>pOPENFILENAME</VAR>.  Also, the filename(s) (if any) returned by the function are also put into <VAR>pOPENFILENAME</VAR>.  Note that all this function does is run the dialog box and returns the file(s) chosen.  It of course does not actually open the files.  The function returns 0 if an error occured or if the user hit Cancel, and returns a non-zero value if successful.
+
+<DL>
+<DT><VAR>pOPENFILENAME</VAR><DD>Holds the parameters needed to open the dialog box.  Also receives the returned filename(s).
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim file As OPENFILENAME
+' Call the Open File dialog box and read the filename
+file.hwndOwner = Form1.hWnd  ' Calling form's handle
+file.lpstrTitle = &quot;Open File&quot;  ' Title bar
+' Set the File Type drop-box values
+file.lpstrFilter = &quot;Text Files&quot &amp; vbNullChar &amp; &quot;*.txt&quot &amp; vbNullChar &amp; vbNullChar
+file.lpstrFile = Space(255)  ' Path and filename buffer
+file.nMaxFile = 255  ' Length of buffer
+file.lpstrFileTitle = Space(255)  ' Filename buffer
+file.nMaxFileTitle = 255  ' Length of buffer
+' Only existing files, hide read-only check box
+file.flags = OFN_PATHMUSTEXIST Or OFN_FILEMUSTEXIST Or OFN_HIDEREADONLY
+file.lStructSize = Len(file)  ' This variable's size
+x = GetOpenFileName(file)
+If x = 0 Then Exit Sub  ' Abort on error or Cancel
+' Extract the filename
+temp = Trim(file.lpstrFile)
+filename = Left(temp, Len(temp) - 1)  ' Trim ending vbNullChar</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getsavefilename.html">GetSaveFileName</A><BR>
+<B>Category:</B> <A href="../index.html#commondialog" rel="index">Common Dialog</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getopenfilename.html">http://members.aol.com/Borg953/api/functions/getopenfilename.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

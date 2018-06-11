@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: OSVERSIONINFO Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,OSVERSIONINFO" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>OSVERSIONINFO Type</H1>
+
+<P><PRE><CODE class="tc">Type OSVERSIONINFO
+  dwOSVersionInfoSize As Long
+  dwMajorVersion As Long
+  dwMinorVersion As Long
+  dwBuildNumber As Long
+  dwPlatformId As Long
+  szCSDVersion As String * 128
+End Type</CODE></PRE>
+
+<P><B>OSVERSIONINFO</B>-type variables hold information about the version of Windows currently running.  This type holds various pieces of information identifying the version number, platform, and more about Windows.
+
+<DL>
+<DT><VAR>dwOSVersionInfoSize</VAR><DD>The size of the variable (use the Len() function).
+<DT><VAR>dwMajorVersion</VAR><DD>The part of the version number before the first period.
+<DT><VAR>dwMinorVersion</VAR><DD>The part of the version number after the first period.
+<DT><VAR>dwBuildNumber</VAR><DD>The build number of the version.
+<DT><VAR>dwPlatformID</VAR><DD>One of the <A href="../constants/platformidflags.html">platform ID flags</A> identifying which platform of Windows is running (for example, Windows 95, Windows NT, etc.)
+<DT><VAR>szCSDVersion</VAR><DD>More information about the operating system.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getversionex.html">GetVersionEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/osversioninfo.html">http://members.aol.com/Borg953/api/types/osversioninfo.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

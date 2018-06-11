@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnableMenuItem</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="EnableMenuItem">EnableMenuItem</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function EnableMenuItem Lib &quot;user32&quot; Alias 
+    &quot;EnableMenuItem&quot; (ByVal hMenu As Long, ByVal wIDEnableItem As Long, ByVal 
+    wEnable As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">允许或禁止指定的菜单条目（在vb里使用：由这个函数做出的改动可以正常发挥作用，但不会由vb菜单的enabled属性反映出来）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hMenu</td>
+    <td width="75%">Long，菜单句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">wIDEnableItem</td>
+    <td width="75%">Long，欲允许或禁止的一个菜单条目的标识符。如果在wEnable参数中设置了MF_BYCOMMAND标志，这个参数就代表欲改变菜单条目的命令ID。如设置的是MF_BYPOSITION，则这个参数代表菜单条目在菜单中的位置（第一个条目肯定是零）</td>
+  </tr>
+  <tr>
+    <td width="25%">wEnable</td>
+    <td width="75%">Long，参考<a href="ModifyMenu.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/ModifyMenu.htm">ModifyMenu</a>函数中的菜单常数标志定义表，其中列出了允许使用的所有常数。对于这个函数，只能指定下述常数：MF_BYCOMMAND，MF_BYPOSITION，MF_ENABLED，MF_DISABLED以及MF_GRAYED</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如指定的菜单条目依附了一个弹出式菜单，那么整个弹出式菜单都会受到影响</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#EnableMenuItem">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

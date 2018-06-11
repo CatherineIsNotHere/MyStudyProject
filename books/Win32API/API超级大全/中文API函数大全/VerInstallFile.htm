@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>VerInstallFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="VerInstallFile">VerInstallFile</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function VerInstallFile Lib &quot;version.dll&quot; 
+    Alias &quot; VerInstallFileA&quot; (ByVal uFlags As Long, ByVal szSrcFileName As String, 
+    ByVal szDestFileName As String, ByVal szSrcDir As String, ByVal szDestDir As String, ByVal 
+    szCurDir As String, ByVal szTmpFile As String, lpuTmpFileLen As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">用这个函数安装一个文件。它利用由<a
+    href="VerFindFile.htm">VerFindFile</a>函数提供的信息决定将文件安装到哪里。这个函数首先会比较两个文件的版本标记。如源文件是最新和兼容的版本，则将源文件复制成目标目录的一个临时文件——如文件处于压缩状态，则同时将其解压。随后，将文件的现有版本删除掉，再对临时文件进行重名处理，使符合目标文件名</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，返回一个整数，其中包含了<a
+    name="VerInstallFile" href="VerInstallFile_Table.htm">VerInstallFile结果常数表</a>里列出的一个或多个常数的组合</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">uFlags</td>
+    <td width="76%" colspan="2">Long，下述常数值的一个组合：</td>
+  </tr>
+  <tr>
+    <td width="37%">VIFF_FORCEINSTALL</td>
+    <td width="38%">在不进行版本检查的情况下强制安装源文件</td>
+  </tr>
+  <tr>
+    <td width="37%">VIFF_DONTDELETEOLD</td>
+    <td width="38%">如文件的现有版本不在目标目录，则不将其删除；如果它在目标目录，就用新文件将其改写（覆盖）</td>
+  </tr>
+  <tr>
+    <td width="25%">szSrcFileName</td>
+    <td width="76%" colspan="2">String，指定要安装文件的名字。注意其中不应包含文件的路径名</td>
+  </tr>
+  <tr>
+    <td width="25%">szDestFileName</td>
+    <td width="76%" colspan="2">String，指定文件安装好后应得到的一个正式名称。这个名称与szSrcFileName通常都是相同的</td>
+  </tr>
+  <tr>
+    <td width="25%">szSrcDir</td>
+    <td width="76%" colspan="2">String，指定源目录。新版文件将从这里复制到目标目录</td>
+  </tr>
+  <tr>
+    <td width="25%">szDestDir</td>
+    <td width="76%" colspan="2">String，指定目标目录。新版文件将从源目录复制到这里。通常为这个参数使用由<a
+    href="VerFindFile.htm">VerFindFile</a>函数返回的szDestDir缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">szCurDir</td>
+    <td width="76%" colspan="2">String，包含了文件当前版本的一个目录。通常将由<a
+    href="VerFindFile.htm">VerFindFile</a>函数返回的szCurDir缓冲区用于这个参数。如字串为空，则表明系统中不存在文件文件的早期版本</td>
+  </tr>
+  <tr>
+    <td width="25%">szTmpFile</td>
+    <td width="76%" colspan="2">String，用于装载源文件一个临时副本名称的缓冲区。注意必须至少为其分配MAX_PATH个字符的空间</td>
+  </tr>
+  <tr>
+    <td width="25%">lpuTmpFileLen</td>
+    <td width="76%" colspan="2">Long，szTmpFile缓冲区的长度。这个变量会设为装载到缓冲区的实际字符数，其中包括中止用的NULL字符。如指定了VIFF_FORCEINSTALL，且szTmpFile不为零，则临时文件会被更名为由szSrcFileName参数指定的名字</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#VerInstallFile">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>keybd_event</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">keybd_event</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Sub keybd_event Lib &quot;user32&quot; Alias 
+    &quot;keybd_event&quot; (ByVal bVk As Byte, ByVal bScan As Byte, ByVal dwFlags As Long, 
+    ByVal dwExtraInfo As Long)</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">这个函数模拟了键盘行动</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">bVk</td>
+    <td width="78%" colspan="2">Byte，欲模拟的虚拟键码</td>
+  </tr>
+  <tr>
+    <td width="25%">bScan</td>
+    <td width="78%" colspan="2">Byte，键的OEM扫描码</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">dwFlags</td>
+    <td width="78%" colspan="2">Long，零；或设为下述两个标志之一</td>
+  </tr>
+  <tr>
+    <td width="37%">KEYEVENTF_EXTENDEDKEY</td>
+    <td width="38%">指出是一个扩展键，而且在前面冠以0xE0代码</td>
+  </tr>
+  <tr>
+    <td width="37%">KEYEVENTF_KEYUP</td>
+    <td width="38%">模拟松开一个键</td>
+  </tr>
+  <tr>
+    <td width="25%">dwExtraInfo</td>
+    <td width="78%" colspan="2">Long，通常不用的一个值。api函数GetMessageExtraInfo可取得这个值。允许使用的值取决于特定的驱动程序</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">这个函数支持屏幕捕获（截图）。在win95和nt4.0下这个函数的行为不同</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

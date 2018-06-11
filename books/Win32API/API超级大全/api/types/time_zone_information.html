@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: TIME_ZONE_INFORMATION Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,TIME_ZONE_INFORMATION" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>TIME_ZONE_INFORMATION Type</H1>
+
+<P><PRE><CODE class="tc">Type TIME_ZONE_INFORMATION
+  Bias As Long
+  StandardName(32) As Integer
+  StandardDate As <A href="systemtime.html">SYSTEMTIME</A>
+  StandardBias As Long
+  DaylightName(32) As Integer
+  DaylightDate As <A href="systemtime.html">SYSTEMTIME</A>
+  DaylightBias As Long
+End Type</CODE></PRE>
+
+<P><B>TIME_ZONE_INFORMATION</B>-type variables hold information about the system's selected time zone.  The two arrays in the structure are actually strings, each element holding the ASCII codes for each character (the end of the string is marked by a NULL character, ASCII code 0).  For more information about how to convert the arrays into usable data, see the example for <A href="../functions/gettimezoneinformation.html">GetTimeZoneInformation</A>.
+
+<DL>
+<DT><VAR>Bias</VAR><DD>The difference in minutes between UTC (a.k.a. GMT) time and local time.  It satisfies the formula UTC time = local time + <VAR>Bias</VAR>.
+<DT><VAR>StandardName(32)</VAR><DD>Holds the name of the time zone for standard time.
+<DT><VAR>StandardDate</VAR><DD>The relative date for when daylight savings time ends.
+<DT><VAR>StandardBias</VAR><DD>A number to add to <VAR>Bias</VAR> to form the true bias during standard time.
+<DT><VAR>DaylightTime(32)</VAR><DD>Holds the name of the time zone for daylight savings time.
+<DT><VAR>DaylightDate</VAR><DD>The relative date for when daylight savings time begins.
+<DT><VAR>DaylightBias</VAR><DD>A number to add to <VAR>Bias</VAR> to form the true bias during daylight savings time.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/gettimezoneinformation.html">GetTimeZoneInformaton</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/time_zone_information.html">http://members.aol.com/Borg953/api/types/time_zone_information.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

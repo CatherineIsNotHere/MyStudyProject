@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateDC</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CreateDC">CreateDC</a>, CreateDCBynum</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function CreateDC&amp; Lib &quot;gdi32&quot; Alias
+    &quot;CreateDCA&quot; (ByVal lpDriverName As String, ByVal lpDeviceName As String, ByVal
+    lpOutput As String, lpInitData As DEVMODE)<br>
+    Declare Function CreateDCBynum&amp; Lib &quot;gdi32&quot; Alias &quot;CreateDCA&quot;
+    (ByVal lpDriverName As String, ByVal lpDeviceName As String, ByVal lpOutput As String,
+    lpInitData As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">为专门设备创建设备场景</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，新设备场景句柄，若出错则为零</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDriverName</td>
+    <td width="75%">String，用vbNullString传递null值给该参数，除非：1、用DISPLAY，是获取整个屏幕的设备场景；2、用WINSPOOL，则是访问打印驱动</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDeviceName</td>
+    <td width="75%">String，所用专门设备的名称。该名由打印管理器分配显示</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutput</td>
+    <td width="75%">String，用vbNullString传递null值给该参数</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInitData</td>
+    <td width="75%"><a href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>，这个结构保存初始值。用CreateDCBynum传递0（NULL）值则适用默认设置</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在绘制之前，先要为该设备场景选定一个位图。不再需要时，该设备场景可用<a
+    href="DeleteDC.htm" tppabs="http://www.gxbcts.com/airfly/api/DeleteDC.htm">DeleteDC</a>函数删除。删除前，其所有对象应回复初始状态。若有设备初始设置可用DocumentProperties
+    API函数载入DEVMODE结构。使用屏幕设备场景（DISPLAY）时要小心，因为它会干扰其他应用程序的外观</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">示例：靠近屏幕左上角画一个矩形</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">dc&amp; = CreateDCBynum(&quot;DISPLAY&quot;, vbNullString,
+    vbNullString, 0)<br>
+    dl&amp; = Rectangle(dc&amp;, 5, 5, 100, 100)</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CreateDC">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

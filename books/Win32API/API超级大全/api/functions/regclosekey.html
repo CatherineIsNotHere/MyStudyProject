@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RegCloseKey Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RegCloseKey" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RegCloseKey Function</H1>
+
+<P><PRE><CODE class="declare">Declare Function RegCloseKey Lib &quot;advapi32.dll&quot; (ByVal hKey As Long) As Long</CODE></PRE>
+
+<P><B>RegCloseKey</B> closes a registry key.  This should be done after you finish reading to or writing to the registry.  Closing the key frees up some resources.  Obviously, you can no longer use the key after closing it.  The function returns 0 if successful, or a non-zero error code if an error occurs.
+
+<DL>
+<DT><VAR>hKey</VAR><DD>The registry key to close.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the Data value under the key:
+' HKEY_CURRENT_USER\Software\Dummy\DummyApp\1.0\
+subkey = &quot;Software\Dummy\DummyApp\1.0&quot;  ' key name
+x = RegOpenKeyEx(HKEY_CURRENT_USER, subkey, 0, KEY_READ, hregkey)
+If x <> 0 Then  ' error opening key -- abort!
+  Debug.Print &quot;Could not open registry key.&quot;
+  Exit Sub
+End If
+'(put rest of code here)
+x = RegCloseKey(hregkey)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="regcreatekeyex.html">RegCreateKeyEx</A>, <A href="regopenkeyex.html">RegOpenKeyEx</A><BR>
+<B>Category:</B> <A href="../index.html#registry" rel="index">Registry</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/regclosekey.html">http://members.aol.com/Borg953/api/functions/regclosekey.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

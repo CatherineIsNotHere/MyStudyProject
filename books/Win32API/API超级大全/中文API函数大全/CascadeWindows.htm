@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CascadeWindows</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CascadeWindows,CascadeWindowsBynum">CascadeWindows,CascadeWindowsBynum</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function CascadeWindows% Lib &quot;user32&quot; 
+    (ByVal hwndParent As Long, ByVal wHow As Long, lpRect As RECT, ByVal cKids As Long, lpKids 
+    As Long)<br> 
+    Declare Function CascadeWindowsBynum% Lib &quot;user32&quot; Alias 
+    &quot;CascadeWindows&quot; (ByVal hwndParent As Long, ByVal wHow As Long, ByVal lpRect As 
+    Long, ByVal cKids As Long, ByVal lpKids As Long)</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">说明</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">以层叠方式排列窗口（在vb里使用：位于顶部或被所有的窗口没有问题。原文：No 
+    problem for top level windows or owned windows.）</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">返回值</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">Integer，排列成功的窗口数量，零表示失败</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">参数表</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">参数</td> 
+    <td width="75%">类型及说明</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">hwndParent</td> 
+    <td width="75%">Long，指定一个父窗口；准备对它的子窗口进行排列。用GetDesktopWindow函数获得顶级窗口的句柄</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">wHow</td> 
+    <td width="75%">Long，MDITILE_SKIPDISABLED——不排列已被禁用的MDI子窗口</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpRect</td> 
+    <td width="75%"><a href="RECT.htm" tppabs="http://www.gxbcts.com/airfly/api/RECT.htm">RECT</a>，指定一个矩形，矩形区域中的窗口才会层叠处理。可设为NULL，表示使用整个客户区</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">cKids</td> 
+    <td width="75%">Long，在lpKids数组中指定的子窗口数量</td> 
+  </tr> 
+  <tr> 
+    <td width="25%">lpKids</td> 
+    <td width="75%">Long，子窗口列表中准备排列的第一个元素。如传递NULL（注意将参数定义成ByVal）。Long，则表示排列所有的子窗口（原文：Long--First 
+    element in list of child windows to arrange. Pass NULL (be sure to define parameter as 
+    ByVal - Long, to arrange all child windows.）</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2">注解</td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="2"><p align="left">在正式的win32文档里，对这个函数的说明是不正确的。这儿的参数建立在实际的win32 
+    C 
+    头文件基础上。函数不能对诸如控件的子窗口产生——只对顶级窗口及MDI子有用。注意在MDI窗体的情况下，指定的父窗口应是MDIClient窗口的句柄，不应是MDI窗体本身的窗口句柄。可用api函数<a 
+    href="GetParent.htm" tppabs="http://www.gxbcts.com/airfly/api/GetParent.htm">GetParent</a>获得正确的句柄</td> 
+  </tr> 
+</table> 
+</center></div> 
+ 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" align="center"><p align="right"><a 
+    href="#CascadeWindows,CascadeWindowsBynum">Top</a></td> 
+  </tr> 
+</table> 
+</body> 
+</html> 

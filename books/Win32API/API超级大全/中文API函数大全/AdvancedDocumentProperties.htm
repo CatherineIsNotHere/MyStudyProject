@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>AdvancedDocumentProperties</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">AdvancedDocumentProperties</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%">Declare Function AdvancedDocumentProperties Lib &quot;winspool.drv&quot;
+    Alias &quot;AdvancedDocumentPropertiesA&quot; (ByVal hwnd As Long, ByVal hPrinter As Long,
+    ByVal pDeviceName As String, pDevModeOutput As DEVMODE, pDevModeInput As DEVMODE) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%">说明</td>
+  </tr>
+  <tr>
+    <td width="100%">启动打印机文档设置对话框。这个函数几乎完全等价于调用DocumentProperties函数，同时将fMode设为DM_IN_PROMPT。请参考对DocumentProperties函数的说明，了解这个函数的详细情况</td>
+  </tr>
+  <tr>
+    <td width="100%">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%">注解</td>
+  </tr>
+  <tr>
+    <td width="100%"><p align="left">将pDevModeOutput设为0后可得到要求的DEVMODE结构的大小</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

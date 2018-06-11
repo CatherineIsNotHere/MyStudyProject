@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: JOYINFO Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,JOYINFO" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>JOYINFO Type</H1>
+
+<P><PRE><CODE class="tc">Type JOYINFO
+  wXpos As Long
+  wYpos As Long
+  wZpos As Long
+  wButtons As Long
+End Type</CODE></PRE>
+
+<P><B>JOYINFO</B>-type variables hold the current position of a joystick.  This type can store the positions of the x, y, and z axes, and also the buttons pushed.
+
+<DL>
+<DT><VAR>wXpos</VAR><DD>The current x-axis coordinate.
+<DT><VAR>wYpos</VAR><DD>The current y-axis coordinate.
+<DT><VAR>wZpos</VAR><DD>The current z-axis coordinate.
+<DT><VAR>wButtons</VAR><DD>The buttons being pushed.  AND the value with 1 to check for button #1, with 2 for button #2, 4 for button #3, 8 for button #4, etc.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/joygetpos.html">joyGetPos</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/joyinfo.html">http://members.aol.com/Borg953/api/types/joyinfo.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetWindowPos Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetWindowPos Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetWindowPos Flags</H1>
+
+<P><PRE><CODE class="tc">Const SWP_FRAMECHANGED = &amp;H20
+Const SWP_DRAWFRAME = SWP_FRAMECHANGED
+Const SWP_HIDEWINDOW = &amp;H80
+Const SWP_NOACTIVATE = &amp;H10
+Const SWP_NOCOPYBITS = &amp;H100
+Const SWP_NOMOVE = &amp;H2
+Const SWP_NOSIZE = &amp;H1
+Const SWP_NOREDRAW = &amp;H8
+Const SWP_NOZORDER = &amp;H4
+Const SWP_SHOWWINDOW = &amp;H40</CODE></PRE>
+
+<P>The <B>SetWindowPos flags</B> tell how to move (or not to move) the window.  These flags can be combined except for contradictory pairs (such as <VAR>SWP_HIDEWINDOW</VAR> and <VAR>SWP_SHOWWINDOW</VAR>).
+
+<DL>
+<DT><VAR>SWP_FRAMECHANGED</VAR>, <VAR>SWP_DRAWFRAME</VAR><DD>Redraw the window fully in its new position.
+<DT><VAR>SWP_HIDEWINDOW</VAR><DD>Hide the window from the screen.
+<DT><VAR>SWP_NOACTIVATE</VAR><DD>Do not make the window active after moving it unless it was already the active window.
+<DT><VAR>SWP_NOCOPYBITS</VAR><DD>Do not redraw anything drawn on the window after it is moved.
+<DT><VAR>SWP_NOMOVE</VAR><DD>Do not move the window.
+<DT><VAR>SWP_NOSIZE</VAR><DD>Do not resize the window.
+<DT><VAR>SWP_NOREDRAW</VAR><DD>Do not remove the image of the window in its former position, effectively leaving a ghost image on the screen.
+<DT><VAR>SWP_NOZORDER</VAR><DD>Do not change the window's position in the Z-order.
+<DT><VAR>SWP_SHOWWINDOW</VAR><DD>Show the window if it is hidden.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/setwindowpos.html">SetWindowPos</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/setwindowposflags.html">http://members.aol.com/Borg953/api/constants/setwindowposflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,208 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DeviceCapabilities</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DeviceCapabilities">DeviceCapabilities</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function DeviceCapabilities Lib 
+    &quot;winspool.drv&quot; Alias &quot;DeviceCapabilitiesA&quot; (ByVal lpDeviceName As 
+    String, ByVal lpPort As String, ByVal iIndex As Long, ByVal lpOutput As String, lpDevMode 
+    As DEVMODE) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">利用这个函数可获得与一个设备的能力有关的信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，由iIndex参数的值决定，请参考<a
+    href="#设备能力常数表">设备能力常数表</a>。如函数执行失败，或打印机的驱动程序不支持这个函数，那么函数就会返回-1</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDeviceName</td>
+    <td width="75%">String，设备名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPort</td>
+    <td width="75%">String，指定连接了指定设备的那个端口</td>
+  </tr>
+  <tr>
+    <td width="25%">iIndex</td>
+    <td width="75%">Long，欲测试的能力。请参考<a href="#设备能力常数表">设备能力常数表</a>，其中列出了可选的值</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutput</td>
+    <td width="75%">String，指定一个缓冲区的地址，能力数据会装载到这个缓冲区中。在<a
+    href="#设备能力常数表">设备能力常数表</a>中，针对每个fwCapabilities值的缓冲区的内容都进行了总结。这个表格同时总结了应将参数设为vbNullString的一些情况</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDevMode</td>
+    <td width="75%"><a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>，一个<a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>结构的地址，或者为零。如指定了那个结构，函数会根据这个结构的设置来接收信息。如果为零，函数就会根据打印机驱动程序的默认值接收信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">使用lpOutput时要注意：在许多时候，这个函数会返回一系列名称的列表。例如，假设将fwCapabilities标志设为DC_PAPERNAMES，那么就会得到一系列支持的纸张尺寸的名字。在这种情况下，lpOutput缓冲区应该是一个String变量，而且根据<a
+    href="#设备能力常数表">设备能力常数表</a>的总结预先初始化成合适的长度。函数会在缓冲区中载入所有名称，而且每个名称在字串中都占用固定的空间。所以，我们完全能用Mid函数提取出每一个条目。<br>
+    某些情况下，lpOutput需要指向一个数值数组的指针</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF" height="100">
+  <tr>
+    <td width="100%" colspan="3" height="24"><a name="设备能力常数表">设备能力常数表</a></td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">fwCapabilities</td>
+    <td width="75%" height="14" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_BINADJUST</td>
+    <td width="75%" height="14" colspan="2">返回来自API32.TXT的某个常数。它应带有 
+    DCBA_ 前缀，用于指定当前纸张源的正确纸张方向。仅适用于Win95</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_BINNAMES</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回由打印机支持的纸匣数量。否则，lpOutput应指向一个缓冲区（长度至少为24×纸匣数）。每24个字节都会保存一个纸匣的NULL中止名称</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_BINS</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回由打印机支持的纸匣数量。否则，lpOutput应指向一个整数数组（长度至少为纸匣数量）。这些值对应于为<a
+    href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>结构定义的 DMBIN_??? 常数</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_COPIES</td>
+    <td width="75%" height="14" colspan="2">返回打印机能够打印的最大副本数量</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_DATATYPE_PRODUCED</td>
+    <td width="75%" height="14" colspan="2">接收由打印机支持的一系列数据类型。这些类型可作为由StartDoc函数使用的DOCINFO结构的输出数据类型提供。如这个函数返回-1，那么支持的唯一数据类型就是 
+    RAW 。仅适用于Win95</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_DRIVER</td>
+    <td width="75%" height="14" colspan="2">返回打印机驱动程序的版本号</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_DUPLEX</td>
+    <td width="75%" height="14" colspan="2">如打印机有双面打印功能，就返回1；否则返回0</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_EMF_COMPLIANT</td>
+    <td width="75%" height="14" colspan="2">如打印机能直接支持增强型图元文件，就返回TRUE。仅适用于Win95</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_ENUMRESOLUTIONS</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回由打印机支持的分辨率数量。否则，lpOutput应该是一个指向Long型数组的指针。该数组至少应包含（2×分辨率数量）个条目。每对条目都反映出水平和垂直分辨率（以每英寸的点数——dpi——为单位）</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_EXTRA</td>
+    <td width="75%" height="14" colspan="2">返回与具体设备有关的特殊字节，它们要为这个设备追加到<a
+    href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>结构后面</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_FIELDS</td>
+    <td width="75%" height="14" colspan="2">针对设备默认的<a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>数据结构，返回dmFields字段的值</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_FILEDEPENDENCIES</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回打印机驱动程序要求的文件数量。否则，lpOutput应指向一个至少有（64×文件数）个字节的缓冲区。每64个字节都会保存一个请求文件的NULL中止名称</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_MAXEXTENT</td>
+    <td width="75%" height="14" colspan="2">返回一个Long型值，其中包含打印机支持的最大纸张长度和宽度。其中，低字（16位）包含的是宽度数据。它们是由dmPaperWidth 
+    和 dmPaperLength这两个<a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>字段的最大值</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_MINEXTENT</td>
+    <td width="75%" height="14" colspan="2">返回一个Long型值，其中包含打印机支持的最小纸张长度和宽度。其中，低字（16位）包含的是宽度数据。它们是由dmPaperWidth 
+    和 dmPaperLength这两个<a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>字段的最大值</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_ORIENTATION</td>
+    <td width="75%" height="14" colspan="2">返回横向模式和纵向模式间的旋转度数。如果是零，表示驱动程序不支持横向打印模式。对于激光打印机，90度是最常见的一个设置；而对于点阵式打印机，一般都是270度</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_PAPERNAMES</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回由打印机支持的纸张尺寸数量。否则，lpOutput就应指向一个缓冲区（长度至少为64×纸张尺寸种数）。每64个字节都会装载一种支持的纸张尺寸的空中止名称</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_PAPERS</td>
+    <td width="75%" height="14" colspan="2">如lpOutput为零，就返回由打印机支持的纸张尺寸数量。否则，lpOutput就应指向一个整数数组（长度至少为纸张的尺寸种数）。值对应于为<a
+    href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>结构定义的 DMPAPER_??? 常数</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_SIZE</td>
+    <td width="75%" height="14" colspan="2">返回打印机<a href="DEVMODE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DEVMODE.htm">DEVMODE</a>数据结构的dmSize字段</td>
+  </tr>
+  <tr>
+    <td width="25%" height="70" rowspan="5">DC_TRUETYPE</td>
+    <td width="75%" height="14" colspan="2">下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="38%" height="14">DCTT_BITMAP</td>
+    <td width="37%" height="14">设备能将TrueType字体当作图形打印</td>
+  </tr>
+  <tr>
+    <td width="38%" height="14">DCTT_DOWNLOAD</td>
+    <td width="37%" height="14">设备能下载TrueType字体</td>
+  </tr>
+  <tr>
+    <td width="38%" height="14">DCTT_OUTLINE</td>
+    <td width="37%" height="14">设备能下载轮廓型TrueType字体</td>
+  </tr>
+  <tr>
+    <td width="38%" height="14">DCTT_SUBDEV</td>
+    <td width="37%" height="14">设备能取代与对应的TrueType字体兼容的内建字体</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">DC_VERSION</td>
+    <td width="75%" height="14" colspan="2">返回设备驱动程序的规格版本号</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DeviceCapabilities">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

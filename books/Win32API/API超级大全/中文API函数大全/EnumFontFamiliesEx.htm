@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnumFontFamiliesEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">EnumFontFamiliesEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function EnumFontFamiliesEx Lib &quot;gdi32&quot;
+    Alias &quot;EnumFontFamiliesExA&quot; (ByVal hdc As Long, lpLogFont As LOGFONT, ByVal
+    lpEnumFontProc As Long, ByVal lParam As Long, ByVal dw As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">根据一个LOGFONT结构提供的信息，列举指定设备可用的字体</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，由回调函数返回的前一个值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpLogFont</td>
+    <td width="75%">LOGFONT，这个结构指定了欲枚举的字体。此时用到的字段包括：lfCharSet，
+    lfFaceName 和 lfPitchAndFamily。其他所有字段都会忽略</td>
+  </tr>
+  <tr>
+    <td width="25%">lpEnumFontFamProc</td>
+    <td width="75%">Long，欲调用的函数地址。这个地址是用 AddressOf
+    运算符为来自一个标准模块的函数进行操作，或者利用某个回调控件得到</td>
+  </tr>
+  <tr>
+    <td width="25%">lParam</td>
+    <td width="75%">Long，指定希望传递给回调函数的一个用户自定义值</td>
+  </tr>
+  <tr>
+    <td width="25%">dw</td>
+    <td width="75%">Long，保留，设为零</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">参见<a href="EnumFontFamilies.htm" tppabs="http://www.gxbcts.com/airfly/api/EnumFontFamilies.htm">EnumFontFamilies</a>函数的注解</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

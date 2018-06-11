@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetPrintProcessorDirectory</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetPrintProcessorDirectory</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetPrintProcessorDirectory Lib 
+    &quot;winspool.drv&quot; Alias &quot;GetPrintProcessorDirectoryA&quot; (ByVal pName As 
+    String, ByVal pEnvironment As String, ByVal Level As Long, ByVal pPrintProcessorInfo As 
+    String, ByVal cdBuf As Long, pcbNeeded As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">判断指定系统中包含了打印机处理器驱动程序及文件的目录</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">pName</td>
+    <td width="75%">String，指定服务器的名字。设置成vbNullString则表示使用本地系统</td>
+  </tr>
+  <tr>
+    <td width="25%">pEnvironment</td>
+    <td width="77%">String，欲在其中获取目录的一个环境（如：Windows NT x86）。用vbNullString表示使用当前（本地）系统环境</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="77%">Long，设为1</td>
+  </tr>
+  <tr>
+    <td width="25%">pPrintProcessorInfo</td>
+    <td width="77%">String，指定一个缓冲区，其中载入打印机处理器目录的完整路径。可定义成ByVal 
+    As String，以便将字节数组分配给一个字串，从而取消进行ANSI到Unicode转换的必要</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuf</td>
+    <td width="77%">Long，pPrintProcessorInfo缓冲区中的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcbNeeded</td>
+    <td width="77%">Long，指向一个Long型变量的指针，该变量用于保存请求的缓冲区长度，或者实际读入的字节数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

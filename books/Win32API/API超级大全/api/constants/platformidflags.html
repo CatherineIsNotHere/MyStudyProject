@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Platform ID Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Platform ID Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Platform ID Flags</H1>
+
+<P><PRE><CODE class="tc">Const VER_PLATFORM_WIN32s = 0
+Const VER_PLATFORM_WIN32_WINDOWS = 1
+Const VER_PLATFORM_WIN32_NT = 2</CODE></PRE>
+
+<P>The <B>platform ID flags</B> identify which type of version of Windows is running.  They cannot be combined.
+
+<DL>
+<DT><VAR>VER_PLATFORM_WIN32s</VAR><DD>Windows 3.x is running, using the Win32s pseudo-32-bit enhancements.
+<DT><VAR>VER_PLATFORM_WIN32_WINDOWS</VAR><DD>Windows 95 or 98 is running.
+<DT><VAR>VER_PLATFORM_WIN32_NT</VAR><DD>Windows NT is running.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getversionex.html">GetVersionEx</A> (used through <A href="../types/osversioninfo.html">OSVERSIONINFO</A>)<BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/platformidflags.html">http://members.aol.com/Borg953/api/constants/platformidflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

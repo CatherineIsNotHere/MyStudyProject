@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>VerInstallFile函数结果常数表</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="VerInstallFile" href="VerInstallFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/VerInstallFile.htm">VerInstallFile</a><a
+    name="函数结果常数表">函数结果常数表</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" cellspacing="0" bordercolorlight="#808080"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="25%">常数</td>
+    <td width="75%">说明</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_TEMPFILE</td>
+    <td width="75%">目标目录保存了作为新文件一个副本的临时文件，需将其删除</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_MISMATCH</td>
+    <td width="75%">现有文件的一项或多项版本属性与新文件不同。可在uFlage参数中指定VIFF_FORCEINSTALL，从而强制忽略这些区别</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_SRCOLD</td>
+    <td width="75%">根据文件的版本标记信息，文件的新版本早于现有文件。可在uFlage参数中指定VIFF_FORCEINSTALL，从而忽略这项差异</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_DIFFLANG</td>
+    <td width="75%">文件的新版本采用了与现有文件不同的语言或代码页。可在uFlage参数中指定VIFF_FORCEINSTALL，从而忽略这项差异</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_DIFFCODEPG</td>
+    <td width="75%">新版文件要求与windows目前正在运行的那个文件不同的一个代码页。可在uFlage参数中指定VIFF_FORCEINSTALL，从而忽略这项差异</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_DIFFTYPE</td>
+    <td width="75%">文件的新版本在类型、子类型或者目标操作系统上与现有版本不同。可在uFlage参数中指定VIFF_FORCEINSTALL，从而忽略这项差异</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_WRITEPROT</td>
+    <td width="75%">以前存在的文件是写保护的</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_FILEINUSE</td>
+    <td width="75%">现有文件正在使用</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_OUTOFSPACE</td>
+    <td width="75%">目标驱动器磁盘空间不够</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_ACCESSVIOLATION</td>
+    <td width="75%">由于访问违例，所以操作失败</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_SHARINGVIOLATION</td>
+    <td width="75%">由于共享违例，所以操作失败</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTCREATE</td>
+    <td width="75%">不能创建临时文件</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTDELETE</td>
+    <td width="75%">不能删除文件的现有版本</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTDELETECUR</td>
+    <td width="75%">不能删除文件的现有版本，而且在uFlage参数中未指定VIFF_DONTDELETEOLD</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTRENAME</td>
+    <td width="75%">不可将临时文件更名为现有文件的名字。现有文件已被删除</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_OUTOFMEMORY</td>
+    <td width="75%">内存不足，导致操作失败</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTREADSRC</td>
+    <td width="75%">源文件不可读</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_CANNOTREADDEST</td>
+    <td width="75%">现有的目标文件不可读（所以版本信息不能检查）</td>
+  </tr>
+  <tr>
+    <td width="25%">VIF_BUFFTOOSMALL</td>
+    <td width="75%">lpuTmpFileLen参数太小，不能容下临时文件的名字</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#函数结果常数表">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

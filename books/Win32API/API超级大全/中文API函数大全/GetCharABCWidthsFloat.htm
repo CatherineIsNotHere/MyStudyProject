@@ -1,0 +1,109 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetCharABCWidthsFloat</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetCharABCWidthsFloat</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetCharABCWidthsFloat Lib &quot;gdi32&quot;
+    Alias &quot;GetCharABCWidthsFloatA&quot; (ByVal hdc As Long, ByVal iFirstChar As Long,
+    ByVal iLastChar As Long, lpABCF As ABCFLOAT) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">查询一种字体中一个或多个字符的A-B-C尺寸</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">iFirstChar</td>
+    <td width="75%">Long，欲调查A-B-C尺寸的第一个字符的ASCII值</td>
+  </tr>
+  <tr>
+    <td width="25%">iLastChar</td>
+    <td width="75%">Long，欲调查A-B-C尺寸的最后一个字符的ASCII值</td>
+  </tr>
+  <tr>
+    <td width="25%">lpABCF</td>
+    <td width="75%">ABCFLOAT，在ABCFLOAT结构数组中的第一个条目。这个数组填充了指定的字符大小设置。该数组的长度必须足够大，足以容下要求的所有字符</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">和<a href="GetCharABCWidths.htm" tppabs="http://www.gxbcts.com/airfly/api/GetCharABCWidths.htm">GetCharABCWidths</a>不同，这个函数适用于任何字符。ABC值是以浮点数的形式返回的，而且可能不是整数——具体取决于用这个函数处理非TureType字体时采用的转换方式</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">适用平台</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Windows NT</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

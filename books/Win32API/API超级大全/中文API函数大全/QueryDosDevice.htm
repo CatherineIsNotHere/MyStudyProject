@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>QueryDosDevice</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="QueryDosDevice">QueryDosDevice</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function QueryDosDevice Lib &quot;kernel32&quot;
+    Alias &quot;QueryDosDeviceA&quot; (ByVal lpDeviceName As String, ByVal lpTargetPath As
+    String, ByVal ucchMax As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">在Windows NT中，DOS设备名会映射成NT系统设备名。该函数可判断当前的设备映射情况</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零表示出错。如执行成功，返回保存到lpTargetPath的字符数。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDeviceName</td>
+    <td width="75%">String，如果是vbNullString，那么lpTargetPath会载入当前映射的MS-DOS名称的一个列表。如果是个MS-DOS名，则lpTargetPath会载入一个设备映射列表（第一个名字是活动映射，后续的名字是以前尚未删掉的映射）</td>
+  </tr>
+  <tr>
+    <td width="25%">lpTargetPath</td>
+    <td width="75%">String，名称列表，具体取决于lpDeviceName参数。这些名字用NULL字符分隔。列表最后用两个连续的NULL字符中止</td>
+  </tr>
+  <tr>
+    <td width="25%">ucchMax</td>
+    <td width="75%">Long，lpTargetPath缓冲区的大小</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">可用DefineDosDevice函数将映射变成DOS设备名</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">适用平台</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Windows NT</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#QueryDosDevice">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

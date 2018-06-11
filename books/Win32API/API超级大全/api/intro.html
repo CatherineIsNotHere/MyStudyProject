@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Introduction</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="default.css" rel="stylesheet" type="text/css">
+<LINK href="index.html" rel="index" rev="help">
+</HEAD>
+<BODY>
+<H1>Introduction</H1>
+<P>Welcome to my Windows 95 API Guide!  This guide is my attempt to help other programmers learn about how to use the Windows API to add a lot of functionality to their programs.  Of course, although this guide specializes in Windows 95, almost everything here applies to Windows 98 and Windows NT, as well as Win32s.  Likewise, although this guide uses examples and declarations written in Visual Basic, the API can be used by any Windows-based applications.  See your own language's help for details on converting the code.
+
+<P>If you are completely new to the concept of the API, please take a few minutes and read the rest of this page.  If you would just instead like to brush up on the vocabulary used throughout this guide, you can skip down to the <A href="#vocab">vocabulary</A> section.  Or, if you think you know what you are doing, you should jump down to the <A href="#example">example entry</A> to learn how this guide is laid out.
+
+<P>And as always, if you have a question, clarification, correction, or want something added to this page or anything else in this guide, don't hesitate to e-mail me at <A href="mailto:Borg953@aol.com">Borg953@aol.com</A>.  If I can, I'll try to help you out.
+
+<P><A href="index.html" rel="index" rev="help">Back to the index.</A>
+
+<HR>
+
+<H1>Introduction to the Windows API</H1>
+<P><H2 class="left">What the heck's an &quot;API&quot; anyway?</H2>
+<B>API</B> is short for <B>A</B>pplication <B>P</B>rogramming <B>I</B>nterface.  It is the system through which programs communicate and work with the operating system.  Every operating system has an API that provides a lot of the basic functionality seen throughout every program.  The API usually deals with functions common to any program.  Often, many of the commands you write in your programming languages are just API calls in disguise.  In other words, your programming language uses a lot of the API for you automatically.
+
+<H2 class="left">So why should I need to worry about it?</H2>
+<P>The API saves the programmer incredible amounts of time and effort.  Think about it.  Say you want to create a window that lets the user select a file to open.  You could create a window, add list boxes and combo boxes and buttons on it, fill them with the file and directory structure on the disk drive, add a pop-up window telling the user that the file doesn't exist, and so on.  That could take days, even weeks!  But have you noticed that the Open File dialog boxes in 99% of Windows programs are indentical?  That's because the API provides a function, <A href="g.html#getopenfilename">GetOpenFileName</A>, that does all of this for you!  You just tell it what kind of files you want, a little more information, and that's it!  It saves time, not to mention program size!
+
+<H2 class="left">Sounds good, but what do I need to do to use it?</H2>
+<P>Using the API is simple.  Usually the most you need to do is to add a declaration of the function to your program.  This just tells the programming language that you want to use that API function.  You might also have to define any special data types or constants that it uses.  (Your programming language may pre-declare these API functions for you automatically.  See your documentation for details.)  Then, you use the API function just like any other function in your program!  It's incredibly easy.
+
+<H2 class="left">So if it's so easy, why do I need this guide?</H2>
+<P>The Windows API consists of hundreds of functions ranging from almost every possible topic.  No one could possibly remember everything!  Also, you need to use the correct syntax when you use the functions so Windows knows what you're talking about.  This guide explains many of these functions in plain English, shows you what the various pieces of information you have to tell it are, and even shows you an example of how it is used.  Armed with this information, you should be able to utilize the API for your own programs.
+
+<P><A href="index.html" rel="index" rev="help">Back to the index.</A>
+
+<HR>
+
+<A name="vocab"><H1>Vocabulary</H1></A>
+<P>The following is a list of the terms that will be used throughout the API.  Some sections honestly won't make sense if you don't know what the terms mean.  I'm not just making these up.  These terms are used whenever you talk about the API.
+
+<DL>
+<DT><A name="commondialog"><B>Common Dialog</B></A><DD>One of the group of dialog boxes used throughout Windows programs.  These are the Open File, Save File, Choose Color, Choose Font, Choose Printer, Find, and Find And Replace dialog boxes that look identical in almost every program.
+
+<DT><A name="device"><B>Device</B></A><DD>An object that peforms either input or output (or both).  Devices range from peripherals (such as a printer, the screen, etc) to other objects such as <A href="#window">windows</A>.  A device is identified by a <A href="#devicecontext">device context</A>.
+
+<DT><A name="devicecontext"><B>Device Context</B></A><DD>A value that references a <A href="#device">device</A> in Windows.  If you know what a pointer is, think of device contexts as a kind of pointer.
+
+<DT><A name="errorcode"><B>Error Code</B></A><DD>A value (usually returned from a function) that identifies the error (if any) that occured when an API function was called.  Typically, 0 means failure and a non-zero value such as 1 indicates success.  Sometimes error codes are more descriptive, identifying what kind of error occured.
+
+<DT><A name="file"><B>File</B></A><DD>A collection of data on a disk.  This has the same meaning as the term file does throughout computing.  Files can be referenced via <A href="#handle">handles</A>.
+
+<DT><A name="handle"><B>Handle</B></A><DD>A value that references an object in Windows.  If you know what a pointer is, think of handles as a kind of pointer.  Handles reference a diverse group of objects, including <A href="#window">windows</A>, <A href="#file">files</A>, and registry keys.
+
+<DT><A name="rectangle"><B>Rectangle</B></A><DD>A box having all right angles (just like in Geometry).  In Windows, rectangles are identified by two pairs of coordinates: the upper-left corner and the lower-right corner.  Rectangle information is stored in the <A href="appa.html#rect">RECT</A> data type.
+
+<DT><A name="window"><B>Window</B></A><DD>A rectangular box on the screen that makes up an object.  Windows range from things such as main application windows to buttons and other objects inside other windows.  Almost everything on the screen is some kind of window.  Windows are referenced by both <A href="#handle">handles</A> and <A href="#devicecontext">device contexts.</A>
+</DL>
+
+<P><A href="index.html" rel="index" rev="help">Back to the index.</A>
+
+<HR>
+
+<A name="example"><H1>Example</H1></A>
+<P>The following is an example of an entry in this guide.  Superscript numbers refer to notes on the format that follow the example.  Information about a function is shown here, but the entries for data types and constants are very similar.
+
+<P class="center">-- begin example --
+<H2>GetWindowRect Function<SUP><A href="#one">1</A></SUP></H2>
+<P><CODE class="declare">Declare Function GetWindowRect Lib &quot;user32.dll&quot; (ByVal hwnd As Long, lpRect As <A href="appa.html#rect">RECT</A><SUP><A href="#three">3</A></SUP>) As Long<SUP><A href="#two">2</A></SUP></CODE>
+<P><STRONG>GetWindowRect</STRONG> reads the size and position of a window.  This information is put into the variable passed as <VAR>lpRect</VAR>.  The rectangle receives the coordinates of the upper-left and lower-right corners of the window.  If the window is past one of the edges of the screen, the values will reflect that (for example, if the left edge of a window is off the screen, the rectangle's <VAR>.Left</VAR> property will be negative).  The function returns 0 if an error occured, or a non-zero value if successful.<SUP><A href="#four">4</A></SUP>
+<DL class="declare">
+<DT><VAR>hwnd</VAR><SUP><A href="#five">5</A></SUP><DD>The handle of the window to read the position and width of.
+<DT><VAR>lpRect</VAR><DD>Variable that receives the coordinates of the upper-left and lower-right corners of the window.
+</DL>
+<P><B>Example:</B><SUP><A href="#six">6</A></SUP>
+<PRE><CODE class="example">' Find the width and height of Form1
+Dim r As RECT
+x = GetWindowRect(Form1.hWnd, r)
+Debug.Print &quot;Width =&quot;; r.Right - r.Left
+Debug.Print &quot;Height =&quot;; r.Bottom - r.Top</CODE></PRE>
+<P><B>Related Call:</B> <A href="s.html#setwindowpos">SetWindowPos</A><SUP><A href="#seven">7</A></SUP><BR>
+<B>Category:</B> <A href="index.html#windows" rel="index">Windows</A><SUP><A href="#eight">8</A></SUP><BR>
+<A href="index.html" rel="index">Back to the index.</A><SUP><A href="#nine">9</A></SUP>
+<P class="center">-- end example --
+
+<OL>
+<LI><A name="one">The</A> heading identifies the name of the function.
+<LI><A name="two">The</A> declaration of the function (in Visual Basic).  Copy this to your program to use the function.
+<LI><A name="three">If</A> any special data types are used (such as here), there will be a link to information about it.
+<LI><A name="four">This</A> paragraph tells what the function does and how to use it.  It also explains what the value returned by the function means.
+<LI><A name="five">A</A> list of the parameters passed to the function and a brief explanation of what each one means.
+<LI><A name="six">A</A> short example (in Visual Basic) of how the function might be used inside an actual program.
+<LI><A name="seven">Links</A> to any functions that perform related or complementary tasks.
+<LI><A name="eight">A</A> link to a list of other functions that deal with the same general topic.
+<LI><A name="nine">A</A> link back to the index list.
+</OL>
+
+<P>The sections on data types and constants have an almost identical format, except there is no example and the <B>Related Calls</B> and <B>Category</B> entries are replaced by <B>Used by</B>, which lists any functions and data types that use it.
+
+<P><A href="index.html" rel="index" rev="help">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/intro.html">http://members.aol.com/Borg953/api/intro.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

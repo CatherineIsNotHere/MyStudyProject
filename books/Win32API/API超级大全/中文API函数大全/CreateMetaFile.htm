@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateMetaFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">CreateMetaFile</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function CreateMetaFile Lib &quot;gdi32&quot; Alias
+    &quot;CreateMetaFileA&quot; (ByVal lpString As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">创建一个图元文件设备场景。绘图操作也许能在这个设备中执行。调用<a
+    href="CloseMetaFile.htm" tppabs="http://www.gxbcts.com/airfly/api/CloseMetaFile.htm">CloseMetaFile</a>函数关闭了这个设备场景后，会创建一个图元文件句柄，其中包含了记录下来的绘图命令序列。随后，可在任何设备场景中回放这些命令</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，指向图元文件设备场景的一个句柄。零表示出错。注意不要把这个设备场景与图元文件句柄混淆起来。图元文件设备场景用于描绘图元文件——它的用法与GDI绘图函数作为参数使用的其他任何设备场景都是一样的。以后调用了<a
+    href="CloseMetaFile.htm" tppabs="http://www.gxbcts.com/airfly/api/CloseMetaFile.htm">CloseMetaFile</a>函数以后，会得到实际的图元文件句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpString</td>
+    <td width="77%">String，欲用来容纳图元文件的文件名。用vbNullString可传递一个零值，从而创建一个内存句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">尽管这个函数能创建基于磁盘的图元文件，但这些图元文件并非通常在windows下使用的标准“可放置”图元文件格式</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

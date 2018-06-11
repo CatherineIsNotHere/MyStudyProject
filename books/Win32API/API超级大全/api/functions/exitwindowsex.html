@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: ExitWindowsEx Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,ExitWindowsEx" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>ExitWindowsEx Function</H1>
+
+<P><CODE class="declare">Declare Function ExitWindowsEx Lib &quot;user32.dll&quot; (ByVal uFlags As Long, ByVal dwReserved As Long) As Long</CODE>
+
+<P><B>ExitWindowsEx</B> shuts down or reboots the user's computer.  The basic forms of it have the same effect as the options on the Windows Shut Down menu do.  Of course, since the shutdown/reboot process will begin once the function is called, there won't normally be much left for your program to do.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>uFlags</VAR><DD>One or more of the <A href="../constants/exitwindowsflags.html">Exit Windows Flags</A> specifying how to shut down or reboot the computer.
+<DT><VAR>dwReserved</VAR><DD>Reserved for future versions of Windows.  Always set to 0.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' This will reboot the user's computer
+x = ExitWindowsEx(EWX_REBOOT, 0)
+If x = 0 Then Debug.Print &quot;Reboot process failed.&quot;</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#misc" rel="index">Miscellaneous</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/exitwindowsex.html">http://members.aol.com/Borg953/api/functions/exitwindowsex.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

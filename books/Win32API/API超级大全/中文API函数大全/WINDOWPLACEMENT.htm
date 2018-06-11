@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WINDOWPLACEMENT</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="WINDOWPLACEMENT">WINDOWPLACEMENT</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="105%" colspan="3">类型定义</td>
+  </tr>
+  <tr>
+    <td width="105%" colspan="3">Type WINDOWPLACEMENT<br>
+    Length As Long<br>
+    flags As Long<br>
+    showCmd As Long<br>
+    ptMinPosition As POINTAPI<br>
+    ptMaxPosition As POINTAPI<br>
+    rcNormalPosition As RECT<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="105%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="105%" colspan="3"><p align="left">这个结构用于<a
+    href="GetWindowPlacement.htm" tppabs="http://www.gxbcts.com/airfly/api/GetWindowPlacement.htm">GetWindowPlacement</a>和<a href="SetWindowPlacement.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/SetWindowPlacement.htm">SetWindowPlacement</a>函数以获取或设置窗口的状态及位置信息</td>
+  </tr>
+  <tr>
+    <td width="105%" colspan="3">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">Length</td>
+    <td width="77%" colspan="2">Long，这个结构的长度（size），必须是44</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">flags</td>
+    <td width="77%" colspan="2">Long，以下的两个常数之一</td>
+  </tr>
+  <tr>
+    <td width="37%">WPF_SETMINPOSITION</td>
+    <td width="38%">The ptMinPosition specifies the x,y location of the window when minimized.</td>
+  </tr>
+  <tr>
+    <td width="37%">WPF_RESTORETOMAXIMIZED</td>
+    <td width="38%">The SW_SHOWMINIMIZED constant must be specified in the showCmd parameter.
+    Indicates that the window should be maximized the next time it is restored.</td>
+  </tr>
+  <tr>
+    <td width="25%">showCmd</td>
+    <td width="77%" colspan="2">Long，Visibility flags</td>
+  </tr>
+  <tr>
+    <td width="25%">ptMinPosition</td>
+    <td width="77%" colspan="2"><a href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>，The x,y location of the
+    window when minimized.</td>
+  </tr>
+  <tr>
+    <td width="25%">ptMaxPosition</td>
+    <td width="77%" colspan="2"><a href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>，The x,y location of the
+    window location when maximized.</td>
+  </tr>
+  <tr>
+    <td width="25%">rcNormalPosition</td>
+    <td width="77%" colspan="2"><a href="RECT.htm" tppabs="http://www.gxbcts.com/airfly/api/RECT.htm">RECT</a>，The position and size of the
+    window when it is restored (normal condition).</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#WINDOWPLACEMENT">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

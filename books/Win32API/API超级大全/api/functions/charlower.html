@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: CharLower Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,CharLower" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>CharLower Function</H1>
+
+<P><CODE class="declare">Declare Function CharLower Lib &quot;user32.dll&quot; Alias &quot;CharLowerA&quot; (ByVal lpsz As String) As String</CODE>
+
+<P><B>CharLower</B> converts all of the upper-case letters in a string into lower case.  While many programming languages have intrinsic functions to do this, Windows provides this API for languages that may not.  The converted string is returned.
+
+<DL>
+<DT><VAR>lpsz</VAR><DD>The string to convert to lower-case.
+</DL>
+
+<P>
+<B>Example:</B>
+<PRE><CODE class="example">' Convert &quot;Hello, World!&quot; to lower-case
+Debug.Print CharLower(&quot;Hello, World!&quot;)
+' value returned is &quot;hello, world!&quot;</CODE></PRE>
+
+<P>
+<B>Related Call:</B> <A href="charupper.html">CharUpper</A><BR>
+<B>Category:</B> <A href="../index.html#strings" rel="index">Strings</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/charlower.html">http://members.aol.com/Borg953/api/functions/charlower.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

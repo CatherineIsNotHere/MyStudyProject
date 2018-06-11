@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetPrivateProfileString Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetPrivateProfileString" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetPrivateProfileString Function</H1>
+
+<P><CODE class="declare">Declare Function GetPrivateProfileString Lib &quot;kernel32.dll&quot; Alias &quot;GetPrivateProfileStringA&quot; (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long</CODE>
+
+<P><B>GetPrivateProfileString</B> reads an string value from any INI file.  The parameters passed to the function specify which value will be read from.  The function always returns the length in characters of the string put into the variable passed as <VAR>lpReturnedString</VAR>.  If the function was successful, the string read from the INI file will be put into <VAR>lpReturnedString</VAR>.  If not, it will instead receive the string given as <VAR>lpDefault</VAR>.
+
+<DL>
+<DT><VAR>lpApplicationName</VAR><DD>The header of the INI file section the value is in.
+<DT><VAR>lpKeyName</VAR><DD>The name of the value to read.
+<DT><VAR>lpDefault</VAR><DD>The value to return if a valid value cannot be read.  Make it something that would definitely not be read, such as &quot;(error)&quot;.
+<DT><VAR>lpReturnedString</VAR><DD>A fixed-length string that will receive either the string read from the file or <VAR>lpDefault</VAR>.
+<DT><VAR>nSize</VAR><DD>The length in characters of <VAR>lpReturnedString</VAR>.
+<DT><VAR>lpFileName</VAR><DD>The filename of the INI file to read from.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the value &quot;scrnsave.exe&quot; under the [boot] section of SYSTEM.INI
+' These next few lines get the Windows directory....
+Dim buffer As String * 255
+x = GetWindowsDirectory(buffer, 255)
+sysini = Left(buffer, x) & &quot;\system.ini&quot;
+' Now read the value
+x = GetPrivateProfileString(&quot;boot&quot;, &quot;scrnsave.exe&quot, &quot;(error)&quot; buffer, 255, sysini)
+retstr = Left(buffer, x)  ' extract string
+If retstr = &quot;(error)&quot; Then
+  Debug.Print &quot;Screen saver not found&quot;
+Else
+  Debug.Print &quot;The screen saver is &quot; retstr
+End If</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getprivateprofileint.html">GetPrivateProfileInt</A>, <A href="getprofilestring.html">GetProfileString</A>, <A href="writeprivateprofilestring.html">WritePrivateProfileString</A><BR>
+<B>Category:</B> <A href="../index.html#inifiles" rel="index">INI Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getprivateprofilestring.html">http://members.aol.com/Borg953/api/functions/getprivateprofilestring.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

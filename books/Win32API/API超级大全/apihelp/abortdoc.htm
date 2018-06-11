@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>AbortDoc</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">AbortDoc</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function AbortDoc Lib &quot;gdi32&quot; Alias 
+    &quot;AbortDoc&quot; (ByVal hdc As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">取消一份文档的打印。自上次调用StartDoc函数以来的所有输出都会被取消。如对打印机进行了配置，令其在正式打印文档之前先在打印缓冲区内对文档进行排队，那么文档的任何一部分都不会打印；否则，就可能出现文档打印到一半被取消的情况</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，大于零表示成功，SP_ERROR表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">在VB里使用</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如将这个函数用于由打印机对象的hDC属性指定的打印机设备场景，那么它可以正常发挥作用。然而，倘若之后调用了EndDoc方法，却有可能得到一条打印机出错消息。当大家结合API打印函数与VB打印机方法的时候，强烈建议对打印机的错误进行跟踪捕获；或干脆避免这种结合</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

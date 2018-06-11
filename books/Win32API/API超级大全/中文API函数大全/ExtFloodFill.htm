@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ExtFloodFill</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ExtFloodFill">ExtFloodFill</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function ExtFloodFill Lib &quot;gdi32&quot; Alias
+    &quot;ExtFloodFill&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal
+    crColor As Long, ByVal wFillType As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">在指定的设备场景里，用当前选择的刷子填充一个区域</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="77%" colspan="2">Long，开始填充的一个点，采用逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">crColor</td>
+    <td width="77%" colspan="2">Long，要使用的边界颜色</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">wFillType</td>
+    <td width="77%" colspan="2">Long，欲执行的填充类型，由下述任何一个常数决定</td>
+  </tr>
+  <tr>
+    <td width="37%">FLOODFILLBORDER</td>
+    <td width="38%">等同于<a href="FloodFill.htm" tppabs="http://www.gxbcts.com/airfly/api/FloodFill.htm">FloodFill</a>函数的功能</td>
+  </tr>
+  <tr>
+    <td width="37%">FLOODFILLSURFACE</td>
+    <td width="38%">从指定的点向外填充，只到找到了crColor颜色（在边框采用了多种颜色时使用）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">如指定了FLOODFILLBORDER，那么x,y点绝对不能为crColor颜色。如指定了FLOODFILLSURFACE，那么x,y点必须是crColor颜色。这个函数只能在光栅设备中使用。可用<a
+    href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>函数判断设备是否支持这个函数</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">提示</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">一旦指定了FLOODFILLBORDER，务必保证初始点的颜色没有crColor。如果使用的是FLOODFILLSURFACE，务必保证初始点有颜色crColor（这是函数执行失败最常见的两个原因）。注意保证初始点位于剪切区内</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ExtFloodFill">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

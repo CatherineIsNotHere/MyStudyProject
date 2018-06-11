@@ -1,0 +1,80 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>lcreat</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">lcreat</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function lcreat Lib &quot;kernel32&quot; Alias 
+    &quot;_lcreat&quot; (ByVal lpPathName As String, ByVal iAttribute As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">创建一个文件。如文件已经存在，就会将其缩短成零长度，并将其打开，以便读写</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，如执行成功，返回打开文件的句柄。如果出错，则返回HFILE_ERROR.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPathName</td>
+    <td width="75%">String，欲创建的文件的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">iAttribute</td>
+    <td width="75%">Long，下述值之一<br>
+    0——文件能够读写<br>
+    1——创建只读文件<br>
+    2——创建隐藏文件<br>
+    3——创建系统文件</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">该函数会打开已由其他应用程序打开的文件，所以使用它时要小心。win32的<a
+    href="CreateFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CreateFile.htm">CreateFile</a>函数已取代了这个函数。这个函数与vb的open语句作用相同</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

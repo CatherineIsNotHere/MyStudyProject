@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetWindow Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetWindow" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetWindow Function</H1>
+
+<P><CODE class="declare">Declare Function GetWindow Lib &quot;user32.dll&quot; (ByVal hwnd As Long, ByVal wCmd As Long) As Long</CODE>
+
+<P><B>GetWindow</B> returns the handle of a window related to a given window.  The relations generally deal with child-parent relationships or relationships between children of the same parent window.  The exact relation is specified by <VAR>wCmd</VAR>.  If an error occurs or there is no window having the specified relation, the function instead returns 0.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the first window in the relation.
+<DT><VAR>wCmd</VAR><DD>One of the <A href="../constants/getwindowflags.html">GetWindow flags</A> specifying the relationship between the two windows.
+</DL>
+
+<P><B>Example:</B><BR>
+<PRE><CODE class="example">' Flash the window below Form1 in the Z-order once
+next = GetWindow(Form1.hWnd, GW_HWNDNEXT)  ' next window in Z-order
+' The next three lines flash this window using FlashWindow and Sleep
+x = FlashWindow(next, 1): Sleep 250
+x = FlashWindow(next, 1): Sleep 250
+x = FlashWindow(next, 0)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getactivewindow.html">GetActiveWindow</A>, <A href="gettopwindow.html">GetTopWindow</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getwindow.html">http://members.aol.com/Borg953/api/functions/getwindow.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

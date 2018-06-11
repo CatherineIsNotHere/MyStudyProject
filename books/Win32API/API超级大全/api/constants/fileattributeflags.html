@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: File Attribute Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,File Attribute Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>File Attribute Flags</H1>
+
+<P><PRE><CODE class="tc">Const FILE_ATTRIBUTE_ARCHIVE = &amp;H20
+Const FILE_ATTRIBUTE_COMPRESSED = &amp;H800
+Const FILE_ATTRIBUTE_DIRECTORY = &amp;H10
+Const FILE_ATTRIBUTE_HIDDEN = &amp;H2
+Const FILE_ATTRIBUTE_NORMAL = &amp;H80
+Const FILE_ATTRIBUTE_READONLY = &amp;H1
+Const FILE_ATTRIBUTE_SYSTEM = &amp;H4</CODE></PRE>
+
+<P>The <B>file attribute flags</B> determine the attributes of a file or a directory.  Any combination of them may be used with the exception of <VAR>FILE_ATTRIBUTE_NORMAL</VAR>, which can only be used alone.
+
+<DL>
+<DT><VAR>FILE_ATTRIBUTE_ARCHIVE</VAR><DD>An archive file (which most files are).
+<DT><VAR>FILE_ATTRIBUTE_COMPRESSED</VAR><DD>A file residing in a compressed drive or directory.
+<DT><VAR>FILE_ATTRIBUTE_DIRECTORY</VAR><DD>A directory instead of a file.
+<DT><VAR>FILE_ATTRIBUTE_HIDDEN</VAR><DD>A hidden file (not normally visible to the user).
+<DT><VAR>FILE_ATTRIBUTE_NORMAL</VAR><DD>An attribute-less file.
+<DT><VAR>FILE_ATTRIBUTE_READONLY</VAR><DD>A read-only file.
+<DT><VAR>FILE_ATTRIBUTE_SYSTEM</VAR><DD>A system file (one used exclusively by the operating system).
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getfileattributes.html">GetFileAttributes</A>, <A href="../functions/setfileattributes.html">SetFileAttributes</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/fileattributeflags.html">http://members.aol.com/Borg953/api/constants/fileattributeflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

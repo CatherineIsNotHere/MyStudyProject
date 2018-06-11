@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>NETRESOURCE</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="NETRESOURCE">NETRESOURCE</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">类型定义</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Type NETRESOURCE<br>
+    dwScope As Long<br>
+    dwType As Long<br>
+    dwDisplayType As Long<br>
+    dwUsage As Long<br>
+    lpLocalName As String<br>
+    lpRemoteName As String<br>
+    lpComment As String<br>
+    lpProvider As String<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">与网络有关的重要任务之一就是枚举，或者说获取可用网络资源的一个列表。这个结构用以定义系统的的每个网络资源</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">dwScope</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCE_CONNECTED</td>
+    <td width="38%">枚举连接的资源</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCE_GLOBALNET</td>
+    <td width="38%">枚举所有资源</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCE_REMEMBERED</td>
+    <td width="38%">枚举永久性连接</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">dwType</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCETYPE_ANY</td>
+    <td width="38%">枚举所有资源</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCETYPE_DISK</td>
+    <td width="38%">枚举磁盘</td>
+  </tr>
+  <tr>
+    <td width="37%">RESOURCETYPE_PRINT</td>
+    <td width="38%">枚举打印机</td>
+  </tr>
+  <tr>
+    <td width="25%">dwDisplayType</td>
+    <td width="77%" colspan="2">Long，带有前缀RESOURCEDISPLAYTYPE的一个常数，对资源的类型进行了定义（在网络浏览器中如何显示）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">dwUsage</td>
+    <td width="77%" colspan="2">Long，下述标志的一个或多个</td>
+  </tr>
+  <tr>
+    <td width="39%">RESOURCEUSAGE_CONNECTABLE</td>
+    <td width="38%">可同这个资源连接</td>
+  </tr>
+  <tr>
+    <td width="39%">RESOURCEUSAGE_CONTAINER</td>
+    <td width="38%">这个资源包含了可以枚举的额外资源</td>
+  </tr>
+  <tr>
+    <td width="25%">lpLocalName</td>
+    <td width="77%" colspan="2">String，由本地系统引用的资源名称。只能用于已连接的资源</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRemoteName</td>
+    <td width="77%" colspan="2">String，资源的网络名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpComment</td>
+    <td width="77%" colspan="2">String，由网络供应商设置</td>
+  </tr>
+  <tr>
+    <td width="25%">lpProvider</td>
+    <td width="77%" colspan="2">String，网络供应商的名字</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#NETRESOURCE">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

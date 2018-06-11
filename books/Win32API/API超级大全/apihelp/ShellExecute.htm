@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ShellExecute</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">ShellExecute</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function ShellExecute Lib &quot;shell32.dll&quot; 
+    Alias &quot;ShellExecuteA&quot; (ByVal hwnd As Long, ByVal lpOperation As String, ByVal 
+    lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal 
+    nShowCmd As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">&nbsp; 
+    查找与指定文件关联在一起的程序的文件名</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="75%">Long，指定一个窗口的句柄，有时候，windows程序有必要在创建自己的主窗口前显示一个消息框</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOperation</td>
+    <td width="75%">String，指定字串“open”来打开lpFlie文档，或指定“Print”来打印它</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFile</td>
+    <td width="75%">String，想用关联程序打印或打开一个程序名或文件名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpParameters</td>
+    <td width="75%">String，如lpszFlie是可执行文件，则这个字串包含传递给执行程序的参数</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDirectory</td>
+    <td width="75%">String，想使用的完整路径</td>
+  </tr>
+  <tr>
+    <td width="25%">nShowCmd</td>
+    <td width="75%">Long，定义了如何显示启动程序的常数值。参考<a
+    href="ShowWindow.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/ShowWindow.htm">ShowWindow</a>函数的nCmdShow参数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: BitBlt Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,BitBlt" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>BltBlt Function</H1>
+
+<P><CODE class="declare">Declare Function BitBlt Lib &quot;gdi32.dll&quot; (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long</CODE>
+
+<P><B>BitBlt</B> copies a piece of an image from one object to another.  This function preserves the original size and dimensions of the image piece, unlike the related function <A href="stretchblt.html">StretchBlt</A>.  In addition to using the straight &quot;copy&quot; method, you can specify other ways of copying the image with the <VAR>dwRop</VAR> parameter.  The point you specify to put the image in the target object will be the upper-left corner of the piece.  The function returns 0 if the function failed and a non-zero value if it succeeded.
+
+<DL>
+<DT><VAR>hDestDC</VAR><DD>The device context of the target object (the one that receives the image piece).
+<DT><VAR>x</VAR><DD>The x coordinate of the point to put the image inside the target.
+<DT><VAR>y</VAR><DD>The y coordinate of the point to put the image inside the target.
+<DT><VAR>nWidth</VAR><DD>The width of the image piece.
+<DT><VAR>nHeight</VAR><DD>The height of the image piece.
+<DT><VAR>xSrc</VAR><DD>The x coordinate of the upper-left corner of the image piece in the source.
+<DT><VAR>ySrc</VAR><DD>The y coordinate of the upper-left corner of the image piece in the source.
+<DT><VAR>dwRop</VAR><DD>Exactly one of the <A href="../constants/bltflags.html">Blt flags</A> specifying the method to use to copy the piece.
+</DL>
+
+<P>
+<B>Example:</B>
+<PRE><CODE class="example">' Copy a 16x32 rectangle from the upper-left corner of one picture box to another
+x = BitBlt(picTarget.hdc, 0, 0, 16, 32, picSource.hdc, 0, 0, SRCCOPY)
+picTarget.Refresh  ' show the updated image</CODE></PRE>
+
+<P>
+<B>Related Call:</B> <A href="stretchblt.html">StretchBlt</A><BR>
+<B>Category:</B> <A href="../index.html#graphics" rel="index">Graphics</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/bitblt.html">http://members.aol.com/Borg953/api/functions/bitblt.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

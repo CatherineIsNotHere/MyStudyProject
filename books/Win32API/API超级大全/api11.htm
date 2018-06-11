@@ -1,0 +1,49 @@
+
+<HTML><HEAD><TITLE>API技巧之十一</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Windows%20Help%20Tricks_files/default.css" rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>Windows帮助诀窍</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>PowerBuilder提供的ShowHelp函数允许在程序在存取Help文件中的基本元素。在windows 3.1系统下，它的使用是很顺利的，但是当Windows 
+        9X与NT 4出现之后，该函数并没有作出相应的改变，其使用会出现一些问题。engine in Windows 95 and Windows 
+        NT 4. </p>
+      <p>有两个特殊的细节是很有用的，第一个是存取Help对话框中新的内容表，按照如下的方法使用ShowHelp函数，可使PowerBuilder程序打开Help文件的索引标签。</p>
+      <pre>ShowHelp( 'pbbdrtray.hlp', KeyWord!, '' )</pre>
+      <p>但是如果能存取第一个tab标检，程序会显得更专业。</p>
+      <p>第二是，可能使帮助引挚弹出一个弹出式窗口来显示帮助文件的内容，就像你在OS的标准对话框中点出？图标一样，这是帮助引挚的标准功能。</p>
+      <p>执行这一功能的API函数是WinHelp,因此要PB执行这个功能需要使用API函数调用: </p>
+      <p><code>function long WinHelpA(ulong hwind, string lpszHelp, uint uCommand, 
+        ulong dwData) library "user32" </code></p>
+      <p>注意：在调用该函数是需要在名称后加A，以表示我们传递函数的是ASCII字符类型的参数而不是Unicode类型的字符串。</p>
+      <p>然后我们为函数说明参数，具体的参数内容及意义可以参见该函数的C语言.H文件。ts as such:</p>
+      <pre>Protected:
+integer HELP_CONTEXT = 1
+integer HELP_CONTENTS = 3
+integer HELP_CONTEXTPOPUP = 8
+integer HELP_FINDER = 11</pre>
+      <p>这样我们就可以调用这个API函数来完成我们想要执行的功能。 </p>
+      <p>The first function will open the 3 tab dialog with the first tab showing.</p>
+      <pre>WinHelp( 0, <help file>, HELP_FINDER, 0 )</pre>
+      <p>This next function will display a help popup for a given help topic.</p>
+      <pre>WinHelp( 0, <help file>, HELP_CONTEXTPOPUP, <topic number> )</pre>
+      <p>These functions and a few others for accessing the WinHelp engine are 
+        built into a small object and available for download from the <a 
+            href="http://www.pbdr.com/Software.htm">Software Page</a>.</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

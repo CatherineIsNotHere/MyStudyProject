@@ -1,0 +1,36 @@
+
+<HTML><HEAD><TITLE>API技巧之三</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Adding%20Files%20to%20the%20Recent%20Documents%20List_files/default.css" 
+rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>在最近访问的文件中增加文件</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">Windows有一个很酪的特色，它可以显示很多在资源管理器或其他应用程序中打开的文件。但不幸的是你需要在应用程序中由程序自己将文件加入到最近访问文件列表之中。你可以通过调用API函数在你编写的程序中将文件加入到最近访问文件列表之中。 
+      <p>1.定义一个局部的外部函数:</p>
+      <pre>Subroutine SHAddToRecentDocs( uint dwFlags, ref string dwData ) &amp;
+   Library 'shell32.dll'</pre>
+      <p>2.然后在程序中加入以下代码:</p>
+      <pre>Long ll_SHARD_PATH = 2
+String ls_File
+    
+<font color=#0000ff>// Replace the next line with your own file</font>
+ls_File = 'c:\ken.txt'
+SHAddtoRecentDocs( ll_SHARD_PATH, ls_file )</pre>
+      <p>每当执行上面这段程序时，文件将会加入到最近访问文件列表之中，如果给SHAddtoRecentDocs传递一个Null参数，将清空最近访问文件列表。</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

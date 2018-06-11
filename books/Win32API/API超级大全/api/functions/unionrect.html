@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: UnionRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,UnionRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>UnionRect Function</H1>
+
+<P><CODE class="declare">Declare Function UnionRect Lib &quot;user32.dll&quot; (lpDestRect As <A href="../types/rect.html">RECT</A>, lpSrc1Rect As <A href="../types/rect.html">RECT</A>, lpSrc2Rect As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>UnionRect</B> determines the smallest possible rectangle that contains two other rectangles. This rectangle is called the union rectangle because it is derived from the union of the areas that the two source rectangles occupy.  The union rectangle is put into the variable passed as <VAR>lpDestRect</VAR>.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpDestRect</VAR><DD>Variable that receives the union rectangle.
+<DT><VAR>lpSrc1Rect</VAR><DD>The first of the two source rectangles.
+<DT><VAR>lpSrc2Rect</VAR><DD>The second of the two source rectangles.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' UnionRect example
+Dim union As RECT, s1 As RECT, s2 As RECT
+x = SetRect(s1, 50, 50, 150, 150)  ' API sets s1 = (50,50)-(150,150)
+x = SetRect(s2, 100, 100, 200, 200)  ' s2 = (100,100)-(200,200)
+x = UnionRect(union, s1, s2)  ' union = (50,50)-(200,200)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="intersectrect.html">IntersectRect</A>, <A href="subtractrect.html">SubtractRect</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/unionrect.html">http://members.aol.com/Borg953/api/functions/unionrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

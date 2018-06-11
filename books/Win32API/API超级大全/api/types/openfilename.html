@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: OPENFILENAME Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,OPENFILENAME" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>OPENFILENAME Type</H1>
+
+<P><PRE><CODE class="tc">Type OPENFILENAME
+  lStructSize As Long
+  hwndOwner As Long
+  hInstance As Long
+  lpstrFilter As String
+  lpstrCustomFilter As String
+  nMaxCustomFilter As Long
+  nFilterIndex As Long
+  lpstrFile As String
+  nMaxFile As String
+  lpstrFileTitle As String
+  nMaxFileTitle As String
+  lpstrInitialDir As String
+  lpstrTitle As String
+  flags As Long
+  nFileOffset As Long
+  nFileExtension As Long
+  lpstrDefExt As String
+  lCustData As Long
+  lpfnHook As Long
+  lpTemplateName As String
+End Type</CODE></PRE>
+
+<P><B>OPENFILENAME</B>-type variables work with the two Windows file dialog box APIs, <A href="../functions/getopenfilename.html">GetOpenFileName</A> and <A href="../functions/getsavefilename.html">GetSaveFileName</A>.  This type is used both to pass information to the function and returns data from it.
+
+<DL>
+<DT><VAR>lStructSize</VAR><DD>The size in bytes of the variable (use the Len() function).
+<DT><VAR>hwndOwner</VAR><DD>The handle of the window opening the file dialog box.
+<DT><VAR>hInstance</VAR><DD>?
+<DT><VAR>lpstrFilter</VAR><DD>The entries in the File Type drop box.  The format of the string is &quot;<VAR>name of file type</VAR>&quot; &amp; <VAR>vbNullChar</VAR> &amp; &quot;<VAR>mask</VAR>&quot; &amp; <VAR>vbNullChar</VAR> ... for as many types, where <VAR>name of file type</VAR> appears in the list and <VAR>mask</VAR> is the extension mask.  The string must end with a double <VAR>vbNullChar</VAR>.
+<DT><VAR>lpstrCustomFilter</VAR><DD>?
+<DT><VAR>nMaxCustFilter</VAR><DD>?
+<DT><VAR>nFilterIndex</VAR><DD>What data type of <VAR>lpstrFilter</VAR> should be the default.
+<DT><VAR>lpstrFile</VAR><DD>Set it as a series of blank spaces.  Receives the complete path and filename of the file(s) the user selects.  Multiple filenames are separated by <VAR>vbNullChar</VAR>, and the string will end with a double <VAR>vbNullChar</VAR>.
+<DT><VAR>nMaxFile</VAR><DD>The length in characters of <VAR>lpstrFile</VAR>.
+<DT><VAR>lpstrFileTitle</VAR><DD>Very similar to <VAR>lpstrFile</VAR>, but only receives the filename of the selected file.  If multiple files are selected, this is not set to any useful data.
+<DT><VAR>nMaxFileTitle</VAR><DD>The length in characters of <VAR>lpstrFileTitle</VAR>.
+<DT><VAR>lpstrInitialDir</VAR><DD>The default directory to look in.
+<DT><VAR>lpstTitle</VAR><DD>The text that should appear in the dialog box's title bar.
+<DT><VAR>flags</VAR><DD>Zero or more of the <A href="../constants/filedialogflags.html">file dialog flags</A> specifying how to create the file dialog box.
+<DT><VAR>nFileOffet</VAR><DD>?
+<DT><VAR>nFileExtension</VAR><DD>?
+<DT><VAR>lpstrDefExt</VAR><DD>The default extension of a file (only for the Save dialog box).  If a file is chosen with the *.* mask, the file gets this extension.  Don't include the period.
+<DT><VAR>lCustData</VAR><DD>?
+<DT><VAR>lpfnHook</VAR><DD>?
+<DT><VAR>lpTemplateName</VAR><DD>?
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getopenfilename.html">GetOpenFileName</A>, <A href="../functions/getsavefilename.html">GetSaveFileName</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/openfilename.html">http://members.aol.com/Borg953/api/types/openfilename.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

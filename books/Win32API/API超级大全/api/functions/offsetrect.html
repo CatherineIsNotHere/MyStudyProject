@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: OffsetRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,OffsetRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>OffsetRect Function</H1>
+
+<P><CODE class="declare">Declare Function OffsetRect Lib &quot;user32.dll&quot; (lpRect As <A href="../types/rect.html">RECT</A>, ByVal x As Long, ByVal y As Long) As Long</CODE>
+
+<P><B>OffsetRect</B> changes the position of a rectangle without changing its size.  If the value to move by is negative, the rectangle is moved left or up (depending on the direction); positive values move it right or down.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpRect</VAR><DD>The rectangle to move.
+<DT><VAR>x</VAR><DD>The value to move the rectangle horizontally by.  Negative values move to the left, positive to the right.
+<DT><VAR>y</VAR><DD>The value to move the rectangle vertically by.  Negative values move up, positive down.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Move a rectangle 100 right and 25 up
+Dim r As RECT
+x = SetRect(r, 50, 50, 150, 150)  ' API function sets r = (50,50)-(150,150)
+x = OffsetRect(r, 100, -25)  ' now r = (150,25)-(250,125)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="inflaterect.html">InflateRect</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/offsetrect.html">http://members.aol.com/Borg953/api/functions/offsetrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>进程和线程的理解</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+
+<table border="0" width="100%" cellspacing="4" cellpadding="6">
+  <tr>
+    <td width="100%" bgcolor="#336699"><font color="#FFFFFF">进程和线程的理解（1）----多任务</font></td>
+  </tr>
+</table>
+
+<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+多任务定义了一个操作系统同时运行多个程序的能力，但事实是，理想的多任务系统可以在几个应用程序之间如此快的切换，以至于用户可以认为所有的程序就象同时运行一样（多处理器系统除外）。考虑下面的简单程序。创建一个新的VB项目并在窗体上放一个按钮和一个标签控件，然后在窗体的click事件中加入代码：</p>
+
+<p>Private Sub Command1_Click()<br>
+Dim cnt&amp;<br>
+&nbsp; For cnt&amp; = 1 To 2500<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lable1.Caption = cnt&amp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lable.Refresh<br>
+&nbsp; Next cnt&amp;<br>
+End Sub<br>
+&nbsp;&nbsp; 单击按钮时，标签计数器会显示从1到2500的渐増数。将此程序编译成可执行程序，然后运行该程序的两个实例，并把它们并排。现单击一个程序让它运行，在它计数时，试着单击另一个程序的按钮。此试验的结果和正在运行的操作系统以及用的是16位还是32位的VB有关。这说明了操作系统间在多任务方面的关键性差异。 
+windows3.x支持一种被称为“非抢先式”也叫“协作式”多任务。在这种多任务中，应用程序尽力与另一个程序进行协作。操作系统分配给CPU一个程序，这个程序完全占用CPU直到它想让给其它的程序为止。在我们示例中的固定循环牢牢占用CPU，阻止了其它程序的运行。如果windows3.x或win95（或windows 
+NT）上使用16位的VB（只要这两个计数器没有被设为成独立的内存空间运行），当一个计数器计数时另一个计数器就会被冻结。它不会计数并且也不能单击它的命令按钮。如果在使用16位VB的windows95或windows 
+NT上运行这个计数器程序的示例，同时点击某个32位的应用程序，如开始菜单，会发现那些32位的程序并没有被冻结。如果使用32位的VB来进行这个示例，会出现完全不同的结果。当一个计数器计数的同时点击第二个计数器，第二个计数器会开始全速工作，而第一个计数器会慢下来（但它不会停止，它速度的降低程度与系统给前台应用程序优先权大小有关）。</p>
+
+<p>&nbsp; 在示例中的程序保持状态不变，没有退出click事件或执行了DoEvents命令而释放CPU，那显然地，应有某些另外的机制使应用程序能释放CPU资源。其实，释放CPU资源并不是一件麻烦的事，操作系统会完成这项工作。这是一种称为“抢先式多任务”的多任务形式。在该形式中，CPU的时间是由操作系统专门分配的。当操作系统认为一个应用程序已用完它的时间额度时，它会挂起该程序并保存所有的处理器内部寄存器状态，然后转下一个程序。应用程序也有能力在任何它不需要CPU的时间时挂起它自身。</p>
+
+<p>&nbsp; </p>
+</body>
+</html>

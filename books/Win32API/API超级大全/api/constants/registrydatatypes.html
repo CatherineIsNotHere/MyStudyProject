@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Registry Data Type Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Registry Data Type Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Registry Data Type Flags</H1>
+
+<P><PRE><CODE class="tc">Const REG_BINARY = 3
+Const REG_DWORD = 4
+Const REG_DWORD_LITTLE_ENDIAN = 4
+Const REG_DWORD_BIG_ENDIAN = 5
+Const REG_EXPAND_SZ = 2
+Const REG_LINK = 6
+Const REG_MULTI_SZ = 7
+Const REG_NONE = 0
+Const REG_RESOURCE_LIST = 8
+Const REG_SZ = 1</CODE></PRE>
+
+<P>The <B>registry data types</B> identify the type of information stored under a registry value.  Obviously, these cannot be combined -- only one can be used at a time.  Note that all string-using data types must be used with the alternate Declare format of the related registry functions.
+
+<DL>
+<DT><VAR>REG_DWORD</VAR>, <VAR>REG_DWORD_LITTLE_ENDIAN</VAR><DD>A 32-bit integer number stored in little-endian format.  This is the way Intel-based computers store numbers.
+<DT><VAR>REG_DWORD_BIG_ENDIAN</VAR><DD>A 32-bit integer number stored in big-endian format.  This is the opposite of the way Intel-based computers normally store numbers -- the byte order is reversed in big-endian format.
+<DT><VAR>REG_EXPAND_SZ</VAR><DD>A string which contains unexpanded environment variables such as %PATH%, terminated with a <CODE>vbNullChar</CODE> character.
+<DT><VAR>REG_LINK</VAR><DD>A Unicode symbolic link.
+<DT><VAR>REG_MULTI_SZ</VAR><DD>A series of strings, each separated by a <CODE>vbNullChar</CODE> and the entire set terminated with a double <CODE>vbNullChar</CODE>.
+<DT><VAR>REG_NONE</VAR><DD>No data type.
+<DT><VAR>REG_RESOURCE_LIST</VAR><DD>List of resources in the resource map.
+<DT><VAR>REG_SZ</VAR><DD>A string terminated by a <CODE>vbNullChar</CODE> character.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/regqueryvalueex.html">RegQueryValueEx</A>, <A href="../functions/regsetvalueex.html">RegSetValueEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/registrydatatypes.html">http://members.aol.com/Borg953/api/constants/registrydatatypes.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawTextEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DrawTextEx">DrawTextEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function DrawTextEx Lib &quot;user32&quot; Alias
+    &quot;DrawTextExA&quot; (ByVal hDC As Long, ByVal lpsz As String, ByVal n As Long, lpRect
+    As RECT, ByVal un As Long, lpDrawTextParams As DRAWTEXTPARAMS) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">与<a href="DrawText.htm" tppabs="http://www.gxbcts.com/airfly/api/DrawText.htm">DrawText</a>相似，只是加入了更多的功能</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，描绘文字的高度</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDC</td>
+    <td width="77%" colspan="2">Long，要在其中绘图的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpsz</td>
+    <td width="77%" colspan="2">String，欲描绘的文本字串</td>
+  </tr>
+  <tr>
+    <td width="25%">n</td>
+    <td width="77%" colspan="2">Long，欲描绘的字符数量。如果要描绘整个字串（直到空中止符），则可将这个参数设为-1</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRect</td>
+    <td width="77%" colspan="2"><a href="RECT.htm" tppabs="http://www.gxbcts.com/airfly/api/RECT.htm">RECT</a>，指定用于绘图的一个格式化矩形（采用逻辑坐标）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="7">un</td>
+    <td width="77%" colspan="2">Long，一个标志位。决定了以何种形式执行绘图。参考<a
+    href="DrawText.htm" tppabs="http://www.gxbcts.com/airfly/api/DrawText.htm">DrawText</a>的wFormat参数和下表。其中下表列出的是新增的常数</td>
+  </tr>
+  <tr>
+    <td width="37%">标志常数</td>
+    <td width="38%">说明</td>
+  </tr>
+  <tr>
+    <td width="37%">DT_EDITCONTROL</td>
+    <td width="38%">对一个多行编辑控件进行模拟。不显示部分可见的行</td>
+  </tr>
+  <tr>
+    <td width="37%">DT_ENDELLIPSES</td>
+    <td width="38%">倘若字串不能在矩形里全部容下，就在末尾显示省略号</td>
+  </tr>
+  <tr>
+    <td width="37%">DT_PATHELLIPSES</td>
+    <td width="38%">如字串包含了 \
+    字符，就用省略号替换字串内容，使其能在矩形中全部容下。例如，一个很长的路径名可能换成这样显示——c:\windows\...\doc\readme.txt</td>
+  </tr>
+  <tr>
+    <td width="37%">DT_MODIFYSTRING</td>
+    <td width="38%">如指定了DT_ENDELLIPSES 或 DT_PATHELLIPSES，就会对字串进行修改，使其与实际显示的字串相符</td>
+  </tr>
+  <tr>
+    <td width="37%">DT_RTLREADING</td>
+    <td width="38%">如选入设备场景的字体属于希伯来或阿拉伯语系，就从右到左描绘文字</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDrawTextParams</td>
+    <td width="77%" colspan="2">DRAWTEXTPARAMS，这个结构包含了附加的绘图参数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DrawTextEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

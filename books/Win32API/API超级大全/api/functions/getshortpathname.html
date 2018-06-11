@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetShorttPathName Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetShortPathName" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetShortPathName Function</H1>
+
+<P><CODE class="declare">GetShortPathName Lib &quot;kernel32.dll&quot; Alias &quot;GetShortPathNameA&quot; (ByVal lpszLongPath As String, lpszShortPath As String, ByVal cchBuffer As Long) As Long</CODE>
+
+<P><B>GetShortPathName</B> converts a long filename into the old-style 8.3 filenames.  Although Windows 95 allows the use of long filenames, DOS programs, not to mention 16-bit Windows programs, must use the 8.3 equivalent.  For example, the equivalent of ReallyLongFile.txt could be REALLY~1.TXT.  The short filename is put into the string variable passed as <VAR>lpShortPath</VAR>.  The function returns the length of the string, or 0 if the function failed.
+
+<DL>
+<DT><VAR>lpszLongPath</VAR><DD>The complete long path and filename to convert.
+<DT><VAR>lpszShortPath</VAR><DD>A fixed-length string which receives the short filename equivalent.
+<DT><VAR>cchBuffer</VAR><DD>The size in characters of <VAR>lpszShortPath</VAR>.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Convert C:\My Documents\RichTextOne.rtf to its short equivalent
+Dim buffer As String * 255
+x = GetShortPathName(&quot;C:\My Documents\RichTextOne.rtf&quot;, buffer, 255)
+Debug.Print Left(buffer, x)  ' could be C:\MYDOCU~1\RICHTE~1.RTF</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getfullpathname.html">GetFullPathName</A><BR>
+<B>Category:</B> <A href="../index.html#files" rel="index">Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getshortpathname.html">http://members.aol.com/Borg953/api/functions/getshortpathname.html</A>
+</ADDRESS>
+</BODY>
+</HTML>
+

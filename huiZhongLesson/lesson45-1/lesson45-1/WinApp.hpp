@@ -1,6 +1,6 @@
 #pragma once
 #include <windows.h>
-
+#include <tchar.h>
 class CWinApp
 {
 public:
@@ -61,13 +61,50 @@ public:
 		return  DefWindowProc(hwnd, msg, wParam, lParam);
 	}
 	 virtual LRESULT onEvent(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
-
+		 HDC hdc;
+		 PAINTSTRUCT ps;
+		 TCHAR szText[64] = TEXT("这是测试汉字this is test!");
+		 RECT rc;//矩形
+		 HFONT hfont;
+		 HFONT hOldFont;
 		switch (msg)
 		{
 		case WM_CLOSE:
 			break;
 		case WM_DESTROY:
 			::PostQuitMessage(0);
+			break;
+		case WM_MOUSEMOVE:
+			break;
+		case WM_PAINT:
+			hdc = BeginPaint(hwnd,&ps);//开始绘图
+			SetBkMode(hdc, TRANSPARENT);//去掉背景框
+			SetTextColor(hdc,RGB(255,0,255));//文字颜色
+			//TextOut(hdc, 100, 200, szText, _tcslen(szText));//输出文字，可以精准定位xy,不能换行
+			GetClientRect(hwnd,&rc);//获取客户区尺寸
+			//DrawText(hdc,szText,-1,&rc,DT_SINGLELINE|DT_CENTER|DT_VCENTER);
+			hfont=CreateFont(
+				50,//字符高度
+				0,//字符宽度
+				0,//文字倾斜角度
+				0,//字体倾斜角度
+				FW_BOLD,//笔画的粗细
+				0,//是否是斜体
+				0,//是否加下划线
+				0,//是否在字体中加水平线
+				ANSI_CHARSET,//字符集
+				0,//字体输出方式
+				0,//裁剪字体的方式
+				0,//字体质量
+				0,//字体系列和字体宽度设定
+				TEXT("楷体")//字样名
+				);
+			hOldFont = (HFONT)SelectObject(hdc,hfont);//选择新的字体，返回老的字体
+			SetTextColor(hdc,RGB(0X00,0Xff,0Xff));
+			TextOut(hdc,0,300,szText,_tcslen(szText));
+			SelectObject(hdc, hOldFont);
+			DeleteObject(hfont);
+			EndPaint(hwnd,&ps);//释放内存
 			break;
 		default:
 			break;

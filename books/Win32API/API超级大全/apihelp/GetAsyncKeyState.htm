@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetAsyncKeyState</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetAsyncKeyState</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetAsyncKeyState Lib &quot;user32&quot; 
+    Alias &quot;GetAsyncKeyState&quot; (ByVal vKey As Long) As Integer</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">判断函数调用时指定虚拟键的状态</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，自对GetAsyncKeyState函数的上一次调用以来，如键已被按过，则位0设为1；否则设为0。如键目前处于按下状态，则位15设为1；如抬起，则为0。微软的win32手册指出：倘若输入焦点从属于与调用函数的输入线程不同的另一个输入线程，则返回值为0（例如，一旦另一个程序拥有焦点，则它应返回零）。证据显示，函数实际是在整个系统的范围内工作的</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">vKey</td>
+    <td width="77%">Long，欲测试的虚拟键的键码</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">如指定了VK_LBUTTON 或 VK_RBUTTON，按钮的状态就会根据实际的按钮报告——无论是否曾用<a
+    href="SwapMouseButton.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/SwapMouseButton.htm">SwapMouseButton</a>函数对鼠标的位置进行了交换。win32提供了额外的一些虚拟键码，比如VK_LSHIFT 
+    和 VK_RSHIFT，以便在两个完全一样的键中区分出左右（也包括Ctrl 和 
+    Alt）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

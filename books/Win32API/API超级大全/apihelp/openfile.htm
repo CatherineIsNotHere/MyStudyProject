@@ -1,0 +1,368 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>OpenFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="OpenFile">OpenFile</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function OpenFile Lib &quot;kernel32&quot; Alias 
+    &quot;OpenFile&quot; (ByVal lpFileName As String, lpReOpenBuff As OFSTRUCT, ByVal wStyle 
+    As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">这个函数能执行大量不同的文件操作。和这个函数相比，请优先考虑win32的<a
+    href="CreateFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CreateFile.htm">CreateFile</a>函数（它能打开命名管道和控制Unicode文件名，同时不受128个字符的路径名称的限制）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，如执行成功，返回文件句柄。注意文件句柄可能是无效的；例如，假设指定了OF_EXIST标志，文件在函数返回前会关闭，但它打开时的句柄却永远不会返回。如果出错，函数会返回HFILE_ERROR；此时，由lpReOpenBuff指定的<a
+    href="OFSTRUCT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OFSTRUCT.htm">OFSTRUCT</a>结构的nErrCode会设置成发生的错误。表<a
+    href="#OpenFile-2">OpenFile-2</a>（<a href="OFSTRUCT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OFSTRUCT.htm">OFSTRUCT</a>出错代码）对这些错误进行了总结。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFileName</td>
+    <td width="75%">String，欲打开文件的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">lpReOpenBuff</td>
+    <td width="75%"><a href="OFSTRUCT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OFSTRUCT.htm">OFSTRUCT</a>，该结构填充的数据包括与文件和操作结果有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">wStyle</td>
+    <td width="75%">Long，参考表<a href="#表OpenFile-1">OpenFile-1</a>（OpenFile函数的标志常数表）总结的标志常数的组合，它决定了要采取的操作方式</td>
+  </tr>
+</table>
+</center></div>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="2"><a name="表OpenFile-1">表OpenFile-1（OpenFile函数的标志常数表）</a></td>
+  </tr>
+  <tr>
+    <td width="25%">wStyle常数</td>
+    <td width="75%">说明</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_CREATE</td>
+    <td width="75%">创建指定的文件。如已经存在，则将其缩减为零长度</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_DELETE</td>
+    <td width="75%">删除指定的文件</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_EXIST</td>
+    <td width="75%">通过尝试打开文件的做法，判断一个文件是否存在。如文件存在，则将其关闭。此时，函数会返回文件打开时使用的句柄，但这个句柄是无效的。如指定的文件不存在，则返回一个负数</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_PARSE</td>
+    <td width="75%">填写lpReOpenBuff结构的内容，但不执行其他任何操作</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_PROMPT</td>
+    <td width="75%">如文件不存在，则显示一个消息框，在其中列出重试和取消按钮</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_READ</td>
+    <td width="75%">以只读方式打开文件</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_READWRITE</td>
+    <td width="75%">以可读、可写的方式打开文件</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_REOPEN</td>
+    <td width="75%">打开lpReOpenBuff结构内指定的文件，而不是用lpFileName参数</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SEARCH</td>
+    <td width="75%">强迫windows查找文件——即使指定了特定的路径</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SHARE_COMPAT</td>
+    <td width="75%">文件可由多个应用程序打开多次</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SHARE_DENY_NONE</td>
+    <td width="75%">可打开文件，以便由其他程序读写</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SHARE_DENY_READ</td>
+    <td width="75%">禁止其他程序读写文件内容</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SHARE_DENY_WRITE</td>
+    <td width="75%">其他程序可以读文件，但不能写文件</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_SHARE_EXCLUSIVE</td>
+    <td width="75%">其他任何一个程序都不能再打开这个文件</td>
+  </tr>
+  <tr>
+    <td width="25%">OF_WRITE</td>
+    <td width="75%">文件以只写模式打开</td>
+  </tr>
+</table>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="4"><a name="OpenFile-2">表OpenFile-2</a>（<a
+    href="OFSTRUCT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OFSTRUCT.htm">OFSTRUCT</a>出错代码）</td>
+  </tr>
+  <tr>
+    <td width="25%">十六进制值</td>
+    <td width="25%">说明</td>
+    <td width="25%">十六进制值</td>
+    <td width="25%">说明</td>
+  </tr>
+  <tr>
+    <td width="25%">1</td>
+    <td width="25%">函数无效</td>
+    <td width="25%">2</td>
+    <td width="25%">文件未找到</td>
+  </tr>
+  <tr>
+    <td width="25%">3</td>
+    <td width="25%">路径未找到</td>
+    <td width="25%">4</td>
+    <td width="25%">无可用文件句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">5</td>
+    <td width="25%">拒绝访问</td>
+    <td width="25%">6</td>
+    <td width="25%">句柄无效</td>
+  </tr>
+  <tr>
+    <td width="25%">7</td>
+    <td width="25%">DOS内存冲突</td>
+    <td width="25%">8</td>
+    <td width="25%">无足够内存完成操作</td>
+  </tr>
+  <tr>
+    <td width="25%">9</td>
+    <td width="25%">无效块</td>
+    <td width="25%">A</td>
+    <td width="25%">非法环境</td>
+  </tr>
+  <tr>
+    <td width="25%">B</td>
+    <td width="25%">无效格式</td>
+    <td width="25%">C</td>
+    <td width="25%">无效访问</td>
+  </tr>
+  <tr>
+    <td width="25%">D</td>
+    <td width="25%">无效数据</td>
+    <td width="25%">　</td>
+    <td width="25%">　</td>
+  </tr>
+  <tr>
+    <td width="25%">F</td>
+    <td width="25%">无效驱动器</td>
+    <td width="25%">10</td>
+    <td width="25%">当前目录无效</td>
+  </tr>
+  <tr>
+    <td width="25%">11</td>
+    <td width="25%">设备有异</td>
+    <td width="25%">12</td>
+    <td width="25%">没有更多的文件</td>
+  </tr>
+  <tr>
+    <td width="25%">13</td>
+    <td width="25%">写保护错</td>
+    <td width="25%">14</td>
+    <td width="25%">非法单位</td>
+  </tr>
+  <tr>
+    <td width="25%">15</td>
+    <td width="25%">驱动器未准备好</td>
+    <td width="25%">16</td>
+    <td width="25%">无效命令</td>
+  </tr>
+  <tr>
+    <td width="25%">17</td>
+    <td width="25%">CRC校验错</td>
+    <td width="25%">18</td>
+    <td width="25%">无效长度</td>
+  </tr>
+  <tr>
+    <td width="25%">19</td>
+    <td width="25%">搜索错误</td>
+    <td width="25%">1A</td>
+    <td width="25%">磁盘不兼容MS-DOS</td>
+  </tr>
+  <tr>
+    <td width="25%">1B</td>
+    <td width="25%">扇区未找到</td>
+    <td width="25%">1C</td>
+    <td width="25%">缺纸</td>
+  </tr>
+  <tr>
+    <td width="25%">1D</td>
+    <td width="25%">写错误</td>
+    <td width="25%">1E</td>
+    <td width="25%">读错误</td>
+  </tr>
+  <tr>
+    <td width="25%">1F</td>
+    <td width="25%">驱动器常规错误</td>
+    <td width="25%">20</td>
+    <td width="25%">共享违例</td>
+  </tr>
+  <tr>
+    <td width="25%">21</td>
+    <td width="25%">文件锁定违例</td>
+    <td width="25%">22</td>
+    <td width="25%">不正确的磁盘</td>
+  </tr>
+  <tr>
+    <td width="25%">23</td>
+    <td width="25%">无可用的文件控制块</td>
+    <td width="25%">24</td>
+    <td width="25%">共享缓冲区溢出</td>
+  </tr>
+  <tr>
+    <td width="25%">32</td>
+    <td width="25%">不支持的设备</td>
+    <td width="25%">33</td>
+    <td width="25%">远程设备不可用</td>
+  </tr>
+  <tr>
+    <td width="25%">34</td>
+    <td width="25%">重名错误</td>
+    <td width="25%">35</td>
+    <td width="25%">网络路径错误</td>
+  </tr>
+  <tr>
+    <td width="25%">36</td>
+    <td width="25%">网络忙</td>
+    <td width="25%">37</td>
+    <td width="25%">非法设备</td>
+  </tr>
+  <tr>
+    <td width="25%">38</td>
+    <td width="25%">命令太多</td>
+    <td width="25%">39</td>
+    <td width="25%">网卡硬件错误</td>
+  </tr>
+  <tr>
+    <td width="25%">3A</td>
+    <td width="25%">网络响应错误</td>
+    <td width="25%">3B</td>
+    <td width="25%">其他网络错误</td>
+  </tr>
+  <tr>
+    <td width="25%">3C</td>
+    <td width="25%">远程适配器错误</td>
+    <td width="25%">3D</td>
+    <td width="25%">打印队列满</td>
+  </tr>
+  <tr>
+    <td width="25%">3E</td>
+    <td width="25%">后台打印缓冲区满</td>
+    <td width="25%">3F</td>
+    <td width="25%">打印取消</td>
+  </tr>
+  <tr>
+    <td width="25%">40</td>
+    <td width="25%">删除的网络名</td>
+    <td width="25%">41</td>
+    <td width="25%">拒绝网络访问</td>
+  </tr>
+  <tr>
+    <td width="25%">42</td>
+    <td width="25%">无效设备类型</td>
+    <td width="25%">43</td>
+    <td width="25%">无效网络名</td>
+  </tr>
+  <tr>
+    <td width="25%">44</td>
+    <td width="25%">名字太多</td>
+    <td width="25%">45</td>
+    <td width="25%">会话太多</td>
+  </tr>
+  <tr>
+    <td width="25%">46</td>
+    <td width="25%">共享暂停</td>
+    <td width="25%">47</td>
+    <td width="25%">请求未接受</td>
+  </tr>
+  <tr>
+    <td width="25%">48</td>
+    <td width="25%">重定向暂停</td>
+    <td width="25%">50</td>
+    <td width="25%">文件退出</td>
+  </tr>
+  <tr>
+    <td width="25%">51</td>
+    <td width="25%">文件控制块重复</td>
+    <td width="25%">52</td>
+    <td width="25%">不能创建</td>
+  </tr>
+  <tr>
+    <td width="25%">53</td>
+    <td width="25%">中断24错误</td>
+    <td width="25%">54</td>
+    <td width="25%">缺少结构</td>
+  </tr>
+  <tr>
+    <td width="25%">55</td>
+    <td width="25%">已经分配</td>
+    <td width="25%">56</td>
+    <td width="25%">密码无效</td>
+  </tr>
+  <tr>
+    <td width="25%">57</td>
+    <td width="25%">参数无效</td>
+    <td width="25%">58</td>
+    <td width="25%">网络写错误</td>
+  </tr>
+</table>
+<div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#OpenFile">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

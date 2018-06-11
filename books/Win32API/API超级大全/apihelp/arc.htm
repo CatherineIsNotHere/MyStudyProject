@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>Arc</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="Arc,ArcTo">Arc,ArcTo</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function Arc&amp; Lib &quot;gdi32&quot; (ByVal hdc As 
+    Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As 
+    Long, ByVal Y3 As Long, ByVal X4 As Long, ByVal Y4 As Long)<br>
+    Declare Function ArcTo&amp; Lib &quot;gdi32&quot; (ByVal hdc As Long, ByVal X1 As Long, 
+    ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As Long, ByVal Y3 As Long, 
+    ByVal X4 As Long, ByVal Y4 As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">象注解中那样画一个圆弧。（X1,Y1）和（X2,Y2）定义了椭圆的一个范围（约束）矩形。从矩形中心点到点（X3,Y3）的一条线段与椭圆的交点标志着圆弧的起点。而到（X4,Y4）的一条线与椭圆的交点则标志着圆弧的终点。ArcTo函数会将当前画笔位置设为弧的终点，而Arc函数则不会对当前的画笔位置造成影响</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，一个显示场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">X1,Y1</td>
+    <td width="75%">Long，指定围绕椭圆的一个矩形的左上角位置</td>
+  </tr>
+  <tr>
+    <td width="25%">X2,Y2</td>
+    <td width="75%">Long，指定围绕椭圆的一个矩形的右下角位置</td>
+  </tr>
+  <tr>
+    <td width="25%">X3,Y3</td>
+    <td width="75%">Long，指定圆弧起点</td>
+  </tr>
+  <tr>
+    <td width="25%">X4,Y4</td>
+    <td width="75%">Long，指定圆弧终点</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="50%" rowspan="2"><p align="left"><img src="Arc.gif" tppabs="http://personal.hb.cninfo.net/~vbapi/Arc.gif" alt="Arc.gif (3069 字节)"
+    border="0" WIDTH="561" HEIGHT="359"></td>
+    <td width="50%">在win16和win95中，约束矩形的宽度和高度必须在3——32766间。绘图方向肯定是逆时针方向。<br>
+    在win nt中：绘图方向由<a href="SetArcDirection.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/SetArcDirection.htm">SetArcDirection</a>函数决定。默认为逆时针方向</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="arc1.gif" tppabs="http://personal.hb.cninfo.net/~vbapi/arc1.gif" width="154" height="120" alt="arc1.gif (674 字节)"></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#Arc,ArcTo">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Sleep Sub</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Sleep" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Sleep Sub</H1>
+
+<P><CODE class="declare">Declare Sub Sleep Lib &quot;kernel32.dll&quot; (ByVal dwMilliseconds As Long)</CODE>
+
+<P><B>Sleep</B> pauses program execution for a certain amount of time.  This is more accurate than using a do-nothing loop, waiting for a certain amount of time to pass.
+
+<DL>
+<DT><VAR>dwMilliseconds</VAR><DD>The number of milliseconds to halt program execution for.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Demonstrate Sleep
+Debug.Print &quot;The time is &quot; &amp; Time$
+Sleep 2000  ' 2000 milliseconds = 2 seconds
+Debug.Print &quot;The time is &quot; &amp; Time$  ' 2 seconds later</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#misc" rel="index">Miscellaneous</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/sleep.html">http://members.aol.com/Borg953/api/functions/sleep.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

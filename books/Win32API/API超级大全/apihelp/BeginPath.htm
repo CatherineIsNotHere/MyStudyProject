@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>BeginPath</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="BeginPath">BeginPath</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function BeginPath Lib &quot;gdi32&quot; Alias 
+    &quot;BeginPath&quot; (ByVal hdc As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">启动一个路径分支。在这个命令后执行的GDI绘图命令会自动成为路径的一部分。对线段的连接会结合到一起。设备场景中任何现成的路径都会被清除。参考下表，其中列出的函数都可记录到路径中</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，欲在其中记录的设备场景</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="6">合法的路径函数</td>
+  </tr>
+  <tr>
+    <td width="16%">函数</td>
+    <td width="16%">Windows NT</td>
+    <td width="17%">Windows 95</td>
+    <td width="16%">函数</td>
+    <td width="16%">Windows NT</td>
+    <td width="17%">Windows 95</td>
+  </tr>
+  <tr>
+    <td width="16%">AngleArc</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+    <td width="16%">Arc</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+  </tr>
+  <tr>
+    <td width="16%">ArcTo</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+    <td width="16%">Chord</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+  </tr>
+  <tr>
+    <td width="16%">Ellipse</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+    <td width="16%">ExtTextOut</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+  <tr>
+    <td width="16%">LineTo</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+    <td width="16%">MoveToEx</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+  <tr>
+    <td width="16%">Pie</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+    <td width="16%">PolyBezier</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+  <tr>
+    <td width="16%">PolyBezierTo</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+    <td width="16%">PolyDraw</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+  </tr>
+  <tr>
+    <td width="16%">Polygon</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+    <td width="16%">Polyline</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+  <tr>
+    <td width="16%">PolylineTo</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+    <td width="16%">PolyPolygon</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+  <tr>
+    <td width="16%">PolyPolyline</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+    <td width="16%">Rectangle</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+  </tr>
+  <tr>
+    <td width="16%">RoundRect</td>
+    <td width="16%">Yes</td>
+    <td width="17%">No</td>
+    <td width="16%">TextOut</td>
+    <td width="16%">Yes</td>
+    <td width="17%">Yes</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#BeginPath">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

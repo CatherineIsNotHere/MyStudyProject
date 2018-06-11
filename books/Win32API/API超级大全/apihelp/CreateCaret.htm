@@ -1,0 +1,96 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateCaret</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CreateCaret">CreateCaret</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function CreateCaret Lib &quot;user32&quot; Alias 
+    &quot;CreateCaret&quot; (ByVal hwnd As Long, ByVal hBitmap As Long, ByVal nWidth As Long, 
+    ByVal nHeight As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">根据指定的信息创建一个插入符（光标），并将它选定为指定窗口的默认插入符。插入符可以是一根短线、一个方块或者一幅位图。通常用插入符指示文字在文字框中的插入位置</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="77%">Long，拥有插入符的那个窗口的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hBitmap</td>
+    <td width="77%">Long，用作插入符的一幅位图的句柄。可以是0或1；在这种情况下，插入符可通过nWidth和nHeight参数创建。如设为1，则新插入符以灰色显示；而不是传统的黑色</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth</td>
+    <td width="77%">Long，采用逻辑单位的插入符的宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">nHeight</td>
+    <td width="77%">Long，采用逻辑单位的插入符的高度</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">如创建一个插入符，会同时清除原先的插入符；效果等同于<a
+    href="DestroyCaret.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DestroyCaret.htm">DestroyCaret</a>函数。在vb的LostFocus事件期间，不要试图用<a
+    href="DestroyCaret.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DestroyCaret.htm">DestroyCaret</a>函数清除一个插入符。这是由于vb的LostFocus事件不会接收<a
+    href="DestroyCaret.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DestroyCaret.htm">DestroyCaret</a>直到另一个窗口已经有焦点。因此，倘若在那个时候调用<a
+    href="DestroyCaret.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DestroyCaret.htm">DestroyCaret</a>，会破坏其他窗口的插入符。如果准备自己管理插入符，可以（而且应该）在WM_KILLFOCUS消息期间清除插入符</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">在vb里使用</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">可以使用。但在应用程序切换时，标准的vb文本控件不能处理GotFocus 
+    和 LostFocus事件。因此，很难知道何时为一个控件设置插入符。此外，vb假设插入符为一根短竖线，并据此定义它的位置，所以其他形式的插入符可能无法正确定位</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CreateCaret">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

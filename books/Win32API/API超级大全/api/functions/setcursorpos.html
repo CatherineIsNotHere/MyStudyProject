@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetCursorPos Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetCursorPos" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetCursorPos Function</H1>
+
+<P><CODE class="declare">Declare Function SetCursorPos Lib &quot;user32.dll&quot; (ByVal x As Long, ByVal y As Long) As Long</CODE>
+
+<P><B>SetCursorPos</B> sets the position of the mouse cursor.  If you try to set the coordinates outside of the range of the display (for example, to (700,40) on a 640x480 display) or outside the confining rectangle (set by <A href="clipcursor.html">ClipCursor</A>), the cursor will just go to the edge of the screen.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>x</VAR><DD>The x coordinate to move the cursor to.
+<DT><VAR>y</VAR><DD>The y coordinate to move the cursor to.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Put the cursor at (100, 200)
+x = SetCursorPos(100, 200)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getcursorpos.html">GetCursorPos</A><BR>
+<B>Category:</B> <A href="../index.html#mouse" rel="index">Mouse</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/setcursorpos.html">http://members.aol.com/Borg953/api/functions/setcursorpos.html</A>
+</ADDRESS>
+</BODY>
+</HTML>
+

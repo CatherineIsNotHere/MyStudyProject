@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetDIBColorTable</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetDIBColorTable</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetDIBColorTable Lib &quot;gdi32&quot; Alias 
+    &quot;SetDIBColorTable&quot; (ByVal hDC As Long, ByVal un1 As Long, ByVal un2 As Long, 
+    pcRGBQuad As RGBQUAD) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">设置选入设备场景的一个DIBSection的颜色表信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，要设置的颜色表条目数量，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDC</td>
+    <td width="75%">Long，已选定一个DIBSection对象的一个设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">un1</td>
+    <td width="75%">Long，要在颜色表中设置的第一个条目的索引</td>
+  </tr>
+  <tr>
+    <td width="25%">un2</td>
+    <td width="75%">Long，欲设置的条目数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcRGBQuad</td>
+    <td width="75%">RGBQUAD，一个RGBQUAD结构的头一个条目。这个结构包含了新的颜色表信息。至少需要设置成un2个条目的长度</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如DIBSection为每个像素使用的二进制位超过8位，则不会使用颜色表</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

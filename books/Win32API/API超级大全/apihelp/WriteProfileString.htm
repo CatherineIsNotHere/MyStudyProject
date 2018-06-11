@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WriteProfileString</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">WriteProfileString</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function WriteProfileString Lib &quot;kernel32&quot; 
+    Alias &quot;WriteProfileStringA&quot; (ByVal lpszSection As String, ByVal lpszKeyName As 
+    String, ByVal lpszString As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">在Win.ini初始化文件指定小节内设置一个字串</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszSection</td>
+    <td width="75%">String，指定要在其中写入新串的小节。如尚不存在，会创建这个小节。这个字串不区分大小写</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszKeyName</td>
+    <td width="75%">String，要设置的项名或条目名。这个字串不区分大小写。用vbNullString可删除这个小节的所有设置项</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszString</td>
+    <td width="75%">String，指定为这个项写入的字串值。用vbNullString表示删除这个项现有的字串</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">注意对Win.ini文件的改动可能影响其他应用程序。如修改了正由其他应用程序使用的小节，一定要向所有窗口都发送一条WM_WININICHANGE消息</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

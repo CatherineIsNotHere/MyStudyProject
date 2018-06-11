@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SYSTEMTIME Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SYSTEMTIME" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SYSTEMTIME Type</H1>
+
+<P><PRE><CODE class="tc">Type SYSTEMTIME
+  wYear As Integer
+  wMonth As Integer
+  wDayOfWeek As Integer
+  wDay As Integer
+  wHour As Integer
+  wMinute As Integer
+  wSecond As Integer
+  wMilliseconds As Integer
+End Type</CODE></PRE>
+
+<P><B>SYSTEMTIME</B>-type variables hold an exact date and time, down to the millisecond.  There are two ways this type stores dates: absolute and relative.  Absolute dates are &quot;normal&quot; dates, such as January 15, 1998 or December 25, 2001.  Relative dates are dates such as &quot;the 1<SUP>st</SUP> Sunday in June&quot; or &quot;the 3<SUP>rd</SUP> Wednesday in November&quot;, and are used when <VAR>wYear</VAR> is set to 0.  Here, <VAR>wDay</VAR> specifies whether it is the first, second, third, fourth, or fifth (last) week.
+
+<DL>
+<DT><VAR>wYear</VAR><DD>In absolute dates, the four-digit year.  In relative dates, 0.
+<DT><VAR>wMonth</VAR><DD>The number of the month.  1 is January, 2 is February, etc.
+<DT><VAR>wDayOfWeek</VAR><DD>The number of the weekday.  0 is Sunday, 1 is Monday, etc.
+<DT><VAR>wDay</VAR><DD>In absolute dates, the number of the day (such as 21 [of June]).  In relative dates, 1 is the first, 2 is the second, through 5 is the fifth/last WhateverDay of the month.
+<DT><VAR>wHour</VAR><DD>The hour, in 24-hour format.
+<DT><VAR>wMinute</VAR><DD>The minutes.
+<DT><VAR>wSecond</VAR><DD>The seconds.
+<DT><VAR>wMilliseconds</VAR><DD>The milliseconds.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getlocaltime.html">GetLocalTime</A>, <A href="../functions/getsystemtime.html">GetSystemTime</A>, <A href="time_zone_information.html">TIME_ZONE_INFORMATION</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/systemtime.html">http://members.aol.com/Borg953/api/types/systemtime.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

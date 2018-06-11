@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>VerQueryValue</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="VerQueryValue">VerQueryValue</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function VerQueryValue&amp; Lib 
+    &quot;version.dll&quot; Alias &quot;VerQueryValueA&quot; (pBlock As Byte, ByVal lpSubBlock 
+    As String, lplpBuffer As Long, puLen As Long)</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">这个函数用于从版本资源中获取信息。调用这个函数前，必须先用<a
+    href="GetFileVersionInfo.htm">GetFileVersionInfo</a>函数获取版本资源信息。这个函数会检查资源信息，并将需要的数据复制到一个缓冲区里</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，TRUE（非零）表示成功，如请求的信息不存在，或pBlock不属于有效版本信息，那就返回一个零</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">pBlock</td>
+    <td width="76%" colspan="2">Byte，指定一个内存块第一个字节的地址。这个内存块包含了由<a
+    href="GetFileVersionInfo.htm">GetFileVersionInfo</a>函数取回的版本数据信息</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">lpSubBlock</td>
+    <td width="76%" colspan="2">String，下述值之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">&quot;\&quot;</td>
+    <td width="38%">获取文件的VS_FIXEDFILEINFO结构</td>
+  </tr>
+  <tr>
+    <td width="37%">&quot;\VarFileInfo\Translation&quot;</td>
+    <td width="38%">获取文件的翻译表</td>
+  </tr>
+  <tr>
+    <td width="37%">&quot;\StringFileInfo\....&quot;</td>
+    <td width="38%">获取文件的字串信息。参考注解</td>
+  </tr>
+  <tr>
+    <td width="25%">lplpBuffer</td>
+    <td width="76%" colspan="2">Long，指定一个Long变量的地址，该变量用于装载一个缓冲区的地址。请求的版本信息最终会装载到那个缓冲区里</td>
+  </tr>
+  <tr>
+    <td width="25%">puLen</td>
+    <td width="76%" colspan="2">Long，指定由lplpBuffer参数引用的数据值的长度，以字节为单位</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3"><p align="left">如lplpBuffer参数为&quot;\StringFileInfo\....&quot;，缓冲区里就会载入一个整数数组。每一对整数都代表一种语言和代码页，它们描绘了可用的字串信息。通过用下面这三个部分指定一个字串，从而获得StringFileInfo字串数据：&quot;\StringFileInfo\languagecodepage\stringname&quot;，其中languagecodepage（语言代码页）是采用字串形式的一个8字符十六进制数字。如翻译表中的语言代码页条目是&amp;H04090000，那么这个字串就应该是&quot;04090000&quot;。stringname（字串名）指定的是一个字串名。这个参数的一个例子如下：<br>
+    &quot;\StringFileInfo\04090000\CompanyName&quot;</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">其他</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">从vb的api文本查看器复制的声明如下：<br>
+    Declare Function VerQueryValue Lib &quot;version.dll&quot; Alias &quot;VerQueryValue&quot; 
+    (pBlock As Any, ByVal lpSubBlock As String, ByVal lplpBuffer As Long, puLen As Long) As 
+    Long</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#VerQueryValue">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

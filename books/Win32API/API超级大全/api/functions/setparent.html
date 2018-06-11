@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetParent Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetParent" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetParent Function</H1>
+
+<P><CODE class="declare">Declare Function SetParent Lib &quot;user32.dll&quot; (ByVal hWndChild As Long, ByVal hWndNewParent As Long) As Long</CODE>
+
+<P><B>SetParent</B> moves a window from having one parent window to another.  If needed, the window itself moves so it can be &quot;inside&quot; its new parent.  If successful, the function returns the handle of the moved window's former parent.  If it fails, it will instead return 0.
+
+<DL>
+<DT><VAR>hWndChild</VAR><DD>The handle of the window to change parents of.
+<DT><VAR>hWndNewParent</VAR><DD>The handle of the window to be the new parent.
+</DL>
+
+<B>Example:</B>
+<PRE><CODE class="example">' Move a button from Framw1 to Frame2
+oldhwnd = SetParent(Command1.hWnd, Frame2.hWnd)  ' button now inside Frame2
+Debug.Print Frame1.hWnd; oldhwnd  ' should be the same</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getparent.html">GetParent</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/setparent.html">http://members.aol.com/Borg953/api/functions/setparent.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

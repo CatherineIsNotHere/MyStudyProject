@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateEnhMetaFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CreateEnhMetaFile">CreateEnhMetaFile</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function CreateEnhMetaFile Lib &quot;gdi32&quot; 
+    Alias &quot;CreateEnhMetaFileA&quot; (ByVal hdcRef As Long, ByVal lpFileName As String, 
+    lpRect As RECT, ByVal lpDescription As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">创建一个增强型的图元文件设备场景。绘图操作也许在这个设备场景中执行。调用<a
+    href="CloseEnhMetaFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CloseEnhMetaFile.htm">CloseEnhMetaFile</a>函数关闭了这个设备场景后，会创建一个图元文件句柄，在其中包含记录下来的绘图命令序列。随后，可在任何设备场景中回放这些命令</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，一个增强型图元文件设备场景。零表示函数执行出错。不要将这个设备场景与图元文件句柄混淆起来。图元文件设备场景用于描绘图元文件——这与GDI绘图函数作为参数使用的其他任何设备场景是一样的。调用<a
+    href="CloseEnhMetaFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CloseEnhMetaFile.htm">CloseEnhMetaFile</a>函数的时候，会获得实际的图元文件句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdcRef</td>
+    <td width="77%">Long，一个参考设备场景。函数会用该设备场景在图元文件中保存与创建图元文件的那个设备的分辨率有关的信息。如设为零，表示将整个显示器（屏幕）作为参考设备使用</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFileName</td>
+    <td width="77%">String，这个图元文件的磁盘文件名。文件应有一个.EMF扩展名。可用vbNullString传递一个NULL，从而创建内存图元文件</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRect</td>
+    <td width="77%"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，一个约束矩形，用于描述图元文件的大小和位置（以0.01毫米为单位）。可用它精确定义图元文件的物理尺寸</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDescription</td>
+    <td width="77%">String，对图元文件的一段说明。包括创建应用程序的名字、一个NULL字符、对图元文件的一段说明以及两个NULL字符。如：&quot;My 
+    app&quot; &amp; chr$(0) &amp; &quot;my metafile&quot; &amp; chr$(0) &amp; chr$(0)。如果不愿意包含一段说明，也可设为vbNullString</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">与标准图元文件相比，增强型图元文件的一个优点在于它们包括了对图元文件实际大小和位置进行描述的信息，这些信息与它最开始创建时的情况相符。windows和绘图程序可读取这种信息，在任何设备上实际重现图元文件</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CreateEnhMetaFile">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CombineRgn</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CombineRgn">CombineRgn</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" cellspacing="0" bordercolordark="#FFFFFF"
+bordercolorlight="#808080">
+  <tr>
+    <td width="100%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Declare Function CombineRgn Lib &quot;gdi32&quot; Alias 
+    &quot;CombineRgn&quot; (ByVal hDestRgn As Long, ByVal hSrcRgn1 As Long, ByVal hSrcRgn2 As 
+    Long, ByVal nCombineMode As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">将两个区域组合为一个新区域</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Long，下列常数之一：<br>
+    COMPLEXREGION：区域有互相交叠的边界<br>
+    SIMPLEREGION：区域边界没有互相交叠<br>
+    NULLREGION：区域为空<br>
+    ERRORAPI：不能创建组合区域</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDestRgn</td>
+    <td width="75%" colspan="2">Long，包含组合结果的区域句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hSrcRgn1</td>
+    <td width="75%" colspan="2">Long，源区域1</td>
+  </tr>
+  <tr>
+    <td width="25%">hSrcRgn2</td>
+    <td width="75%" colspan="2">Long，源区域2</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">nCombineMode</td>
+    <td width="75%" colspan="2">Long，组合两区域的方法。可设为下述常数</td>
+  </tr>
+  <tr>
+    <td width="38%">RGN_AND</td>
+    <td width="37%">hDestRgn被设置为两个源区域的交集</td>
+  </tr>
+  <tr>
+    <td width="38%">RGN_COPY</td>
+    <td width="37%">hDestRgn被设置为hSrcRgn1的拷贝</td>
+  </tr>
+  <tr>
+    <td width="38%">RGN_DIFF</td>
+    <td width="37%">hDestRgn被设置为hSrcRgn1中与hSrcRgn2不相交的部分</td>
+  </tr>
+  <tr>
+    <td width="38%">RGN_OR</td>
+    <td width="37%">hDestRgn被设置为两个区域的并集</td>
+  </tr>
+  <tr>
+    <td width="38%">RGN_XOR</td>
+    <td width="37%">hDestRgn被设置为除两个源区域OR之外的部分</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CombineRgn">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

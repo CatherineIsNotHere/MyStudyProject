@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WriteFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">WriteFile</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function WriteFile Lib &quot;kernel32&quot; Alias
+    &quot;WriteFile&quot; (ByVal hFile As Long, lpBuffer As Any, ByVal nNumberOfBytesToWrite
+    As Long, lpNumberOfBytesWritten As Long, lpOverlapped As OVERLAPPED) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">将数据写入一个文件。该函数比<a
+    href="lwrite.htm" tppabs="http://www.gxbcts.com/airfly/api/lwrite.htm">lwrite</a>函数要灵活的多。也可将这个函数应用于对通信设备、管道、套接字以及邮槽的处理</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，TRUE（非零）表示成功，否则返回零。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hFile</td>
+    <td width="75%">Long，一个文件的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBuffer</td>
+    <td width="75%">Any，要写入的一个数据缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">nNumberOfBytesToWrite</td>
+    <td width="75%">Long，要写入数据的字节数量。如写入零字节，表示什么都不写入，但会更新文件的“上一次修改时间”。针对位于远程系统的命名管道，限制在65535个字节以内</td>
+  </tr>
+  <tr>
+    <td width="25%">lpNumberOfBytesWritten</td>
+    <td width="75%">Long，实际写入文件的字节数量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOverlapped</td>
+    <td width="75%">OVERLAPPED，倘若在指定FILE_FLAG_OVERLAPPED的前提下打开文件，这个参数就必须引用一个特殊的结构。那个结构定义了一次异步写操作。否则，该参数应置为空（将声明变为ByVal
+    As Long，并传递零值）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">并不是每种操作系统都支持在任何类型的设备上进行异步操作。windows
+    95不支持对磁盘文件的重叠读取操作</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

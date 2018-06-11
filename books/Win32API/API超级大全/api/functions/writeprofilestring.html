@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: WriteProfileString Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,WriteProfileString" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>WriteProfileString Function</H1>
+
+<P><CODE class="declare">Declare Function WriteProfileString Lib &quot;kernel32.dll&quot; Alias &quot;WriteProfileStringA&quot; (ByVal lpszSection As String, ByVal lpszKeyName As String, ByVal lpszString As String) As Long</CODE>
+
+<P><B>WriteProfileString</B> sets a value inside of the WIN.INI file.  This function can also be used to set numerical values if they are in string form, for example using &quot;1&quot;.  If the section or value does not exist, it will be created.  Note that, since Windows normally handles the WIN.INI file by iself, care should be taken when writing directly to it.  This function if basically a watered-down version of <A href="writeprivateprofilestring.html">WritePrivateProfileString</A> because, unlike this function, it works with any INI file.  The function returns 0 if an error occurs, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpszSection</VAR><DD>The section of WIN.INI to write to.
+<DT><VAR>lpszKeyName</VAR><DD>The name of the value to set.
+<DT><VAR>lpszString</VAR><DD>The string to set as the value.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Edit the &quot;Wallpaper&quot; setting in the [Desktop] section of WIN.INI
+' (NOTE: It is best not to directly edit system configuration files like this)
+x = WriteProfileString(&quot;Desktop&quot;, &quot;Wallpaper&quot;, &quot;C:\Windows\Clouds.bmp&quot;)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getprofilestring.html">GetProfileString</A>, <A href="writeprivateprofilestring.html">WritePrivateProfileString</A><BR>
+<B>Category:</B> <A href="../index.html#inifiles" rel="index">INI Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/writeprofilestring.html">http://members.aol.com/Borg953/api/functions/writeprofilestring.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

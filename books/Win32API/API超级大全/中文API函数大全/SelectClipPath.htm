@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SelectClipPath</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SelectClipPath">SelectClipPath</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function SelectClipPath Lib &quot;gdi32&quot; Alias
+    &quot;SelectClipPath&quot; (ByVal hdc As Long, ByVal iMode As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">将设备场景当前的路径合并到剪切区域里</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，非零表示成功，零表示失败。会将<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a>设置为下述值之一：ERROR_CAN_NOT_COMPLETE，ERROR_INVALID_PARAMETER，ERROR_NOT_ENOUGH_MEMORY</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，包含了欲合并到剪切区域的路径的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">iMode</td>
+    <td width="77%" colspan="2">Long，决定如何将路径与当前剪切区域合并到一起。可选下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="39%">RGN_AND</td>
+    <td width="38%">新的剪切区域只包含了在路径和当前剪切区域都存在的点</td>
+  </tr>
+  <tr>
+    <td width="39%">RGN_COPY</td>
+    <td width="38%">新剪切区域设为路径</td>
+  </tr>
+  <tr>
+    <td width="39%">RGN_DIFF</td>
+    <td width="38%">新剪切区域只包含了当前剪切区域的点，但这些点不在路径中</td>
+  </tr>
+  <tr>
+    <td width="39%">RGN_OR</td>
+    <td width="38%">新的剪切区域包含了在路径或当前剪切区域中的点</td>
+  </tr>
+  <tr>
+    <td width="39%">RGN_XOR</td>
+    <td width="38%">新的剪切区域只包含了存在于路径或当前剪切区域中的点，但两地共有的点不包括在内</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SelectClipPath">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

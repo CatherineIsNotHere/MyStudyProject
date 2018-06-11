@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetClipCursor Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetClipCursor" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetClipCursor Function</H1>
+
+<P><CODE class="declare">Declare Function GetClipCursor Lib &quot;user32.dll&quot; (lprc As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>GetClipCursor</B> finds the current confinement rectangle of the mouse cursor.  The mouse cursor is confined by using <A href="clipcursor.html">ClipCursor</A>.  The cursor is confined inside this rectangle -- even <A href="setwindowpos.html">SetWindowPos</A> cannot free it.  If there is no apparent confinement rectangle, it is actually the size of the screen.  The coordinates of the rectangle is put into <VAR>lprc</VAR>.  The function returns 0 if an error occured, and a non-zero value if it succeeded.
+
+<DL>
+<DT><VAR>lprc</VAR>Receives the coordinates of the confinement rectangle.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim r As RECT
+' Print the coordinates of the confinement rectangle.
+x = GetClipCursor(r)
+Debug.Print r.Left; r.Top  ' upper-left (x,y) pair
+Debug.Print r.Right; r.Bottom  ' lower-right (x,y) pair</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="clipcursor.html">ClipCursor</A><BR>
+<B>Category:</B> <A href="../index.html#mouse" rel="index">Mouse</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getclipcursor.html">http://members.aol.com/Borg953/api/functions/getclipcursor.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

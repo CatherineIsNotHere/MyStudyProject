@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegQueryValue</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegQueryValue</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegQueryValue Lib &quot;advapi32.dll&quot; 
+    Alias &quot;RegQueryValueA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal 
+    lpValue As String, lpcbValue As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">取得指定项或子项的默认（未命名）值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，一个已打开项的句柄，或者指定一个标准项名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSubKey</td>
+    <td width="75%">String，要获取一个值的子项。可设为vbNullString，表示获取hKey的值</td>
+  </tr>
+  <tr>
+    <td width="25%">lpValue</td>
+    <td width="75%">String，用于容纳指定项值的一个字串</td>
+  </tr>
+  <tr>
+    <td width="25%">lpcbValue</td>
+    <td width="75%">Long，指定一个变量，用于装载lpValue缓冲区的长度。一旦返回，它会设为实际载入缓冲区的字节数量</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">win32应用程序应该使用<a
+    href="RegQueryValueEx.htm">RegQueryValueEx</a>。lpValue被定义成一个字串，以维持同win16的兼容性（在win16中，值全都是字串）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DocumentProperties</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DocumentProperties">DocumentProperties</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function DocumentProperties&amp; Lib
+    &quot;winspool.dll&quot; Alias &quot;DocumentPropertiesA&quot; (ByVal hwnd As Long, ByVal
+    hPrinter As Long, ByVal pDeviceName As String, ByVal pDevModeOutput As Long, ByVal
+    pDevModeInput As Long, ByVal fMode As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">这是一个灵活的打印机配置控制函数。该函数定义了两个<a
+    href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>结构，可在创建一个设备场景时为单个应用程序改变打印机设置。甚至能在文档打印期间改变打印机设置</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，由fMode字段的值决定。如下所示：<br>
+    若fMode为零，这个函数就返回<a href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>结构的尺寸。注意这个结构可能比类型定义文件API32.TXT中规定的尺寸大<br>
+    若fMode设置了DM_IN_PROMPT标志，那么打印机设置对话框就会出现。在这种情况下，返回值将是常数IDOK
+    或 IDCANCEL——具体由用户关闭对话框时按下的按钮决定<br>
+    在其他任何情况下，该函数执行成功后会返回IDOK。而在任何情况下，如函数执行失败，都会返回一个负数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="75%">Long，对话框父窗口的句柄。这通常是当前的活动窗体</td>
+  </tr>
+  <tr>
+    <td width="25%">hPrinter</td>
+    <td width="75%">Long，一个已打开的打印机对象的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">pDeviceName</td>
+    <td width="75%">String，打印机的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">pDevModeOutput</td>
+    <td width="75%">Long，指向一个<a href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>数据结构的指针。请参考<a
+    name="DocumentProperties" href="#D_table">DocumentProperties运行模式表</a>。注意这个指针必须引用一个足够大的缓冲区，它能同时容下专用打印机驱动程序数据，以及标准的<a
+    href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>结构</td>
+  </tr>
+  <tr>
+    <td width="25%">pDevModeInput</td>
+    <td width="75%">Long，指向一个<a href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>数据结构的指针。请参考<a
+    name="DocumentProperties" href="#D_table">DocumentProperties运行模式表</a></td>
+  </tr>
+  <tr>
+    <td width="25%">fMode</td>
+    <td width="75%">Long，决定这个函数运作模式的一个标志。请参考<a
+    name="DocumentProperties" href="#D_table">DocumentProperties运行模式表</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2"><p align="left"><a name="D_table">DocumentProperties</a>运行模式表</td>
+  </tr>
+  <tr>
+    <td width="25%">常数标志</td>
+    <td width="75%">运行模式</td>
+  </tr>
+  <tr>
+    <td width="25%">无</td>
+    <td width="75%">不使用pDevModeInput。pDevModeOutput可能为零。函数会返回由这两个参数引用的<a
+    href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>结构需要的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">DM_IN_BUFFER</td>
+    <td width="75%">pDevModeInput缓冲区应载入打印机驱动程序的新位置。在调用这个函数判断应使用结构中的哪些字段前，应设置结构的dmFields字段</td>
+  </tr>
+  <tr>
+    <td width="25%">DM_IN_PROMPT</td>
+    <td width="75%">显示出打印机设置对话框，以便用户指定输出时采用的打印机设置。如指定了DM_IN_BUFFER，那么在显示对话框前，输入缓冲区中指定的任何字段都会与当前的打印机<a
+    href="DEVMODE.htm" tppabs="http://www.gxbcts.com/airfly/api/DEVMODE.htm">DEVMODE</a>结构合并起来</td>
+  </tr>
+  <tr>
+    <td width="25%">DM_OUT_BUFFER</td>
+    <td width="75%">令打印机设置信息输出到由pDevModeOutput参数指定的缓冲区。这些设置由两个输入标志决定，而且由此反映了原始的输入结构、当前的打印机设置以及用户在打印机设置对话框中作出的任何修改。如未指定这个标志，lpdmOutput参数就可以设为零</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DocumentProperties">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

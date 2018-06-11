@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetSystemTime Sub</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetSystemTime" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetSystemTime Sub</H1>
+
+<P><CODE class="declare">Declare Sub GetSystemTime Lib &quot;kernel32.dll&quot; (lpSystemTime As <A href="../types/systemtime.html">SYSTEMTIME</A>)</CODE>
+
+<P><B>GetSystemTime</B> returns the system's time and date -- in Coordinated Universal Time (UTC, also known as Greenwich Mean Time (GMT) or Zulu time) instead of local time.  This means that the time and date this function gives you probably won't match what the computer's clock tells you.  This is useful in case your program communicates to other computers across time zone lines, and needs a universal time to reference anywhere.  The various features of the time and date (month, day, hour, minute, second, etc.), down to the millisecond, are sorted in the variable passed as <VAR>lpSystemTime</VAR>!
+
+<DL>
+<DT><VAR>lpSystemTime</VAR><DD>Variable that receives the computer's date and time in absolute format.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim loctime As SYSTEMTIME
+' Print the date in mm-dd-yyyy format.
+' (Since this is UTC time, the date may be different!)
+GetSystemTime systime
+Debug.Print systime.wMonth; &quot;-&quot;; systime.wDay; &quot;-&quot; systime.wYear</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getlocaltime.html">GetLocalTime</A><BR>
+<B>Category:</B> <A href="../index.html#systeminformation" rel="index">System Information</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getsystemtime.html">http://members.aol.com/Borg953/api/functions/getsystemtime.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetTopWindow Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetTopWindow" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetTopWindow Function</H1>
+
+<P><CODE class="declare">Declare Function GetTopWindow Lib &quot;user32.dll&quot; (ByVal hwnd As Long) As Long</CODE>
+
+<P><B>GetTopWindow</B> returns a handle to the currently active child window of a window.  The active child window is the one that has the focus, and it is usually at the top of all the other children in the Z-order.  This function works even if the parent window is not active.  If an error occurs or the window has no children, the function instead returns 0.  This function is identical to calling <A href="getwindow.html">GetWindow</A> using the <VAR>GW_CHILD</VAR> relationship.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the parent window.  The function will return its active child window.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Flash MDI form MDIForm1's active child
+active = GetTopWindow(MDIForm1.hWnd)  ' get the handle of MDIForm1's active child
+If active = 0 Then Exit Sub  ' abort if there is no child window
+' The next three lines flash this window using FlashWindow and Sleep
+x = FlashWindow(active, 1): Sleep 250
+x = FlashWindow(active, 1): Sleep 250
+x = FlashWindow(active, 0)</CODE></PRE>
+<P><B>Related Call:</B> <A href="getwindow.html">GetWindow</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/gettopwindow.html">http://members.aol.com/Borg953/api/functions/gettopwindow.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetDiskFreeSpace Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetDiskFreeSpace" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetDiskFreeSpace Function</H1>
+
+<P><CODE class="declare">Declare Function GetDiskFreeSpace Lib &quot;kernel32.dll&quot; Alias &quot;GetDiskFreeSpaceA&quot; (ByVal lpRootPathName As String, lpSectorsPerCluster As Long, lpBytesPerSector As Long, lpNumberOfFreeClusters As Long, lpTotalNumberOfClusters As Long) As Long</CODE>
+
+<P><B>GetDiskFreeSpace</B> gives information on the free space on a disk, the total space, and more!  It puts four pieces of information into each of the numeric variables passed to it.  A &quot;cluster&quot; is the actual unit of storage on a disk.  A cluster can hold no more than 1 file, but a file can be spread across multiple clusters.  A &quot;sector&quot; is a part of a cluster.  You can calculate the cluster size in bytes by <VAR>lpSectorsPerCluster</VAR> * <VAR>lpBytesPerSector</VAR>.  You can calculate the disk's free space by multiplying the cluster size by <VAR>lpNumberOfFreeClusters</VAR>, and the disk's total space by multiplying the cluster size by <VAR>lpTotalNumberOfClusters</VAR>.  The function returns 0 if an error occured, or a non-zero value if it succeeded.
+
+<DL>
+<DT><VAR>lpRootPathName</VAR><DD>The root directory of the disk to get information on, such as &quot;c:\&quot; or &quot;a:\&quot;
+<DT><VAR>lpSectorsPerCluster</VAR><DD>Variable that receives the number of sectors in a cluster on the disk.
+<DT><VAR>lpBytesPerSector</VAR><DD>Variable that receives the number of bytes in a sector on the disk.
+<DT><VAR>lpNumberOfFreeClusters</VAR><DD>Variable that receives the number of unused, empty clusters on the disk.
+<DT><VAR>lpTotalNumberOfClusters</VAR><DD>Variable that receives the total number of clusters, used and unused, on the disk.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Find the free space on the hard drive C:
+x = GetDiskFreeSpace(&quot;c:\&quot;, SecPerClus, BytePerSec, FreeClus, TotalClus)
+Debug.Print &quot;Free space:&quot;; SecPerClus * BytePerSec * FreeClus; &quot;bytes&quot;</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#files" rel="index">Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getdiskfreespace.html">http://members.aol.com/Borg953/api/functions/getdiskfreespace.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RegOpenKeyEx Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RegOpenKeyEx" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RegOpenKeyEx Function</H1>
+
+<P><CODE class="declare">Declare Function RegOpenKeyEx Lib &quot;advapi32.dll&quot; Alias &quot;RegOpenKeyExA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal ulOptions As Long, ByVal samDesired As Long, phkResult As Long) As Long</CODE>
+
+<P><B>RegOpenKeyEx</B> opens a key in the Windows registry.  The handle it returns must be used when you read to or write from any values under that key.  This function will not create the key if it does not exist.  The function puts a handle to the opened key into the variable passed as <VAR>phkResult</VAR>.  The function returns 0 if successful, or a non-zero value error code if an error occured.
+
+<DL>
+<DT><VAR>hKey</VAR><DD>Either the handle to an open registry key or one of the <A href="../constants/registrybasekeyflags.html">registry base key flags</A> that the desired key is under.
+<DT><VAR>lpSubKey</VAR><DD>The name of the key to open.
+<DT><VAR>ulOptions</VAR><DD>Reserved.  Set to 0.
+<DT><VAR>samDesired</VAR><DD>One or more of the <A href="../constants/registryaccessflags.html">registry access flags</A> specifying the read/write access desired.
+<DT><VAR>phkResult</VAR><DD>Receives the handle to the registry key.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the Data value under the key:
+' HKEY_CURRENT_USER\Software\Dummy\DummyApp\1.0\
+subkey = &quot;Software\Dummy\DummyApp\1.0&quot;  ' key name
+x = RegOpenKeyEx(HKEY_CURRENT_USER, subkey, 0, KEY_READ, hregkey)
+If x <> 0 Then  ' error opening key -- abort!
+  Debug.Print &quot;Could not open registry key.&quot;
+  Exit Sub
+End If
+'(put rest of code here)
+x = RegCloseKey(hregkey)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="regclosekey.html">RegCloseKey</A>, <A href="regcreatekeyex.html">RegCreateKeyEx</A><BR>
+<B>Category:</B> <A href="../index.html#registry" rel="index">Registry</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/regopenkeyex.html">http://members.aol.com/Borg953/api/functions/regopenkeyex.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

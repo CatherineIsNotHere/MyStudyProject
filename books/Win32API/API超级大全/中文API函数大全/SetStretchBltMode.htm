@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetStretchBltMode</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetStretchBltMode">SetStretchBltMode</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function SetStretchBltMode Lib &quot;gdi32&quot;
+    Alias &quot;SetStretchBltMode&quot; (ByVal hdc As Long, ByVal nStretchMode As Long) As
+    Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">指定<a href="StretchBlt.htm" tppabs="http://www.gxbcts.com/airfly/api/StretchBlt.htm">StretchBlt</a> 和 <a
+    href="StretchDIBits.htm" tppabs="http://www.gxbcts.com/airfly/api/StretchDIBits.htm">StretchDIBits</a>函数的伸缩模式。这种伸缩模式定义了Windows如何对伸缩过程中剔除的扫描线进行控制。对于VB窗体和控件，倘若在API绘图过程中使用这个函数，建议恢复原来的<a
+    href="StretchBlt.htm" tppabs="http://www.gxbcts.com/airfly/api/StretchBlt.htm">StretchBlt</a>模式</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，上一次伸缩模式的值，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">nStretchMode</td>
+    <td width="77%" colspan="2">Long，新伸缩模式建立在下述任何一个常数的基础上，它们均在API32.TXT文件中得到了定义：</td>
+  </tr>
+  <tr>
+    <td width="37%">STRETCH_ANDSCANS</td>
+    <td width="38%">默认设置。剔除的线段与剩下的线段进行AND运算。这个模式通常应用于采用了白色背景的单色位图</td>
+  </tr>
+  <tr>
+    <td width="37%">STRETCH_DELETESCANS</td>
+    <td width="38%">剔除的线段被简单的清除。这个模式通常用于彩色位图</td>
+  </tr>
+  <tr>
+    <td width="37%">STRETCH_ORSCANS</td>
+    <td width="38%">剔除的线段与剩下的线段进行OR运算。这个模式通常应用于采用了白色背景的单色位图</td>
+  </tr>
+  <tr>
+    <td width="37%">STRETCH_HALFTONE</td>
+    <td width="38%">目标位图上的像素块被设为源位图上大致近似的块。这个模式要明显慢于其他模式</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">如果要对伸缩模式有一个更深刻的印象，可想象一下对白色图象中的一条白色细线进行压缩。压缩过程中，像素会从图象中删去。为避免线段消失，在删除它们之前，有必要先对线段中的像素与邻近像素进行AND运算。为达到这个目的，应考虑选用STRETCH_ANDSCANS伸缩模式</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetStretchBltMode">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

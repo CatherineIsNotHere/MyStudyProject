@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetPrivateProfileInt Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetPrivateProfileInt" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetPrivateProfileInt Function</H1>
+
+<P><CODE class="declare">Declare Function GetPrivateProfileInt Lib &quot;kernel32.dll&quot; Alias &quot;GetPrivateProfileIntA&quot; (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal nDefault As Long, ByVal lpFileName As String) As Long</CODE>
+
+<P><B>GetPrivateProfileInt</B> reads an integer value from any INI file.  The parameters passed to the function specify which value will be read from.  If successful, the function returns the value read.  If the value you specify does not exist or is a string (i.e., not a number), the value specified as <VAR>nDefault</VAR> is returned.
+
+<DL>
+<DT><VAR>lpApplicationName</VAR><DD>The header of the INI file section the value is in.
+<DT><VAR>lpKeyName</VAR><DD>The name of the value to read.
+<DT><VAR>nDefault</VAR><DD>The value to return if a valid value cannot be read.  Make it something that would definitely not be read, such as -1.
+<DT><VAR>lpFileName</VAR><DD>The filename of the INI file to read from.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the value &quot;type&quot; under the [keyboard] section of SYSTEM.INI
+' These next few lines get the Windows directory....
+Dim buffer As String * 255
+x = GetWindowsDirectory(buffer, 255)
+sysini = Left(buffer, x) & &quot;\system.ini&quot;
+' Now read the value
+ret = GetPrivateProfileInt(&quot;keyboard&quot;, &quot;type&quot, -1, sysini)
+If ret = -1 Then
+  Debug.Print &quot;Could not read data.&quot;
+Else
+  Debug.Print ret
+End If</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getprivateprofilestring.html">GetPrivateProfileString</A>, <A href="getprofileint.html">GetProfileInt</A><BR>
+<B>Category:</B> <A href="../index.html#inifiles" rel="index">INI Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getprivateprofileint.html">http://members.aol.com/Borg953/api/functions/getprivateprofileint.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

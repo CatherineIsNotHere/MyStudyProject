@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetPath</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetPath">GetPath</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function GetPath Lib &quot;gdi32&quot; Alias
+    &quot;GetPath&quot; (ByVal hdc As Long, lpPoint As POINTAPI, lpTypes As Byte, ByVal nSize
+    As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">取得对当前路径进行定义的一系列数据</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，载入数组的点数（如nSize设为零，则返回要求的条目数量）。如数组空间不够大，不足以容下所有的点，就返回-1。会将GetLastError设置为下述值之一：ERROR_CAN_NOT_COMPLETE，ERROR_INVALID_PARAMETER，ERROR_BUFFER_OVERFLOW</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，包含了路径的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPoint</td>
+    <td width="77%" colspan="2"><a href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>，一个<a
+    href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>结构数组中的第一个元素。这个数组为路径中的每个段（segment）都要载入坐标数据。具体的信息是采用逻辑坐标提供的</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">lpTypes</td>
+    <td width="77%" colspan="2">Byte，一个字节数组中的第一个元素；这个数组定义了与每个坐标对应的操作类型。其中包括：</td>
+  </tr>
+  <tr>
+    <td width="37%">PT_MOVETO</td>
+    <td width="38%">坐标是一个新子路径的起始处</td>
+  </tr>
+  <tr>
+    <td width="37%">PT_LINETO</td>
+    <td width="38%">坐标是来自前一个坐标的一条线的终点</td>
+  </tr>
+  <tr>
+    <td width="37%">PT_BEZIERTO</td>
+    <td width="38%">肯定以三点一组的形式出现。头两个点是控制点，第三个是贝塞尔（Bezier）曲线的终点。PT_LINETO和PT_BEZIERTO也许能与PT_CLOSEFIGURE联合使用。在这种情况下，它代表一幅图象的最后一个点。将这个点与子路径的第一个连接起来后，路径就会封闭</td>
+  </tr>
+  <tr>
+    <td width="25%">nSize</td>
+    <td width="77%" colspan="2">Long，lpPoint和lpTypes数组的大小。如设为零，表示取得要求的数组大小</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">尽管路径信息是在设备坐标的内部保存的，这个函数的所有坐标都是用逻辑坐标返回的。具体坐标取决于当前的坐标系统及转换设置。可用<a
+    href="FlattenPath.htm" tppabs="http://www.gxbcts.com/airfly/api/FlattenPath.htm">FlattenPath</a>函数强迫路径中的所有点都成为PT_MOVETO和PT_LINETO类型</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetPath">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<HTML><HEAD><TITLE>获取Novell用户名</TITLE>
+<META content="text/html; charset=gb-2312" http-equiv=Content-Type>
+</HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>获得Novell网络的用户名</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">下面的例子给出了通过调用Novell API来获取用户名的方法： 
+      <p>1.说明下面的外部函数:</p>
+      <pre>function ulong NWInitialize() library "NWInfo"
+function ulong NWGetInfo( Long Drv, Long info, ref string buffer ) Library "NWInfo"</pre>
+      <p>2.然后定义一个函数并加入下面的程序</p>
+      <pre><font color=#0000ff>// i_sys=1 - novell</font>
+string login_name
+string ls_temp
+integer drv,info
+long l_ret
+
+login_name = "user_name_error"
+
+if i_sys = 1 then   <font color=#0000ff>// novell login name.</font>
+	l_ret = NWInitialize()    <font color=#0000ff>// init the dll, check for client 32 ...</font>
+	if l_ret  = 0  then
+		drv = 7 <font color=#0000ff>// network drive g:</font>
+		info = 35 <font color=#0000ff>// typeless user name </font>
+		ls_temp = Space( 129 )
+		<font color=#0000ff>//  get the login name for specific drive</font>
+		l_ret = NWGetInfo( drv, info, ls_temp )
+		if l_ret = 0 then
+			login_name = Trim( ls_temp )
+		end if
+	end if			
+end if
+
+return login_name</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+<p>&nbsp;</p>
+</BODY></HTML>

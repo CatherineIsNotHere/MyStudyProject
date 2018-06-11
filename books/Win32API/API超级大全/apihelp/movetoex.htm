@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MoveToEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">MoveToEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function MoveToEx Lib &quot;gdi32&quot; Alias 
+    &quot;MoveToEx&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, lpPoint As 
+    POINTAPI) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">为指定的设备场景指定一个新的当前画笔位置。前一个位置保存在lpPoint中</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，指向一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="77%">Long，采用逻辑坐标表示的新画笔位置</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPoint</td>
+    <td width="77%"><a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>，用于保存前一个画笔位置。可以为NULL（将参数改为ByVal 
+    As Long，以传递一个空参数）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">在一个路径分支中描绘的时候，这个函数会创建一个新的子路径</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetClassInfo</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetClassInfo,GetClassInfoEx">GetClassInfo,GetClassInfoEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetClassInfo&amp; Lib &quot;user32&quot; 
+    Alias &quot;GetClassInfoA&quot; (ByVal hInstance As Long, ByVal lpClassName As String, 
+    lpWndClass As WNDCLASS)<br>
+    Declare Function GetClassInfoEx&amp; Lib &quot;user32&quot; Alias 
+    &quot;GetClassInfoExA&quot; (ByVal hInstance As Long, ByVal lpClassName As String, 
+    lpWndClassEx As WNDCLASSEX)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">取得WNDCLASS结构（或WNDCLASSEX结构）的一个副本，结构中包含了与指定类有关的信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hInstance</td>
+    <td width="75%">Long，指向拥有类的那个实例的一个句柄。如设为NULL，则获得与标准windows类有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">lpClassName</td>
+    <td width="75%">String，欲查找的类名。也可能是个Long值，其中的低字是包含类名的一个全局（共用）原子</td>
+  </tr>
+  <tr>
+    <td width="25%">lpWndClass</td>
+    <td width="75%">WNDCLASS，（<a name="GetClassInfo,GetClassInfoEx">GetClassInfo）用于包含结果信息的结构</a></td>
+  </tr>
+  <tr>
+    <td width="25%">lpWndClassEx</td>
+    <td width="75%">WNDCLASSEX，（<a name="GetClassInfo,GetClassInfoEx">GetClassInfoEx</a>）<a
+    name="GetClassInfo,GetClassInfoEx">用于包含结果信息的结构</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如为这个函数使用了WNDCLASSEX参数，请务必设置其中的cbSize字段</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetClassInfo,GetClassInfoEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

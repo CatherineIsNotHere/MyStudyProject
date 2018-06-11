@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Registry Base Key Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Registry Base Key Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Registry Base Key Flags</H1>
+
+<P><PRE><CODE class="tc">Const HKEY_CURRENT_USER = &amp;H80000001
+Const HKEY_LOCAL_MACHINE = &amp;H80000002
+Const HKEY_USERS = &amp;H80000003
+Const HKEY_CURRENT_CONFIG = &amp;H80000005
+Const HKEY_DYN_DATA = &amp;H80000006</CODE></PRE>
+
+<P>The <B>registry base key flags</B> identify the permanently-open base registry keys.  All other registry keys are below one of these.  Obviously, they cannot be combined.
+
+<DL>
+<DT><VAR>HKEY_CURRENT_USER</VAR><DD>The HKEY_CURRENT_USER base key, which stores program information for the current user.
+<DT><VAR>HKEY_LOCAL_MACHINE</VAR><DD>The HKEY_LOCAL_MACHINE base key, which stores program information for all users.
+<DT><VAR>HKEY_USERS</VAR><DD>The HKEY_USERS base key, which has all the information for any user (not just the one provided by HKEY_CURRENT_USER).
+<DT><VAR>HKEY_CURRENT_CONFIG</VAR><DD>The HKEY_CURRENT_CONFIG base key, which stores computer configuration information.
+<DT><VAR>HKEY_DYN_DATA</VAR><DD>The HKEY_DYN_DATA base key, which stores dynamic data.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/regcreatekeyex.html">RegCreateKeyEx</A>, <A href="../functions/regopenkeyex.html">RegOpenKeyEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/registrybasekeyflags.html">http://members.aol.com/Borg953/api/constants/registrybasekeyflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

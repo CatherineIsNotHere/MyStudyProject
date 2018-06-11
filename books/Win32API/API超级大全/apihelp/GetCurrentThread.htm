@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetCurrentThread</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetCurrentThread</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%">Declare Function GetCurrentThread Lib &quot;kernel32&quot; Alias 
+    &quot;GetCurrentThread&quot; () As Long<br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">说明</td>
+  </tr>
+  <tr>
+    <td width="100%">&nbsp; 获取当前线程的一个伪句柄</td>
+  </tr>
+  <tr>
+    <td width="100%">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%">Long，当前线程的伪句柄</td>
+  </tr>
+  <tr>
+    <td width="100%">注解</td>
+  </tr>
+  <tr>
+    <td width="100%"><p align="left">只要当前线程需要一个进程句柄，就可以使用这个伪句柄。该句柄可以复制，但不可继承。不必调用<a
+    href="CloseHandle.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CloseHandle.htm">CoseHandle</a>函数关闭</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

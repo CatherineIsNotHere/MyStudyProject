@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetFullPathName Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetFullPathName" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetFullPathName Function</H1>
+
+<P><CODE class="declare">Declare Function GetFullPathName Lib &quot;kernel32.dll&quot; Alias &quot;GetFullPathNameA&quot; (ByVal lpFileName As String, ByVal nBufferLength As Long, ByVal lpBuffer As String, ByVal lpFilePart As String) As Long</CODE>
+
+<P><B>GetFullPathName</B> appends a specified filename to the name of the current directory.  For example, if you specify the file &quot;hello.txt&quot; and the current directory is &quot;C:\My Documents\Junk&quot;, the resulting filename would be &quot;C:\My Documents\Junk\hello.txt&quot;.  This string is put into the string passed as <VAR>lpBuffer</VAR>.  The function returns 0 if an error occured, or the length of the final string if successful.
+
+<DL>
+<DT><VAR>lpFileName</VAR><DD>The name of the file to append.
+<DT><VAR>nBufferLength</VAR><DD>The size in characters of <VAR>lpBuffer</VAR>.
+<DT><VAR>lpBuffer</VAR><DD>A fixed-length string variabled that receives the combined path and filename.
+<DT><VAR>lpFilePart</VAR><DD>??? (appears to have no effect)
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Set current directory to C:\Windows\Media
+ChDir &quot;\Windows\Media&quot;
+' Append the filename ding.wav
+Dim buffer As String * 255
+x = GetFullPathName(&quot;ding.wav&quot;, 255, buffer, &quot;&quot;)
+Debug.Print Left(buffer, x)  ' should be &quot;C:\Windows\Media\ding.wav&quot;</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getshortpathname.html">GetShortPathName</A><BR>
+<B>Category:</B> <A href="../index.html#files" rel="index">Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getfullpathname.html">http://members.aol.com/Borg953/api/functions/getfullpathname.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

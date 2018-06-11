@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetQueueStatus</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetQueueStatus">GetQueueStatus</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function GetQueueStatus Lib &quot;user32&quot; Alias
+    &quot;GetQueueStatus&quot; (ByVal fuFlags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">判断应用程序消息队列中待决（等待处理）的消息类型</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，高字是一个16位的旗标字，包含了待决的消息。其中的各个位是由为fuFlags参数定义的同样的常数决定的。低字是一个对应的旗标字。其中各个位指出自上次调用这个函数以来，或自消息上一次处理以来，新加入的待处理消息</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="10">fuFlags</td>
+    <td width="78%" colspan="2">Long，一个标志（旗标）字，指定要检查的消息。标志位是由下述常数定义的</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_KEY</td>
+    <td width="38%">WM_CHAR消息（会造成vb KeyPressed事件）</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_MOUSE</td>
+    <td width="38%">任何鼠标消息</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_MOUSEMOVE</td>
+    <td width="38%">MouseMove消息或事件</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_MOUSEBUTTON</td>
+    <td width="38%">鼠标按钮消息或相关事件</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_PAINT</td>
+    <td width="38%">等待处理的Paint消息</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_POSTMESSAGE</td>
+    <td width="38%">投递的其他消息</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_SENDMESSAGE</td>
+    <td width="38%">从另一个应用程序中发出的消息</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_TIMER</td>
+    <td width="38%">计时器消息</td>
+  </tr>
+  <tr>
+    <td width="37%">QS_HOTKEY</td>
+    <td width="38%">队列中的一条Hotkey消息</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">在vb里这个函数不特别有用（Use
+    with VB:Not particularly useful.）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetQueueStatus">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

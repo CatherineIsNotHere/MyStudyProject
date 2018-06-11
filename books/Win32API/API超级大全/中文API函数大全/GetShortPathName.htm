@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetShortPathName</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetShortPathName</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetShortPathName Lib &quot;kernel32&quot; 
+    Alias &quot;GetShortPathName&quot; (ByVal lpszLongPath As String, ByVal lpszShortPath As 
+    String, ByVal cchBuffer As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">获取指定文件的短路径名</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，装载到lpszShortPath缓冲区的字符数量。如lpszShortPath的长度不足，不能容下文件名，就返回需要的缓冲区长度</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszLongPath</td>
+    <td width="75%">String，指定欲获取短路径名的那个文件的名字。可以是个完整路径，或者由当前目录决定</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszShortPath</td>
+    <td width="75%">String，指定一个缓冲区，用于装载文件的短路径和文件名</td>
+  </tr>
+  <tr>
+    <td width="25%">cchBuffer</td>
+    <td width="75%">Long，lpszShortPath缓冲区长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SECURITY_ATTRIBUTES Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SECURITY_ATTRIBUTES" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SECURITY_ATTRIBUTES Type</H1>
+
+<P><PRE><CODE class="tc">Type SECURITY_ATTRIBUTES
+  nLength As Long
+  lpSecurityDescriptor As Long
+  bInheritHandle As Boolean
+End Type</CODE></PRE>
+
+<P><B>SECURITY_ATTRIBUTES</B>-type variables define the level and type of security protection to give an object.  Security information is only used in Windows NT, so the information in this data type will usually be ignored by Windows 95, Windows 98, or other non-NT versions of Windows.
+
+<DL>
+<DT><VAR>nLength</VAR><DD>The size in bytes of the variable.
+<DT><VAR>lpSecurityDescriptor</VAR><DD>Identifies a security descriptor.  A value of 0 gives the default.
+<DT><VAR>bInheritHandle</VAR><DD>Specifies whether the object's new handle should be inherited by new processes.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/regcreatekeyex.html">RegCreateKeyEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/security_attributes.html">http://members.aol.com/Borg953/api/types/security_attributes.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

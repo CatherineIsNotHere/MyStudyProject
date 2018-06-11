@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LOGBRUSH</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="LOGBRUSH">LOGBRUSH</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">Type LOGBRUSH ' 12 Bytes<br>
+    lbStyle As Long<br>
+    lbColor As Long<br>
+    lbHatch As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2"><p align="left">Data structure used to define a logical
+    brush. The actual physical brush will depend on the capabilities of the device.</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型与说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lbStyle</td>
+    <td width="75%">Long，One of the following constants:BS_DIBPATTERN, BS_DIBPATTERN8X8,
+    BS_DIBPATTERNPT: A pattern brush based on a device-independent bitmap (DIB). In Windows
+    95, brushes from bitmaps or DIBs must be 8x8 or smaller.BS_HATCHED: A hatched brush
+    according to field lbHatch.BS_HOLLOW, BS_NULL: A hollow brush.BS_PATTERN, BS_PATTERN8X8: A
+    pattern brush based on a bitmap.BS_SOLID: A solid brush.</td>
+  </tr>
+  <tr>
+    <td width="25%">lbColor</td>
+    <td width="75%">Long，Depends on the value of lbStyle:For BS_SOLID refer to the
+    description of the crColor parameter of the CreateSolidBrush API function (see Chapter
+    8).For BS_HATCHED refer to the description of the crColor parameter of the
+    CreateHatchBrush API function (see Chapter 8).For BS_DIBPATTERN* refer to the description
+    of the wUsage parameter of the CreateDIBPatternBrush API function</td>
+  </tr>
+  <tr>
+    <td width="25%">lbHatch</td>
+    <td width="75%">Long，If lbStyle is BS_DIBPATTERN or BS_DIBPATTERN8X8, this field
+    contains the handle to a packed DIB (refer to description of the hPackedDIB parameter to
+    the CreateDIBPatternBrush API function in Chapter 8 for details). If lbStyle is
+    BS_DIBPATTERNPT, this field contains the pointer to a packed DIB.If lbStyle is BS_HATCHED,
+    this field is the same as the nIndex parameter to the CreateHatchBrush API function</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#LOGBRUSH">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

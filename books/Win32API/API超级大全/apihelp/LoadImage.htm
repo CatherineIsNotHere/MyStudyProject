@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LoadImage</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="LoadImage">LoadImage</a>, LoadImageBynum</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function LoadImage&amp; Lib &quot;user32&quot; Alias 
+    &quot;LoadImageA&quot; (ByVal hInst As Long, ByVal lpsz As String, ByVal un1 As Long, 
+    ByVal n1 As Long, ByVal n2 As Long, ByVal un2 As Long)<br>
+    Declare Function LoadImageBynum&amp; Lib &quot;user32&quot; Alias &quot;LoadImageA&quot; 
+    (ByVal hInst As Long, ByVal lpsz As Long, ByVal un1 As Long, ByVal n1 As Long, ByVal n2 As 
+    Long, ByVal un2 As Long)</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">载入一个位图、图标或指针</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，执行成功则返回对象的一个句柄；零表示失败</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hInst</td>
+    <td width="77%" colspan="2">Long，要从其中载入图象的DLL或应用程序模块或实例句柄。零表示装载一幅固有图象</td>
+  </tr>
+  <tr>
+    <td width="25%">lpsz</td>
+    <td width="77%" colspan="2">String，欲载入图象的名字。如指定了hInst，就用这个参数指定资源或资源的标志符（标志符是一个长整数）。如hInst为空，而且已指定了LR_LOADFROMFILE，那么这个参数代表文件名（位图、图标或指针文件）。如果是个Long型值，这个参数就代表固有位图、图标或指针的编号</td>
+  </tr>
+  <tr>
+    <td width="25%">un1</td>
+    <td width="77%" colspan="2">Long，下述常数之一，指定了欲载入的图象类型：IMAGE_BITMAP， 
+    IMAGE_CURSOR， IMAGE_ICON</td>
+  </tr>
+  <tr>
+    <td width="25%">n1,n2</td>
+    <td width="77%" colspan="2">Long，要求的图象宽度和高度。图象会根据情况自动伸缩。如设为零，表示用图象的默认大小</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="10">un2</td>
+    <td width="77%" colspan="2">Long，下述常数的任意组合，它们都在api32.txt文件中得到了定义：</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_DEFAULTCOLOR</td>
+    <td width="38%">以常规方式载入图象</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_LOADREALSIZE</td>
+    <td width="38%">不对图象进行缩放处理。忽略n1和n2的设置</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_CREATEDIBSECTION</td>
+    <td width="38%">如果指定了IMAGE_BITMAP，就返回DIBSection的句柄，而不是位图的句柄</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_DEFAULTSIZE</td>
+    <td width="38%">如果n1和n2为零，就使用由系统定义的图象默认大小，而不是图象本身定义的大小</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_LOADFROMFILE</td>
+    <td width="38%">如hInst为零，lpsz就代表要载入适当类型的一个文件的名字，仅适用于Win95</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_LOADMAP3DCOLORS</td>
+    <td width="38%">将图象中的深灰、灰、以及浅灰像素都替换成COLOR_3DSHADOW，COLOR_3DFACE以及COLOR_3DLIGHT的当前设置</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_LOADTRANSPARENT</td>
+    <td width="38%">与图象中第一个像素相符的所有像素都由系统替换</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_MONOCHROME</td>
+    <td width="38%">将图象转换成单色</td>
+  </tr>
+  <tr>
+    <td width="37%">LR_SHARED</td>
+    <td width="38%">将图象作为一个共享资源载入。在NT 4.0中装载固有资源时要用到这个设置</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="15">
+  <tr>
+    <td width="100%" height="15"><p align="right"><a href="#LoadImage">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+<HTML><HEAD><TITLE>API技巧之六</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../32bit%20DLL%20Calling%20Convention_files/default.css" rel=stylesheet 
+type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%"><font color=#ffffff size=6>32bit DLL Calling 
+      Convention</font></td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>&nbsp;</p>
+      <p>经常有人问我，如何写可由PowerBuilder调用的DLL函数的C语言代码，下面是一个没有具体算法的例子：</p>
+      <pre>__declspec(dllexport) LPSTR WINAPI Encrypt( LPSTR Password ) 
+{
+}
+
+__declspec(dllexport) LPSTR WINAPI Decrypt( LPSTR Password ) 
+{
+}
+
+</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

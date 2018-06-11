@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegEnumKey</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegEnumKey</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegEnumKey Lib &quot;advapi32.dll&quot;
+    Alias &quot;RegEnumKeyA&quot; (ByVal hKey As Long, ByVal dwIndex As Long, ByVal lpName As
+    String, ByVal cbName As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">枚举指定项的子项。在Win32环境中应使用<a
+    href="RegEnumKeyEx.htm" tppabs="http://www.gxbcts.com/airfly/api/RegEnumKeyEx.htm">RegEnumKeyEx</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，一个已打开项的句柄，或者指定一个标准项名</td>
+  </tr>
+  <tr>
+    <td width="25%">dwIndex</td>
+    <td width="75%">Long，欲获取的子项的索引。第一个子项的索引编号为零</td>
+  </tr>
+  <tr>
+    <td width="25%">lpName</td>
+    <td width="75%">String，用于装载指定索引处项名的一个缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">cbName</td>
+    <td width="75%">Long，lpName缓冲区的长度</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">用<a href="RegQueryInfoKey.htm" tppabs="http://www.gxbcts.com/airfly/api/RegQueryInfoKey.htm">RegQueryInfoKey</a>判断容纳最长那个项所需的缓冲区长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

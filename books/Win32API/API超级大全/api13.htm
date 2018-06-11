@@ -1,0 +1,32 @@
+
+<HTML><HEAD><TITLE>API技巧之十二</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Windows%20Shell%20Standard%20About_files/default.css" rel=stylesheet 
+type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>Windows外壳标准About框</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>你可以调用ShellAbout这个API函数来显示一个标准的windows About对话框，这个对话与基本的Microsoft应用程序的About对话相同，它来自于操作系统本身，32位的版如下：</p>
+      <p>function int ShellAboutA( ulong al_hWnd, string as_szApp, &amp; string 
+        as_szOtherStuff, ulong hIcon ) library "shell32"</p>
+      <p>下面的例子是在命令按钮中打开一个窗口:</p>
+      <pre>ShellAboutA( handle( parent ), "Window Title#more text", &amp;
+   "Still more text", 0 )</pre>
+      <p>窗口的标题是window title, more text显示在About窗口中第一行中的Microsoft之后.still more text将显示在About窗口中的主体之中，它可能就是你的程序的描述或说明。</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

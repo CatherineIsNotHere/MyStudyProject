@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: File Dialog Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,File Dialog Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>File Dialog Flags</H1>
+
+<P><PRE><CODE class="tc">Const OFN_READONLY = &amp;H1
+Const OFN_OVERWRITEPROMPT = &amp;H2
+Const OFN_HIDEREADONLY = &amp;H4
+Const OFN_NOCHANGEDIR = &amp;H8
+Const OFN_SHOWHELP = &amp;H10
+Const OFN_NOVALIDATE = &amp;H100
+Const OFN_ALLOWMULTISELECT = &amp;H200
+Const OFN_PATHMUSTEXIST = &amp;H800
+Const OFN_FILEMUSTEXIST = &amp;H1000
+Const OFN_CREATEPROMPT = &amp;H2000
+Const OFN_SHAREAWARE = &amp;H4000
+Const OFN_NODEREFERENCELINKS = &amp;H100000</CODE></PRE>
+
+<P>The <B>file dialog flags</B> determine how to render the Open File and Save File dialog boxes.  These flags can be combined as long as a contradictory pair are not combined (like <VAR>OFN_FILEMUSTEXIST</VAR> and <VAR>OFN_CREATEPROMPT</VAR>).
+
+<DL>
+<DT><VAR>OFN_READONLY</VAR><DD>If this flag is set after the function call, the user clicked the Open As Read Only box (Open File dialog box only).
+<DT><VAR>OFN_OVERWRITEPROMPT</VAR><DD>Prompt if the chosen file already exists (Save File dialog box only).
+<DT><VAR>OFN_HIDEREADONLY</VAR><DD>Hide the Open As Read Only check box (Open File dialog box only).
+<DT><VAR>OFN_NOCHANGEDIR</VAR><DD>Don't change the current directory to match the one chosen in the dialog box.
+<DT><VAR>OFN_SHOWHELP</VAR><DD>Show the Help button.  (Unfortunately, I don't know how to make it do anything.)
+<DT><VAR>OFN_NOVALIDATE</VAR><DD>Don't check the filename for invalid characters.
+<DT><VAR>OFN_ALLOWMULTISELECT</VAR><DD>Allow the user to select multiple files (Open Dialog box only).
+<DT><VAR>OFN_PATHMUSTEXIST</VAR><DD>Only allow the selection of existing paths.
+<DT><VAR>OFN_FILEMUSTEXIST</VAR><DD>Only allow the selection of existing files.
+<DT><VAR>OFN_CREATEPROMPT</VAR><DD>Prompt if a non-existing file is chosen.
+<DT><VAR>OFN_SHAREAWARE</VAR><DD>Ignore any file-sharing violations.
+<DT><VAR>OFN_NODEREFERENCELINKS</VAR><DD>If a shortcut file (.lnk or .pif) is chosen, return the shortcut file itself instead of the file ip points to.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getopenfilename.html">GetOpenFileName</A>, <A href="../functions/getsavefilename.html">GetSaveFileName</A> (both used through <A href="../types/openfilename.html">OPENFILENAME</A>)<BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/filedialogflags.html">http://members.aol.com/Borg953/api/constants/filedialogflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>TrackPopupMenu</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="TrackPopupMenu, TrackPopupMenuBynum">TrackPopupMenu, 
+    TrackPopupMenuBynum</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function TrackPopupMenu&amp; Lib &quot;user32&quot; 
+    (ByVal hMenu As Long, ByVal wFlags As Long, ByVal x As Long, ByVal y As Long, ByVal 
+    nReserved As Long, ByVal hwnd As Long, lprc As Rect)<br>
+    Declare Function TrackPopupMenuBynum&amp; Lib &quot;user32&quot; Alias 
+    &quot;TrackPopupMenu&quot; (ByVal hMenu As Long, ByVal wFlags As Long, ByVal x As Long, 
+    ByVal y As Long, ByVal nReserved As Long, ByVal hwnd As Long, ByVal lprc As Long)</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">在屏幕的任意地方显示一个弹出式菜单</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hMenu</td>
+    <td width="78%" colspan="2">Long，弹出式菜单的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="7">wFlags</td>
+    <td width="78%" colspan="2">Long，位置标志和鼠标追踪标志的组合，见下表</td>
+  </tr>
+  <tr>
+    <td width="37%">位置标志</td>
+    <td width="38%">说明</td>
+  </tr>
+  <tr>
+    <td width="37%">TPM_CENTERALIGN</td>
+    <td width="38%">菜单在指定位置水平居中</td>
+  </tr>
+  <tr>
+    <td width="37%">TPM_LEFTALIGN</td>
+    <td width="38%">菜单的左侧置于水平x坐标处</td>
+  </tr>
+  <tr>
+    <td width="37%">TPM_RIGHTALIGN</td>
+    <td width="38%">菜单的右侧置于水平x坐标处</td>
+  </tr>
+  <tr>
+    <td width="37%">TPM_LEFTBUTTON</td>
+    <td width="38%">鼠标左键标准运作方式</td>
+  </tr>
+  <tr>
+    <td width="37%">TPM_RIGHTBUTTON</td>
+    <td width="38%">用鼠标右键进行菜单追踪</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="78%" colspan="2">Long，这个点指定了弹出式菜单在屏幕坐标系统中的位置</td>
+  </tr>
+  <tr>
+    <td width="25%">nReserved</td>
+    <td width="78%" colspan="2">Long，未使用，设为零</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="78%" colspan="2">Long，用于接收弹出式菜单命令的窗口的句柄。应该使用窗体的窗口句柄——窗体中有一个菜单能象弹出式菜单那样接收相同的命令ID集</td>
+  </tr>
+  <tr>
+    <td width="25%">lprc</td>
+    <td width="78%" colspan="2"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">Rect</a>，用屏幕坐标定义的一个矩形，如用户在这个矩形的范围内单击，则弹出式菜单不会关闭。如单击弹出式菜单之外的任何一个地方，则会关闭菜单。可以设为NULL</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">用这个函数创建的菜单，菜单中的命令ID并不与vb期望的那些相符</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#TrackPopupMenu, TrackPopupMenuBynum">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

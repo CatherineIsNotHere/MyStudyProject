@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>PolyPolygon</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">PolyPolygon</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function PolyPolygon Lib &quot;gdi32&quot; Alias
+    &quot;PolyPolygon&quot; (ByVal hdc As Long, lpPoint As POINTAPI, lpPolyCounts As Long,
+    ByVal nCount As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">用当前选定画笔描绘两个或多个多边形。根据由<a
+    href="SetPolyFillMode.htm" tppabs="http://www.gxbcts.com/airfly/api/SetPolyFillMode.htm">SetPolyFillMode</a>函数指定的多边形填充模式，用当前选定的刷子填充它们。每个多边形都必须是封闭的</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，要在其中绘图的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPoint</td>
+    <td width="77%"><a href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>，nCount <a href="POINTAPI.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/POINTAPI.htm">POINTAPI</a>结构数组中的第一个<a
+    href="POINTAPI.htm" tppabs="http://www.gxbcts.com/airfly/api/POINTAPI.htm">POINTAPI</a>结构</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPolyCounts</td>
+    <td width="77%">Long，在Long值数组中的第一个条目。每个条目都包含了一定数量的点，用于构成一个封闭的多边形。lpPoint数组由一系列封闭的多边形构成，每个在lpPolyCounts数组中都有一个条目</td>
+  </tr>
+  <tr>
+    <td width="25%">nCount</td>
+    <td width="77%">Long，要描绘的多边形总数（就是lpPolyCounts数组的大小）。至少为2</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

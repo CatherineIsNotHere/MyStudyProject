@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetWindowTextLength Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetWindowsTextLength" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetWindowsTextLength Function</H1>
+
+<P><CODE class="declare">Declare Function GetWindowTextLength Lib &quot;user32.dll&quot; Alias &quot;GetWindowTextLengthA&quot; (ByVal hwnd As Long) As Long</CODE>
+
+<P><B>GetWindowTextLength</B> returns the length in characters of a window's title (that is, its <VAR>.Caption</VAR> property).  This works with any window, not just the ones in your application!  You can use this function in conjunction with <A href="getwindowtext.html">GetWindowText</A> to create a string just long enough to receive the title.  If you do, be sure to make the string 1 character longer than the value the function returns to allow for the ending <VAR>vbNullChar</VAR>.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the window to read the length of the title.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the number of characters in the title of Form1
+n = GetWindowTextLength(Form1.hWnd)
+' Create a string of n+1 to receive the title (to allow for the ending vbNullChar
+buffer = Space(n + 1)
+' Read the title
+x = GetWindowText(Form1.hWnd, buffer, n + 1)
+Debug.Print Left(buffer, x)  ' drop the vbNullChar</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="getwindowtext.html">GetWindowText</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getwindowtextlength.html">http://members.aol.com/Borg953/api/functions/getwindowtextlength.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,156 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MENUITEMINFO</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="MENUITEMINFO">MENUITEMINFO</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="106%" colspan="3">类型定义</td>
+  </tr>
+  <tr>
+    <td width="106%" colspan="3">Type MENUITEMINFO<br>
+    cbSize As Long<br>
+    fMask As Long<br>
+    fType As Long<br>
+    fState As Long<br>
+    wID As Long<br>
+    hSubMenu As Long<br>
+    hbmpChecked As Long<br>
+    hbmpUnchecked As Long<br>
+    dwItemData As Long<br>
+    dwTypeData As Long<br>
+    cch As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="106%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="106%" colspan="3"><p align="left">这个结构包含了菜单条目的信息，不支持win 
+    nt 3.51（原文：This structure contains information about a menu entry. Not supported 
+    on NT 3.51）</td>
+  </tr>
+  <tr>
+    <td width="106%" colspan="3">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">cbSize</td>
+    <td width="78%" colspan="2">Long，结构大小，通常为44bytes（Size of this 
+    structure, currently at 44 bytes.）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="7">fMask</td>
+    <td width="78%" colspan="2">Long，Specifies the information to set or get. Any 
+    combination of the following</td>
+  </tr>
+  <tr>
+    <td width="37%">MIIM_CHECKMARKS</td>
+    <td width="38%">Sets or gets the hbmpChecked and hbmpUnchecked fields</td>
+  </tr>
+  <tr>
+    <td width="37%">MIIM_DATA</td>
+    <td width="38%">Sets or gets the dwItemData field</td>
+  </tr>
+  <tr>
+    <td width="37%">MIIM_ID</td>
+    <td width="38%">ets or gets the wID field</td>
+  </tr>
+  <tr>
+    <td width="37%">MIIM_STATE</td>
+    <td width="38%">Sets or gets the fState field</td>
+  </tr>
+  <tr>
+    <td width="37%">MIIM_SUBMENU</td>
+    <td width="38%">Sets or gets the hSubMenu field</td>
+  </tr>
+  <tr>
+    <td width="39%">MIIM_TYPE</td>
+    <td width="39%">Sets or gets the fType and dwTypeData fields</td>
+  </tr>
+  <tr>
+    <td width="25%">fType</td>
+    <td width="78%" colspan="2">Long，Menu item type, any combination of the following with 
+    the exception that MFT_BITMAP, MFT_SEPARATOR, and MFT_STRING cannot be combined with one 
+    another:MFT_BITMAP: Displays the menu item using a bitmap. dwTypeData contains the bitmap 
+    handle.MFT_MENUBARBREAK: The menu item is placed on a new line for top level menus, a new 
+    column for popup menus. Places a line between the columns.MFT_MENUBREAK: Same as 
+    MFT_MENUBREAK without the vertical line.MFT_OWNERDRAW: The menu item is an owner-draw 
+    menu.MFT_RADIOCHECK: Uses a radio button (option button) bullet to indicate the checked 
+    state instead of a check mark. Applies if no custom bitmap is specified.MFT_RIGHTJUSTIFY: 
+    Right-justifies a top level menu item.MFT_SEPARATOR: The entry is a separator line in a 
+    pop-up menu.MFT_STRING: The entry contains a string. dwTypeData contains the address of 
+    the string, and the cch field contains the length of the string.</td>
+  </tr>
+  <tr>
+    <td width="25%">fState</td>
+    <td width="78%" colspan="2">Long，Current menu entry state or action to take. May be any 
+    combination of the following:MFS_CHECKED: Entry is checked.MFS_DEFAULT: The entry is a 
+    default item (appears in bold).MFS_DISABLED: Entry is disabled.MFS_ENABLED: Entry is 
+    enabled.MFS_GRAYED: Entry is grayed and disabled.MFS_HILITE: Entry is 
+    highlighted.MFS_UNCHECKED: Entry is unchecked.MFS_UNHILITE: Entry is unhighlighted.</td>
+  </tr>
+  <tr>
+    <td width="25%">wID</td>
+    <td width="78%" colspan="2">Long，Menu entry identifier. The high 16 bits are not used.</td>
+  </tr>
+  <tr>
+    <td width="25%">hSubMenu</td>
+    <td width="78%" colspan="2">Long，Handle to a pop-up menu if one is associated with the 
+    menu entry</td>
+  </tr>
+  <tr>
+    <td width="25%">hbmpChecked</td>
+    <td width="78%" colspan="2">Long，Handle to a bitmap to display for a menu entry when 
+    checked. Zero to use the default</td>
+  </tr>
+  <tr>
+    <td width="25%">hbmpUnchecked</td>
+    <td width="78%" colspan="2">Long，Handle to a bitmap to display for a menu entry when 
+    unchecked. Zero to use the default</td>
+  </tr>
+  <tr>
+    <td width="25%">dwItemData</td>
+    <td width="78%" colspan="2">Long，User-defined value associated with this entry.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwTypeData</td>
+    <td width="78%" colspan="2">Long，Depends on the menu type</td>
+  </tr>
+  <tr>
+    <td width="25%">cch</td>
+    <td width="78%" colspan="2">Long，Length of the menu string when MFT_STRING is specified. 
+    Zero for other menu types.</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#MENUITEMINFO">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

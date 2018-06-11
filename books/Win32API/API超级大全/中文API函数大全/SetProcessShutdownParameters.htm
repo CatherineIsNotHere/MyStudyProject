@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetProcessShutdownParameters</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetProcessShutdownParameters</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetProcessShutdownParameters Lib
+    &quot;kernel32&quot; Alias &quot;SetProcessShutdownParameters&quot; (ByVal dwLevel As
+    Long, ByVal dwFlags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">&nbsp;
+    在系统关闭期间，为指定进程设置他相对于其它程序的关闭顺序</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpdwLevel</td>
+    <td width="75%">Long，从0到&amp;H4FF的一个值。编号越高程序在系统关闭时越早关闭。</td>
+  </tr>
+  <tr>
+    <td width="25%">lpdwFlags</td>
+    <td width="75%">Long，指定SHUTDOWN_NORETRY标志。如关闭一个进程时，会出现一个重试对话框。通过设置这个标志，就可以禁止那个对话框出现，并直接关闭进程</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">适用平台</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">&nbsp;&nbsp; Wnidows NT</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

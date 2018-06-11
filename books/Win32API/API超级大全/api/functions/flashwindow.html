@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: FlashWindow Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,FlashWindow" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>FlashWindow Function</H1>
+
+<P><CODE class="declare">Declare Function FlashWindow Lib &quot;user32.dll&quot; (ByVal hwnd As Long, ByVal bInvert As Long) As Long</CODE>
+
+<P><B>FlashWindow</B> flashes a window one step.  Flashing is where the title bar of the window is switched from an active to inactive look (or vice versa) to get the user's attention.  Normally this is done multiple times, instead of just once.  When you are done flashing, be sure to call the function again, this time with <VAR>bInvert</VAR> set to 0.  The function returns 0 if the window's look was inactive before flashing, or a non-zero value if its look was active.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the window to flash one step.
+<DT><VAR>bInvert</VAR><DD>Specifies how to flash.  If non-zero, switches the title bar from an active to inactive look (or vice versa).  If zero, restores the window to its normal look.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Flash Form1 five times to get the user's attention
+For c = 1 To 10  ' flash on five times, off five times
+  x = FlashWindow(Form1.hWnd, 1)  ' flash another step
+  Sleep 500  ' API halts program for 500 milliseconds (1/2 second)
+Next c
+x = FlashWindow(Form1.hWnd, 0)  ' restore normal look to window</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/flashwindow.html">http://members.aol.com/Borg953/api/functions/flashwindow.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

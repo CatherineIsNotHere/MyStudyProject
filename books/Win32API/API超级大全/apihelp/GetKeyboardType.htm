@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetKeyboardType</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetKeyboardType">GetKeyboardType</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetKeyboardType Lib &quot;user32&quot; Alias 
+    &quot;GetKeyboardType&quot; (ByVal nTypeFlag As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">了解与正在使用的键盘有关的信息</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，零表示出错。否则返回下述值之一</td>
+  </tr>
+  <tr>
+    <td width="25%">nTypeFlag=0</td>
+    <td width="77%">1——PC或兼容的83键键盘；2——Olivetti102键键盘；3——AT或兼容84键键盘；4——增强型（IBM）101或102键键盘；5——Nokia1050键盘；6——Nokia9140键盘；7——日文键盘</td>
+  </tr>
+  <tr>
+    <td width="25%">nTypeFlag=1</td>
+    <td width="77%">任何值，由厂商决定</td>
+  </tr>
+  <tr>
+    <td width="25%">nTypeFlag=2</td>
+    <td width="77%">1——10个功能键（即 F? 键）；2——12或18个功能键；3——10个功能键；4——12个功能键；5——10个功能键；6——24个功能键；7——由厂商决定</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">nTypeFlag</td>
+    <td width="77%">Long，可设为下述值之一</td>
+  </tr>
+  <tr>
+    <td width="77%">0——返回键盘类型</td>
+  </tr>
+  <tr>
+    <td width="77%">1——返回键盘子类型</td>
+  </tr>
+  <tr>
+    <td width="77%">2——返回键盘上的功能键数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetKeyboardType">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

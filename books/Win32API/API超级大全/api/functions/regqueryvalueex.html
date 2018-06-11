@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RegQueryValueEx Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RegQueryValueEx" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RegQueryValueEx Function</H1>
+
+<P><CODE class="declare">Declare Function RegQueryValueEx Lib &quot;advapi32.dll&quot; Alias &quot;RegQueryValueExA&quot; (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, lpData As Any, lpcbData As Long) As Long</CODE><BR>
+<I>Alternate Declare for use with strings:</I><BR>
+<CODE class="declare">Declare Function RegQueryValueEx Lib &quot;advapi32.dll&quot; Alias &quot;RegQueryValueExA&quot; (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, ByVal lpData As String, lpcbData As Long) As Long</CODE>
+
+<P><B>RegQueryValueEx</B> reads a value from a registry key.  It can read many different types of data.  Notice that a variant of the declare must be used if a type of string is being read because of the way Visual basic handles strings.  The only difference is the method in which the string is passed to the API function.  The function returns 0 if successful, or a non-zero value error code if an error occured.
+
+<DL>
+<DT><VAR>hKey</VAR><DD>A handle to the registry key to read the value from.  This cannot be one of the predefined (HKEY_) keys.
+<DT><VAR>lpValueName</VAR><DD>The name of the value to read.
+<DT><VAR>Reserved</VAR><DD>Reserved.  Set to 0.
+<DT><VAR>lpType</VAR><DD>Variable which receives the <A href="../constants/registrydatatypes.html">registry data type</A> of the piece of data to read.
+<DT><VAR>lpData</VAR><DD>Variable or whatever object receives the information read from the registry.  NOTE: You <I>must</I> use the alternate declare for any type of string when using Visual Basic!
+<DT><VAR>lpcbData</VAR><DD>Receives the length in bytes of the data returned.  If a type of string is used, set this variable to the length in bytes of the string passed as <VAR>lpData</VAR>.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read some data from under the key:
+' HKEY_CURRENT_USER\Software\Dummy\DummyApp\1.0\
+Dim dword As Long, vbstring As String * 100, datatype As Long
+subkey = &quot;Software\Dummy\DummyApp\1.0&quot;  ' key name
+x = RegOpenKeyEx(HKEY_CURRENT_USER, subkey, 0, KEY_READ, hregkey)
+If x <> 0 Then  ' error opening key -- abort!
+  Debug.Print &quot;Could not open registry key.&quot;
+  Exit Sub
+End If
+' We want to read dword and vbstring from the registry key hregkey
+' Set dword to the contents of &quot;number&quot;
+x = RegQueryValueEx(hregkey, &quot;number&quot;, 0, datatype, dword, 4)
+' datatype should equal REG_DWORD
+If x <> 0 Then Goto QueryError  ' abort to error handler if an error occured
+' Set vbstring to the contents of &quot;string&quot;, using the mandatory alternate declare
+x = RegQueryValueExString(hregkey, &quot;string&quot;, 0, datatype, vbstring, 100)
+' datatype should equal REG_SZ
+If x <> 0 Then Goto QueryError  ' again, abort if an error occured
+x = RegCloseKey(hregkey)
+Debug.Print dword; vbstring  ' display data read
+Exit Sub  ' quit normal execution
+QueryError:
+Debug.Print &quot;Error reading registry data.&quot;
+x = CloseKey(hregkey)  ' closing key frees up resources
+Exit Sub  ' abort</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="regsetvalueex.html">RegSetValueEx</A><BR>
+<B>Category:</B> <A href="../index.html#registry" rel="index">Registry</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/regqueryvalueex.html">http://members.aol.com/Borg953/api/functions/regqueryvalueex.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LoadLibraryEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">LoadLibraryEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF" height="197">
+  <tr>
+    <td width="100%" colspan="2" height="14">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">Declare Function LoadLibraryEx Lib
+    &quot;kernel32&quot; Alias &quot;LoadLibraryExA&quot; (ByVal lpLibFileName As String,
+    ByVal hFile As Long, ByVal dwFlags As Long) As Long<br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="13">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">装载指定的动态链接库，并为当前进程把它映射到地址空间。一旦载入，就可以访问库内保存的资源</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">Long，成功则返回库模块的句柄，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">参数</td>
+    <td width="75%" height="14">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" height="7">lpLibFileName</td>
+    <td width="75%" height="7">String，指定要载入的动态链接库的名称。采用与<a
+    href="CreatProcess.htm" tppabs="http://www.gxbcts.com/airfly/api/CreatProcess.htm">CreateProcess</a>函数的lpCommandLine参数指定的同样的搜索顺序</td>
+  </tr>
+  <tr>
+    <td width="25%" height="7">hFile</td>
+    <td width="75%" height="7">Long，未用，设为零</td>
+  </tr>
+  <tr>
+    <td width="25%" height="7" rowspan="4">dwFlags</td>
+    <td width="75%" height="3">Long，指定下述常数的一个或多个</td>
+  </tr>
+  <tr>
+    <td width="75%" height="1">DONT_RESOLVE_DLL_REFERENCES：不对DLL进行初始化，仅用于NT</td>
+  </tr>
+  <tr>
+    <td width="75%" height="1">LOAD_LIBRARY_AS_DATAFILE：不准备DLL执行。如装载一个DLL只是为了访问它的资源，就可以改善一部分性能</td>
+  </tr>
+  <tr>
+    <td width="75%" height="2">LOAD_WITH_ALTERED_SEARCH_PATH：指定搜索的路径</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14"><p align="left">一旦不需要，用<a
+    href="FreeLibray.htm" tppabs="http://www.gxbcts.com/airfly/api/FreeLibray.htm">FreeLibrary</a>函数释放DLL</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GrayString</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GrayString">GrayString</a>, GrayStringByString</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GrayString&amp; Lib &quot;user32&quot; Alias 
+    &quot;GrayStringA&quot; (ByVal hDC As Long, ByVal hBrush As Long, ByVal lpOutputFunc As 
+    Long, ByVal lpData As Long, ByVal nCount As Long, ByVal X As Long, ByVal Y As Long, ByVal 
+    nWidth As Long, ByVal nHeight As Long)<br>
+    Declare Function GrayStringByString&amp; Lib &quot;user32&quot; Alias 
+    &quot;GrayStringA&quot; (ByVal hDC As Long, ByVal hBrush As Long, ByVal lpOutputFunc As 
+    Long, ByVal lpData As String, ByVal nCount As Long, ByVal X As Long, ByVal Y As Long, 
+    ByVal nWidth As <br>
+    Long, ByVal nHeight As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">描绘一个以灰色显示的字串。通常由Windows用于标识禁止状态。这个函数使用的是当前字体，但会忽略背景及文本颜色</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功。如果TextOut函数或回调控件绘图事件返回零，那么该函数也会返回零</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDC</td>
+    <td width="75%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hBrush</td>
+    <td width="75%">Long，用于填充灰色的一个刷子。如果为零就用当前刷子</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutputFunc</td>
+    <td width="75%">Long，指向一个函数的指针，该函数用于输出文本。通常设为零，表示使用TextOut函数。否则可将该参数设成一个进程地址。具体地址可用一个标准函数的AddressOf运算符返回，或者用一个回调控件的相关属性返回</td>
+  </tr>
+  <tr>
+    <td width="25%">lpData</td>
+    <td width="75%">Long，如果是一个字串（将lpOutputFunc设为NULL），这就表示要以灰色显示的一个字串。否则就指定一个Long型变量，将其传递给回调函数</td>
+  </tr>
+  <tr>
+    <td width="25%">nCount</td>
+    <td width="75%">Long，欲显示的字符数量。如果设为零，而且lpData是个字串，那么就用于计算字串的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">X,Y</td>
+    <td width="75%">Long，将字串封闭（约束）起来的一个矩形的X，Y坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth</td>
+    <td width="75%">Long，将字串封闭起来的一个矩形的宽度，采用设备坐标表示。如设为零，就根据字串计算出具体的值</td>
+  </tr>
+  <tr>
+    <td width="25%">nHeight</td>
+    <td width="75%">Long，将字串封闭起来的一个矩形的高度，采用设备坐标表示。如设为零，就根据字串计算出具体的值</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GrayString">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

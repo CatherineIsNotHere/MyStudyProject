@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnumEnhMetaFile</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">EnumEnhMetaFile</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function EnumEnhMetaFile Lib &quot;gdi32&quot; Alias
+    &quot;EnumEnhMetaFile&quot; (ByVal hdc As Long, ByVal hemf As Long, ByVal lpEnhMetaFunc As
+    Long, lpData As Any, lpRect As RECT) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">针对一个增强型图元文件，列举其中单独的图元文件记录。每条图元文件记录都由单个GDI命令组成。可伴随<a
+    href="PlayEnhMetaFileRecord.htm" tppabs="http://www.gxbcts.com/airfly/api/PlayEnhMetaFileRecord.htm">PlayEnhMetaFileRecord</a>函数使用，选择性的回放图元文件的一部分</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，如图元文件的所有记录都列举出来，就返回TRUE（非零）；否则返回零</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，用于输出的设备场景的句柄。只有在用回调函数进行绘图操作的时候，才要求设置这个参数</td>
+  </tr>
+  <tr>
+    <td width="25%">hemf</td>
+    <td width="77%">Long，欲列举的一个增强型图元文件的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpEnhMetaFunc</td>
+    <td width="77%">Long，指向为每个图元文件调用的一个函数的指针</td>
+  </tr>
+  <tr>
+    <td width="25%">lpData</td>
+    <td width="77%">用户自定义的值</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRect</td>
+    <td width="77%"><a href="RECT.htm" tppabs="http://www.gxbcts.com/airfly/api/RECT.htm">RECT</a>，定义图元文件边框的一个矩形</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

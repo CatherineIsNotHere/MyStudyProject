@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>TrackPopupMenuEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">TrackPopupMenuEx</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function TrackPopupMenuEx Lib &quot;user32&quot;
+    Alias &quot;TrackPopupMenuEx&quot; (ByVal hMenu As Long, ByVal un As Long, ByVal n1 As
+    Long, ByVal n2 As Long, ByVal hWnd As Long, lpTPMParams As TPMPARAMS) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">与<a href="TrackPopupMenu.htm" tppabs="http://www.gxbcts.com/airfly/api/TrackPopupMenu.htm">TrackPopupMenu</a>相似，只是它提供了额外的功能</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hMenu</td>
+    <td width="75%">Long，弹出式菜单的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">un</td>
+    <td width="75%">Long，定位标志和鼠标追踪标志的组合。参考<a
+    href="TrackPopupMenu.htm" tppabs="http://www.gxbcts.com/airfly/api/TrackPopupMenu.htm">TrackPopupMenu</a>，另外还包括两个标志：TPM_HORIZONTAL或TPM_VERTICAL。参考lpTPMParams参数的说明</td>
+  </tr>
+  <tr>
+    <td width="25%">n1,n2</td>
+    <td width="75%">Long，定义了弹出式菜单位置的一个x,y点（n1,n2），用屏幕坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">hWnd</td>
+    <td width="75%">Long，用于接收弹出式菜单命令的窗口的句柄。应该使用特定窗体的窗口句柄，该窗体有一个菜单能够与弹出式菜单一样接收相同的命令ID集</td>
+  </tr>
+  <tr>
+    <td width="25%">lpTPMParams</td>
+    <td width="75%"><a href="TPMPARAMS.htm" tppabs="http://www.gxbcts.com/airfly/api/TPMPARAMS.htm">TPMPARAMS</a>，指向一个<a
+    href="TPMPARAMS.htm" tppabs="http://www.gxbcts.com/airfly/api/TPMPARAMS.htm">TPMPARAMS</a>结构的指针。这个结构包含了一个矩形，规定了不能由这个弹出式菜单覆盖的区域。如果在un参数中指定了TPM_HORIZONTAL标志，windows就会试着设置水平位置，将弹出式菜单垂直移到这个矩形的外部。如指定了TPM_VERTICAL，那么windows会试着水平移动弹出式菜单的位置</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

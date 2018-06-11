@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SYSTEM_INFO</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="SYSTEM_INFO">SYSTEM_INFO</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">Type SYSTEM_INFO ' 36 Bytes <br>
+    dwOemID As Long<br>
+    dwPageSize As Long<br>
+    lpMinimumApplicationAddress As Long<br>
+    lpMaximumApplicationAddress As Long<br>
+    dwActiveProcessorMask As Long<br>
+    dwNumberOrfProcessors As Long<br>
+    dwProcessorType As Long<br>
+    dwAllocationGranularity As Long<br>
+    wProcessorLevel As Integer<br>
+    wProcessorRevision As Integer<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2"><p align="left">This structure contains information regarding 
+    the current computer system.</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型与说明</td>
+  </tr>
+  <tr>
+    <td width="25%">dwOemID</td>
+    <td width="75%">Long，System processor used. In Windows 95, this value is always set to 
+    zero (PROCESSOR_ARCHITECTURE_INTEL). In Windows NT, this value may be one of the following 
+    : PROCESSOR_ARCHITECTURE_INTEL, PROCESSOR_ARCHITECTURE_MIPS, PROCESSOR_ARCHITECTURE_ALPHA, 
+    PROCESSOR_ARCHITECTURE_PPC</td>
+  </tr>
+  <tr>
+    <td width="25%">dwPageSize</td>
+    <td width="75%">Long，Page size used. Also specifies the granularity of page protection 
+    and commitment.</td>
+  </tr>
+  <tr>
+    <td width="25%">lpMinimumApplicationAddress</td>
+    <td width="75%">Long，Contains the lowest memory address that applications and dynamic 
+    link libraries (DLLs) can access.</td>
+  </tr>
+  <tr>
+    <td width="25%">lpMaximumApplicationAddress</td>
+    <td width="75%">Long，Contains the highest memory address that applications and DLLs can 
+    access.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwActiveProcessorMask</td>
+    <td width="75%">Long，Contains a mask representing the set of processors available on the 
+    system. Processor zero is indicated by bit zero being set.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwNumberOrfProcessors</td>
+    <td width="75%">Long，The number of processors in this system.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwProcessorType</td>
+    <td width="75%">Long，Obsolete, but maintained for backward compatibility. Can be one of 
+    the following values: PROCESSOR_INTEL_386, PROCESSOR_INTEL_486, PROCESSOR_INTEL_PENTIUM. 
+    The following are valid on Windows NT systems only: PROCESSOR_MIPS_R4000, 
+    PROCESSOR_ALPHA_21046</td>
+  </tr>
+  <tr>
+    <td width="25%">dwAllocationGranularity</td>
+    <td width="75%">Long，Contains the allocation granularity used to allocate memory. This 
+    value is usually set to 64K.</td>
+  </tr>
+  <tr>
+    <td width="25%">wProcessorLevel</td>
+    <td width="75%">Integer，Specifies the processor level. This value depends on the 
+    PROCESSOR_ARCHITECTURE_* value in the dwOemID field. For PROCESSOR_ARCHITECTURE_INTEL, the 
+    valid values are currently: 3 for a 386 CPU, 4 for a 486 CPU, and 5 for a Pentium.</td>
+  </tr>
+  <tr>
+    <td width="25%">wProcessorRevision</td>
+    <td width="75%">Integer，Specifies the processor revision. This value depends on the 
+    PROCESSOR_ARCHITECTURE_* value in the dwOemID field.</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SYSTEM_INFO">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

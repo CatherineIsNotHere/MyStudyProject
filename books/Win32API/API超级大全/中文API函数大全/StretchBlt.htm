@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>StretchBlt</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="StretchBlt">StretchBlt</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function StretchBlt Lib &quot;gdi32&quot; Alias
+    &quot;StretchBlt&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth
+    As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As
+    Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">将一幅位图从一个设备场景复制到另一个。源和目标DC相互间必须兼容。这个函数会在设备场景中定义一个目标矩形，并在位图中定义一个源图象。源矩形会根据需要进行伸缩，以便与目标矩形的大小相符</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，目标设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="75%">Long，目标矩形左上角的x,y坐标，以逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth,nHeight</td>
+    <td width="75%">Long，目标矩形的宽度和高度，以逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">hSrcDC</td>
+    <td width="75%">Long，源设备场景。如光栅运算未指定一个源，则这个参数应为零</td>
+  </tr>
+  <tr>
+    <td width="25%">xSrc,ySrc</td>
+    <td width="75%">Long，用源DC的逻辑坐标表示的源矩形左上角位置</td>
+  </tr>
+  <tr>
+    <td width="25%">nSrcWidth,nSrcHeight</td>
+    <td width="75%">Long，分别指定用逻辑单位（以源DC为基础）传输的一幅图象的宽度和高度。如其中有一个参数的符号（指正负号）与对应的目标参数不符，位图就会在对应的轴上作镜像转换处理</td>
+  </tr>
+  <tr>
+    <td width="25%">dwRop</td>
+    <td width="75%">Long，传输过程中进行的光栅运算。如刷子属于光栅运算的一部分，就使用选入目标DC的刷子</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">可用<a href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>函数判断特定的设备场景是否支持此函数<br>
+    不可选择对源位图进行剪切或旋转处理，源位图也不能是一个图元文件设备场景</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#StretchBlt">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

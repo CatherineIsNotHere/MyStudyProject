@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RoundRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RoundRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RoundRect Function</H1>
+
+<P><CODE class="declare">Declare Function RoundRect Lib &quot;gdi32.dll&quot; (ByVal hdc As Long, X1 As Long, Y1 As Long, X2 As Long, Y2 As Long, X3 As Long, Y3 As Long) As Long</CODE>
+
+<P><B>RoundRect</B> draws a rectangle with rounded corners on a graphics-capable device.  It is drawn in the color of the object's <VAR>.ForeColor</VAR> property.  The first two (x,y) coordinate pairs specified are the upper-left and lower-right corners a square-cornered rectangle.  The third pair specifies the width and height of the rounded corner to use.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>hdc</VAR><DD>The device context of the object to draw on.
+<DT><VAR>X1</VAR><DD>The x coordinate of the upper-left corner of the corresponding square-edged rectangle.
+<DT><VAR>Y1</VAR><DD>The y coordinate of the upper-left corner of the corresponding square-edged rectangle.
+<DT><VAR>X2</VAR><DD>The x coordinate of the lower-right corner of the corresponding square-edged rectangle.
+<DT><VAR>Y2</VAR><DD>The y coordinate of the lower-right corner of the corresponding square-edged rectangle.
+<DT><VAR>X3</VAR><DD>The width of the rounded corner.
+<DT><VAR>Y3</VAR><DD>The height of the rounded corner.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Draw a rounded rectangle with rounded corners 10 wide and 5 high
+' The rectangle goes from (10,10)-(150,150) and is blue
+Picture1.ForeColor = RGB(0, 0, 255)  ' blue
+x = RoundRect(Picture1.hDC, 10, 10, 150, 150, 10, 5)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="rectangle.html">Rectangle</A><BR>
+<B>Category:</B> <A href="../index.html#graphics" rel="index">Graphics</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/roundrect.html">http://members.aol.com/Borg953/api/functions/roundrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

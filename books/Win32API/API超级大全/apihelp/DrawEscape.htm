@@ -1,0 +1,84 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawEscape</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">DrawEscape</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function DrawEscape Lib &quot;gdi32&quot; Alias 
+    &quot;DrawEscape&quot; (ByVal hdc As Long, ByVal nEscape As Long, ByVal cbInput As Long, 
+    ByVal lpszInData As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">换码（Escape）函数将数据直接发至显示设备驱动程序（在vb里使用：能够使用。但由于Escape对设备有较强的依赖性，所以除非万不得以，尽量不要用它）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示错误（QUERYESCSUPPORT换码例外；返回TRUE表示支持特定的换码；否则返回零）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，显示设备的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">nEscape</td>
+    <td width="77%">Long，指定欲执行的换码的一个常数</td>
+  </tr>
+  <tr>
+    <td width="25%">cbInput</td>
+    <td width="77%">Long，输入缓冲区的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpszInData</td>
+    <td width="77%">String，输入字串或缓冲区</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">可用QUERYESCSUPPORT换码判断一个特定的换码是否得到当前显示驱动程序的支持</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetTextAlign</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetTextAlign">GetTextAlign</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Declare Function GetTextAlign Lib &quot;gdi32&quot; Alias 
+    &quot;GetTextAlign&quot; (ByVal hdc As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">接收一个设备场景当前的文本对齐标志</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Long，当前的文本对齐标志。GDI_ERROR表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a>。文本的对齐方法由几个常数的组合决定。其中每个常数都来自下述不同的组别。参考下面总结的文本对齐标志</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">水平对齐标志</td>
+    <td width="38%">TA_CENTER</td>
+    <td width="37%">文本在约束矩形内居中显示</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_LEFT</td>
+    <td width="37%">文本在约束矩形内左对齐（默认设置）</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_RIGHT</td>
+    <td width="37%">文本在约束矩形内右对齐</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">垂直对齐标志</td>
+    <td width="75%" colspan="2">定义文本输出函数的Y参数的含义</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_BASELINE</td>
+    <td width="37%">Y参数指定字体基线的位置</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_BOTTOM</td>
+    <td width="37%">Y参数指定约束矩形底边的位置</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_TOP</td>
+    <td width="37%">Y参数指定约束矩形顶边的位置（默认设置）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="2">当前位置</td>
+    <td width="38%">TA_NOUPDATECP</td>
+    <td width="37%">文本输出函数不使用设备场景当前的绘图位置</td>
+  </tr>
+  <tr>
+    <td width="38%">TA_UPDATECP</td>
+    <td width="37%">文本输出函数使用设备场景当前的绘图位置。完成绘图后，输出函数会对当前位置进行更新。文本输出函数的X和Y参数会被忽略——绘图会以当前位置为起点</td>
+  </tr>
+  <tr>
+    <td width="25%">其他</td>
+    <td width="38%">TA_RTLREADING</td>
+    <td width="37%">文本输出从右到左进行。仅在Windows95下适用于希伯来和阿拉伯字体</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%" colspan="2">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3"><p align="left">参考对<a href="SetTextAlign.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/SetTextAlign.htm">SetTextAlign</a>函数的说明，进一步了解文本对齐标志的情况</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetTextAlign">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

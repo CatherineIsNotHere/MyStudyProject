@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>MaskBlt</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="MaskBlt">MaskBlt</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function MaskBlt Lib &quot;gdi32&quot; Alias
+    &quot;MaskBlt&quot; (ByVal hdcDest As Long, ByVal nXDest As Long, ByVal nYDest As Long,
+    ByVal nWidth As Long, ByVal nHeight As Long, ByVal hdcSrc As Long, ByVal nXSrc As Long,
+    ByVal nYSrc As Long, ByVal hbmMask As Long, ByVal xMask As Long, ByVal yMask As Long,
+    ByVal dwRop As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">执行复杂的图象传输，同时进行掩模（MASK）处理</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdcDest</td>
+    <td width="75%">Long，目标设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">nXDest,nYDest</td>
+    <td width="75%">Long，目标图象左上角的x,y坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth,nHeight</td>
+    <td width="75%">Long，图象在目标设备场景中的宽度和高度</td>
+  </tr>
+  <tr>
+    <td width="25%">hdcSrc</td>
+    <td width="75%">Long，源设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">nXSrc,nYSrc</td>
+    <td width="75%">Long，源图象的左上角x,y坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">hbmMask</td>
+    <td width="75%">Long，作为掩模使用的一幅单色位图的句柄。如果dwRop代码包括一个源，那么这幅位图必须与源尺寸相同，否则必须与目标尺寸相符</td>
+  </tr>
+  <tr>
+    <td width="25%">xMask,yMask</td>
+    <td width="75%">Long，单色掩模位图的x,y偏移。这样便允许我们创建一幅使用了多个掩模的大型位图</td>
+  </tr>
+  <tr>
+    <td width="25%">dwRop</td>
+    <td width="75%">Long，一种特殊的光栅运算，在传输过程中使用</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">适用平台</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">Windows NT</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">dwRop代码是一种非标准的光栅运算代码，由两个普通的光栅运算代码组成：一个前景代码以及一个背景代码<br>
+    在掩模位图设为1的每个像素处，都在传输过程中应用前景转换处理。如对应的掩蔽位图像素为零，则应用背景转换。如果未指定掩模位图，那么这个函数就执行与<a
+    href="BitBlt.htm" tppabs="http://www.gxbcts.com/airfly/api/BitBlt.htm">BitBlt</a>相同的操作<br>
+    如果对源应用了旋转或剪切处理，则函数调用会失败<br>
+    注意可用<a href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>判断这个函数是否得到了一个特定设备场景的支持</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#MaskBlt">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

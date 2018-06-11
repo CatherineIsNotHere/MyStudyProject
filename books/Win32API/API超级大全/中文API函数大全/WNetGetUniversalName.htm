@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WNetGetUniversalName</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="WNetGetUniversalName">WNetGetUniversalName</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function WNetGetUniversalName Lib &quot;mpr&quot;
+    Alias &quot;WNetGetUniversalNameA&quot; (ByVal lpLocalPath As String, ByVal dwInfoLevel As
+    Long, lpBuffer As Any, lpBufferSize As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">获取网络中一个文件的远程名称以及/或者UNC（统一命名规范）名称。例如，假设一个已连接的远程驱动器是\\othersystem\CDrive，它对应的本地驱动器是F:，而且在它的子目录temp中包含了文件xyz.doc。那么运算结果如下：LocalPath
+    xyz.doc 或 f:\temp\xyz.doc（或者文件的任何相对路径名）<br>
+    UNC 名称： \\othersystem\CDrive\temp\xyz.doc<br>
+    连接名称： \\othersystem\CDrive<br>
+    剩余名称：&nbsp; \temp\xyz.doc<br>
+    它们分别对应于由这个函数装载的REMOTE_NAME_INFO结构的字段，对该结构的定义如下：<br>
+    Type REMOTE_NAME_INFO<br>
+    &nbsp;&nbsp;&nbsp; pUniversalName As Long<br>
+    &nbsp;&nbsp;&nbsp; pConnectionName As Long<br>
+    &nbsp;&nbsp;&nbsp; pRemainingPath As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，零表示成功。会设置<a href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a>。如<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a>是ERROR_EXTENDED_ERROR，则可用<a
+    href="WNetGetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/WNetGetLastError.htm">WNetGetLastError</a>取得额外的错误信息</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpLocalPath</td>
+    <td width="76%" colspan="2">String，磁盘文件的名字</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">dwInfoLevel</td>
+    <td width="76%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">UNIVERSAL_NAME_INFO_LEVEL</td>
+    <td width="38%">只设置pUniversalName字段</td>
+  </tr>
+  <tr>
+    <td width="37%">REMOTE_NAME_INFO_LEVEL</td>
+    <td width="38%">设置REMOTE_NAME_INFO结构中的所有三个字段</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBuffer</td>
+    <td width="76%" colspan="2">Any，指定用于装载UNC信息的一个缓冲区。缓冲区起点与一个REMOTE_NAME_INFO结构对应</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBufferSize</td>
+    <td width="76%" colspan="2">Long，以字节为单位指定lpBuffer缓冲区的长度。如缓冲区不够大，则设为需要的缓冲区长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#WNetGetUniversalName">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

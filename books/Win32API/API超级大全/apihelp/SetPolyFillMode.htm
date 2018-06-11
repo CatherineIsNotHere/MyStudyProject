@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetPolyFillMode</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetPolyFillMode</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function SetPolyFillMode Lib &quot;gdi32&quot; Alias 
+    &quot;SetPolyFillMode&quot; (ByVal hdc As Long, ByVal nPolyFillMode As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">设置多边形的填充模式。参考<a
+    href="GetPolyFillMode.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetPolyFillMode.htm">GetPolyFillMode</a>函数的注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，如执行成功，返回前一种多边形填充模式。零表示出错</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="78%" colspan="2">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">nPolyFillMode</td>
+    <td width="78%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">ALTERNATE</td>
+    <td width="38%">交替填充</td>
+  </tr>
+  <tr>
+    <td width="37%">WINDING</td>
+    <td width="38%">根据绘图方向填充</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

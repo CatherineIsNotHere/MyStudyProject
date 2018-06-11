@@ -1,0 +1,263 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetSystemMetrics</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetSystemMetrics">GetSystemMetrics</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetSystemMetrics Lib &quot;user32&quot; 
+    Alias &quot;GetSystemMetrics&quot; (ByVal nIndex As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回与windows环境有关的信息</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，取决于具体的常数索引</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">nIndex</td>
+    <td width="77%">Long，常数，指定欲获取的信息；如下表所示</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">nIndex常数设置</td>
+  </tr>
+  <tr>
+    <td width="25%">常数定义</td>
+    <td width="77%">取得信息</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_ARRANGE</td>
+    <td width="77%">设置windows如何排列最小化窗口的一个标志。参考api32.txt中的ARW常数</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CLEANBOOT</td>
+    <td width="77%">指定启动模式。0=普通模式；1=带网络支持的安全模式</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CMETRICS</td>
+    <td width="77%">可用系统环境的数量</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CMOUSEBUTTON</td>
+    <td width="77%">鼠标按钮（按键）的数量。如没有鼠标，就为零</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXBORDER, SM_CYBORDER</td>
+    <td width="77%">尺寸不可变边框的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXCURSOR, SM_CYCURSOR</td>
+    <td width="77%">标准指针大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXDLGFRAME, SM_CYDLGFRAME</td>
+    <td width="77%">对话框边框的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXDOUBLECLK, SM_CYDOUBLECLK</td>
+    <td width="77%"><a name="双击区域">双击区域</a>的大小（参考<a href="#注解">注解</a>）</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXFRAME, SM_CYFRAME</td>
+    <td width="77%">尺寸可变边框的大小（在win95和nt 4.0中使用SM_C?FIXEDFRAME）</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXFULLSCREEN, SM_CYFULLSCREEN</td>
+    <td width="77%">最大化窗口客户区的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXHSCROLL, SM_CYHSCROLL</td>
+    <td width="77%">水平滚动条上的箭头大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXHTHUMB, SM_CYHTHUMB</td>
+    <td width="77%">滚动块在水平滚动条上的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXICON, SM_CYICON</td>
+    <td width="77%">标准图标的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXICONSPACING, SM_CYICONSPACING</td>
+    <td width="77%">桌面图标之间的间隔距离。在win95和nt 4.0中是指大图标的间距</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMAXIMIZED, SM_CYMAXIMIZED</td>
+    <td width="77%">最大化窗口的默认尺寸</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMAXTRACK, SM_CYMAXTRACK</td>
+    <td width="77%">改变窗口大小时，最大的轨迹宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMENUCHECK, SM_CYMENUCHECK</td>
+    <td width="77%">菜单复选号位图的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMENUSIZE, SM_CYMENUSIZE</td>
+    <td width="77%">菜单栏上的按钮大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMIN, SM_CYMIN</td>
+    <td width="77%">窗口的最小尺寸</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMINIMIZED, SM_CYMINIMIZED</td>
+    <td width="77%">最小化的窗口必须填充进去的一个矩形小于或等于SM_C?ICONSPACING</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXMINTRACK, SM_CYMINTRACK</td>
+    <td width="77%">窗口的最小轨迹宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXSCREEN, SM_CYSCREEN</td>
+    <td width="77%">屏幕大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXSIZE, SM_CYSIZE</td>
+    <td width="77%">标题栏位图的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXSIZEFRAME, SM_CYSIZEFRAME</td>
+    <td width="77%">具有WS_THICKFRAME样式的窗口的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXSMICON, SM_CYSMICON</td>
+    <td width="77%">小图标的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXSMSIZE, SM_CYSMSIZE</td>
+    <td width="77%">小标题按钮的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CXVSCROLL, SM_CYVSCROLL</td>
+    <td width="77%">垂直滚动条中的箭头按钮的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CYCAPTION</td>
+    <td width="77%">窗口标题的高度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CYKANJIWINDOW</td>
+    <td width="77%">Kanji窗口的大小（Height of Kanji window）</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CYMENU</td>
+    <td width="77%">菜单高度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CYSMCAPTION</td>
+    <td width="77%">小标题的高度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_CYVTHUMB</td>
+    <td width="77%">垂直滚动条上滚动块的高度</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_DBCSENABLED</td>
+    <td width="77%">如支持双字节则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_DEBUG</td>
+    <td width="77%">如windows的调试版正在运行，则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_MENUDROPALIGNMENT</td>
+    <td width="77%">如弹出式菜单对齐菜单栏项目的左侧，则为零</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_MIDEASTENABLED</td>
+    <td width="77%">允许了希伯来和阿拉伯语</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_MOUSEPRESENT</td>
+    <td width="77%">如安装了鼠标则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_MOUSEWHEELPRESENT</td>
+    <td width="77%">如安装了带轮鼠标则为TRUE；只适用于nt 4.0</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_NETWORK</td>
+    <td width="77%">如安装了网络，则设置位0。其他位保留未用</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_PENWINDOWS</td>
+    <td width="77%">如装载了支持笔窗口的DLL，则表示笔窗口的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_SECURE</td>
+    <td width="77%">如安装了安全（保密）机制，则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_SHOWSOUNDS</td>
+    <td width="77%">强制视觉提示播放声音</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_SLOWMACHINE</td>
+    <td width="77%">系统速度太慢，但仍在运行中（System is too slow for effective 
+    use but is being run anyway）</td>
+  </tr>
+  <tr>
+    <td width="25%">SM_SWAPBUTTON</td>
+    <td width="77%">如左右鼠标键已经交换，则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><a name="注解">注解</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><a href="#双击区域">双击区域</a>指定屏幕上一个特定的显示区域，只有在这个区域内连续进行两次鼠标单击，才有可能被当作双击事件处理</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">其他</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">常数 SM_ARRANGE, SM_CLEANBOOT, SM_CMETRICS, SM_C?MAXIMIZED, 
+    SM_C?MAXTRACK, SM_C?SIZEFRAME, SM_C?SMICON, SM_C?SMSIZE, SM_CYSMCAPTION, SM_SECURE, 
+    SM_SHOWSOUNDS, and SM_SLOWMACHINE 未获 NT 3.51 及更早版本的支持</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetSystemMetrics">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

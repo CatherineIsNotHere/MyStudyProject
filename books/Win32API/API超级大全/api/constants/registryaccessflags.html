@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Registry Access Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Registry Access Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Registry Access Flags</H1>
+
+<P><PRE><CODE class="tc" style="padding-left: 5%;">Const KEY_ALL_ACCESS = ((&amp;H1F0000 Or KEY_QUERY_VALUE Or KEY_SET_VALUE Or KEY_CREATE_SUB_KEY Or KEY_ENUMERATE_SUB_KEYS Or KEY_NOTIFY Or KEY_CREATE_LINK) And (Not &amp;H100000))
+Const KEY_CREATE_LINK = &amp;H20
+Const KEY_CREATE_SUB_KEY = &amp;H4
+Const KEY_ENUMERATE_SUB_KEYS = &amp;H8
+Const KEY_EXECUTE = KEY_READ
+Const KEY_NOTIFY = &amp;H10
+Const KEY_QUERY_VALUE = &amp;H1
+Const KEY_READ = ((&amp;H20000 Or KEY_QUERY_VALUE Or KEY_ENUMERATE_SUB_KEYS Or KEY_NOTIFY) And (Not &amp;H100000))
+Const KEY_SET_VALUE = &amp;H2
+Const KEY_WRITE = ((&amp;H20000 Or KEY_SET_VALUE Or KEY_CREATE_SUB_KEY) And (Not &amp;H100000))</CODE></PRE>
+
+The <B>registry access flags</B> specify what levels of registry access to allow the program.  They can be combined in any logical combination.
+
+<DL>
+<DT><VAR>KEY_ALL_ACCESS</VAR><DD>Permission for all general access.
+<DT><VAR>KEY_CREATE_LINK</VAR><DD>Permission to create symbolic links.
+<DT><VAR>KEY_CREATE_SUB_KEY</VAR><DD>Permission to create subkeys.
+<DT><VAR>KEY_ENUMERATE_SUB_KEYS</VAR><DD>Permission to enumerate subkeys.
+<DT><VAR>KEY_EXECUTE</VAR><DD>Permission to read.
+<DT><VAR>KEY_NOTIFY</VAR><DD>Permission to give change notification.
+<DT><VAR>KEY_QUERY_VALUE</VAR><DD>Permission to query subkey data.
+<DT><VAR>KEY_READ</VAR><DD>Permission for general read access.
+<DT><VAR>KEY_SET_VALUE</VAR><DD>Permission to set subkey data.
+<DT><VAR>KEY_WRITE</VAR><DD>Permission for general write access.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/regcreatekeyex.html">RegCreateKeyEx</A>, <A href="../functions/regopenkeyex.html">RegOpenKeyEx</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/registryaccessflags.html">http://members.aol.com/Borg953/api/constants/registryaccessflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

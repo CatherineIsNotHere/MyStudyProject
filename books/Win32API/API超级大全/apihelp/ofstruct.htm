@@ -1,0 +1,110 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>OFSTRUCT</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="OFSTRUCT">OFSTRUCT</a>——请参考<a
+    href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type OFSTRUCT<br>
+    cBytes As Byte<br>
+    fFixedDisk As Byte<br>
+    nErrCode As Integer<br>
+    Reserved1 As Integer<br>
+    Reserved2 As Integer<br>
+    szPathName As String * 128<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">请参考<a href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">cBytes</td>
+    <td width="75%">Byte，设置成结构的长度（目前是136）</td>
+  </tr>
+  <tr>
+    <td width="25%">fFixedDisk</td>
+    <td width="75%">Byte，如文件位于硬盘（而不是可拆卸的软盘），则这个字节的值不为零</td>
+  </tr>
+  <tr>
+    <td width="25%">nErrCode</td>
+    <td width="75%">Integer，错误代码，参考<a href="OpenFile.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm">OpenFile</a>函数的<a
+    href="OpenFile.htm#OpenFile-2" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenFile.htm#OpenFile-2">表OpenFile-2</a>（OFSTRUCT出错代码）</td>
+  </tr>
+  <tr>
+    <td width="25%">Reserved1</td>
+    <td width="75%" rowspan="2">Integer，？（资料里没有这两个字段的说明）</td>
+  </tr>
+  <tr>
+    <td width="25%">Reserved2</td>
+  </tr>
+  <tr>
+    <td width="25%">szPathName</td>
+    <td width="75%">String，文件的完整路径名。这个字串使用的是OEM字符集</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如指定的文件名未提供完整路径，或指定了OF_SEARCH标志，就会在下述地方查找文件：<br>
+    1——当前目录<br>
+    2——windows系统目录。在Windows NT中，会先搜索32位系统目录（System32），再搜索16位系统目录（System）<br>
+    3——windows目录<br>
+    4——在PATH环境变量中指定的目录</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">其他</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type OFSTRUCT<br>
+    cBytes As Byte<br>
+    fFixedDisk As Byte<br>
+    nErrCode As Integer<br>
+    Reserved1 As Integer<br>
+    Reserved2 As Integer<br>
+    szPathName(OFS_MAXPATHNAME) As Byte<br>
+    End Type<br>
+    从vb的api文本查看器中复制的类型定义与以上的不同，请注意</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#OFSTRUCT">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

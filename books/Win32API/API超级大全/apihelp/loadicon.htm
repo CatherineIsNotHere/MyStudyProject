@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LoadIcon</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">LoadIcon, LoadIconBynum</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function LoadIcon&amp; Lib &quot;user32&quot; Alias 
+    &quot;LoadIconA&quot; (ByVal hInstance As Long, ByVal lpIconName As String)<br>
+    Declare Function LoadIconBynum&amp; Lib &quot;user32&quot; Alias &quot;LoadIconA&quot; 
+    (ByVal hInstance As Long, ByVal lpIconName As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">从指定的模块或应用程序实例中载入一个图标。其中，LoadIconBynum是LoadIcon函数的类型安全声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，执行成功则返回已载入的图标的句柄；零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hInstance</td>
+    <td width="75%">Long，一个DLL的模块句柄；或者一个实例句柄，指定包含了图标的可执行程序</td>
+  </tr>
+  <tr>
+    <td width="25%">lpIconName</td>
+    <td width="75%">String，作为一个字串，指定欲载入的图标资源。作为一个长整数值，指定欲载入的资源ID；或者设置一个常数，代表某幅固有系统图标。如装载的是一个固有系统图标，注意hInstance参数应设为零。在api32.txt文件中以前缀IDI_ 
+    作为标志</td>
+  </tr>
+  <tr>
+    <td width="25%">　</td>
+    <td width="75%">　</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在Windows 95和Win16环境中，这个函数只能载入标准尺寸的图标。用<a
+    href="GetSystemMetrics.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetSystemMetrics.htm">GetSystemMetrics</a>可以获得SM_CXICON 和 SM_CYICON标准图标设置。用<a
+    href="LoadImage.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LoadImage.htm">LoadImage</a>则可载入非标准尺寸的图标<br>
+    文件中可能包含了同一个图标资源的多种版本。这个函数会自动挑选与当前显示模式最相配的一种</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

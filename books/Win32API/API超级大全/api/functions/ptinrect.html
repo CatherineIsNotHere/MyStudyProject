@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: PtInRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,PtInRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>PtInRect Function</H1>
+
+<P><CODE class="declare">Declare Function PtInRect Lib &quot;user32.dll&quot; (lpRect As <A href="../types/rect.html">RECT</A>, ByVal x As Long, ByVal y As Long) As Long</CODE>
+
+<P><B>PtInRect</B> determines if a point lies inside or outside of a rectangle.  Note that Windows considers the left and top edges of a rectangle to be inside it, and the right and bottom edges to be outside.  The function returns 1 if the point is inside or 0 if it is outside.
+
+<DL>
+<DT><VAR>lpRect</VAR><DD>The rectangle to look inside.
+<DT><VAR>x</VAR><DD>The x coordinate of the point to determine if it is inside or outside.
+<DT><VAR>y</VAR><DD>The y coordinate of the point to determine if it is inside or outside.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">'Example of inside/outside a rectangle
+Dim r As RECT
+x = SetRect(r, 50, 50, 150, 150)  ' API function sets r = (50,50)-(150,150)
+Debug.Print PtInRect(r, 75, 100)  ' returns 1 -- inside
+Debug.Print PtInRect(r, 100, 100)  ' returns 0 -- outside</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/ptinrect.html">http://members.aol.com/Borg953/api/functions/ptinrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

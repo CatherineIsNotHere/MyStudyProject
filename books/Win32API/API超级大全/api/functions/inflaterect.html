@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: InflateRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,InflateRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>InflateRect Function</H1>
+
+<P><CODE class="declare">Declare Function InflateRect Lib &quot;user32.dll&quot; (lpRect As <A href="../types/rect.html">RECT</A>, ByVal x As Long, ByVal y As Long) As Long</CODE>
+
+<P><B>InflateRect</B> increases or decreases the size of a rectangle.  The values to inflate the rectangle by are added to both sides of it, so in reality the width and/or height of the rectangle increases by double what you pass to the function.  For example, if you pass 20 as <VAR>x</VAR>, the left and right sides will both be extended by 20, so the total width will be 40 more.  Positive values increase the size, while negative values decrease it.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpRect</VAR><DD>The rectangle to change the size of.
+<DT><VAR>x</VAR><DD>The value to expand the left and right sides by.  Positive values increase the width; negative values decrease it.
+<DT><VAR>y</VAR><DD>The value to expand the top and bottom by.  Positive values increase the height; negative values decrease it.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Expand a rectangle by 30 left and right and -10 on top and bottom
+Dim r As RECT
+x = SetRect(r, 50, 50, 100, 100)  ' API sets r = (50,50)-(100,100)
+x = InflateRect(r, 30, -10)  ' now r = (20,60)-(130,90)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="offsetrect.html">OffsetRect</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/inflaterect.html">http://members.aol.com/Borg953/api/functions/inflaterect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

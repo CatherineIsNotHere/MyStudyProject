@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetDC</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetDC</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetDC Lib &quot;user32&quot; Alias
+    &quot;GetDC&quot; (ByVal hwnd As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">获取指定窗口的设备场景</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，指定窗口的设备场景句柄，出错则为0</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="75%">Long，将获取其设备场景的窗口的句柄。若为0，则要获取整个屏幕的DC</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">若窗口所属类具有CS_OWNDC，
+    CS_CLASSDC 或 CS_PARENTDC样式，则获取的设备场景属窗口或类专有。vb的窗体和图片框控件也是这种情况，它用该函数取得的结果和控件的hdc属性相同（在autoredraw为FALSE时）。您无须考虑取回的窗体或图片框控件设备场景的默认状态，特别是绘图对象。另外，默认状态随着窗体和控件autoredraw属性的设置而不同。在设备场景释放前您必须回复其状态为初始值。对于没有CS_OWNDC，
+    CS_CLASSDC 或 CS_PARENTDC样式的窗口的设备场景，可从通用windows缓存中获取，其状态为默认值。缓存中可用设备场景数量是有限的，因此只要可能就释放设备场景<br>
+    用本函数获取的设备场景一定要用<a href="ReleaseDC.htm" tppabs="http://www.gxbcts.com/airfly/api/ReleaseDC.htm">ReleaseDC</a>函数释放，不能用<a
+    href="DeleteDC.htm" tppabs="http://www.gxbcts.com/airfly/api/DeleteDC.htm">DeleteDC</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

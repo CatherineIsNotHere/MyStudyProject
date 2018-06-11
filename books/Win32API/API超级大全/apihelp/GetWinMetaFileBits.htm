@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetWinMetaFileBits</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetWinMetaFileBits">GetWinMetaFileBits</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetWinMetaFileBits Lib &quot;gdi32&quot; 
+    Alias &quot;GetWinMetaFileBits&quot; (ByVal hemf As Long, ByVal cbBuffer As Long, 
+    lpbBuffer As Byte, ByVal fnMapMode As Long, ByVal hdcRef As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">通过在一个缓冲区中填充用于标准图元文件的数据，将一个增强型图元文件转换成标准windows图元文件</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，以字节数表示的图元文件长度。如lpbBuffer为NULL（在这种情况下用一个别名指定ByVal 
+    As Long，从而传递一个NULL值）——返回字节数组的长度。零表示出错（原文：The 
+    size in bytes of the metafile. If lpbBuffer is null (use an alias with the parameter 
+    specified ByVal as Long to pass null to this function)-returns the required size of the 
+    byte array. Zero on error.）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hemf</td>
+    <td width="77%">Long，欲转换的增强型图元文件的句柄。函数调用完毕后，该句柄仍然保持有效</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuffer</td>
+    <td width="77%">Long，目标缓冲区的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpbBuffer</td>
+    <td width="77%">Byte，作为目标缓冲区使用的一个字节数组的第一个字节。这个数组的长度至少为cbBuffer个字节</td>
+  </tr>
+  <tr>
+    <td width="25%">fnMapMode</td>
+    <td width="77%">Long，转换时采用的映射（对应）模型。通常用MM_ANISOTROPIC创建一个可扩展的图元文件</td>
+  </tr>
+  <tr>
+    <td width="25%">hdcRef</td>
+    <td width="77%">Long，一个参考设备场景，用于决定新图元文件采用的参考分辨率</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">有些增强型图元文件命令没有对应的标准图元文件命令。这些命令会转换成最接近的命令，或者丢弃。结果生成的图元文件已指定了窗口的显示范围。窗口的起点是0，0</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetWinMetaFileBits">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

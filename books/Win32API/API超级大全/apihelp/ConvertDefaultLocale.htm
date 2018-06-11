@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ConvertDefaultLocale</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">ConvertDefaultLocale</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function ConvertDefaultLocale Lib 
+    &quot;KERNEL32&quot; Alias &quot;ConvertDefaultLocale&quot; (ByVal Locale As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">将一个特殊的地方标识符转换成真实的地方ID</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，如执行成功，返回实际的地方ID。如失败则返回传递给Locale参数的值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">Locale</td>
+    <td width="77%">Long，如设为常数LOCALE_SYSTEM_DEFAULT和LOCALE_USER_DEFAULT，可分别接收默认的系统或用户地方设置。如设为零，则取得语言方面的地方设置。主语言ID用于接收采用了默认子语言的地方信息</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">用LOCALE_SYSTEM_DEFAULT和LOCALE_USER_DEFAULT这两个值调用函数时，得到的结果与<a
+    href="GetSystemDefaultLCID.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetSystemDefaultLCID.htm">GetSystemDefaultLCID</a> 和 <a
+    href="GetUserDefaultLCID.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetUserDefaultLCID.htm">GetUserDefaultLCID</a>函数是一样的</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

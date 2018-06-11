@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetObjectAPI</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetObjectAPI</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetObjectAPI&amp; Lib &quot;gdi32&quot;
+    Alias &quot;GetObjectA&quot; (ByVal hObject As Long, ByVal nCount As Long, lpObject As
+    Any)</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">取得对指定对象进行说明的一个结构。windows手册建议用GetObject这个名字来引用该函数。GetObjectAPI在vb中用于避免与GetObject关键字混淆</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，如lpObject设为零（用ByVal As Long在这种情况下传递一个NULL参数），则必须设置缓冲区的长度。如执行成功，返回载入结构内部的实际字节数；如失败，返回零值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hObject</td>
+    <td width="77%">Long，画笔、刷子、字体、位图或调色板等对象的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">nCount</td>
+    <td width="77%">Long，欲取回的字节数。通常是由lpObject定义的那个结构的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpObject</td>
+    <td width="77%">任何类型，用于容纳对象数据的结构。针对画笔，通常是一个<a
+    href="LOGPEN.htm" tppabs="http://www.gxbcts.com/airfly/api/LOGPEN.htm">LOGPEN</a>结构；针对扩展画笔，通常是EXTLOGPEN；针对字体是<a
+    href="LOGBRUSH.htm" tppabs="http://www.gxbcts.com/airfly/api/LOGBRUSH.htm">LOGBRUSH</a>；针对位图是BITMAP；针对DIBSection位图是DIBSECTION；针对调色板，应指向一个整型变量，代表调色板中的条目数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

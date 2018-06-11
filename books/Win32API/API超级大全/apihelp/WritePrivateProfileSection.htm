@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WritePrivateProfileSection</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">WritePrivateProfileSection</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" height="234" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2" height="14">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="28">Declare Function WritePrivateProfileSection Lib 
+    &quot;kernel32&quot; Alias &quot;WritePrivateProfileSectionA&quot; (ByVal lpAppName As 
+    String, ByVal lpString As String, ByVal lpFileName As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">为一个初始化文件（.ini）中指定的小节设置所有项名和值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" height="14">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">参数</td>
+    <td width="75%" height="14">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">lpAppName</td>
+    <td width="75%" height="14">String，要设置的小节。这个字串不区分大小写</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">lpString</td>
+    <td width="75%" height="14">String，项和值字串的一个列表。每个字串都用一个NULL字符分隔，最后一个字串后面用两个NULL表示中止。如lpAppName指定的小节不存在，则用那个名字新建一个小节，并将其追加到初始化文件的最后。如果存在，则当前的所有项名和值都会被这个缓冲区中指定的数据取代</td>
+  </tr>
+  <tr>
+    <td width="25%" height="14">lpFileName</td>
+    <td width="75%" height="14">String，初始化文件的名字。如指定了一个完整路径，而且文件不存在，就会产生错误。如只指定了文件名，而且文件不存在，就在当前的windows目录中创建它</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

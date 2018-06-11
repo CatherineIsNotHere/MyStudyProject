@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: sndPlaySound Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,sndPlaySound" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>sndPlaySound Function</H1>
+
+<P><CODE class="declare">Declare Function sndPlaySound Lib &quot;winmm.dll&quot; Alias &quot;sndPlaySoundA&quot; (ByVal lpszSoundName As String, ByVal uFlags As Long) As Long</CODE>
+
+<P><B>sndPlaySound</B> plays either a .WAV file or a system-defined sound (depending on which flags are set).  If the <VAR>SND_NODEFAULT</VAR> flag is used, the function returns 0 if the .WAV file (or system sound) cannot be found and 1 if it is.  If it is not set, the function always returns 1 and plays the Windows Default sound if the specified sound cannot be found.
+
+<DL>
+<DT><VAR>lpszSoundName</VAR><DD>Either the path and filename of the .WAV file to play, or the name of the system sound to play.
+<DT><VAR>uFlags</VAR><DD>Zero or more of the <A href="../constants/soundflags.html">sound flags</A>.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Play the Empty Recycle Bin sound and halt
+'  execution until it is finished playing
+x = sndPlaySound(&quot;EmptyRecycleBin&quot, SND_ALIAS Or SND_SYNC)</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#audio" rel="index">Audio</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/sndplaysound.html">http://members.aol.com/Borg953/api/functions/sndplaysound.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WNetGetLastError</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">WNetGetLastError</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function WNetGetLastError Lib &quot;mpr.dll&quot; 
+    Alias &quot;WNetGetLastErrorA&quot; (lpError As Long, ByVal lpErrorBuf As String, ByVal 
+    nErrorBufSize As Long, ByVal lpNameBuf As String, ByVal nNameBufSize As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">获取网络错误的扩展错误信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零表示成功。ERROR_INVALID_ADDRESS表示缓冲区无效</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpError</td>
+    <td width="75%">Long，指定一个变量，用于装载网络错误代码。具体的代码由网络供应商决定</td>
+  </tr>
+  <tr>
+    <td width="25%">lpErrorBuf</td>
+    <td width="75%">String，指定一个字串缓冲区，用于装载网络错误的说明</td>
+  </tr>
+  <tr>
+    <td width="25%">nErrorBufSize</td>
+    <td width="75%">Long，lpErrorBuf缓冲区包含的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpNameBuf</td>
+    <td width="75%">String，用于装载网络供应商名字的字串缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">nNameBufSize</td>
+    <td width="75%">Long，lpNameBuf缓冲区的字符数量</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

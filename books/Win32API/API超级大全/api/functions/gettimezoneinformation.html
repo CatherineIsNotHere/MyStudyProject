@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetTimeZoneInformation Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetTimeZoneInformation" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetTimeZoneInformation Function</H1>
+
+<P><CODE class="declare">Declare Function GetTimeZoneInformation Lib &quot;kernel32.dll&quot; (lpTimeZoneInformation As <A href="../types/time_zone_information.html">TIME_ZONE_INFORMATION</A>) As Long</CODE>
+
+<P><B>GetTimeZoneInformation</B> reads the computer's current time zone settings.  Since Windows handles all of the system clock settings, there usually isn't a need for other programs to use this information.  The information is put into the variable passed as <VAR>lpTimeZoneInformation</VAR>.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpTimeZoneInformation</VAR><DD>Variable which receives the information about the system time zone.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the name of the standard-time time zone's name
+Dim tzi As TIME_ZONE_INFORMATION
+x = GetTimeZoneInformation(tzi)
+For c = 0 To 32 ' extract string from array
+  If tzi.StandardName(c) = 0 Then Exit For
+  Debug.Print Chr(tzi.StandardName(c))
+Next c</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#systeminformation" rel="index">System Information</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/gettimezoneinformation.html">http://members.aol.com/Borg953/api/functions/gettimezoneinformation.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+
+<HTML><HEAD><TITLE>No Drag and Drop</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../No%20Drag%20and%20Drop_files/default.css" rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 text=#000000 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>没有拖放入口</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p> 我已经为PB编写的一些新的部件，这些部件具有标准的PowerBuilder部件的拖放特性。我想让这些新的部件具有标准的PB控件的拖放特性：当拖动它时，根据是否允许拖入而显示不同的图标（光标），但我不知道如何完成这种工作，SetPointer函数是不能完成的。因此我只好查找API参考手册，并找到如下的解决办法：</p>
+      <p>1.在窗口中说明以下API函数调用: </p>
+      <pre>function long LoadCursorA( long al_happ, long al_hind ) library 'user32'
+function long SetCursor( long al_hcur ) library 'user32'
+function boolean DestroyCursor( long al_hcur ) library 'user32'</pre>
+      <p>2.定义一个长整型的实例变量<code>il_Image</code>，然后中OPEN事件中加入以下代码</p>
+      <pre><font color=#0000ff>//32648 is the constant for the no entry cursor</font>
+Long IDC_NO = 32648 
+il_Image = LoadCursorA( 0, IDC_NO )</pre>
+      <p>3.在自定义的对象中的dragwithin事件中增加以下代码：当一个对象不允许拖动到该对象时，将显示没有入口的光标</p>
+      <pre>IF source = dw_top THEN	
+	<font color=#0000ff>// if the user drags from the tree, display the system
+	// no entry symbol.</font>
+	SetCursor( il_Image )
+END IF</pre>
+      <p>4.最后一步是清除分配给光标的空间</p>
+      <pre>DestroyCursor( il_Image )</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+<p>&nbsp;</p>
+</BODY></HTML>

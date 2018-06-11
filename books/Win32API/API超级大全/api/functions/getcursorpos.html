@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetCursorPos Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetCursorPos" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetCursorPos Function</H1>
+
+<P><CODE class="declare">Declare Function GetCursorPos Lib &quot;user32.dll&quot; (ByVal lpPoint As <A href="../types/pointapi.html">POINTAPI</A>) As Long</CODE>
+
+<P><B>GetCursorPos</B> reads the current position of the mouse cursor.  The x and y coordinates of the cursor are put into the variable passed as <VAR>lpPoint</VAR>.  The function returns 0 if an error occured, or a non-zero value if it succeeded.
+
+<DL>
+<DT><VAR>lpPoint</VAR><DD>Receives the x and y coordinates of the mouse cursor.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim coord As POINTAPI
+' Display the coordinates of the mouse cursor
+x = GetCursorPos(coord)
+Debug.Print "The mouse is at"; coord.x; coord.y</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="setcursorpos.html">SetCursorPos</A><BR>
+<B>Category</B>: <A href="../index.html#mouse" rel="index">Mouse</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getcursorpos.html">http://members.aol.com/Borg953/api/functions/getcursorpos.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>mouse_event</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="mouse_event">mouse_event</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Sub mouse_event Lib &quot;user32&quot; Alias
+    &quot;mouse_event&quot; (ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal
+    cButtons As Long, ByVal dwExtraInfo As Long)</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">模拟一次鼠标事件</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="9">dwFlags</td>
+    <td width="78%" colspan="2">Long，下述标志的一个组合</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_ABSOLUTE</td>
+    <td width="38%">dx和dy指定鼠标坐标系统中的一个绝对位置。在鼠标坐标系统中，屏幕在水平和垂直方向上均匀分割成65535×65535个单元</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_MOVE</td>
+    <td width="38%">移动鼠标</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_LEFTDOWN</td>
+    <td width="38%">模拟鼠标左键按下</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_LEFTUP</td>
+    <td width="38%">模拟鼠标左键抬起</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_RIGHTDOWN</td>
+    <td width="38%">模拟鼠标右键按下</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_RIGHTUP</td>
+    <td width="38%">模拟鼠标右键按下</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_MIDDLEDOWN</td>
+    <td width="38%">模拟鼠标中键按下</td>
+  </tr>
+  <tr>
+    <td width="37%">MOUSEEVENTF_MIDDLEUP</td>
+    <td width="38%">模拟鼠标中键按下</td>
+  </tr>
+  <tr>
+    <td width="25%">dx</td>
+    <td width="78%" colspan="2">Long，根据是否指定了MOUSEEVENTF_ABSOLUTE标志，指定水平方向的绝对位置或相对运动</td>
+  </tr>
+  <tr>
+    <td width="25%">dy</td>
+    <td width="78%" colspan="2">Long，根据是否指定了MOUSEEVENTF_ABSOLUTE标志，指定垂直方向的绝对位置或相对运动</td>
+  </tr>
+  <tr>
+    <td width="25%">cButtons</td>
+    <td width="78%" colspan="2">Long，未使用</td>
+  </tr>
+  <tr>
+    <td width="25%">dwExtraInfo</td>
+    <td width="78%" colspan="2">Long，通常未用的一个值。用GetMessageExtraInfo函数可取得这个值。可用的值取决于特定的驱动程序</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">进行相对运动的时候，由<a
+    href="SystemParametersInfo.htm" tppabs="http://www.gxbcts.com/airfly/api/SystemParametersInfo.htm">SystemParametersInfo</a>函数规定的系统鼠标轨迹速度会应用于鼠标运行的速度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#mouse_event">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

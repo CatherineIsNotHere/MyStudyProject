@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>PatBlt</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">PatBlt</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function PatBlt Lib &quot;gdi32&quot; Alias
+    &quot;PatBlt&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As
+    Long, ByVal nHeight As Long, ByVal dwRop As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">在当前选定的刷子的基础上，用一个图案填充指定的设备场景</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，欲描绘的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="75%">Long，对目标DC中目标矩形左上角位置进行定义的一个点，用逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth,nHeight</td>
+    <td width="75%">Long，目标矩形的宽度和高度，用逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">dwRop</td>
+    <td width="75%">Long，传输过程中欲进行的光栅运算。对一个源进行引用的光栅运算也许不能在这个函数中使用</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">可用<a href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>判断这个函数是否得到了一个特定设备场景的支持</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

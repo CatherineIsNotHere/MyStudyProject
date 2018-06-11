@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetEnvironmentVariable</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GetEnvironmentVariable</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetEnvironmentVariable Lib 
+    &quot;kernel32&quot; Alias &quot;GetEnvironmentVariableA&quot; (ByVal lpName As String, 
+    ByVal lpBuffer As String, ByVal nSize As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">取得一个环境变量的值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，载入的环境变量的长度。如指定的环境字串不存在，就返回零。如lpBuffer的长度不足以全部容下字串，则返回字串的全长。随后可用这个长度分配一个足够大的缓冲区</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpName</td>
+    <td width="77%">String，欲读入的环境字串的名称</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBuffer</td>
+    <td width="77%">String，随同字串装载的一个缓冲区。注意预先将其初始化到合适的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">nSize</td>
+    <td width="77%">Long，lpBuffer的长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

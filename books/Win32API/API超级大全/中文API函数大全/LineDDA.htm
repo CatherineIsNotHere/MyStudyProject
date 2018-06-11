@@ -1,0 +1,84 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>LineDDA</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">LineDDA</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function LineDDA Lib &quot;gdi32&quot; Alias
+    &quot;LineDDA&quot; (ByVal n1 As Long, ByVal n2 As Long, ByVal n3 As Long, ByVal n4 As
+    Long, ByVal lpLineDDAProc As Long, ByVal lParam As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">枚举指定线段中的所有点</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，非零表示成功，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">n1,n2</td>
+    <td width="77%">Long，线段的x,y起点坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">n3,n4</td>
+    <td width="77%">Long，线段的x,y终点坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">lpLineDDAProc</td>
+    <td width="77%">Long，vb5中的一个函数地址</td>
+  </tr>
+  <tr>
+    <td width="25%">lParam</td>
+    <td width="77%">Long，枚举过程中传递给回调函数的用户自定义值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">通常用这个函数执行自定义的线段作图——例如，可将一条线中的其他每个像素都设成不同的颜色。在MM_TEXT模式下，每个点都对应于设备中的一个像素——在这种模式下，也可用这个函数进行线段中的击中测试。线段中的最后一个点不会枚举出来</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

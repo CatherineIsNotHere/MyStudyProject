@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetTempPath Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetTempPath" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetTempPath Function</H1>
+
+<P><CODE class="declare">Declare Function GetTempPath Lib &quot;kernel32.dll&quot; Alias &quot;GetTempPathA&quot; (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long</CODE>
+
+<P><B>GetTempPath</B> reads Windows's default Temp directory.  The Temp directory is where temporary files made and used by Windows-based programs should be put.  Usually this will be the \Temp subdirectory under the Windows directory, but not necessarily.  The path of the directory is put into the string variable passed as <VAR>lpBuffer</VAR>.  The function returns the length of the string, or 0 if it fails.
+
+<DL>
+<DT><VAR>nBufferLength</VAR><DD>The length in characters of <VAR>lpBuffer</VAR>
+<DT><VAR>lpBuffer</VAR><DD>A fixed-length string that will receive the path of the Temp directory.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Display the Temp directory
+Dim tempdir As String * 255
+x = GetTempPath(255, tempdir)  ' get the directory
+Debug.Print &quot;The Temp directory is &quot;; Left(tempdir, x)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="gettempfilename.html">GetTempFileName</A><BR>
+<B>Category:</B> <A href="../index.html#systeminformation" rel="index">System Information</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/gettemppath.html">http://members.aol.com/Borg953/api/functions/gettemppath.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

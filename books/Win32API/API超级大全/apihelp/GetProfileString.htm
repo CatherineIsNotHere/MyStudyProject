@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetProfileString</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetProfileString">GetProfileString</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetProfileString Lib &quot;kernel32&quot; 
+    Alias &quot;GetProfileStringA&quot; (ByVal lpAppName As String, ByVal lpKeyName As String, 
+    ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">为win.ini初始化文件中指定的条目取得字串</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，复制到lpReturnedString缓冲区的字节数量，其中不包括那些NULL中止字符。如lpReturnedString缓冲区不够大，不能容下全部信息，就返回nSize-1（若lpAppName或lpKeyName为NULL，则返回nSize-2）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lpAppName</td>
+    <td width="75%">String，要在其中查找条目的小节名。这个字串不区分大小写。如果为vbNullString，则在lpReturnedString缓冲区装载这个.ini文件的所有小节的一个列表</td>
+  </tr>
+  <tr>
+    <td width="25%">lpKeyName</td>
+    <td width="75%">String，欲获取的项名或条目名。这个字串不区分大小写。如果为vbNullString，则在lpReturnedString缓冲区装载指定小节内所有项的一个列表</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDefault</td>
+    <td width="75%">String，指定条目未找到时返回的默认值。可设为空（&quot;&quot;）</td>
+  </tr>
+  <tr>
+    <td width="25%">lpReturnedString</td>
+    <td width="75%">String，指定一个预先初始化好的字串缓冲区，长度至少为nSize个字符</td>
+  </tr>
+  <tr>
+    <td width="25%">nSize</td>
+    <td width="75%">Long，装载到lpReturnedString缓冲区的最大字符数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">如lpKeyName参数为零，那么lpReturnedString缓冲区会载入指定小节内所有设置项的一个列表。每个项都用一个NULL字符分隔，最后那个项用两个NULL字符中止</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetProfileString">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

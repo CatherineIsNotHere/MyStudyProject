@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetRectRgn</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetRectRgn</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetRectRgn Lib &quot;gdi32&quot; Alias 
+    &quot;SetRectRgn&quot; (ByVal hRgn As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 
+    As Long, ByVal Y2 As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">设置区域为X1，Y1和X2，Y2描述的矩形</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，执行成功为非零值，失败为0</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hRgn</td>
+    <td width="75%">Long，该区域将被设置为指定矩形</td>
+  </tr>
+  <tr>
+    <td width="25%">X1,Y1</td>
+    <td width="75%">Long，矩形左上角X，Y坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">X2,Y2</td>
+    <td width="75%">Long，矩形右下角X，Y坐标</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">本函数与<a href="CreateRectRgn.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CreateRectRgn.htm">CreateRectRgn</a>相同，只是它是设置一个已存在区域而不是创建一个新区域<br>
+    矩形的底和右边不包括在区域内</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

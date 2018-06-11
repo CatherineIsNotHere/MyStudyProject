@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetPrinterData</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetPrinterData</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetPrinterData Lib &quot;winspool.drv&quot;
+    Alias &quot;SetPrinterDataA&quot; (ByVal hPrinter As Long, ByVal pValueName As String,
+    ByVal dwType As Long, pData As Byte, ByVal cbData As Long) As Long<br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">&nbsp; 设置打印机的注册表配置信息。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，ERROR_SUCCESS表示成功，一个错误值表示失败。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hPrinter</td>
+    <td width="75%">Long，指定一个已打开的打印机的句柄（用openprinter取得）</td>
+  </tr>
+  <tr>
+    <td width="25%">pValueName </td>
+    <td width="75%">String，欲设置的注册表值名</td>
+  </tr>
+  <tr>
+    <td width="25%">dwType</td>
+    <td width="75%">Long，定义数据的类型，使用来自API32. txt文件的，以REG_起头的一个常数。</td>
+  </tr>
+  <tr>
+    <td width="25%">pData</td>
+    <td width="75%">Byte，指定一个缓冲区的第一个条目，缓冲区中包含了要设置的适当的数据类型</td>
+  </tr>
+  <tr>
+    <td width="25%">cbData</td>
+    <td width="75%">Long，缓冲区pData的长度</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

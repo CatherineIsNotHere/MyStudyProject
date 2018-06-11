@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetMenuItemBitmaps</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetMenuItemBitmaps">SetMenuItemBitmaps</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetMenuItemBitmaps Lib &quot;user32&quot;
+    Alias &quot;SetMenuItemBitmaps&quot; (ByVal hMenu As Long, ByVal nPosition As Long, ByVal
+    wFlags As Long, ByVal hBitmapUnchecked As Long, ByVal hBitmapChecked As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">设置一幅特定位图，令其在指定的菜单条目中使用，代替标准的复选符号（√）。位图的大小必须与菜单复选符号的正确大小相符，这个正确大小可以由<a
+    href="GetMenuCheckMarkDimensions.htm" tppabs="http://www.gxbcts.com/airfly/api/GetMenuCheckMarkDimensions.htm">GetMenuCheckMarkDimensions</a>函数获得</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hMenu</td>
+    <td width="75%">Long，菜单句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">nPosition</td>
+    <td width="75%">Long，欲设置位图的一个菜单条目的标识符。如在wFlags参数中指定了MF_BYCOMMAND，这个参数就代表欲改变的菜单条目的命令ID。如设置的是MF_BYPOSITION，这个参数就代表菜单条目在菜单中的位置（第一个条目的位置为零）</td>
+  </tr>
+  <tr>
+    <td width="25%">wFlags</td>
+    <td width="75%">Long，常数MF_BYCOMMAND或MF_BYPOSITION，取决于nPosition参数</td>
+  </tr>
+  <tr>
+    <td width="25%">hBitmapUnchecked</td>
+    <td width="75%">Long，撤消复选时为菜单条目显示的一幅位图的句柄。如果为零，表示不在未复选状态下显示任何标志</td>
+  </tr>
+  <tr>
+    <td width="25%">hBitmapChecked</td>
+    <td width="75%">Long，复选时为菜单条目显示的一幅位图的句柄。可设为零，表示复选时不显示任何标志。如两个位图句柄的值都是零，则为这个条目恢复使用默认复选位图</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">使用的位图可能由多个条目共享。一旦不再需要，位图必须由应用程序清除，因为windows不能自动对它进行清除</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetMenuItemBitmaps">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

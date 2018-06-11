@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: SetFileAttributes Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,SetFileAttributes" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>SetFileAttributes Function</H1>
+
+<P><CODE class="declare">Declare Function SetFileAttributes Lib &quot;kernel32.dll&quot; Alias &quot;SetFileAttributesA&quot; (ByVal lpFileName As String, ByVal dwFileAttributes As Long) As Long</CODE>
+
+<P><B>SetFileAttributes</B> changes the attributes of a file or a directory.  The four attributes you can set are archive, read-only, hidden, and system status.  Any of the four can be on or off in any order.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>lpFileName</VAR><DD>The filename or directory, including the full path, to change the attributes of.
+<DT><VAR>dwFileAttributes</VAR><DD>One or more of the <A href="../constants/fileattributeflags.html">file attribute flags</A>.  <VAR>FILE_ATTRIBUTE_COMPRESSED</VAR> and <VAR>FILE_ATTRIBUTE_DIRECTORY</VAR> cannot be set.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Hide the file c:\apps\data.dat from the user
+x = SetFileAttributes(&quot;C:\Apps\data.dat&quot;, FILE_ATTRIBUTES_ARCHIVE Or FILE_ATTRIBUTES_HIDDEN)
+' Archive-type files are regular files</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getfileattributes.html">GetFileAttributes</A><BR>
+<B>Category:</B> <A href="../index.html#files" rel="index">Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/setfileattributes.html">http://members.aol.com/Borg953/api/functions/setfileattributes.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

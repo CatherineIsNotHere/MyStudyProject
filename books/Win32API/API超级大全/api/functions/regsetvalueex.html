@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: RegSetValueEx Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,RegSetValueEx" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>RegSetValueEx Function</H1>
+
+<P><CODE class="declare">Declare Function RegSetValueEx Lib &quot;advapi32.dll&quot; Alias &quot;RegSetValueExA&quot; (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, lpData As Any, ByVal cbData As Long) As Long</CODE><BR>
+<I>Alternate Declare for use with strings:</I><BR>
+<CODE class="declare">Declare Function RegSetValueExString Lib &quot;advapi32.dll&quot; Alias &quot;RegSetValueExA&quot; (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, ByVal lpData As String, ByVal cbData As Long) As Long</CODE>
+
+<P><B>RegSetValueEx</B> writes a value to a registry key.  If the value does not already exist, it will be created.  The value can be of a number of different data types.  Notice that a variant of the declare must be used if a type of string is being set because of the way Visual Basic handles strings.  The only difference is the method in which the string is passed to the API function.  The function returns zero if successful, or a non-zero value error code if an error occured.
+
+<DL>
+<DT><VAR>hKey</VAR><DD>A handle to the registry key to write the value under.  This cannot be one of the predefined (HKEY_) keys.
+<DT><VAR>lpValueName</VAR><DD>The name of the value to set.
+<DT><VAR>Reserved</VAR><DD>Reserved.  Set to 0.
+<DT><VAR>dwType</VAR><DD>The <A href="../constants/registrydatatypes.html">registry data type</A> of the piece of data to write.
+<DT><VAR>lpData</VAR><DD>The number, string, or other data to write.  NOTE: You <I>must</I> use the alternate declare for any type of string when using Visual Basic!
+<DT><VAR>cbData</VAR><DD>The size in bytes of the data to set, including any <CODE>vbNullChar</VAR>s.  For numbers, set the number of bytes of memory the number uses.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Create and set some data under the key:
+' HKEY_CURRENT_USER\Software\Dummy\DummyApp\1.0\
+Dim secattr As SECURITY_ATTRIBUTES
+Dim dword As Long, vbstring As String
+' The next three lines give default values for secattr
+secattr.lpSecurityDescriptor = 0  ' default security level
+secattr.bInheritHandle = True  ' might as well allow it
+secattr.nLength = Len(secattr)  ' store size of variable
+subkey = &quot;Software\Dummy\DummyApp\1.0&quot;  ' key name
+x = RegCreateKeyEx(HKEY_CURRENT_USER, subkey, 0, &quot;&quot;, 0, KEY_READ, secattr, hregkey, newopen)
+' if created, newopen = 1; if not, newopen = 2
+If x <> 0 Then  ' error creating key -- abort!
+  Debug.Print &quot;Could not open registry key.&quot;
+  Exit Sub
+End If
+' We want to write these two variables to registry key hregkey
+dword = 123456789  ' a DWORD is a 32-bit (4 byte) number
+vbstring = &quot;This is a line of text.&quot; & vbNullChar  ' vbNullChar at the end is required
+' --Write the data to the registry--
+' Set &quot;number&quot; to the contents of dword
+x = RegSetValueEx(hregkey, &quot;number&quot;, 0, REG_DWORD, dword, 4)
+If x <> 0 Then Goto WriteError  ' abort to error handler if an error occured
+' Set &quot;string&quot; to the contents of vbstring, using the mandatory alternate declare
+x = RegSetValueExString(hregkey, &quot;string&quot;, 0, REG_SZ, vbstring, Len(vbstring))
+If x <> 0 Then Goto WriteError  ' again, abort if an error occured
+x = RegCloseKey(hregkey)
+Exit Sub  ' quit normal execution
+WriteError:
+Debug.Print &quot;Error writing registry data.&quot;
+x = CloseKey(hregkey)  ' closing key frees up resources
+Exit Sub  ' abort</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="regqueryvalueex.html">RegQueryValueEx</A><BR>
+<B>Category:</B> <A href="../index.html#registry" rel="index">Registry</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/regsetvalueex.html">http://members.aol.com/Borg953/api/functions/regsetvalueex.html</A>
+</ADDRESS>
+</BODY>
+</HTML>
+ML>

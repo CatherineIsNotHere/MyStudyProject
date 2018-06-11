@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetDIBitsToDevice</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetDIBitsToDevice">SetDIBitsToDevice</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function SetDIBitsToDevice Lib &quot;gdi32&quot;
+    Alias &quot;SetDIBitsToDevice&quot; (ByVal hdc As Long, ByVal x As Long, ByVal y As Long,
+    ByVal dx As Long, ByVal dy As Long, ByVal SrcX As Long, ByVal SrcY As Long, ByVal Scan As
+    Long, ByVal NumScans As Long, Bits As Any, BitsInfo As BITMAPINFO, ByVal wUsage As Long)
+    As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">将一幅与设备无关位图的全部或部分数据直接复制到一个设备。这个函数在设备中定义了一个目标矩形，以便接收位图数据。它也在DIB中定义了一个源矩形，以便从中提取数据</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，执行成功则返回扫描线的数量，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，一个设备场景的句柄。该场景用于接收位图数据</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="77%" colspan="2">Long，用逻辑坐标表示的目标矩形的起点</td>
+  </tr>
+  <tr>
+    <td width="25%">dx,dy</td>
+    <td width="77%" colspan="2">Long，用目标矩形的设备单位表示的宽度及高度</td>
+  </tr>
+  <tr>
+    <td width="25%">SrcX,SrcY</td>
+    <td width="77%" colspan="2">Long，用设备坐标表示的源矩形在DIB中的起点</td>
+  </tr>
+  <tr>
+    <td width="25%">Scan</td>
+    <td width="77%" colspan="2">Long，Bits数组中第一条扫描线的编号。如BitsInfo之BITMAPINFOHEADER部分的biHeight字段是正数，那么这条扫描线就会从位图的底部开始计算；如果是负数，就从顶部开始计算</td>
+  </tr>
+  <tr>
+    <td width="25%">NumScans</td>
+    <td width="77%" colspan="2">Long，欲复制的扫描线数量</td>
+  </tr>
+  <tr>
+    <td width="25%">Bits</td>
+    <td width="77%" colspan="2">Any，指向一个缓冲区的指针。这个缓冲区包含了以DIB格式描述的位图数据；这种格式是由BitsInfo指定的</td>
+  </tr>
+  <tr>
+    <td width="25%">BitsInfo</td>
+    <td width="77%" colspan="2">BITMAPINFO，对Bits DIB的格式和颜色进行描述的一个结构</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">wUsage</td>
+    <td width="77%" colspan="2">Long，下述常数之一</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_PAL_COLORS</td>
+    <td width="38%">颜色表是一个整数数组，其中包含了与目前选入hdc设备场景的调色板相关的索引</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_RGB_COLORS</td>
+    <td width="38%">颜色表包含了RG颜色</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">用<a href="GetDeviceCaps.htm" tppabs="http://www.gxbcts.com/airfly/api/GetDeviceCaps.htm">GetDeviceCaps</a>判断设备是否支持这个函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetDIBitsToDevice">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

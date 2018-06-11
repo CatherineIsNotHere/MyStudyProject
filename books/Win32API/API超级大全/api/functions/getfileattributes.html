@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetFileAttributes Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetFileAttributes" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetFileAttributes Function</H1>
+
+<P><CODE class="declare">Declare Function GetFileAttributes Lib &quot;kernel32.dll&quot; Alias &quot;GetFileAttributesA&quot; (ByVal lpFileName As String) As Long</CODE>
+
+<P><B>GetFileAttributes</B> returns the attributes of a file or a directory.  Attributes determine such things as read-only status, archive status (most files are), hidden status, etc.  If the function fails, it will return 0.  If the file or directory cannot be found, it will return -1.  Otherwise, the return value will be one or more of the <A href="../constants/fileattributeflags.html">file attribute flags</A>.
+
+<DL>
+<DT><VAR>lpFileName</VAR>The full name of the file or directory to check the attributes of, including the full path.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Check the attributes of c:\windows\sol.exe
+attribs = GetFileAttributes(&quot;C:\Windows\sol.exe&quot;)
+If (attribs And FILE_ATTRIBUTES_ARCHIVE) <> 0 Then Debug.Print &quot;Archive&quot;
+If (attribs And FILE_ATTRIBUTES_READONLY) <> 0 Then Debug.Print &quot;Read-only&quot;
+' and so on....</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="setfileattributes.html">SetFileAttributes</A><BR>
+<B>Category:</B> <A href="../index.html#files" rel="index">Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getfileattributes.html">http://members.aol.com/Borg953/api/functions/getfileattributes.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

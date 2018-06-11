@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DuplicateHandle</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">DuplicateHandle</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function DuplicateHandle Lib &quot;kernel32&quot; 
+    Alias &quot;DuplicateHandle&quot; (ByVal hSourceProcessHandle As Long, ByVal hSourceHandle 
+    As Long, ByVal hTargetProcessHandle As Long, lpTargetHandle As Long, ByVal dwDesiredAccess 
+    As Long, ByVal bInheritHandle As Long, ByVal dwOptions As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">&nbsp; 
+    在指出一个现有系统对象当前句柄的情况下，为那个对象创建一个新句柄。当前句柄可能为于一个不同的进程</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hSourceProcessHandle</td>
+    <td width="75%">Long，拥有源句柄的那个进程的句柄。</td>
+  </tr>
+  <tr>
+    <td width="25%">hSourceHandle</td>
+    <td width="75%">Long，指定对象的现有句柄。</td>
+  </tr>
+  <tr>
+    <td width="25%">hTargetProcessHandle</td>
+    <td width="75%">Long，即将拥有新句柄的一个进程句柄。</td>
+  </tr>
+  <tr>
+    <td width="25%">lpTargetHandle</td>
+    <td width="75%">Long，指定用于装载新句柄的一个长整型变量</td>
+  </tr>
+  <tr>
+    <td width="25%">dwDesiredAccess</td>
+    <td width="75%">Long，新句柄要求的安全访问级别。</td>
+  </tr>
+  <tr>
+    <td width="25%">bInheritHandle</td>
+    <td width="75%">Long，如新句柄可由hSourceProcessHandle的子进程继承，则为TRUE</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">dwOptions</td>
+    <td width="75%">Long，下列常数的一个或两个：</td>
+  </tr>
+  <tr>
+    <td width="75%">DUPLICATE_SAME_ACCESS：新句柄拥有与原始句柄相同的安全访问特征</td>
+  </tr>
+  <tr>
+    <td width="75%">DUPLICATE_CLOSE_SOURCE：原始句柄已经关闭。即使发生错误。它也要关闭 
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left"> 
+    &nbsp; 在一个进程中，这个函数可根据位于不同进程内的现有句柄创建一个新句柄。可以从这两个进程中发出对这个函数的调用。进程必须提供PROCESS_DUP_HANDLE访问权限，否则函数执行不能成功。</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

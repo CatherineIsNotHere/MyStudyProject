@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawIconEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DrawIconEx">DrawIconEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function DrawIconEx Lib &quot;user32&quot; Alias 
+    &quot;DrawIconEx&quot; (ByVal hdc As Long, ByVal xLeft As Long, ByVal yTop As Long, ByVal 
+    hIcon As Long, ByVal cxWidth As Long, ByVal cyWidth As Long, ByVal istepIfAniCur As Long, 
+    ByVal hbrFlickerFreeDraw As Long, ByVal diFlags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">描绘一个图标或鼠标指针。与<a href="DrawIcon.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DrawIcon.htm">DrawIcon</a>相比，这个函数提供了更多的功能</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，要在其中画图的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">xLeft,yTop</td>
+    <td width="77%" colspan="2">Long，图标左上角的位置，用逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">hIcon</td>
+    <td width="77%" colspan="2">Long，要描绘的图标的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">cxWidth,cyWidth</td>
+    <td width="77%" colspan="2">Long，希望的图标宽度和高度。图标会自动缩放，与指定的值相符</td>
+  </tr>
+  <tr>
+    <td width="25%">istepIfAniCur</td>
+    <td width="77%" colspan="2">Long，如果hIcon是个动画指针，那么该参数指定描绘动画中的哪幅图象。注意Win32不能区分图标和指针</td>
+  </tr>
+  <tr>
+    <td width="25%">hbrFlickerFreeDraw</td>
+    <td width="77%" colspan="2">Long，如设为一个刷子句柄，那么函数会将图标画入一幅内存位图，并用背景色填充。随后，将图象直接复制到指定的位置。这样做可绘图时减少闪烁（因为画图过程中重现）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">diFlags</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">DI_COMPAT</td>
+    <td width="38%">描绘标准的系统指针，而不是指定的图象</td>
+  </tr>
+  <tr>
+    <td width="37%">DI_DEFAULTSIZE</td>
+    <td width="38%">忽略cxWidth和cyWidth设置，并采用原始的图标大小</td>
+  </tr>
+  <tr>
+    <td width="37%">DI_IMAGE</td>
+    <td width="38%">绘图时使用图标的XOR部分（即图标没有透明区域）</td>
+  </tr>
+  <tr>
+    <td width="37%">DI_MASK</td>
+    <td width="38%">绘图时使用图标的MASK部分（如单独使用，可获得图标的掩模）</td>
+  </tr>
+  <tr>
+    <td width="37%">DI_NORMAL</td>
+    <td width="38%">用常规方式绘图（合并 DI_IMAGE 和 DI_MASK）</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">应检查Windows95是否与指定的标志及参数兼容。Win32用户手册宣称函数与Windows 
+    95是兼容的，但在实际运用中发现它有一定的限制</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DrawIconEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

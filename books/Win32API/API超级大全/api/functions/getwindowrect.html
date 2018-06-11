@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetWindowRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetWindowRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetWindowRect Function</H1>
+
+<P><CODE class="declare">Declare Function GetWindowRect Lib &quot;user32.dll&quot; (ByVal hwnd As Long, lpRect As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>GetWindowRect</B> reads the size and position of a window.  This information is put into the variable passed as <VAR>lpRect</VAR>.  The rectangle receives the coordinates of the upper-left and lower-right corners of the window.  If the window is past one of the edges of the screen, the values will reflect that (for example, if the left edge of a window is off the screen, the rectangle's <VAR>.Left</VAR> property will be negative).  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>hwnd</VAR><DD>The handle of the window to read the position and width of.
+<DT><VAR>lpRect</VAR><DD>Variable that receives the coordinates of the upper-left and lower-right corners of the window.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Find the width and height of Form1
+Dim r As RECT
+x = GetWindowRect(Form1.hWnd, r)
+Debug.Print &quot;Width =&quot;; r.Right - r.Left
+Debug.Print &quot;Height =&quot;; r.Bottom - r.Top</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="setwindowpos.html">SetWindowPos</A><BR>
+<B>Category:</B> <A href="../index.html#windows" rel="index">Windows</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getwindowrect.html">http://members.aol.com/Borg953/api/functions/getwindowrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

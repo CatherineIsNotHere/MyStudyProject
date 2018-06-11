@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetDCEx</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetDCEx">GetDCEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function GetDCEx Lib &quot;user32&quot; Alias 
+    &quot;GetDCEx&quot; (ByVal hwnd As Long, ByVal hrgnclip As Long, ByVal fdwOptions As Long) 
+    As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">为指定窗口获取设备场景。相比<a href="GetDC.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetDC.htm">GetDC</a>，本函数提供了更多的选项</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，执行成功为指定窗口设备场景句柄。出错则为0</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="78%" colspan="2">Long，窗口句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hrgnclip</td>
+    <td width="78%" colspan="2">Long，窗口剪裁区</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="13">fdwOptions</td>
+    <td width="78%" colspan="2">Long，标志字。根据下列常数设置各位：</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_CACHE</td>
+    <td width="38%">不管窗口类的样式，从windows缓存获取设备场景</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_CLIPCHILREN</td>
+    <td width="38%">所有可见的子窗口区都要从DC的剪裁区中排除</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_CLIPSIBLINGS</td>
+    <td width="38%">窗口hWnd上的所有可见兄弟窗口都要从DC的剪裁区中排除</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_EXCLUDERGN</td>
+    <td width="38%">从DC剪裁区中排除由hrgnclip指定的区域</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_EXCLUDEUPDATE</td>
+    <td width="38%">从设备场景剪裁区中排除刷新区域</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_INTERSECTRGN</td>
+    <td width="38%">由hrgnclip指定的区域与设备场景剪裁区相交</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_INTERSECTUPDATE</td>
+    <td width="38%">指定区域与设备场景刷新区域相交</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_LOCKWINDOWUPDATE</td>
+    <td width="38%">该标志为允许向窗口绘图，即使它由于<a
+    href="LockWindowUpdate.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/LockWindowUpdate.htm">LockWindowUpdate</a>的调用被锁住</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_NORESETATTRS</td>
+    <td width="38%">设备场景释放后不被重置为默认状态</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_PARENTCLIP</td>
+    <td width="38%">放弃CS_PARENTDC类样式设置。DC的起点设为hWnd窗口的左上角</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_WINDOW</td>
+    <td width="38%">A device context is returned for the entire window rectangle rather than 
+    just the client area of the window</td>
+  </tr>
+  <tr>
+    <td width="37%">DCX_VALIDATE</td>
+    <td width="38%">Combine with DCX_INTERSECTUPDATE, validates the clipping region</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">若窗口所属类具有CS_OWNDC， 
+    CS_CLASSDC 或 CS_PARENTDC样式，则获取的设备场景属窗口或类专有。这时，设备场景状态不能从初值修改。vb的窗体和控件通常是这种情况。否则，置DCX_CACHE位以从通用windows缓冲区恢复设备场景。若不置该位，则函数返回0。DC的状态位默认设置。从缓存获取的设备场景用过后要用<a
+    href="ReleaseDC.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/ReleaseDC.htm">ReleaseDC</a>函数释放以防止系统死锁，因为windows只有5个缓存DC可用<br>
+    其他情况参见<a href="GetDC.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetDC.htm">GetDC</a>函数注解</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetDCEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

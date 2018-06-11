@@ -1,0 +1,168 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetWindowPos</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetWindowPos">SetWindowPos</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function SetWindowPos Lib &quot;user32&quot; Alias
+    &quot;SetWindowPos&quot; (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As
+    Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">这个函数能为窗口指定一个新位置和状态。它也可改变窗口在内部窗口列表中的位置。该函数与<a
+    href="DeferWindowPos.htm" tppabs="http://www.gxbcts.com/airfly/api/DeferWindowPos.htm">DeferWindowPos</a>函数相似，只是它的作用是立即表现出来的（在vb里使用：针对vb窗体，如它们在win32下屏蔽或最小化，则需重设最顶部状态。如有必要，请用一个子类处理模块来重设最顶部状态</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="78%" colspan="2">Long，欲定位的窗口</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">hWndInsertAfter</td>
+    <td width="78%" colspan="2">Long，窗口句柄。在窗口列表中，窗口hwnd会置于这个窗口句柄的后面。也可能选用下述值之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">HWND_BOTTOM</td>
+    <td width="38%">将窗口置于窗口列表底部</td>
+  </tr>
+  <tr>
+    <td width="37%">HWND_TOP</td>
+    <td width="38%">将窗口置于Z序列的顶部；Z序列代表在分级结构中，窗口针对一个给定级别的窗口显示的顺序</td>
+  </tr>
+  <tr>
+    <td width="37%">HWND_TOPMOST</td>
+    <td width="38%">将窗口置于列表顶部，并位于任何最顶部窗口的前面</td>
+  </tr>
+  <tr>
+    <td width="37%">HWND_NOTOPMOST</td>
+    <td width="38%">将窗口置于列表顶部，并位于任何最顶部窗口的后面</td>
+  </tr>
+  <tr>
+    <td width="25%">x</td>
+    <td width="78%" colspan="2">Long，窗口新的x坐标。如hwnd是一个子窗口，则x用父窗口的客户区坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">y</td>
+    <td width="78%" colspan="2">Long，窗口新的y坐标。如hwnd是一个子窗口，则y用父窗口的客户区坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">cx</td>
+    <td width="78%" colspan="2">Long，指定新的窗口宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">cy</td>
+    <td width="78%" colspan="2">Long，指定新的窗口高度</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="10">wFlags</td>
+    <td width="78%" colspan="2">Long，包含了旗标的一个整数</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_DRAWFRAME</td>
+    <td width="38%">围绕窗口画一个框</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_HIDEWINDOW</td>
+    <td width="38%">隐藏窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_NOACTIVATE</td>
+    <td width="38%">不激活窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_NOMOVE</td>
+    <td width="38%">保持当前位置（x和y设定将被忽略）</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_NOREDRAW</td>
+    <td width="38%">窗口不自动重画</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_NOSIZE</td>
+    <td width="38%">保持当前大小（cx和cy会被忽略）</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_NOZORDER</td>
+    <td width="38%">保持窗口在列表的当前位置（hWndInsertAfter将被忽略）</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_SHOWWINDOW</td>
+    <td width="38%">显示窗口</td>
+  </tr>
+  <tr>
+    <td width="37%">SWP_FRAMECHANGED</td>
+    <td width="38%">强迫一条WM_NCCALCSIZE消息进入窗口，即使窗口的大小没有改变</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">窗口成为最顶级窗口后，它下属的所有窗口也会进入最顶级。一旦将其设为非最顶级，则它的所有下属和物主窗口也会转为非最顶级。Z序列用垂直于屏幕的一根假想Z轴量化这种从顶部到底部排列的窗口顺序</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetWindowPos">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

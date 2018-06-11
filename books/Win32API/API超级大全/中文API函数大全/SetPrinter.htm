@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetPrinter</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetPrinter</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function SetPrinter Lib &quot;winspool.drv&quot;
+    Alias &quot;SetPrinterA&quot; (ByVal hPrinter As Long, ByVal Level As Long, pPrinter As
+    Byte, ByVal Command As Long) As Long<br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">对一台打印机的状态进行控制。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="75%">Long，0，2或3（4或5用于windows95，5或6用于NT4.0）。</td>
+  </tr>
+  <tr>
+    <td width="25%">pPrinter</td>
+    <td width="75%">Byte，包含一个PRINTER_INFO_x的结构的缓冲区，其中的x代表级别的设定（Level）。假如级别为零，并且Command设为PRINTER_CONTROL_SET_STATUS，那缓冲区就包含了一个PRINTER_CONTROL_STATUS结构。否则，如级别为零，就设为NULL（要把声明变成ByVal
+    As Long，以便传递零值）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">Command</td>
+    <td width="75%">Long，下述值之一：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="75%">零，根据PRINTER_INFO_x结构改变打印机</td>
+  </tr>
+  <tr>
+    <td width="75%">PRINTER_CONTROL_CANCEL：取消作业</td>
+  </tr>
+  <tr>
+    <td width="75%">PRINTER_CONTROL_PURGE：删除打印机的所有作业</td>
+  </tr>
+  <tr>
+    <td width="75%">PRINTER_CONTROL_RESUME：惠复一台暂停的打印机</td>
+  </tr>
+  <tr>
+    <td width="75%">PRINTER_CONTROL_SET_STATUS：载入打印机的PRINTER_CONTROL_STATUS结构（不可NT3.51下使用）
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="25%">hPrinter</td>
+    <td width="75%">Long，指定一个已打开的打印机的句柄（用openprinter取得）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">&nbsp; 在PRINTER_INFO_2结构的基础上设置打印机状态时，pServerName，AveragePPM，Status和cJobs字段都会被忽略。</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

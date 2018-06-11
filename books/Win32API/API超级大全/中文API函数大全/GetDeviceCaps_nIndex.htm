@@ -1,0 +1,202 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetDeviceCaps索引表</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetDeviceCaps索引表">GetDeviceCaps索引表</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="25%">常数</td>
+    <td width="75%">返回信息</td>
+  </tr>
+  <tr>
+    <td width="25%">DRIVERVERSION</td>
+    <td width="75%">设备驱动程序版本</td>
+  </tr>
+  <tr>
+    <td width="25%">TECHNOLOGY</td>
+    <td width="75%">下列常数之一：<br>
+    DT_PLOTTER：绘图仪。DT_RASDISPLAY：光栅显示器。DT_RASPRINTER：光栅打印机。DT_RASCAMERA：光栅照相机。DT_CHARSTREAM：字符流。DT_METAFILE：图元文件。DT_DISPFILE：显示文件</td>
+  </tr>
+  <tr>
+    <td width="25%">HORZSIZE</td>
+    <td width="75%">以毫米为单位的显示宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">VERTSIZE</td>
+    <td width="75%">以毫米为单位的显示高度</td>
+  </tr>
+  <tr>
+    <td width="25%">HORZRES</td>
+    <td width="75%">以像素为单位的显示宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">VERTRES</td>
+    <td width="75%">以像素为单位的显示高度</td>
+  </tr>
+  <tr>
+    <td width="25%">LOGPIXELSX</td>
+    <td width="75%">像素/逻辑英寸（水平）</td>
+  </tr>
+  <tr>
+    <td width="25%">LOGPIXELSY</td>
+    <td width="75%">像素/逻辑英寸（垂直）</td>
+  </tr>
+  <tr>
+    <td width="25%">BITSPIXEL</td>
+    <td width="75%">位/像素（每个调色板）</td>
+  </tr>
+  <tr>
+    <td width="25%">PLANES</td>
+    <td width="75%">调色板个数</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMBRUSHES</td>
+    <td width="75%">设备内建刷子个数</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMPENS</td>
+    <td width="75%">设备内建画笔个数</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMMARKERS</td>
+    <td width="75%">设备内建标记数</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMFONTS</td>
+    <td width="75%">设备内建字体数</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMCOLORS</td>
+    <td width="75%">设备颜色表入口</td>
+  </tr>
+  <tr>
+    <td width="25%">ASPECTX</td>
+    <td width="75%">设备像素宽度（见ASPECTXY）</td>
+  </tr>
+  <tr>
+    <td width="25%">ASPECTY</td>
+    <td width="75%">设备像素高度（见ASPECTXY）</td>
+  </tr>
+  <tr>
+    <td width="25%">ASPECTXY</td>
+    <td width="75%">设备像素对角尺寸。这些值是互相对应的，比如((ASPECTX^2)+(ASPECTY^2))^.5
+    = ASPECTXY</td>
+  </tr>
+  <tr>
+    <td width="25%">PDEVICESIZE</td>
+    <td width="75%">PDEVICE内部结构的大小</td>
+  </tr>
+  <tr>
+    <td width="25%">CLIPCAPS</td>
+    <td width="75%">下列常数之一：<br>
+    CP_NONE：设备没有内建剪切<br>
+    CP_RECTANGLE：设备可剪切矩形<br>
+    CP_REGION：设备可剪切区域</td>
+  </tr>
+  <tr>
+    <td width="25%">SIZEPALETTE</td>
+    <td width="75%">系统调色板入口（见RASTERCAPS RC_PALETTE标志）</td>
+  </tr>
+  <tr>
+    <td width="25%">NUMRESERVED</td>
+    <td width="75%">系统调色板保留入口</td>
+  </tr>
+  <tr>
+    <td width="25%">BLTALIGNMENT</td>
+    <td width="75%">有的显示设备在图象对齐本常数值指定的地址范围时可更快的完成图象运算。若没有区别则为0</td>
+  </tr>
+  <tr>
+    <td width="25%">COLORRES</td>
+    <td width="75%">颜色分辨率（以位/像素位单位，见RASTERCAPS RC_PALETTE标志）</td>
+  </tr>
+  <tr>
+    <td width="25%">DESKTOPHORIZRES</td>
+    <td width="75%" rowspan="2">桌面水平和垂直分辨率（仅适用于NT）。某些设备支持虚拟桌面可比物理显示尺寸大</td>
+  </tr>
+  <tr>
+    <td width="25%">DESKTOPVERTRES</td>
+  </tr>
+  <tr>
+    <td width="25%">PHYSICALOFFSETX</td>
+    <td width="75%" rowspan="2">打印机的可打印区的水平/垂直偏移</td>
+  </tr>
+  <tr>
+    <td width="25%">PHYSICALOFFSETY</td>
+  </tr>
+  <tr>
+    <td width="25%">PHYSICALHEIGHT</td>
+    <td width="75%" rowspan="2">以设备单元表示的打印页面物理高/宽度</td>
+  </tr>
+  <tr>
+    <td width="25%">PHYSICALWIDTH</td>
+  </tr>
+  <tr>
+    <td width="25%">SCALINGFACTORX</td>
+    <td width="75%" rowspan="2">打印机水平和垂直缩放系数</td>
+  </tr>
+  <tr>
+    <td width="25%">SCALINGFACTORY</td>
+  </tr>
+  <tr>
+    <td width="25%">VREFRESH</td>
+    <td width="75%">显示垂直刷新（只适用于NT）</td>
+  </tr>
+  <tr>
+    <td width="25%">RASTERCAPS</td>
+    <td width="75%">由下列值组成的标志：<br>
+    R_BANDING：设备支持频带。RC_BIGFONT：字体可大于64K。RC_BITBLT：支持BitBlt。RC_BITMAP64K：位图可大于64K。RC_DI_BITMAP：支持SetDIBits和GetDIBits函数。RC_DIBTODEV：支持SetDIBitsToDevice函数。RC_FLOODFILL：支持FloodFill
+    API。RC_NONE：不支持光栅操作。RC_PALETTE：设备基于调色板。
+    RC_SAVEBITMAP：可存储位图。RC_SCALING：内建缩放。RC_STRETCHBLT：支持
+    StretchBlt 。RC_STRETCHDIB：支持StretchDIBits</td>
+  </tr>
+  <tr>
+    <td width="25%">CURVECAPS</td>
+    <td width="75%">描述内部曲线生成功能的标志。见api32。txt文件中关于CC_xxx的完整列表</td>
+  </tr>
+  <tr>
+    <td width="25%">LINECAPS</td>
+    <td width="75%">描述内部直线生成功能的标志。见api32。txt文件中关于LC_xxx的完整列表</td>
+  </tr>
+  <tr>
+    <td width="25%">POLYGONCAPS</td>
+    <td width="75%">描述内部多边形生成功能的标志。见api32。txt文件中关于PC_xxx的完整列表</td>
+  </tr>
+  <tr>
+    <td width="25%">TEXTCAPS</td>
+    <td width="75%">由下列值组成的标志：<br>
+    TC_OP_CHARACTER：字体可被放在任意位置。TC_OP_STROKE：设备可删除内部字体任意笔画。
+    TC_CP_STROKE：内部字体可据任意像素剪切。TC_CR_90：字体可被旋转90度
+    。TC_CR_ANY：支持字符旋转 。TC_SF_X_YINDEP：支持字符X和Y方向独立缩放。TC_SA_DOUBLE：内部字体尺寸可被放大一倍。TC_SA_INTEGER：内部字体可以整数倍缩放。TC_SA_CONTIN：内部字体可被连续缩放。TC_EA_DOUBLE：
+    设备可创建粗体字。TC_IA_ABLE：设备可创建斜体字。TC_UA_ABLE：
+    设备可建带下划线字。TC_SO_ABLE： 设备可创建加框字。TC_RA_ABLE：支持光栅字体。TC_SCROLLBLT：支持光栅字体。TC_VA_ABLE：
+    支持矢量字体</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetDeviceCaps索引表">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

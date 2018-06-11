@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>PRINTER_DEFAULTS</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">PRINTER_DEFAULTS——请参考<a href="OpenPrinter.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/OpenPrinter.htm">OpenPrinter</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type PRINTER_DEFAULTS <br>
+    pDatatype As String<br>
+    pDevMode As Long<br>
+    DesiredAccess As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">This structure specifies default information for a printer.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">pDatatype</td>
+    <td width="75%">String，打印机使用的默认数据类型的名字。可设为vbNullString，表示使用当前的默认配置</td>
+  </tr>
+  <tr>
+    <td width="25%">pDevMode</td>
+    <td width="75%">Long，打印机默认配置信息的一个地址。可设为零，表示使用当前默认设置</td>
+  </tr>
+  <tr>
+    <td width="25%">DesiredAccess</td>
+    <td width="75%">Long，PRINTER_ACCESS_ADMINISTER 或 PRINTER_ACCESS_USE，或者是一个常规的安全值（取决于您是需要配置打印机，还是仅仅访问它）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

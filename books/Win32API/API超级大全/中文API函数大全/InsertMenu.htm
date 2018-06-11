@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>InsertMenu</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="InsertMenu">InsertMenu</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function InsertMenu Lib &quot;user32&quot; Alias
+    &quot;InsertMenuA&quot; (ByVal hMenu As Long, ByVal nPosition As Long, ByVal wFlags As
+    Long, ByVal wIDNewItem As Long, ByVal lpNewItem As Any) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">在菜单的指定位置处插入一个菜单条目，并根据需要将其他条目向下移动</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hMenu</td>
+    <td width="75%">Long，菜单的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">nPosition</td>
+    <td width="75%">Long，定义了新条目插入点的一个现有菜单条目的标志符。如果在wFlags中指定了MF_BYCOMMAND标志，这个参数就代表欲改变的菜单条目的命令ID。如设置的是MF_BYPOSITION标志，这个参数就代表菜单条目在菜单中的位置，第一个条目的位置为零</td>
+  </tr>
+  <tr>
+    <td width="25%">wFlags</td>
+    <td width="75%">Long，一系列常数标志的组合。参考<a href="ModifyMenu.htm" tppabs="http://www.gxbcts.com/airfly/api/ModifyMenu.htm">ModifyMenu</a></td>
+  </tr>
+  <tr>
+    <td width="25%">wIDNewItem</td>
+    <td width="75%">Long，指定菜单条目的新菜单ID。如果在wFlags中指定了MF_POPUP标志，就应该指定弹出式菜单的一个句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpNewItem</td>
+    <td width="75%">如果在wFlags参数中设置了MF_STRING标志，就代表要设置到菜单中的字串（String）。如设置的是MF_BITMAP标志，就代表一个Long型变量，其中包含了一个位图句柄</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在vb里使用：这个函数做出的许多改变都可以正常发挥作用，但却不能由vb菜单对象反映出来。添加的命令ID必须能由vb菜单系统识别</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#InsertMenu">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

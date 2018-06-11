@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ExtCreatePen</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ExtCreatePen">ExtCreatePen</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function ExtCreatePen Lib &quot;gdi32&quot; Alias
+    &quot;ExtCreatePen&quot; (ByVal dwPenStyle As Long, ByVal dwWidth As Long, lplb As
+    LOGBRUSH, ByVal dwStyleCount As Long, lpStyle As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">创建一个扩展画笔（装饰或几何）</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，如执行成功，返回一个指向扩展画笔的句柄。零表示执行出错。一旦不再需要，记得用<a
+    href="DeleteObject.htm" tppabs="http://www.gxbcts.com/airfly/api/DeleteObject.htm">DeleteObject</a>将画笔删除</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">dwPenStyle</td>
+    <td width="78%" colspan="2">Long，画笔样式来自下述常数组的任何一个常数的组合（OR运算）：</td>
+  </tr>
+  <tr>
+    <td width="37%">PS_COSMETIC or PS_GEOMETRIC</td>
+    <td width="38%">画笔的类型</td>
+  </tr>
+  <tr>
+    <td width="37%">PS_ALTERNATE, PS_SOLID, PS_DASH, PS_DOT, PS_DASHDOT, PS_DASHDOTDOT,
+    PS_NULL, PS_USERSTYLE, PS_INSIDEFRAME</td>
+    <td width="38%">画笔的样式</td>
+  </tr>
+  <tr>
+    <td width="37%">PS_ENDCAP_???</td>
+    <td width="38%">画笔的笔尖</td>
+  </tr>
+  <tr>
+    <td width="37%">PS_JOIN_???</td>
+    <td width="38%">在图形中连接线段或在路径中连接直线的方式</td>
+  </tr>
+  <tr>
+    <td width="25%">dwWidth</td>
+    <td width="78%" colspan="2">Long，指定线宽。几何画笔的线宽肯定是1</td>
+  </tr>
+  <tr>
+    <td width="25%">lplb</td>
+    <td width="78%" colspan="2"><a href="LOGBRUSH.htm" tppabs="http://www.gxbcts.com/airfly/api/LOGBRUSH.htm">LOGBRUSH</a>，lbColor代表画笔颜色。对于装饰画笔，lbStyle为PS_SOLID；对于几何画笔，lbStyle则代表实际的样式。针对几何画笔，必须设置其他所有字体</td>
+  </tr>
+  <tr>
+    <td width="25%">dwStyleCount</td>
+    <td width="78%" colspan="2">Long，如指定了PS_USERSTYLE，则代表lpStyle数组中的条目数量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpStyle</td>
+    <td width="78%" colspan="2">Long，指定PS_USERSTYLE的“线段/空白”对（原文：Line/space
+    pairs for PS_USERSTYLE）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ExtCreatePen">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<HTML><HEAD><TITLE>API技巧之十四</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Registering%20OCX%20Components%20in%20an%20EXE_files/default.css" rel=stylesheet 
+type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff 
+            size=6>在EXE文件中注册OCX部件</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>&nbsp;</p>
+      <p>你是否遇到过这样的问题：一个带有OCX部件的应用程序在开发环境与你的计算机上运行得很好，但当你发行你的程序并安装到用户的机器上时，OCX不能正常工作了？</p>
+      <p>这个问题现OCX的工作方式有关：每个OCX部件在其constructor事件中存取系统注册表中它自已的信息。这由OCX容器通过调用在每个OCX控件中的DLLRegisterServer函数来实现。</p>
+      <p>问题是PowerBuilder并没有调用这个函数，即使你运行REGSRV程序, OCX也不能注册它自己。为了解决这个问题， 在你需要使用OCX部件的对象你需要在其constructor事件中调用 
+        DLLRegesterServer函数。</p>
+      <p>在容器对象中定义一个局部的外部函数<br>
+        <code>Function long DllRegisterServer() Library "ocxname.OCX"</code><br>
+        在constructor事件中编写如相的代码</p>
+      <pre>LONG ll_RC
+ll_RC = DllRegisterServer()</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetFilePointer</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetFilePointer">SetFilePointer</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="101%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Declare Function SetFilePointer Lib &quot;kernel32&quot; 
+    Alias &quot;SetFilePointer&quot; (ByVal hFile As Long, ByVal lDistanceToMove As Long, 
+    lpDistanceToMoveHigh As Long, ByVal dwMoveMethod As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">在一个文件中设置当前的读写位置</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">Long，返回一个新位置，它采用从文件起始处开始算起的一个字节偏移量。HFILE_ERROR意味着出错。会设置<a
+    href="GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="76%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hFile</td>
+    <td width="76%" colspan="2">Long，系统文件句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lDistanceToMove</td>
+    <td width="76%" colspan="2">Long，字节偏移量</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDistanceToMoveHigh</td>
+    <td width="76%" colspan="2">Long，指定一个长整数变量，其中包含了要使用的一个高双字偏移。可设为零（将声明变为ByVal），表示只使用lDistanceToMove<br>
+    原文：A long variable containing a high double word offset to use. May be zero (change 
+    declaration to ByVal) to use only lDistanceToMove.</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="4">dwMoveMethod</td>
+    <td width="76%" colspan="2">Long，下述常数之一</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_BEGIN</td>
+    <td width="38%">lOffset将新位置设为从文件起始处开始算的起的一个偏移</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_CURRENT</td>
+    <td width="38%">lOffset将新位置设为从当前位置开始计算的一个偏移</td>
+  </tr>
+  <tr>
+    <td width="37%">FILE_END</td>
+    <td width="38%">lOffset将新位置设为从文件尾开始计算的一个偏移</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="101%" colspan="3"><p align="left">这个函数与vb的seek语句类似。不要将函数用于通过vb的open命令打开的文件。利用这个函数，可以处理那些长度大于2＾64字节的大型文件</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetFilePointer">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

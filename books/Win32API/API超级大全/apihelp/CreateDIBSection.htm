@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateDIBSection</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CreateDIBSection">CreateDIBSection</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function CreateDIBSection Lib &quot;gdi32&quot; Alias 
+    &quot;CreateDIBSection&quot; (ByVal hDC As Long, pBitmapInfo As BITMAPINFO, ByVal un As 
+    Long, ByVal lplpVoid As Long, ByVal handle As Long, ByVal dw As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">创建一个DIBSection。这是一个GDI对象，可象一幅与设备有关位图那样使用。但是，它在内部作为一幅与设备无关位图保存</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，执行成功返回DIBSection位图的句柄，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDC</td>
+    <td width="77%" colspan="2">Long，一个设备场景的句柄。如dw设为DIB_PAL_COLORS，那么DIB颜色表就会用来自逻辑调色板的颜色进行初始化</td>
+  </tr>
+  <tr>
+    <td width="25%">pBitmapInfo</td>
+    <td width="77%" colspan="2">BITMAPINFO，这个结构初始化成欲创建的那幅位图的配置数据</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="3">un</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_PAL_COLORS</td>
+    <td width="38%">BITMAPINFO包含了一个16位调色板索引的数组</td>
+  </tr>
+  <tr>
+    <td width="37%">DIB_RGB_COLORS</td>
+    <td width="38%">BITMAPINFO包含了一个颜色表，其中保存有32位颜色（RGBQUAD）</td>
+  </tr>
+  <tr>
+    <td width="25%">lplpVoid</td>
+    <td width="77%" colspan="2">Long，用于载入DIBSection数据区的内存地址</td>
+  </tr>
+  <tr>
+    <td width="25%">handle</td>
+    <td width="77%" colspan="2">Long，指向一个文件映射对象的可选句柄，位图将在其中创建。如设为零，Windows会自动分配内存</td>
+  </tr>
+  <tr>
+    <td width="25%">dw</td>
+    <td width="77%" colspan="2">Long，如指定了句柄，就用这个参数指定位图数据在文件映射对象中的偏移量</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3"><p align="left">一旦不再需要，记住用<a
+    href="DeleteObject.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DeleteObject.htm">DeleteObject</a>函数删除DIBSection位图<br>
+    如Windows分配了一个内存缓冲区，那么对象删除以后，缓冲区也会自动删除。如指定了一个文件映射对象，则不会自动将其清除<br>
+    在直接访问DIB内存之前，首先必须保证Windows已完成了绘图（记住，Windows可能对绘图操作进行了排列处理）。通过调用<a
+    href="GdiFlush.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GdiFlush.htm">gdiFlush</a>函数，可确保完成所有未决的绘图操作</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CreateDIBSection">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetProfileInt Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetProfileInt" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetProfileInt Function</H1>
+
+<P><CODE class="declare">Declare Function GetProfileInt Lib &quot;kernel32.dll&quot; Alias &quot;GetProfileIntA&quot; (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal nDefault As Long) As Long</CODE>
+
+<P><B>GetPrivateProfileInt</B> reads an integer value the WIN.INI file.  The parameters passed to the function specify which value will be read from.  If successful, the function returns the value read.  If the value you specify does not exist or is a string (i.e., not a number), the value specified as <VAR>nDefault</VAR> is returned.  This is basically a watered-down version of <A href="getprivateprofileint.html">GetPrivateProfileInt</A> because, unlike it, this function only works with WIN.INI.
+
+<DL>
+<DT><VAR>lpAppName</VAR><DD>The header of the WIN.INI file section the value is in.
+<DT><VAR>lpKeyName</VAR><DD>The name of the value to read.
+<DT><VAR>nDefault</VAR><DD>The value to return if a valid value cannot be read.  Make it something that would definitely not be read, such as -1.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read the value &quot;WallpaperStyle&quot; under the [Desktop]
+'  section of WIN.INI
+ret = GetProfileInt(&quot;Desktop&quot;, &quot;WallpaperStyle&quot, -1)
+If ret = -1 Then
+  Debug.Print &quot;Could not read data.&quot;
+Else
+  Debug.Print ret
+End If</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getprivateprofileint.html">GetPrivateProfileInt</A>, <A href="getprofilestring.html">GetProfileString</A><BR>
+<B>Category:</B> <A href="../index.html#inifiles" rel="index">INI Files</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getprofileint.html">http://members.aol.com/Borg953/api/functions/getprofileint.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

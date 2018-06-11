@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnumPorts</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">EnumPorts</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function EnumPorts Lib &quot;winspool.drv&quot; Alias 
+    &quot;EnumPortsA&quot; (ByVal pName As String, ByVal Level As Long, ByVal lpbPorts As 
+    Long, ByVal cbBuf As Long, pcbNeeded As Long, pcReturned As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">枚举一个系统可用的端口</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">pName</td>
+    <td width="75%">String，指定服务器的名字。用vbNullString指定本地系统</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="75%">Long，1或2（1用于NT 3.51），分别指定PORT_INFO_1 或 PORT_INFO_2</td>
+  </tr>
+  <tr>
+    <td width="25%">lpbPorts</td>
+    <td width="75%">Long，包含PORT_INFO_1 或 PORT_INFO_2结构的缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuf</td>
+    <td width="75%">Long，lpbPorts缓冲区中的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcbNeeded</td>
+    <td width="75%">Long，指向一个Long型变量的指针，该变量用于保存请求的缓冲区长度，或者实际读入的字节数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcReturned</td>
+    <td width="75%">Long，载入缓冲区的结构数量（用于那些能返回多个结构的函数）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">参考<a href="AddPort.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/AddPort.htm">AddPort</a>函数，了解进一步的情况</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

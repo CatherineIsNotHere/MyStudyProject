@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetTimeFormat</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetTimeFormat">GetTimeFormat</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetTimeFormat Lib &quot;kernel32&quot; Alias
+    &quot;GetTimeFormatA&quot; (ByVal Locale As Long, ByVal dwFlags As Long, lpTime As
+    SYSTEMTIME, ByVal lpFormat As String, ByVal lpTimeStr As String, ByVal cchTime As Long) As
+    Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">针对当前指定的“地方”，按特定的格式格式化一个系统时间</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，格式化过后的字串的长度。零表示出错。会将<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a>设置为下述值之一：ERROR_INSUFFICIENT_BUFFER，ERROR_INVALID_FLAGS，ERROR_INVALID_PARAMETER</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">Locale</td>
+    <td width="77%">Long，决定了具体格式的地方ID。lpFormat参数中指定的任何信息（倘若不是NULL）都要优先于各地方不同的特别信息</td>
+  </tr>
+  <tr>
+    <td width="25%">dwFlags</td>
+    <td width="77%">Long，如指定了lpFormat，那么该参数应该为零。否则，可设为LOCALE_NOUSEROVERRIDE，表示强制使用系统地方参数——即使它们已由用户更改。用DATE_SHORTDATE或DATE_LONGDATE选择不同的日期格式</td>
+  </tr>
+  <tr>
+    <td width="25%">lpTime</td>
+    <td width="77%"><a href="SYSTEMTIME.htm" tppabs="http://www.gxbcts.com/airfly/api/SYSTEMTIME.htm">SYSTEMTIME</a>，用于包容系统时间的一个结构</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFormat</td>
+    <td width="77%">String，可设为NULL，使用特定于不同地方的值（用vbNullString传递一个NULL）。否则包含一个时间格式字串。对h,hh,hhh,hhhh,m,mm,s,ss这样的代码来说，它们的用法与在vb格式命令中的用法是相同的。t和tt用于指定一个时间段标志（A或AM，P或PM）</td>
+  </tr>
+  <tr>
+    <td width="25%">lpTimeStr</td>
+    <td width="77%">String，指定一个缓冲区，用于容纳格式化过后的字串。注意事先对字串的长度进行正确的预初始化</td>
+  </tr>
+  <tr>
+    <td width="25%">cchTime</td>
+    <td width="77%">Long，lpTimeStr缓冲区的长度。如为零，表示函数会返回需要缓冲区的大小</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">对于dwFlags参数的解释可能翻译有错误。原文为：<br>
+    If lpFormat is specified, this should be zero. Otherwise, may be set to
+    LOCALE_NOUSEROVERRIDE to force the system locale parameters to be used even if they have
+    been overridden by the user. Use the self-explanatory constants TIME_NOMINUITESORSECONDS,
+    TIME_NOSECONDS, or TIME_FORCE24HOURFORMAT to choose between date formats. Constant
+    TIME_NOMARKER removes the AM or PM marker.</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetTimeFormat">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

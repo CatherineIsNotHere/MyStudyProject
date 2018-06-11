@@ -1,0 +1,23 @@
+/* Style Sheet for Windows 95 API Guide
+ *  CSS1
+ */
+
+BODY { background: #004000;
+       color: #FFFFFF; }
+A:link { color: FFFF00; }
+A:visited { color: FF8000; }
+A:active { color: 80FF80; }
+
+H1, H2, H3, H4, H5, H6 { text-align: center; }
+.center { text-align: center; }
+.left { text-align: left; }
+
+CODE.declare { padding-left: 5%;
+               padding-right: 3%;
+               text-indent: -2%; }
+CODE.tc { padding-left: 30%;
+          padding-right: 3%; }
+CODE.example { padding-left: 3%; }
+
+UL { list-style: square outside; }
+UL UL { list-style: disc outside; }

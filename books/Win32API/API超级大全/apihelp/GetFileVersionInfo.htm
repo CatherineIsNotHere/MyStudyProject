@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetFileVersionInfo</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetFileVersionInfo">GetFileVersionInfo</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function GetFileVersionInfo&amp; Lib 
+    &quot;version.dll&quot; Alias &quot;GetFileVersionInfoA&quot; (ByVal lptstrFilename As 
+    String, ByVal dwHandle As Long, ByVal dwLen As Long, lpData As Byte)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">从支持版本标记的一个模块里获取文件版本信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">lptstrFilename</td>
+    <td width="75%">String，欲从中载入版本信息的一个文件的名字</td>
+  </tr>
+  <tr>
+    <td width="25%">dwHandle</td>
+    <td width="75%">Long，win32中未用</td>
+  </tr>
+  <tr>
+    <td width="25%">dwLen</td>
+    <td width="75%">Long，由lpData参数指定的字节数组或缓冲区的大小。用<a
+    href="GetFileVersionInfoSize.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetFileVersionInfoSize.htm">GetFileVersionInfoSize</a>函数判断要求的缓冲区长度有多大</td>
+  </tr>
+  <tr>
+    <td width="25%">lpData</td>
+    <td width="75%">Byte，指定一个字节缓冲区的第一个字节。该缓冲区用于装载文件的版本信息</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在win32下不用dwHandle参数</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">其他</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">请看vb的api文本查看器中的声明：Declare Function 
+    GetFileVersionInfo Lib &quot;version.dll&quot; Alias &quot;GetFileVersionInfoA&quot; 
+    (ByVal lptstrFilename As String, ByVal dwHandle As Long, ByVal dwLen As Long, lpData As 
+    Any) As Long</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetFileVersionInfo">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

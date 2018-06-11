@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Rectangle Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Rectangle" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Rectangle Function</H1>
+
+<P><CODE class="declare">Declare Function Rectangle Lib &quot;gdi32.dll&quot; (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long</CODE>
+
+<P><B>Rectangle</B> draws a rectangular-shaped box on a graphics-capable device.  The rectangle is drawn using the color of the object's <VAR>.ForeColor</VAR> property.  The function returns 0 if an error occured, or a non-zero value if successful.
+
+<DL>
+<DT><VAR>hdc</VAR><DD>The device context of the object to draw on.
+<DT><VAR>X1</VAR><DD>The x coordinate of the rectangle's upper-left corner.
+<DT><VAR>Y1</VAR><DD>The y coordinate of the rectangle's upper-left corner.
+<DT><VAR>X2</VAR><DD>The x coordinate of the rectangle's lower-right corner.
+<DT><VAR>Y2</VAR><DD>The y coordinate of the rectangle's lower-right corner.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Draw a green rectangle on Picture1 from (25,25) to (100,50)
+Picture1.ForeColor = RGB(0, 255, 0)  ' green
+x = Rectangle(Picture1.hdc, 25, 25, 100, 50)</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="roundrect.html">RoundRect</A><BR>
+<B>Category:</B> <A href="../index.html#graphics" rel="index">Graphics</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/rectangle.html">http://members.aol.com/Borg953/api/functions/rectangle.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

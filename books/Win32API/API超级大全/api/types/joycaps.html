@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: JOYCAPS Type</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,JOYCAPS" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>JOYCAPS Type</H1>
+
+<P><PRE><CODE class="tc">Type JOYCAPS
+  wMid As Integer
+  wPid As Integer
+  szPname As String * 32
+  wXmin As Long
+  wXmax As Long
+  wYmin As Long
+  wYmax As Long
+  wZmin As Long
+  wZmax As Long
+  wNumButtons As Long
+  wPeriodMin As Long
+  wPeriodMax As Long
+End Type</CODE></PRE>
+
+<P><B>JOYCAPS</B>-type variables hold information about a joystick (not to be confused with the current position of the joystick).  Namely, this type holds the axes' ranges and the number of buttons the joystick has.
+
+<DL>
+<DT><VAR>wMid</VAR><DD>?
+<DT><VAR>wPid</VAR><DD>?
+<DT><VAR>szPname</VAR><DD>The name of the joystick's device driver.
+<DT><VAR>wXmin</VAR><DD>The minimum x-axis coordinate value.
+<DT><VAR>wXmax</VAR><DD>The maximum x-axis coordinate value.
+<DT><VAR>wYmin</VAR><DD>The minimum y-axis coordinate value.
+<DT><VAR>wYmax</VAR><DD>The maximum y-axis coordinate value.
+<DT><VAR>wZmin</VAR><DD>The minimum z-axis coordinate value.
+<DT><VAR>wZmax</VAR><DD>The maximum z-axis coordinate value.
+<DT><VAR>wNumButtons</VAR><DD>The number of buttons on the joystick.
+<DT><VAR>wPeriodMin</VAR><DD>?
+<DT><VAR>wPeriodMax</VAR><DD>?
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/joygetdevcaps.html">joyGetDevCaps</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/types/joycaps.html">http://members.aol.com/Borg953/api/types/joycaps.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

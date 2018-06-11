@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetMapMode</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SetMapMode</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function SetMapMode Lib &quot;gdi32&quot; Alias 
+    &quot;SetMapMode&quot; (ByVal hdc As Long, ByVal nMapMode As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">设置指定设备场景的映射模式</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，执行成功为设备场景原来的映射模式，失败为0</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，设备场景句柄</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="9">nMapMode</td>
+    <td width="77%" colspan="2">Long，下列常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_ANISOTROPIC</td>
+    <td width="38%">视口和窗口范围可完全任意</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_HIENGLISH</td>
+    <td width="38%">逻辑单元为0.001 inch，起点在左下角</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_HIMETRIC</td>
+    <td width="38%">逻辑单元为0.01 millimeter，起点在左下角</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_ISOTROPIC</td>
+    <td width="38%">视口和窗口范围任意，只是x和y逻辑单元尺寸要相同</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_LOENGLISH</td>
+    <td width="38%">逻辑单元为0.01 inch，起点在左下角</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_HIMETRIC</td>
+    <td width="38%">逻辑单元为0.1 millimeter，起点在左下角</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_TEXT</td>
+    <td width="38%">逻辑单元为一个像素</td>
+  </tr>
+  <tr>
+    <td width="37%">MM_TWIPS</td>
+    <td width="38%">逻辑单元为1 twip (1/1440 inch)，起点在左下角</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

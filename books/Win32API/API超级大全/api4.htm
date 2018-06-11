@@ -1,0 +1,72 @@
+<HTML><HEAD><TITLE>API技巧之四</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Hide-Show%20Desktop%20and%20TaskBar_files/default.css" rel=stylesheet 
+type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff 
+            size=6>显示/隐藏桌面与任务栏</font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">下面的技巧将使用API调用来显示或隐藏桌面与任务栏。有些应用程序需要屏幕用户在当前应用程序与桌面或任务栏之间进行切换，使用本方法即可达到： 
+      <p>1.说明下面两下API调用</p>
+      <pre>Function long FindWindowExA &amp; 
+   ( long hWnd, long hWndChild, ref string lpszClassName, &amp;
+   ref string lpszWindow) library 'user32'
+Function long ShowWindow &amp;
+   (long hWnd, long nCmdShow ) library 'user32'</pre>
+      <p>2.增加如下的Powerscript脚本:</p>
+      <pre><font color=#0000ff>// Constants for ShowWindow()</font>
+Constant Long SW_HIDE = 0
+Constant Long SW_NORMAL = 1
+Constant Long SW_SHOWMINIMIZED = 2
+Constant Long SW_SHOWMAXIMIZED = 3
+Constant Long SW_SHOWNOACTIVATE = 4
+Constant Long SW_SHOW = 5
+Constant Long SW_MINIMIZE = 6
+Constant Long SW_SHOWMINNOACTIVE = 7
+Constant Long SW_SHOWNA = 8
+Constant Long SW_RESTORE = 9
+Constant Long SW_SHOWDEFAULT = 10
+
+<font color=#0000ff>// Names of the shell windows we'll be looking for</font>
+String ls_ShellViewWnd = "Progman"
+String ls_ShellTaskBarWnd = "Shell_TrayWnd"
+String ls_Null
+
+<font color=#0000ff>// Locals</font>
+Long ll_HTaskBar, ll_HDeskTop
+
+<font color=#0000ff>// Hide task bar</font>
+ll_HTaskBar = FindWindowExA( 0, 0, ls_ShellTaskBarWnd, ls_Null )
+ShowWindow( ll_HTaskBar, SW_HIDE )
+
+<font color=#0000ff>// Hide Desktop</font>
+ll_HDeskTop = FindWindowExA( 0, 0, ls_ShellViewWnd, ls_Null )
+ShowWindow( ll_HDeskTop, SW_HIDE )
+
+<font color=#0000ff>// Pause to Restore</font>
+MessageBox( 'pbdr.com', 'look no hands!' )
+
+<font color=#0000ff>// Show task bar</font>
+ll_HTaskBar = FindWindowExA( 0, 0, ls_ShellTaskBarWnd, ls_Null )
+ShowWindow( ll_HTaskBar, SW_SHOW )
+
+<font color=#0000ff>// Show Desktop</font>
+ll_HDeskTop = FindWindowExA( 0, 0, ls_ShellViewWnd, ls_Null )
+ShowWindow( ll_HDeskTop, SW_SHOW )</pre>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+<p>&nbsp;</p>
+</BODY></HTML>

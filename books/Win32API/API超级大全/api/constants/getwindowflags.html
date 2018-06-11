@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetWindow Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetWindow Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetWindow Flags</H1>
+
+<P><PRE><CODE class="tc">Const GW_HWNDFIRST = 0
+Const GW_HWNDLAST = 1
+Const GW_HWNDNEXT = 2
+Const GW_HWNDREV = 3
+Const GW_OWNER = 4
+Const GW_CHILD = 5</CODE></PRE>
+
+<P>The <B>GetWindow flags</B> specify a relationship between a given window and the window that will be returned.  They cannot be combined, for obvious reasons.
+
+<DL>
+<DT><VAR>GW_HWNDFIRST</VAR><DD>The highest window in the Z-order having the same parent as the given window.
+<DT><VAR>GW_HWNDLAST</VAR><DD>The lowest window in the Z-order having the same parent as the given window.
+<DT><VAR>GW_HWNDNEXT</VAR><DD>The window below the given window in the Z-order.
+<DT><VAR>GW_HWNDPREV</VAR><DD>The window above the given window in the Z-order.
+<DT><VAR>GW_OWNER</VAR><DD>The window that owns the given window (not to be confused with the parent window).
+<DT><VAR>GW_CHILD</VAR><DD>The topmost of the given window's child windows.  This has the same effect as <A href="../functions/gettopwindow.html">GetTopWindow</A>.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getwindow.html">GetWindow</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/getwindowflags.html">http://members.aol.com/Borg953/api/constants/getwindowflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

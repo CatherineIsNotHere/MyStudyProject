@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawText</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DrawText">DrawText</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Declare Function DrawText Lib &quot;user32&quot; Alias 
+    &quot;DrawTextA&quot; (ByVal hdc As Long, ByVal lpStr As String, ByVal nCount As Long, 
+    lpRect As RECT, ByVal wFormat As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">将文本描绘到指定的矩形中</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">Long，描绘文字的高度</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%" colspan="2">Long，欲在其中显示文字的一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpStr</td>
+    <td width="75%" colspan="2">String，欲描绘的文本字串</td>
+  </tr>
+  <tr>
+    <td width="25%">nCount</td>
+    <td width="75%" colspan="2">Long，欲描绘的字符数量。如果要描绘整个字串（直到空中止符），则可将这个参数设为-1</td>
+  </tr>
+  <tr>
+    <td width="25%">lpRect</td>
+    <td width="75%" colspan="2"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，指定用于绘图的一个格式化矩形（采用逻辑坐标）</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="16">wFormat</td>
+    <td width="75%" colspan="2">Long，一个标志位数组，决定了以何种形式执行绘图。参考下面总结的常数类型列表</td>
+  </tr>
+  <tr>
+    <td width="38%">标志常数</td>
+    <td width="37%">说明</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_BOTTOM</td>
+    <td width="37%">必须同时指定DT_SINGLE。指示文本对齐格式化矩形的底边</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_CALCRECT</td>
+    <td width="37%">象下面这样计算格式化矩形：多行绘图时矩形的底边根据需要进行延展，以便容下所有文字；单行绘图时，延展矩形的右侧。不描绘文字。由lpRect参数指定的矩形会载入计算出来的值</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_CENTER</td>
+    <td width="37%">文本垂直居中</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_EXPANDTABS</td>
+    <td width="37%">描绘文字的时候，对制表站进行扩展。默认的制表站间距是8个字符。但是，可用DT_TABSTOP标志改变这项设定</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_EXTERNALLEADING</td>
+    <td width="37%">计算文本行高度的时候，使用当前字体的外部间距属性（the 
+    external leading attribute）</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_LEFT</td>
+    <td width="37%">文本左对齐</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_NOCLIP</td>
+    <td width="37%">描绘文字时不剪切到指定的矩形</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_NOPREFIX</td>
+    <td width="37%">通常，函数认为 &amp; 
+    字符表示应为下一个字符加上下划线。该标志禁止这种行为</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_RIGHT</td>
+    <td width="37%">文本右对齐</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_SINGLELINE</td>
+    <td width="37%">只画单行</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_TABSTOP</td>
+    <td width="37%">指定新的制表站间距，采用这个整数的高8位</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_TOP</td>
+    <td width="37%">必须同时指定DT_SINGLE。指示文本对齐格式化矩形的顶部</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_VCENTER</td>
+    <td width="37%">必须同时指定DT_SINGLE。指示文本对齐格式化矩形的中部</td>
+  </tr>
+  <tr>
+    <td width="38%">DT_WORDBREAK</td>
+    <td width="37%">进行自动换行。如用<a href="SetTextAlign.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/SetTextAlign.htm">SetTextAlign</a>函数设置了TA_UPDATECP标志，这里的设置则无效</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DrawText">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GdiFlush</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">GdiFlush</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%">Declare Function GdiFlush Lib &quot;gdi32&quot; Alias 
+    &quot;GdiFlush&quot; () As Long</td>
+  </tr>
+  <tr>
+    <td width="102%">说明</td>
+  </tr>
+  <tr>
+    <td width="102%">执行任何未决的绘图操作</td>
+  </tr>
+  <tr>
+    <td width="102%">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%">Long，如所有未决的绘图操作都成功完成，就返回TRUE（非零）。如任何一个操作失败，就返回零值</td>
+  </tr>
+  <tr>
+    <td width="102%">注解</td>
+  </tr>
+  <tr>
+    <td width="102%"><p align="left">通过成批合并绘图操作命令，win32图形子系统（GDI）可改善绘图的性能。如调用一系列绘图命令，他们都返回布尔值（TRUE表示成功，零表示失败），就可将他们置于一个内部GDI队列里。此时，函数可以立即返回。随后，GDI子系统会执行这些待决的绘图命令。可考虑一种最常见的情况。在这种情况下，系统安装了一块显示卡。卡上自带图形处理器或加速器。画图的时候，GDI只需将图形命令简单的发送给显示卡，另其完成实际的操作。如果必须等待每个绘图命令都完成并返回，系统和应用程序的性能就会受到显示卡绘图速度的极大限制。所以在这个时候，GDI将绘图命令置于一个名为“批”（Batch）的队列里。这样一来，系统和应用程序就能继续运行，同时仍然让显示卡进行绘图操作</p>
+    <p align="left">GdiFlush命令指示应用程序进入等待状态，直到所有待决的绘图操作完成为止。如执行的是一个特殊的GDI绘图命令，它不会返回一个布尔值，那么也会面临这种情况。例如，<a
+    href="GetPixel.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetPixel.htm">GetPixel</a>函数需要读取一个像素值。但除非所有待决的绘图完成，否则该函数不能可靠的完成工作</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

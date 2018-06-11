@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateFileMapping</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="CreateFileMapping">CreateFileMapping</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function CreateFileMapping Lib &quot;kernel32&quot; 
+    Alias &quot;CreateFileMappingA&quot; (ByVal hFile As Long, lpFileMappigAttributes As 
+    SECURITY_ATTRIBUTES, ByVal flProtect As Long, ByVal dwMaximumSizeHigh As Long, ByVal 
+    dwMaximumSizeLow As Long, ByVal lpName As String) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">创建一个新的文件映射对象</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，新建文件映射对象的句柄；零意味着出错。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a>。即使函数成功，但倘若返回的句柄属于一个现成的文件映射对象，那么<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a>也会设置成ERROR_ALREADY_EXISTS。在这种情况下，文件映射的长度就是现有对象的长度，而不是这个函数指定的尺寸</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hFile</td>
+    <td width="77%" colspan="2">Long，指定欲在其中创建映射的一个文件句柄。&amp;HFFFFFFFF&amp;表示在内存中创建一个文件映射</td>
+  </tr>
+  <tr>
+    <td width="25%">lpFileMappigAttributes</td>
+    <td width="77%" colspan="2">SECURITY_ATTRIBUTES，指定一个安全对象，在创建文件映射时使用。如果为NULL（用ByVal 
+    As Long传递零），表示使用默认安全对象</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="8">flProtect</td>
+    <td width="77%" colspan="2">Long，下述常数之一：</td>
+  </tr>
+  <tr>
+    <td width="37%">PAGE_READONLY</td>
+    <td width="38%">以只读方式打开映射</td>
+  </tr>
+  <tr>
+    <td width="37%">PAGE_READWRITE</td>
+    <td width="38%">以可读、可写方式打开映射</td>
+  </tr>
+  <tr>
+    <td width="37%">PAGE_WRITECOPY</td>
+    <td width="38%">为写操作留下备份</td>
+  </tr>
+  <tr>
+    <td width="75%" colspan="2">可组合使用下述一个或多个常数</td>
+  </tr>
+  <tr>
+    <td width="37%">SEC_COMMIT</td>
+    <td width="38%">为文件映射一个小节中的所有页分配内存</td>
+  </tr>
+  <tr>
+    <td width="37%">SEC_IMAGE</td>
+    <td width="38%">文件是个可执行文件</td>
+  </tr>
+  <tr>
+    <td width="37%">SEC_RESERVE</td>
+    <td width="38%">为没有分配实际内存的一个小节保留虚拟内存空间</td>
+  </tr>
+  <tr>
+    <td width="25%">dwMaximumSizeHigh</td>
+    <td width="77%" colspan="2">Long，文件映射的最大长度（高32位）</td>
+  </tr>
+  <tr>
+    <td width="25%">dwMaximumSizeLow</td>
+    <td width="77%" colspan="2">Long，文件映射的最小长度（低32位）。如这个参数和dwMaximumSizeHigh都是零，就用磁盘文件的实际长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpName</td>
+    <td width="77%" colspan="2">String，指定文件映射对象的名字。如存在这个名字的一个映射，函数就会打开它。用vbNullString创建一个无名的文件映射</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#CreateFileMapping">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

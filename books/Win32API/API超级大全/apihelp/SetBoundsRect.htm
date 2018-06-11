@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SetBoundsRect</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="SetBoundsRect">SetBoundsRect</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Declare Function SetBoundsRect Lib &quot;gdi32&quot; Alias 
+    &quot;SetBoundsRect&quot; (ByVal hdc As Long, lprcBounds As RECT, ByVal flags As Long) As 
+    Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">设置指定设备场景的边界矩形。每个设备场景都有一个边界矩形，编程者可用来堆放表示当前图象边界的信息。当允许边界矩形堆放时，每次windows向设备场景绘图，绘图位置都与边界矩形比较，若有必要就要扩展边界矩形以包括绘图位置。这提供了一种方法可确定设备场景的哪些部分已画了</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">Long，调用本函数前的边界设置：<br>
+    DCB_SET：边界矩形不为空<br>
+    DCB_RESET：边界矩形为空<br>
+    DCB_ENABLE：边界矩形已被堆放<br>
+    DCB_DISABLE：边界矩形没被堆放</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%" colspan="2">Long，边界矩形对应的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">lprcBounds</td>
+    <td width="77%" colspan="2"><a href="RECT.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/RECT.htm">RECT</a>，用于设置边界矩形的矩形</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">flags</td>
+    <td width="77%" colspan="2">Long，标志集合，可用下列常数组合而成</td>
+  </tr>
+  <tr>
+    <td width="37%">DCB_ACCUMULATE</td>
+    <td width="38%">新的边界矩形由当前边界矩形和lprcBounds联合而成</td>
+  </tr>
+  <tr>
+    <td width="37%">DCB_DISABLE</td>
+    <td width="38%">关闭边界堆放，该值为默认值</td>
+  </tr>
+  <tr>
+    <td width="37%">DCB_ENABLE</td>
+    <td width="38%">打开边界堆放</td>
+  </tr>
+  <tr>
+    <td width="37%">DCB_RESET</td>
+    <td width="38%">清除原有边界矩形，用DCB_ACCUMULATE设置新的边界矩形为lprcBounds</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#SetBoundsRect">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ToAscii</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ToAscii, ToAsciiEx">ToAscii, ToAsciiEx</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function ToAscii&amp; Lib &quot;user32&quot; (ByVal 
+    uVirtKey As Long, ByVal uScanCode As Long, lpbKeyState As Byte, lpwTransKey As Integer, 
+    ByVal fuState As Long)<br>
+    Declare Function ToAsciiEx&amp; Lib &quot;user32&quot; (ByVal uVirtKey As Long, ByVal 
+    uScanCode As Long, lpKeyState As Byte, lpwTransKey As Integer, ByVal fuState As Long, 
+    ByVal dwhkl As Long)</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">根据当前的扫描码和键盘信息，将一个虚拟键转换成ASCII字符</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，负值表明按键是“死”的——不能自己将自己转换成一个字符（重音键[accent 
+    keys]就是一个例子）。在给定当前键盘状态的前提下，如按键不能被转换（翻译），则返回0。如单个字符已载入lpwTransKey，则返回1。如lpwTransKey里已载入了两个字符（需要把它分隔到两个字节里），那么返回值是2。在当前字符集里，倘若单独一个字符不能表达键盘支持的死键或重音按键组合，就可能得到2的返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">uVirtKey</td>
+    <td width="77%">Long，欲转换的虚拟键</td>
+  </tr>
+  <tr>
+    <td width="25%">uScanCode</td>
+    <td width="77%">Long，键的扫描码。如键处于抬起状态，会设置高位（设为1）；如按下，则清除高位（设为0）</td>
+  </tr>
+  <tr>
+    <td width="25%">lpbKeyState</td>
+    <td width="77%">Byte，描述了键盘状态的一个256字符数组的第一个条目。参考<a
+    href="GetKeyboardState.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetKeyboardState.htm">GetKeyboardState</a>函数，了解关于这个数组更多的情况</td>
+  </tr>
+  <tr>
+    <td width="25%">lpwTransKey</td>
+    <td width="77%">Integer，用于装载转换过后的字符的一个整数变量。可用 
+    chr()函数将这个值转换成一个字串</td>
+  </tr>
+  <tr>
+    <td width="25%">fuState</td>
+    <td width="77%">Long，如一个菜单处于活动状态，则设为1</td>
+  </tr>
+  <tr>
+    <td width="25%">dwhkl</td>
+    <td width="77%">Long，欲用于转换的一个键盘布局的句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">NumLock键的状态会被忽略，因为虚拟键码包括了哪个信息<br>
+    在微软的win32手册里，对ToAsciiEx函数的建议是将它的lpwTransKey参数设为Long，而不要设为Integer。这里的函数声明根据实际的C语言头，它将参数定义成一个16位的字（既vb的整数）</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ToAscii, ToAsciiEx">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

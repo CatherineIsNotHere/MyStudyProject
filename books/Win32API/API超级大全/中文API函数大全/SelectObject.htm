@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>SelectObject</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">SelectObject</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function SelectObject Lib &quot;gdi32&quot; Alias
+    &quot;SelectObject&quot; (ByVal hdc As Long, ByVal hObject As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">每个设备场景都可能有选入其中的图形对象。其中包括位图、刷子、字体、画笔以及区域等等。一次选入设备场景的只能有一个对象。选定的对象会在设备场景的绘图操作中使用。例如，当前选定的画笔决定了在设备场景中描绘的线段颜色及样式</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，与以前选入设备场景的相同hObject类型的一个对象的句柄，零表示出错。如选定的对象是一个区域（Region），结果就是下列常数之一：SIMPLEREGION，
+    COMPLEXREGION 或 NULLREGION 对区域进行描述， GDI_ERROR 表示出错</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，一个设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">hObject</td>
+    <td width="77%">Long，一个画笔、位图、刷子、字体或区域的句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">返回值通常用于获得选入DC的对象的原始值。绘图操作完成后，原始的对象通常选回设备场景。在清除一个设备场景前，务必注意恢复原始的对象</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

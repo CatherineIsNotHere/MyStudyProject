@@ -1,0 +1,385 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>设备控制选项的部分列表</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="设备控制选项的部分列表">设备控制选项的部分列表</a>——参考<a
+    href="DeviceIoControl.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/DeviceIoControl.htm">DeviceIoControl</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="25%">操作</td>
+    <td width="25%">参数</td>
+    <td width="50%">设置成……</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">撤消同一个卷的连接</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">FSCTL_DISMOUNT_VOLUME</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">获得卷压缩属性</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">FSCTL_GET_COMPRESSION</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">用于装载带有COMPRESSION_VALUE_???前缀的一个常数的整数型变量</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">2</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">锁定一个卷</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">FSCTL_LOCK_VOLUME</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">设置卷压缩属性</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">FSCTL_SET_COMPRESSION</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">用于装载带有COMPRESSION_VALUE_???前缀的一个常数的整数型变量</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">2</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBytesReturned</td>
+    <td width="50%">用于装载操作结果的一个Long型变量</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">解除对一个卷的锁定</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">FSCTL_UNLOCK_VOLUME</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="6">核实一个便携式媒体设备的媒体是否存在及可读</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_CHECK_VERIFY</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">函数返回值</td>
+    <td width="50%">如设备可以访问，而且媒体存在，就返回TURE</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">弹出SCSI设备中的媒体</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_EJECT_MEDIA</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">格式化设备中的轨道（磁道）</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_FORMAT_TRACKS</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">一个FORMAT_PARAMETERS数据结构，包含了磁道中要格式化的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">FORMAT_PARAMETERS结构的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">判断一个设备的属性</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_GET_DRIVE_GEOMETRY</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">一个DISK_GEOMETRY数据结构，用于装载与磁盘驱动器有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">DISK_GEOMETRY结构的长度</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">判断驱动器的分区布局情况</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_GET_DRIVE_LAYOUT</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">一个DRIVE_LAYOUT_INFORMATION结构，后面跟随一个或多个PARTITION_INFORMATION结构，用于装载与磁盘驱动器布局有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">分配的缓冲区大小</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">判断驱动器支持的媒体类型</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_GET_MEDIA_TYPES</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">一个DISK_GEOMETRY数据结构数组，用于装载与磁盘驱动器支持的媒体有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">输出缓冲区的长度</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">取得与一个分区有关的信息</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_GET_PARTITION_INFO</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">一个PARTITION_INFORMATION结构，用于装载与分区有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">分配的缓冲区大小</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">在设备中装载媒体</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_LOAD_MEDIA</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">允许或禁止媒体拆卸</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_MEDIA_REMOVAL</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">一个PREVENT_MEDIA_REMOVAL数据结构，其中包含的信息用于决定允许或禁止媒体拆卸</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">PREVENT_MEDIA_REMOVAL结构的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">判断一个驱动器的性能</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_DISK_PERFORMANCE</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">一个DISK_PERFORMANCE数据结构，用于装载与驱动器性能有关的信息</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">已分配的缓冲区的大小</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="5">控制数据流中一个调制解调器状态数据的外观</td>
+    <td width="25%">dwIoControlCode</td>
+    <td width="50%">IOCTL_SERIAL_LSRMST_INSERT</td>
+  </tr>
+  <tr>
+    <td width="25%">lpInBuffer</td>
+    <td width="50%">一个字节变量。如果不为零，则使用换码字符。如果为零，则禁止显示内部状态</td>
+  </tr>
+  <tr>
+    <td width="25%">nInBufferSize</td>
+    <td width="50%">1</td>
+  </tr>
+  <tr>
+    <td width="25%">lpOutBuffer</td>
+    <td width="50%">ByVal 0</td>
+  </tr>
+  <tr>
+    <td width="25%">nOutBufferSize</td>
+    <td width="50%">0</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#设备控制选项的部分列表">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

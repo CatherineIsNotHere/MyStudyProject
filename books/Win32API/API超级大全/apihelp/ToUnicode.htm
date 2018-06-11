@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>ToUnicode</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="ToUnicode">ToUnicode</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function ToUnicode Lib &quot;user32&quot; Alias 
+    &quot;ToUnicode&quot; (ByVal wVirtKey As Long, ByVal wScanCode As Long, lpKeyState As 
+    Byte, ByVal pwszBuff As String, ByVal cchBuff As Long, ByVal wFlags As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">根据当前的扫描码和键盘信息，将一个虚拟键转换成Unicode字符</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，值-1表明按键是“死”的——不能自己将自己转换成一个字符（重音键[accent 
+    keys]就是一个例子）。在给定当前键盘状态的前提下，如按键不能被转换（翻译），则返回0。如单个字符已载入pwszBuff，则返回1。如pwszBuff里已载入了两个或更多的字符，那么返回值是2。在当前字符集里，倘若单独一个字符不能表达键盘支持的死键或重音按键组合，就可能得到2的返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">wVirtKey</td>
+    <td width="77%">Long，欲转换的虚拟键</td>
+  </tr>
+  <tr>
+    <td width="25%">wScanCode</td>
+    <td width="77%">Long，键的扫描码。如键处于抬起状态，会设置高位；如按下，则清除高位</td>
+  </tr>
+  <tr>
+    <td width="25%">lpKeyState</td>
+    <td width="77%">Byte，描述了键盘状态的一个256字符数组的第一个条目。参考<a
+    href="GetKeyboardState.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetKeyboardState.htm">GetKeyboardState</a>函数，了解关于这个数组更多的情况</td>
+  </tr>
+  <tr>
+    <td width="25%">pwszBuff</td>
+    <td width="77%">String，用于装载Unicode字符的一个字串缓冲区。注意事先对这个字串进行正确的初始化</td>
+  </tr>
+  <tr>
+    <td width="25%">cchBuff</td>
+    <td width="77%">Long，pwszBuff字串缓冲区的长度</td>
+  </tr>
+  <tr>
+    <td width="25%">wFlags</td>
+    <td width="77%">Long，如一个菜单处于活动状态，则设为1</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">适用平台：Windows NT</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#ToUnicode">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

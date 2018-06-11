@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>BitBlt</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">BitBlt</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function BitBlt Lib &quot;gdi32&quot; Alias
+    &quot;BitBlt&quot; (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth
+    As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As
+    Long, ByVal dwRop As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">将一幅位图从一个设备场景复制到另一个。源和目标DC相互间必须兼容</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://www.gxbcts.com/airfly/api/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDestDC</td>
+    <td width="75%">Long，目标设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">x,y</td>
+    <td width="75%">Long，对目标DC中目标矩形左上角位置进行描述的那个点。用目标DC的逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth,nHeight</td>
+    <td width="75%">Long，欲传输图象的宽度和高度</td>
+  </tr>
+  <tr>
+    <td width="25%">hSrcDC</td>
+    <td width="75%">Long，源设备场景。如光栅运算未指定源，则应设为0</td>
+  </tr>
+  <tr>
+    <td width="25%">xSrc,ySrc</td>
+    <td width="75%">Long，对源DC中源矩形左上角位置进行描述的那个点。用源DC的逻辑坐标表示</td>
+  </tr>
+  <tr>
+    <td width="25%">dwRop</td>
+    <td width="75%">Long，传输过程要执行的光栅运算</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">在NT环境下，如在一次世界传输中要求在源设备场景中进行剪切或旋转处理，这个函数的执行会失败<br>
+    如目标和源DC的映射关系要求矩形中像素的大小必须在传输过程中改变，那么这个函数会根据需要自动伸缩、旋转、折叠、或切断，以便完成最终的传输过程</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

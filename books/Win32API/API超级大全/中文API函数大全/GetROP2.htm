@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>GetROP2</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="GetROP2">GetROP2</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="102%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Declare Function GetROP2 Lib &quot;gdi32&quot; Alias
+    &quot;GetROP2&quot; (ByVal hdc As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">针对指定的设备场景，取得当前的绘图模式。这样可定义绘图操作如何与正在显示的图象合并起来</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">Long，请参考绘图模式常数表</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="77%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="77%">Long，设备场景的句柄</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="102%" colspan="2"><p align="left">这个函数只对光栅设备有效</td>
+  </tr>
+</table>
+</center></div>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="3">绘图模式常数表</td>
+  </tr>
+  <tr>
+    <td width="33%">常数</td>
+    <td width="33%">DrawMode</td>
+    <td width="34%">像素值</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_BLACK</td>
+    <td width="33%">vbBlackness</td>
+    <td width="34%">黑色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_WHITE</td>
+    <td width="33%">vbWhitness</td>
+    <td width="34%">白色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOP</td>
+    <td width="33%">vbNop</td>
+    <td width="34%">不变</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOT</td>
+    <td width="33%">vbInvert</td>
+    <td width="34%">当前显示颜色的反色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_COPYPEN</td>
+    <td width="33%">vbCopyPen</td>
+    <td width="34%">画笔颜色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOTCOPYPEN</td>
+    <td width="33%">vbNotCopyPen</td>
+    <td width="34%">R2_COPYPEN的反色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MERGEPENNOT</td>
+    <td width="33%">vbMergePenNot</td>
+    <td width="34%">显示颜色的反色与画笔颜色进行OR运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MASKPENNOT</td>
+    <td width="33%">vbMaskPenNot</td>
+    <td width="34%">显示颜色的反色与画笔颜色进行AND运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MERGENOTPEN</td>
+    <td width="33%">vbMergeNotPen</td>
+    <td width="34%">画笔颜色的反色与显示颜色进行OR运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MASKNOTPEN</td>
+    <td width="33%">vbMaskNotPen</td>
+    <td width="34%">画笔颜色的反色与显示颜色进行AND运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MERGEPEN</td>
+    <td width="33%">vbMergePen</td>
+    <td width="34%">画笔颜色与显示颜色进行OR运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOTMERGEPEN</td>
+    <td width="33%">vbNotMergePen</td>
+    <td width="34%">R2_MERGEPEN的反色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_MASKPEN</td>
+    <td width="33%">vbMaskPen</td>
+    <td width="34%">显示颜色与画笔颜色进行AND运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOTMASKPEN</td>
+    <td width="33%">vbNotMaskPen</td>
+    <td width="34%">R2_MASKPEN的反色</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_XORPEN</td>
+    <td width="33%">vbXorPen</td>
+    <td width="34%">显示颜色与画笔颜色进行异或运算</td>
+  </tr>
+  <tr>
+    <td width="33%">R2_NOTXORPEN</td>
+    <td width="33%">vbNotXorPen</td>
+    <td width="34%">R2_XORPEN的反色</td>
+  </tr>
+</table>
+<div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#GetROP2">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

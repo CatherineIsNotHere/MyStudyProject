@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Sound Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Sound Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Sound Flags</H1>
+
+<P><PRE><CODE class="tc">Const SND_ALIAS = &amp;H10000
+Const SND_ASYNC = &amp;H1
+Const SND_FILENAME = &amp;H20000
+Const SND_LOOP = &amp;H8
+Const SND_NODEFAULT = &amp;H2
+Const SND_NOSTOP = &amp;H10
+Const SND_NOWAIT = &amp;H2000
+Const SND_SYNC = &amp;H0</CODE></PRE>
+
+<P>The <B>sound flags</B> determine how to play a .wav file.  They can be combined as long as a contradictory pair is not put together (like <VAR>SND_ASYNC</VAR> and <VAR>SND_SYNC</VAR>).
+
+<DL>
+<DT><VAR>SND_ALIAS</VAR><DD>Play a Windows sound (such as SystemStart, Asterisk, etc.).
+<DT><VAR>SND_ASYNC</VAR><DD>Continue program execution immediately after starting to play the sound.
+<DT><VAR>SND_FILENAME</VAR><DD>Play the specified filename.
+<DT><VAR>SND_NODEFAULT</VAR><DD>Do not play the default sound if the specified sound cannot be found.
+<DT><VAR>SND_NOSTOP</VAR><DD>Do not stop any currently playing sounds.
+<DT><VAR>SND_NOWAIT</VAR><DD>Do not wait if the sound driver is busy.
+<DT><VAR>SND_SYNC</VAR><DD>Wait until the sound has finished playing before continuing program execution.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/sndplaysound.html">sndPlaySound</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/soundflags.html">http://members.aol.com/Borg953/api/constants/soundflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>TIME_ZONE_INFORMATION</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="TIME_ZONE_INFORMATION">TIME_ZONE_INFORMATION</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">Type TIME_ZONE_INFORMATION ' 172 Bytes<br>
+    Bias As Long<br>
+    StandardName(32) As Integer<br>
+    StandardDate As SYSTEMTIME<br>
+    StandardBias As Long<br>
+    DaylightName(32) As Integer<br>
+    DaylightDate As SYSTEMTIME<br>
+    DaylightBias As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2"><p align="left">This structure contains information about the
+    time zone for this system.</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型与说明</td>
+  </tr>
+  <tr>
+    <td width="25%">Bias</td>
+    <td width="75%">Long，Used to translate local time into coordinated universal time (UTC)
+    time. The bias is the difference, in minutes, between UTC and local time. The following
+    formula is used: UTC = local time + bias.</td>
+  </tr>
+  <tr>
+    <td width="25%">StandardName</td>
+    <td width="75%">Integer Array，A double-byte null-terminated Unicode string that
+    describes the standard time zone for the system. This field is not used internally and may
+    be set to zero.</td>
+  </tr>
+  <tr>
+    <td width="25%">StandardDate</td>
+    <td width="75%"><a href="SYSTEMTIME.htm" tppabs="http://www.gxbcts.com/airfly/api/SYSTEMTIME.htm">SYSTEMTIME</a>，Contains a date and UTC time
+    describing when the transition from daylight time to standard time occurs on this system.
+    Set the wMonth field to zero to ignore this field.</td>
+  </tr>
+  <tr>
+    <td width="25%">StandardBias</td>
+    <td width="75%">Long，Value to add to the Bias field when standard time is in effect.
+    Ignored if StandardDate is not used.</td>
+  </tr>
+  <tr>
+    <td width="25%">DaylightName</td>
+    <td width="75%">Integer Array，A double-byte null-terminated Unicode string used to
+    describe the daylight time zone for this system. This field is not used internally and may
+    be set to zero.</td>
+  </tr>
+  <tr>
+    <td width="25%">DaylightDate</td>
+    <td width="75%"><a href="SYSTEMTIME.htm" tppabs="http://www.gxbcts.com/airfly/api/SYSTEMTIME.htm">SYSTEMTIME</a>，Contains a date and UTC time
+    describing when the transition from standard time to daylight time occurs on this system.
+    Set the wMonth field to zero to ignore this field.</td>
+  </tr>
+  <tr>
+    <td width="25%">DaylightBias</td>
+    <td width="75%">Long，Value to add to the Bias field when daylight saving time is in
+    effect. Ignored if DaylightDate is not used.</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#TIME_ZONE_INFORMATION">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

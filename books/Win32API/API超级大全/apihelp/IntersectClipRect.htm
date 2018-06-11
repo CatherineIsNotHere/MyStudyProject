@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>IntersectClipRect</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">IntersectClipRect</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function IntersectClipRect Lib &quot;gdi32&quot; 
+    Alias &quot;IntersectClipRect&quot; (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As 
+    Long, ByVal X2 As Long, ByVal Y2 As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">为指定设备定义一个新的剪裁区，该区为当前剪裁区与由点X1，Y1和X2，Y2定义的矩形的交集</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，下列常数之一，以描述当前剪裁区：<br>
+    COMPLEXREGION：该区域有互相交叠的边界<br>
+    SIMPLEREGION：该区域边界没有互相交叠<br>
+    NULLREGION：区域为空<br>
+    ERRORAPI：发生了错误</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hdc</td>
+    <td width="75%">Long，设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">X1,Y1</td>
+    <td width="75%">Long，矩形左上角X，Y坐标</td>
+  </tr>
+  <tr>
+    <td width="25%">X2,Y2</td>
+    <td width="75%">Long，矩形右下角X，Y坐标</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

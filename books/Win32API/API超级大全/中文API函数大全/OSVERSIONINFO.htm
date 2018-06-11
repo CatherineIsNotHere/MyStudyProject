@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>OSVERSIONINFO</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="OSVERSIONINFO">OSVERSIONINFO</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">Type OSVERSIONINFO ' 148 Bytes<br>
+    dwOSVersionInfoSize As Long<br>
+    dwMajorVersion As Long<br>
+    dwMinorVersion As Long<br>
+    dwBuildNumber As Long<br>
+    dwPlatformId As Long<br>
+    szCSDVersion As String * 128 <br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2"><p align="left">This structure contains operating system
+    version information. This structure is used with the <a href="GetVersionEx.htm" tppabs="http://www.gxbcts.com/airfly/api/GetVersionEx.htm">GetVersionEx</a>
+    function.</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型与说明</td>
+  </tr>
+  <tr>
+    <td width="25%">dwOSVersionInfoSize</td>
+    <td width="75%">Long，Size of this data structure, currently at 148 bytes. This field
+    must be set before calling the GetVersionEx function.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwMajorVersion</td>
+    <td width="75%" rowspan="2">Long，Specifies the major and minor version number of the
+    operating system.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwMinorVersion</td>
+  </tr>
+  <tr>
+    <td width="25%">dwBuildNumber</td>
+    <td width="75%">Long，Specifies the build number of the operating system. On Windows 95,
+    build 1000 respresents OEM service release #2.</td>
+  </tr>
+  <tr>
+    <td width="25%">dwPlatformId</td>
+    <td width="75%">Long，Specifies the platform supported by the operating system. May be
+    one of the following:VER_PLATFORM_WIN32s: Win32s on Windows
+    3.1.VER_PLATFORM_WIN32_WINDOWS: Win32 on Windows 95.VER_PLATFORM_WIN32_NT: Windows NT.</td>
+  </tr>
+  <tr>
+    <td width="25%">szCSDVersion</td>
+    <td width="75%">String，Contains additional information about the operating system.</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#OSVERSIONINFO">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

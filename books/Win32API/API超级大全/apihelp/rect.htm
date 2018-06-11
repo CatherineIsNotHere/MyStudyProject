@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RECT</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9"><a name="RECT">RECT</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%">Type RECT<br>
+    Left As Long<br>
+    Top As Long<br>
+    Right As Long<br>
+    Bottom As Long<br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%">说明</td>
+  </tr>
+  <tr>
+    <td width="100%"><p align="left">这是windows广泛采用的一种数据结构，通常作为参数传递给许多api函数。RECT结构表示一个矩形区域，left和top字段描叙了矩形第一个角（通常是左上角），right和bottom字段描叙了矩形的第二个角（通常是右下角）。这两个位置决定了矩形的大小与位置。这些字段采用的单位及坐标系统取决于当前的有效缩放比例、准备表示的对象以及准备调用的api函数。并不要求bottom字段的绝对值大于top字段，而且也可以为负数。</td>
+  </tr>
+  <tr>
+    <td width="100%">注意</td>
+  </tr>
+  <tr>
+    <td width="100%">由right及bottom字段指定的点通常不是矩形的一部分；矩形对象描叙的是个空矩形（其中不包含像素）；RECT结构要求按引用传递给windows函数，不要试图使用ByVal</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#RECT">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

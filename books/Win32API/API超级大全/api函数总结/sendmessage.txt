@@ -1,0 +1,100 @@
+对于无边界窗体移动新方法:
+
+procedure AppMessage(var Msg:TMsg);message WM_LButtonDown;
+
+SendMessage(Handle,WM_NCLButtonDown,HTCaption,GetMessagePos);
+*****************************************************
+
+模拟按键 
+让 WIN95 模拟按了一个按键，例如按下 ENTER或者 TAB 键?
+PostMessage(Object.Handle, WM_KEYDOWN, VK_TAB, 0); 
+****************************************************
+PostMessage(Object.Handle, QUIT, VK_TAB, 0); 
+
+
+****************************************************
+
+procedure my(var msg: Twmcopydata);message wm_copydata;
+var
+ hd :hwnd;
+ ds :Tcopydatastruct;
+begin
+  ds.cbData := length(edit1.text)+1;
+  getmem(ds.lpdata,ds.cbData);
+  ds.lpData :=pchar(edit1.text);
+  hd :=findwindow(nil,'form2');
+  if hd <>0 then
+    sendmessage(hd,wm_copydata,handle,cardinal(@ds))
+  else
+  begin
+    showmessage('fdsa');
+    freemem(ds.lpData);
+  end;
+end;
+****************************************************
+SendMessage(edit1.handle,WM_SETTEXT,0,LongInt(PChar('fdsafdsak')));
+
+
+
+
+
+****************************************************
+首先你要得到目的的handle，就能发消息了。。
+给个函数做参考
+procedure SendKeys(keys:string);
+var CharCode,i:integer;
+    Sstr:string;
+    hFocus,hWindow:HWND;
+    ThreadID:DWord;
+begin
+  hWindow:=GetForegroundWindow;
+  ThreadID:=GetWindowThreadProcessId(hWindow,nil);
+  AttachThreadInput(GetCurrentThreadId,ThreadID,true);
+  hFocus:=GetFocus;
+  AttachThreadInput(GetCurrentThreadId,ThreadID,false);
+  if hFocus<>0 then begin
+    for i:=1 to Length(keys) do begin
+      Sstr:=keys[i];
+      CharCode:=ord(Sstr[1]);
+      SendMessage (hFocus,WM_IME_CHAR,CharCode,1);
+    end;
+  end;
+end;
+至于开始按钮，你也可以找到handle后在做处理
+FindWindowEx(FindWindow('Shell_TrayWnd', nil), 0,'Button',nil)就是了
+
+
+****************************************************
+关闭窗口，在 oncreate onclose 事件中关闭窗口用
+PostMessage(self.handle, WM_CLOSE, 0, 0); 
+
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+****************************************************
+       

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>WNetAddConnection3</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">WNetAddConnection3</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function WNetAddConnection3&amp; Lib 
+    &quot;mpr.dll&quot; Alias &quot;WNetAddConnection3A&quot; (ByVal hwnd As Long, 
+    lpNetResource As NETRESOURCE, ByVal lpPassword As String, ByVal lpUserName As String, 
+    ByVal dwFlags As Long)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">创建同一个网络资源的连接。这个函数与<a
+    href="WNetAddConnection2.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/WNetAddConnection2.htm">WNetAddConnection2</a>类似，只是它允许我们为这个函数显示的对话框指定一个物主窗口</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hwnd</td>
+    <td width="75%">Long，指定一个窗口句柄，用作本函数创建的对话框的父窗口</td>
+  </tr>
+  <tr>
+    <td width="25%">lpNetResource</td>
+    <td width="75%"><a href="NETRESOURCE.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/NETRESOURCE.htm">NETRESOURCE</a>，在这个结构中设置了下述字段，对要连接的网络资源进行了定义：dwType， 
+    lpLocalName （可为 vbNullString）， lpRemoteName， lpProvider （设为 vbNullString 
+    表示用默认提供者）。该结构的其他所有变量都会被忽略</td>
+  </tr>
+  <tr>
+    <td width="25%">lpPassword</td>
+    <td width="75%">String，可选的一个密码。如为vbNullString，表示采用当前用户的默认密码。如为一个空字串，则不用任何密码</td>
+  </tr>
+  <tr>
+    <td width="25%">lpUserName</td>
+    <td width="75%">String，用于连接的用户名。如为vbNullString，表示使用当前用户</td>
+  </tr>
+  <tr>
+    <td width="25%">dwFlags</td>
+    <td width="75%">Long，设为零；或指定常数CONNECT_UPDATE_PROFILE，表示创建永久性连接</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

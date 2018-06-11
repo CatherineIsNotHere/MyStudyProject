@@ -1,0 +1,110 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>CreateBitmap</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">CreateBitmap</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function CreateBitmap Lib &quot;gdi32&quot; Alias
+    &quot;CreateBitmap&quot; (ByVal nWidth As Long, ByVal nHeight As Long, ByVal nPlanes As
+    Long, ByVal nBitCount As Long, lpBits As Any) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">按照规定的格式创建一幅与设备有关位图</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，执行成功返回位图的句柄，零表示失败</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">nWidth</td>
+    <td width="75%">Long，位图宽度，以像素为单位</td>
+  </tr>
+  <tr>
+    <td width="25%">nHeight</td>
+    <td width="75%">Long，位图高度，以像素为单位</td>
+  </tr>
+  <tr>
+    <td width="25%">nPlanes</td>
+    <td width="75%">Long，色层数量</td>
+  </tr>
+  <tr>
+    <td width="25%">nBitCount</td>
+    <td width="75%">Long，每像素的位数</td>
+  </tr>
+  <tr>
+    <td width="25%">lpBits</td>
+    <td width="75%">Any，指向欲载入位图的数据的指针。可设为零，表示不对位图进行初始化（用ByVal传递一个零值）。这个数据的格式必须与设备的要求相符。扫描线必须对齐16位字边界</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">一旦不再需要，记住用<a
+    href="DeleteObject.htm" tppabs="http://www.gxbcts.com/airfly/api/DeleteObject.htm">DeleteObject</a>函数释放位图占用的内存和资源<br>
+    可用这个函数创建单色位图（1层，每像素一位）。对于彩色位图，则应使用<a
+    href="CreateCompatibleBitmap.htm" tppabs="http://www.gxbcts.com/airfly/api/CreateCompatibleBitmap.htm">CreateCompatibleBitmap</a>。这个函数可以胜任工作；但要注意，用它创建的位图在使用时会稍慢一些，因为Windows每次使用的时候都必须检查它的位图格式<br>
+    如果nWidth和nHeight为零，返回的位图就是一个1×1的单色位图</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

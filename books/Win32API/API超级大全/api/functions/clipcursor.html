@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: ClipCursor Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,ClipCursor" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>ClipCursor Function</H1>
+
+<P><CODE class="declare">Declare Function ClipCursor Lib &quot;user32.dll&quot; (lpRect As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>ClipCursor</B> confines the mouse cursor to a rectangular area of the screen.  If the user tries to move the cursor outside of this bounding region or a call to <A href="setcursorpos.html">SetCursorPos</A> tells it to go outside the box, the cursor will immediately returned to the area.  There is no way to get it out.  This bounding effect will last in whatever program you switch to, and will remain even if the program that confined the cursor closes!  The only way to &quot;release&quot; the cursor is to &quot;confine&quot; it to the entire screen (see example).  It isn't usually a good idea to confine the cursor, since the user expects to move the cursor anywhere (not to mention the disasterous effect if your program quit before releasing the cursor!).  The return value is 0 if an error occured, or non-zero if it is successful.
+
+<DL>
+<DT><VAR>lpRect</VAR><DD>The rectangle (in screen coordinates) defining the confinement rectangle.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">Dim r As RECT
+' This code confines the cursor to the inside of Form1
+x = GetWindowRect(Form1.hWnd, r)  ' API puts window coords into RECT
+x = ClipCursor(r)  ' Confine the cursor
+' This code releases the cursor
+deskhWnd = GetDesktopWindow()  ' API gets desktop's handle
+x = GetWindowRect(deskhWnd, r)  ' API puts window coords into RECT
+x = ClipCursor(r)  ' &quot;Confine&quot; the cursor to the entire screen.</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getclipcursor.html">GetClipCursor</A><BR>
+<B>Category:</B> <A href="../index.html#mouse" rel="index">Mouse</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/clipcursor.html">http://members.aol.com/Borg953/api/functions/clipcursor.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

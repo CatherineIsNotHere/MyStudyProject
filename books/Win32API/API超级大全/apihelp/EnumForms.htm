@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>EnumForms</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">EnumForms</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function EnumForms Lib &quot;winspool.drv&quot; Alias 
+    &quot;EnumFormsA&quot; (ByVal hPrinter As Long, ByVal Level As Long, pForm As Byte, ByVal 
+    cbBuf As Long, pcbNeeded As Long, pcReturned As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">枚举一台打印机可用的表单</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，非零表示成功，零表示失败。会设置<a
+    href="GetLastError.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastError</a></td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hPrinter</td>
+    <td width="75%">Long，一个已打开的打印机对象的句柄（用OpenPrinter获得）</td>
+  </tr>
+  <tr>
+    <td width="25%">Level</td>
+    <td width="75%">Long，设为1</td>
+  </tr>
+  <tr>
+    <td width="25%">pForm</td>
+    <td width="75%">Byte，一个包含<a href="FORM_INFO_1.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/FORM_INFO_1.htm">FORM_INFO_1</a>结构的缓冲区</td>
+  </tr>
+  <tr>
+    <td width="25%">cbBuf</td>
+    <td width="75%">Long，pForm缓冲区中的字符数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcbNeeded</td>
+    <td width="75%">Long，指向一个Long型变量的指针，该变量用于保存请求的缓冲区长度，或者实际读入的字节数量</td>
+  </tr>
+  <tr>
+    <td width="25%">pcReturned</td>
+    <td width="75%">Long，载入缓冲区的结构数量（用于那些能返回多个结构的函数）</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">适用平台</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"><p align="left">Windows NT</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参考<a href="AddForm.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/AddForm.htm">AddForm</a>函数，了解进一步的情况</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

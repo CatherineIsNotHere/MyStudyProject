@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetDesktopWindow Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetDesktopWindow" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetDesktopWindow Function</H1>
+
+<P><CODE class="declare">Declare Function GetDesktopWindow Lib &quot;user32.dll&quot; () As Long</CODE>
+
+<P><B>GetDesktopWindow</B> returns the handle (hWnd) of the desktop window.  The desktop window is the image on the computer's monitor without the cursor -- that is, it is the screen.  While you could theoretically use this with the <A href="getdc.html">GetDC</A> function to draw directly on the desktop, it is obviously not recommended and could lead to unpredictable, disasterous results.  If the function fails, it will return 0 instead of the handle.
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Get the handle of the desktop
+desktophWnd = GetDesktopWindow()</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#systeminformation" rel="index">System Information</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getdesktopwindow.html">http://members.aol.com/Borg953/api/functions/getdesktopwindow.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

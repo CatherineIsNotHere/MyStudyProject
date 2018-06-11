@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>BITMAP</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="9">BITMAP</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">类型定义</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Type BITMAP ' 24 bytes<br>
+    bmType As Long<br>
+    bmWidth As Long<br>
+    bmHeight As Long<br>
+    bmWidthBytes As Long<br>
+    bmPlanes As Integer<br>
+    bmBitsPixel As Integer<br>
+    bmBits As Long <br>
+    End Type</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">字段表</td>
+  </tr>
+  <tr>
+    <td width="25%">字段</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">bmType</td>
+    <td width="75%">Long，Must be 0.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmWidth</td>
+    <td width="75%">Long，Width of the bitmap in pixels.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmHeight</td>
+    <td width="75%">Long，Height of the bitmap in pixels.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmWidthBytes</td>
+    <td width="75%">Long，The number of bytes of data in a raster line. Must be an even 
+    number.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmPlanes</td>
+    <td width="75%">Integer，The number of color planes in the bitmap.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmBitPixel</td>
+    <td width="75%">Integer，The number of bits per pixel on each plane.</td>
+  </tr>
+  <tr>
+    <td width="25%">bmBits</td>
+    <td width="75%">Long，Address of the actual bitmap data.</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">注解</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参考<a href="CreateBitmapIndirect.htm" tppabs="http://personal.hb.cninfo.net/~vbapi/CreateBitmapIndirect.htm">CreateBitmapIndirect</a>函数</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Insert After Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Insert After Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Insert After Flags</H1>
+
+<P><PRE><CODE class="tc">Const HWND_BOTTOM = 1
+Const HWND_NOTOPMOST = -2
+Const HWND_TOP = 0
+Const HWND_TOPMOST = -1</CODE></PRE>
+
+<P>The <B>insert after flags</B> are used to determine the window's position in the Z-order.  These flags specify what position to put the window in.  They cannot be combined.
+
+<DL>
+<DT><VAR>HWND_BOTTOM</VAR><DD>Put the window at the button of the Z-order.
+<DT><VAR>HWND_NOTOPMOST</VAR><DD>Put the window below all topmost windows and above all nontopmost windows.
+<DT><VAR>HWND_TOP</VAR><DD>Put the window at the top of the Z-order.
+<DT><VAR>HWND_TOPMOST</VAR><DD>Make the window topmost (above all other windows) permanently.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/setwindowpos.html">SetWindowPos</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/insertafterflags.html">http://members.aol.com/Borg953/api/constants/insertafterflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

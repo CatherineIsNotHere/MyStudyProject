@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Drive Type Flags</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Drive Type Flags" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Drive Type Flags</H1>
+
+<P><PRE><CODE class="tc">Const DRIVE_REMOVABLE = 2
+Const DRIVE_FIXED = 3
+Const DRIVE_REMOTE = 4
+Const DRIVE_CDROM = 5
+Const DRIVE_RAMDISK = 6</CODE></PRE>
+
+<P>The <B>drive type flags</B> identify a type of drive on the computer.  For example, they identify floppy drives, CD-ROM drives, etc.  These cannot be combined.
+
+<DL>
+<DT><VAR>DRIVE_REMOVABLE</VAR><DD>A floppy drive or some other removable-disk readable/writeable drive.
+<DT><VAR>DRIVE_FIXED</VAR><DD>A hard drive.
+<DT><VAR>DRIVE_REMOTE</VAR><DD>A network drive or a drive located on a network server.
+<DT><VAR>DRIVE_CDROM</VAR><DD>A CD-ROM drive.
+<DT><VAR>DRIVE_RAMDISK</VAR><DD>A RAM disk.
+</DL>
+
+<P><B>Used by:</B> <A href="../functions/getdrivetype.html">GetDriveType</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/constants/drivetypeflags.html">http://members.aol.com/Borg953/api/constants/drivetypeflags.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: joyGetNumDevs Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,joyGetNumDevs" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>joyGetNumDevs Function</H1>
+
+<P><CODE class="declare">Declare Function joyGetNumDevs Lib &quot;winmm.dll&quot; () As Long</CODE>
+
+<P><B>joyGetNumDevs</B> returns the number of joysticks that are configured under Windows's Control Panel.  This doesn't necessarily mean that all of them are connected and in working order, but there could be.  The best way to see if a joystick is working is to call <A href="joygetdevcaps.html">joyGetDevCaps</A> and check for a return value of 0.
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Read number of possible joysticks
+x = joyGetNumDevs()
+Debug.Print &quot;There could be up to&quot;; x; &quot;joysticks.&quot;</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#joysticks" rel="index">Joysticks</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/joygetnumdevs.html">http://members.aol.com/Borg953/api/functions/joygetnumdevs.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

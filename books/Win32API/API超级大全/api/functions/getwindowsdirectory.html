@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: GetWindowsDirectory Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,GetWindowsDirectory" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>GetWindowsDirectory Function</H1>
+
+<P><CODE class="declare">Declare Function GetWindowsDirectory Lib &quot;kernel32.dll&quot; Alias &quot;GetWindowsDirectoryA&quot; (ByVal lpBuffer As String, ByVal nSize As Long) As Long</CODE>
+
+<P><B>GetWindowsDirectory</B> reads the path of the Windows directory.  This is where Windows itself is stored, along will all of the little applets that come with it.  Never assume this is &quot;C:\Windows&quot; because it doesn't necessarily have to be there.  The directory is put into the string variable passed as <VAR>lpBuffer</VAR>.  The function returns the length of the returned string, or 0 if an error occured.
+
+<DL>
+<DT><VAR>lpBuffer</VAR><DD>Fixed-length string variable that receives the path.
+<DT><VAR>nSize</VAR><DD>The length in characters of <VAR>lpBuffer</VAR>.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Get the Windows directory
+Dim buffer As String * 255
+n = GetWindowsDirectory(buffer, 255)
+Debug.Print Left(buffer, n)  ' remove empty space</CODE></PRE>
+
+<P><B>Related Call:</B> <A href="getsystemdirectory.html">GetSystemDirectory</A><BR>
+<B>Category:</B> <A href="../index.html#systeminformation" rel="index">System Information</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/getwindowsdirectory.html">http://members.aol.com/Borg953/api/functions/getwindowsdirectory.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

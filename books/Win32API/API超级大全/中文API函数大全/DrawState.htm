@@ -1,0 +1,175 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>DrawState</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor=#E2DEE9>
+<script language="JAVASCRIPT">
+<!--
+if (navigator.onLine){
+document.write("<!-- Spidersoft WebZIP Ad Banner Insert -->");
+document.write("<TABLE width=100% border=0 cellpadding=0 cellspacing=0>");
+document.write("<TR>");
+document.write("<TD>");
+document.write("<ILAYER id=ad1 visibility=hidden height=60></ILAYER>");
+document.write("<NOLAYER>");
+document.write("<IFRAME SRC='http://www.spidersoft.com/ads/bwz468_60.htm' width=100% height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></IFRAME>");
+document.write("</NOLAYER>");
+document.write("</TD>");
+document.write("</TR>");
+document.write("</TABLE>");
+document.write("<!-- End of Spidersoft WebZIP Ad Banner Insert-->");
+}
+ //-->
+</script>
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16"><a name="DrawState">DrawState</a></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="103%" colspan="3">VB声明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Declare Function DrawState Lib &quot;user32&quot; Alias
+    &quot;DrawStateA&quot; (ByVal hDC As Long, ByVal hBrush As Long, ByVal lpDrawStateProc As
+    Long, ByVal lParam As Long, ByVal wParam As Long, ByVal n1 As Long, ByVal n2 As Long,
+    ByVal n3 As Long, ByVal n4 As Long, ByVal un As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">说明</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">这个函数可为一幅图象或绘图操作应用各式各样的效果</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">返回值</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">Long，TRUE（非零）表示成功，FALSE表示失败</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="78%" colspan="2">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hDC</td>
+    <td width="78%" colspan="2">Long，要在其中绘图的设备场景</td>
+  </tr>
+  <tr>
+    <td width="25%">hBrush</td>
+    <td width="78%" colspan="2">Long，如状态为DSS_MONO（在un参数中设定），则指定一个刷子句柄</td>
+  </tr>
+  <tr>
+    <td width="25%">lpDrawStateProc</td>
+    <td width="78%" colspan="2">Long，指向一个函数地址的指针。如图象类型为DST_COMPLEX，必须设置这个参数。对于DST_TEXT，则可设可不设</td>
+  </tr>
+  <tr>
+    <td width="25%">lParam</td>
+    <td width="78%" colspan="2">Long，由图象的类型决定</td>
+  </tr>
+  <tr>
+    <td width="25%">wParam</td>
+    <td width="78%" colspan="2">Long，由图象的类型决定</td>
+  </tr>
+  <tr>
+    <td width="25%">n1</td>
+    <td width="78%" colspan="2">Long，图象的水平位置</td>
+  </tr>
+  <tr>
+    <td width="25%">n2</td>
+    <td width="78%" colspan="2">Long，图象的垂直位置</td>
+  </tr>
+  <tr>
+    <td width="25%">n3</td>
+    <td width="78%" colspan="2">Long，图象的宽度。如图象类型为DST_COMPLEX，必须设置这个参数。而对于其他类型，则可以设为零。如为零，表示该参数在图象的基础上计算</td>
+  </tr>
+  <tr>
+    <td width="25%">n4</td>
+    <td width="78%" colspan="2">Long，图象的高度。如图象类型为DST_COMPLEX，必须设置这个参数。而对于其他类型，则可以设为零。如为零，表示该参数在图象的基础上计算</td>
+  </tr>
+  <tr>
+    <td width="25%" rowspan="13">un</td>
+    <td width="78%" colspan="2">Long，图象类型和状态的一个组合。参见下表</td>
+  </tr>
+  <tr>
+    <td width="75%" colspan="2">图象类型</td>
+  </tr>
+  <tr>
+    <td width="37%">DST_BITMAP</td>
+    <td width="38%">lParam中的句柄</td>
+  </tr>
+  <tr>
+    <td width="37%">DST_COMPLEX</td>
+    <td width="38%">绘图在由lpDrawStateProc参数指定的回调函数期间执行。lParam和wParam会传递给回调事件</td>
+  </tr>
+  <tr>
+    <td width="37%">DST_ICON</td>
+    <td width="38%">lParam包括图标句柄</td>
+  </tr>
+  <tr>
+    <td width="37%">DST_TEXT</td>
+    <td width="38%">lParam代表文字的地址（可使用一个字串别名），wParam代表字串的长度</td>
+  </tr>
+  <tr>
+    <td width="37%">DST_PREFIXTEXT</td>
+    <td width="38%">与DST_TEXT类似，只是 &amp;
+    字符指出为下各字符加上下划线</td>
+  </tr>
+  <tr>
+    <td width="75%" colspan="2">图象状态常数</td>
+  </tr>
+  <tr>
+    <td width="37%">DSS_NORMAL</td>
+    <td width="38%">普通图象</td>
+  </tr>
+  <tr>
+    <td width="37%">DSS_UNION</td>
+    <td width="38%">图象进行抖动处理</td>
+  </tr>
+  <tr>
+    <td width="37%">DSS_DISABLED</td>
+    <td width="38%">图象具有浮雕效果</td>
+  </tr>
+  <tr>
+    <td width="37%">DSS_MONO</td>
+    <td width="38%">用hBrush描绘图象</td>
+  </tr>
+  <tr>
+    <td width="37%">DSS_RIGHT</td>
+    <td width="38%">手册未正式说明——经实验证明没有什么作用（原文：Undocumented-experimentation
+    seems to show no effect.）</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">注解</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3"><p align="left">windows95用它获得我们应用于图象的一些视觉效果；例如，可使位图或其他图象在视觉上进入禁用或抖动状态。对于位图和图标，它在描绘位图或图标的时候应用一种效果。对于文本，既可让函数画出文本，也可在一个回调函数中执行自己的绘图操作。对于复杂的（用户自定义）图象，则必须用一个回调函数。在回调函数执行过程中，用自己的代码将自己希望的任何东西画入设备场景。在这之后，利用DrawState函数应用希望的效果</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right"><a href="#DrawState">Top</a></td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

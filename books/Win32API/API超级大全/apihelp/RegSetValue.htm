@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<style><!--
+body,table {font-family:"宋体"; font-size: 9pt; line-height:11pt;}
+a {text-decoration:none} a:hover {color:red;text-decoration:underline}
+--></style>
+<title>RegSetValue</title>
+</head>
+
+<body link="#FF0000" vlink="#FF0000" alink="#FF0000" bgcolor="#FFC8C8">
+<div align="center"><center>
+
+<table border="0" width="100%" height="22" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" height="16">RegSetValue</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="1" width="100%" bordercolorlight="#808080" cellspacing="0"
+bordercolordark="#FFFFFF">
+  <tr>
+    <td width="100%" colspan="2">VB声明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Declare Function RegSetValue Lib &quot;advapi32.dll&quot; 
+    Alias &quot;RegSetValueA&quot; (ByVal hKey As Long, ByVal lpSubKey As String, ByVal dwType 
+    As Long, ByVal lpData As String, ByVal cbData As Long) As Long</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">说明</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">设置指定项或子项的默认值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">返回值</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Long，零（ERROR_SUCCESS）表示成功。其他任何值都代表一个错误代码</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">参数表</td>
+  </tr>
+  <tr>
+    <td width="25%">参数</td>
+    <td width="75%">类型及说明</td>
+  </tr>
+  <tr>
+    <td width="25%">hKey</td>
+    <td width="75%">Long，一个已打开项的句柄，或指定一个标准项名</td>
+  </tr>
+  <tr>
+    <td width="25%">lpSubKey</td>
+    <td width="75%">String，欲对它的值进行设置的一个子项的名字。如指定vbNullString，表示设置hKey的默认值。如指定的子项不存在，则会创建它</td>
+  </tr>
+  <tr>
+    <td width="25%">dwType</td>
+    <td width="75%">Long，必须是REG_SZ</td>
+  </tr>
+  <tr>
+    <td width="25%">lpData</td>
+    <td width="75%">String，新值</td>
+  </tr>
+  <tr>
+    <td width="25%">cbData</td>
+    <td width="75%">Long，指定lpData的长度，不包括空中止字符</td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%"><p align="right">Top</td>
+  </tr>
+</table>
+</center></div>
+</body>
+</html>

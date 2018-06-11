@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: IntersectRect Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,IntersectRect" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>IntersectRect Function</H1>
+
+<P><CODE class="declare">Declare Function IntersectRect Lib &quot;user32.dll&quot; (lpDestRect As <A href="../types/rect.html">RECT</A>, lpSrc1Rect As <A href="../types/rect.html">RECT</A>, lpSrc2Rect As <A href="../types/rect.html">RECT</A>) As Long</CODE>
+
+<P><B>IntersectRect</B> creates a rectangle based on the intersecting part of two other rectangles.  The rectangular region where the two source rectangles overlap is the intersection rectangle.  If one or both of the source rectangles are empty or there is no intersection, the function returns 0 and the <VAR>lpDestRect</VAR> rectangle is set to (0,0)-(0,0).  If the source rectangles do overlap, the intersection is put into <VAR>lpDestRect</VAR> and the function returns 1.
+
+<DL>
+<DT><VAR>lpDestRect</VAR><DD>The rectangle to be set as the intersection of the two source rectangles.
+<DT><VAR>lpSrc1Rect</VAR><DD>The first source rectangle.
+<DT><VAR>lpSrc2Rect</VAR><DD>The second source rectangle.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">'Demonstration of IntersectRect
+Dim target As RECT, s1 As RECT, s2 As RECT
+x = SetRect(s1, 50, 50, 150, 150)  ' API sets s1 = (50,50)-(150,150)
+x = SetRect(s2, 100, 100, 200, 200)  ' s2 = (100,100)-(200,200)
+x = IntersectRect(target, s1, s2)
+' target = (100,100)-(150,150)</CODE></PRE>
+
+<P><B>Related Calls:</B> <A href="subtractrect.html">SubtractRect</A>, <A href="unionrect.html">UnionRect</A><BR>
+<B>Category:</B> <A href="../index.html#rectangles" rel="index">Rectangles</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/intersectrect.html">http://members.aol.com/Borg953/api/functions/intersectrect.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

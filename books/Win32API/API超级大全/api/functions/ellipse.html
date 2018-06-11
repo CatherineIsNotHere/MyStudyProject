@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: Ellipse Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,Ellipse" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>Ellipse Function</H1>
+
+<P><CODE class="declare">Declare Function Ellipse Lib &quot;gdi32.dll&quot; (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long</CODE>
+
+<P><B>Ellipse</B> draws an ellipse on a graphics-supporting object.  The two coordinate pairs passed to the function are not part of the ellipse itself, but define its bounding rectangle.  The bounding rectangle is the smallest possible rectangle containing the ellipse.  The ellipse will be drawn with the color of the object's <VAL>.ForeColor</VAL> property.  A return value of 0 indicates an error, while a non-zero return value indicates success.
+
+<DL>
+<DT><VAR>hdc</VAR><DD>The device context of the object.
+<DT><VAR>X1</VAR><DD>The x coordinate of the bounding rectangle's upper-left corner.
+<DT><VAR>Y1</VAR><DD>The y coordinate of the bounding rectangle's upper-left corner.
+<DT><VAR>X2</VAR><DD>The x coordinate of the bounding rectangle's lower-right corner.
+<DT><VAR>Y2</VAR><DD>The y coordinate of the bounding rectangle's lower-right corner.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' Draw a red ellipse with bounding rectangle (25, 25)-(100, 75)
+Picture1.ForeColor = RGB(255, 0, 0)  ' red
+x = Ellipse(Picture1.hdc, 25, 25, 100, 75)</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#graphics" rel="index">Graphics</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/ellipse.html">http://members.aol.com/Borg953/api/functions/ellipse.html</A>
+</ADDRESS>
+</BODY>
+</HTML>

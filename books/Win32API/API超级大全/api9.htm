@@ -1,0 +1,27 @@
+
+<HTML><HEAD><TITLE>API技巧之九</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR><LINK 
+href="../Two%20Integers%20in%20a%20Long_files/default.css" rel=stylesheet type=text/css>
+<META content="tb, default" name="Microsoft Border"></HEAD>
+<BODY bgColor=#ffffff leftMargin=2 topMargin=2>
+<table border=0 width=596>
+  <tbody> 
+  <tr> 
+    <td bgcolor=#210073 width="100%">
+      <div align="center"><font color=#ffffff size=6>Long类型中的两个短整型数 </font></div>
+    </td>
+  </tr>
+  <tr> 
+    <td width="100%">
+      <p>有时调用windows的外部函数时需要使用Long,我们知道Long类型的数据在内存中占4个字节，而在程序中有时需要分别其中的两个字节，这时你可以使用IntLow()与IngHigh()两个函数，例如：</p>
+      <p>Long ll_2Ints Integer li_one, li_two someexternalfunction( ll_2Ints ) 
+        li_one = IntHigh( ll_2Ints ) li_two = IntLow( ll_2Ints )</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<script language="JavaScript">
+document.write("<a href=http://best.netease.com/cgi-bin/view/viewbasic.cgi?liuzhengguo target=_blank><img src=http://best.netease.com/cgi-bin/log.cgi?user=liuzhengguo&refer="+escape(document.referrer)+"&cur="+escape(document.URL)+" border=0 alt=网易中文站点排行榜></a>");    
+                                                                  </script>
+</BODY></HTML>

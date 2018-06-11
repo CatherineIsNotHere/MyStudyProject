@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang="en-us">
+<HEAD>
+<TITLE>Windows 95 API Guide: ChooseColor Function</TITLE>
+<META content="Borg953@aol.com" name="author">
+<META content="A guide to the multitude of API functions in Windows 95, written with the Visual Basic user in mind." name="description">
+<META content="Kuliniewicz,Windows,Windows 95,Windows NT,Windows 98,API,Application Programming Interface,Programming,Visual Basic,Basic,VB,ChooseColor" name="keywords">
+<META content="Omicron HTML Editor" name="generator">
+<LINK href="../default.css" rel="stylesheet" type="text/css">
+<LINK href="../index.html" rel="index">
+</HEAD>
+<BODY>
+<H1>ChooseColor Function</H1>
+
+<P><CODE class="declare">Declare Function ChooseColor Lib &quot;comdlg32.dll&quot; Alias &quot;ChooseColorA&quot; (pChoosecolor As <A href="../types/choosecolors.html">CHOOSECOLORS</A>) As Long</CODE>
+
+<P><B>ChooseColor</B> opens a standard Windows choose a color dialog box.  All of the information needed to open the dialog box is stored in the various members of <VAR>pChoosecolor</VAR>.  It will also receive the color the user chooses.  You can save the list of custom colors in a byte-sized array converted to Unicode (to see how to do this in VB through the StrConv function, see the example).  The return value will be 0 if either the user chooses Cancel or if there is an error.  A nonzero value indicated success.
+
+<DL>
+<DT><VAR>pChoosecolor</VAR><DD>Its members contain all information passed to the API.  It also receives the RGB value of the color the user chooses, as well as the custom colors.
+</DL>
+
+<P><B>Example:</B>
+<PRE><CODE class="example">' ** Place this code in the (declarations) section of your code.**
+Dim customcolors() As Byte  ' dynamic (resizable) array
+' ** Place this code in the Form_Load Sub or similar section. **
+ReDim customcolors(0 To 16 * 4 - 1) As Byte  'resize the array
+Dim i As Integer
+For i = LBound(customcolors) To UBound(customcolors)
+  customcolors(i) = 0  ' sets all custom colors to black (RGB=0,0,0)
+Next i
+' ** Place this code wherever to use the dialog box. **
+Dim cc As CHOOSECOLORS, x As Long
+cc.hwndOwner = Form1.hWnd  ' handle of form opening the box
+cc.lpCustColors = StrConv(customcolors, vbUnicode)  ' convert array
+cc.flags = CC_ANYCOLOR  ' allow any color to be chosen
+cc.lStructSize = Len(cc)  ' size of variable
+x = ChooseColor(cc)  ' open the dialog box
+If x = 0 Then Exit Sub  ' abort if error or Cancel
+Form1.BackColor = cc.rgbResult  ' set form background to color chosen
+customcolors = StrConv(cc.lpCustColors, vbFromUnicode)  ' save custom colors</CODE></PRE>
+
+<P><B>Category:</B> <A href="../index.html#commondialog" rel="index">Common Dialog</A><BR>
+<A href="../index.html" rel="index">Back to the index.</A>
+
+<HR>
+
+<P><ADDRESS>
+<A href="../../html-1/index.html">Back to Paul Kuliniewicz's Home Page</A><BR>
+E-mail: <A href="mailto:Borg953@aol.com">Borg953@aol.com</A><BR>
+This page is at <A href="http://members.aol.com/Borg953/api/functions/choosecolor.html">http://members.aol.com/Borg953/api/functions/choosecolor.html</A>
+</ADDRESS>
+</BODY>
+</HTML>
