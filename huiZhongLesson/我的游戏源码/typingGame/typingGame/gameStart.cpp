@@ -63,6 +63,7 @@ void main() {
 	thread t_wd(wordMove);
 	t_wd.detach();
 	printKey();
+	t_wd.~thread();
 	overGame();
 	DeleteCriticalSection(&cs);//Ïú»ÙÏß³ÌËø
 	delete[] tws;
