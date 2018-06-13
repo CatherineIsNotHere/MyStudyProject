@@ -128,38 +128,34 @@ public:
 			TextOut(hdc, 0, 300, szText, _tcslen(szText));
 			SelectObject(hdc, hOldFont);
 			DeleteObject(hfont);
-
 			//画一条线
 			/*for (int m = 0; m < 100;m++)
 			{
 			SetPixel(hdc,m,100,RGB(0,255,0));
 			}*/
-			//画一个圆
-			for (double x = 100; x > 0; x--)
-			{
-				y = sqrt(r*r - x*x);
-				SetPixel(hdc, x + 200, y + 200, RGB(0, 255, 0));
-				SetPixel(hdc, y + 200, x + 200, RGB(0, 255, 0));
-			}
-			for (double x = 100; x > 0; x--)
-			{
-				y = sqrt(r*r - x*x);
-				SetPixel(hdc, 200 - x, 200 + y, RGB(0, 255, 0));
-				SetPixel(hdc, 200 + y, 200 - x, RGB(0, 255, 0));
-			}
-			for (double x = 100; x > 0; x--)
-			{
-				y = sqrt(r*r - x*x);
-				SetPixel(hdc, 200 - x, 200 - y, RGB(0, 255, 0));
-				SetPixel(hdc, 200 - y, 200 - x, RGB(0, 255, 0));
-			}
-			for (double x = 100; x > 0; x--)
-			{
-				y = sqrt(r*r - x*x);
-				SetPixel(hdc, 200 + x, 200 - y, RGB(0, 255, 0));
-				SetPixel(hdc, 200 - y, 200 + x, RGB(0, 255, 0));
-			}
-
+			DrawLine(hdc, 0, 0, 840, 600, PS_DASHDOTDOT, 1, RGB(255, 255, 255));
+			//Arc(hdc,100,300,400,500,400,300,100,400);//弧线
+			//Chord(hdc,10,60,40,80,40,60,10,70);//弦割线
+			//Pie(hdc,10,90,40,110,40,90,10,100);//饼图
+			//Rectangle(hdc,50,10,250,250);//矩形
+			//Ellipse(hdc,10,20,60,50);//椭圆
+			//Polyline
+			POINT Pt[7];
+			Pt[0].x = 20;
+			Pt[0].y = 250;
+			Pt[1].x = 180;
+			Pt[1].y = 250;
+			Pt[2].x = 180;
+			Pt[2].y = 220;
+			Pt[3].x = 230;
+			Pt[3].y = 270;
+			Pt[4].x = 180;
+			Pt[4].y = 320;
+			Pt[5].x = 180;
+			Pt[5].y = 290;
+			Pt[6].x = 20;
+			Pt[6].y = 290;
+			Polyline(hdc,Pt,7);//多段线
 			EndPaint(hwnd, &ps);//释放内存
 			break;
 		default:
@@ -199,6 +195,42 @@ public:
 		}
 		int i = 1;
 		return 0;
+	}
+	static void DrawCircle(HDC hdc,DWORD x,DWORD y,DWORD r,DWORD col){
+		//画一个圆
+		for (double x = 100; x > 0; x--)
+		{
+			y = sqrt(r*r - x*x);
+			SetPixel(hdc, x + 200, y + 200, RGB(0, 255, 0));
+			SetPixel(hdc, y + 200, x + 200, RGB(0, 255, 0));
+		}
+		for (double x = 100; x > 0; x--)
+		{
+			y = sqrt(r*r - x*x);
+			SetPixel(hdc, 200 - x, 200 + y, RGB(0, 255, 0));
+			SetPixel(hdc, 200 + y, 200 - x, RGB(0, 255, 0));
+		}
+		for (double x = 100; x > 0; x--)
+		{
+			y = sqrt(r*r - x*x);
+			SetPixel(hdc, 200 - x, 200 - y, RGB(0, 255, 0));
+			SetPixel(hdc, 200 - y, 200 - x, RGB(0, 255, 0));
+		}
+		for (double x = 100; x > 0; x--)
+		{
+			y = sqrt(r*r - x*x);
+			SetPixel(hdc, 200 + x, 200 - y, RGB(0, 255, 0));
+			SetPixel(hdc, 200 - y, 200 + x, RGB(0, 255, 0));
+		}
+	}
+	static void DrawLine(HDC hdc, int x0, int y0, int x1, int y1, int style,int width,COLORREF col){
+		HPEN pen = CreatePen(style, width, col);
+		HPEN old=(HPEN)SelectObject(hdc,pen);
+		MoveToEx(hdc,x0,y0,NULL);
+		LineTo(hdc, x1, y1);
+
+		SelectObject(hdc, old);
+		DeleteObject(pen);
 	}
 private:
 	HINSTANCE m_hInst;
