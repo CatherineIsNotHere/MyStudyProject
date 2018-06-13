@@ -59,6 +59,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam){
 		//EndPaint(hwnd,&ps);
 
 		hdc = GetDC(hwnd);//Ê¹ÓÃGDIº¯Êý
+		TEXTMETRIC tm;
+
+
 		ReleaseDC(hwnd, hdc);
 		break;
 	case WM_DESTROY:
