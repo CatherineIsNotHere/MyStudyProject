@@ -1,6 +1,9 @@
 #include <windows.h>
+#include <iostream>
 #include <commctrl.h>
 #pragma comment(lib,"comctl32.lib")
+#include "resource.h"
+using namespace std;
 
 class wicket{
 public:
@@ -10,36 +13,42 @@ public:
 	HWND getHWnd();
 	int getNWidth();
 	int getNHeight();
+	HWND getHStatusBar();
 	void setHInst(HINSTANCE hInstance);
 	void setHWnd(HWND hwnd);
 	void setNWidth(int width);
 	void setNHeight(int height);
+	void setHStatusBar(HWND statusBar);
 	static LRESULT CALLBACK wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	virtual LRESULT onEvent(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	int Run(int w, int h);
-	/*
-	名称：MakeStatusBar
-	功能：创建状态栏
-	参数：HWND
-	*/
-	static HWND createStatusBar(HWND hwnd);
 
+	static HWND initBars(HWND & hwnd, HWND & statusBar, HWND & toolBar);
 	/*
-	名称：setStatus
+	名称：createStatusBar
+	功能：创建状态栏
+	参数：HWND主窗口句柄
+	*/
+	static int createStatusBar(HWND & hwnd, HWND & statusBar);
+	/*
+	名称：setStatusBar
 	功能：将状态栏划分成多格
 	参数：hwnd主窗口句柄，hstatus状态栏句柄
 	*/
-	static HWND setStatusBar(HWND hwnd, HWND hstatus);
-
+	static int setStatusBar(HWND hwnd, HWND statusBar);
 	/*
-	名称：setStatusText
-	功能：设置状态栏某一格的标题
-	参数：hStatus状态栏句柄，i第i格，txt标题
+	名称：printStatusRightBar
+	功能：打印最右边状态栏的格子
+	参数：hstatus状态栏句柄 lParam
 	*/
-	int setStatusText(HWND hStatus, int i, TCHAR* txt);
+	static int printStatusRightBar(HWND statusBar, LPARAM lParam);
+
+	static int createToolBar(HWND & hwnd, HWND & toolbar);
 private:
 	HINSTANCE m_hInst;
 	HWND m_hWnd;
+	HWND m_hStatusBar;
+	HWND m_hToolbar;
 	int m_nWidth;
 	int m_nHeight;
 };
