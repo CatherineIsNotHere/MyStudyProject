@@ -84,6 +84,10 @@ public:
 			switch (wParam)
 			{
 			case VK_SPACE:
+				//DrawRectangle(m_hWnd);
+				hdc = GetDC(m_hWnd);
+				FillCircle(hdc, rand() % m_nWidth, rand() % m_nHeight, rand() % 300, RGB(rand() % 256, rand() % 256, rand() % 256));
+				ReleaseDC(hwnd, hdc);
 				break;
 			case VK_ESCAPE:
 				PostQuitMessage(0);
@@ -93,6 +97,7 @@ public:
 			}
 			break;
 		case WM_KEYDOWN:
+			DrawPolygon(m_hWnd);
 			break;
 		case WM_SETFOCUS:
 			SetWindowText(hwnd,TEXT("winApp"));
@@ -101,62 +106,6 @@ public:
 			SetWindowText(hwnd, TEXT("winApp (未响应)"));
 			break;
 		case WM_PAINT:
-			hdc = BeginPaint(hwnd, &ps);//开始绘图
-			SetBkMode(hdc, TRANSPARENT);//去掉背景框
-			SetTextColor(hdc, RGB(255, 0, 255));//文字颜色
-			//TextOut(hdc, 100, 200, szText, _tcslen(szText));//输出文字，可以精准定位xy,不能换行
-			GetClientRect(hwnd, &rc);//获取客户区尺寸
-			//DrawText(hdc,szText,-1,&rc,DT_SINGLELINE|DT_CENTER|DT_VCENTER);
-			hfont = CreateFont(
-				50,//字符高度
-				0,//字符宽度
-				0,//文字倾斜角度
-				0,//字体倾斜角度
-				FW_BOLD,//笔画的粗细
-				0,//是否是斜体
-				0,//是否加下划线
-				0,//是否在字体中加水平线
-				ANSI_CHARSET,//字符集
-				0,//字体输出方式
-				0,//裁剪字体的方式
-				0,//字体质量
-				0,//字体系列和字体宽度设定
-				TEXT("楷体")//字样名
-				);
-			hOldFont = (HFONT)SelectObject(hdc, hfont);//选择新的字体，返回老的字体
-			SetTextColor(hdc, RGB(0X00, 0Xff, 0Xff));
-			TextOut(hdc, 0, 300, szText, _tcslen(szText));
-			SelectObject(hdc, hOldFont);
-			DeleteObject(hfont);
-			//画一条线
-			/*for (int m = 0; m < 100;m++)
-			{
-			SetPixel(hdc,m,100,RGB(0,255,0));
-			}*/
-			DrawLine(hdc, 0, 0, 840, 600, PS_DASHDOTDOT, 1, RGB(255, 255, 255));
-			//Arc(hdc,100,300,400,500,400,300,100,400);//弧线
-			//Chord(hdc,10,60,40,80,40,60,10,70);//弦割线
-			//Pie(hdc,10,90,40,110,40,90,10,100);//饼图
-			//Rectangle(hdc,50,10,250,250);//矩形
-			//Ellipse(hdc,10,20,60,50);//椭圆
-			//Polyline
-			POINT Pt[7];
-			Pt[0].x = 20;
-			Pt[0].y = 250;
-			Pt[1].x = 180;
-			Pt[1].y = 250;
-			Pt[2].x = 180;
-			Pt[2].y = 220;
-			Pt[3].x = 230;
-			Pt[3].y = 270;
-			Pt[4].x = 180;
-			Pt[4].y = 320;
-			Pt[5].x = 180;
-			Pt[5].y = 290;
-			Pt[6].x = 20;
-			Pt[6].y = 290;
-			Polyline(hdc,Pt,7);//多段线
-			EndPaint(hwnd, &ps);//释放内存
 			break;
 		default:
 			break;
@@ -190,47 +139,50 @@ public:
 				DispatchMessage(&msg);
 			}
 			else{
-				Sleep(1);
+				//Sleep(100);
 			}
 		}
 		int i = 1;
 		return 0;
 	}
-	static void DrawCircle(HDC hdc,DWORD x,DWORD y,DWORD r,DWORD col){
-		//画一个圆
-		for (double x = 100; x > 0; x--)
-		{
-			y = sqrt(r*r - x*x);
-			SetPixel(hdc, x + 200, y + 200, RGB(0, 255, 0));
-			SetPixel(hdc, y + 200, x + 200, RGB(0, 255, 0));
-		}
-		for (double x = 100; x > 0; x--)
-		{
-			y = sqrt(r*r - x*x);
-			SetPixel(hdc, 200 - x, 200 + y, RGB(0, 255, 0));
-			SetPixel(hdc, 200 + y, 200 - x, RGB(0, 255, 0));
-		}
-		for (double x = 100; x > 0; x--)
-		{
-			y = sqrt(r*r - x*x);
-			SetPixel(hdc, 200 - x, 200 - y, RGB(0, 255, 0));
-			SetPixel(hdc, 200 - y, 200 - x, RGB(0, 255, 0));
-		}
-		for (double x = 100; x > 0; x--)
-		{
-			y = sqrt(r*r - x*x);
-			SetPixel(hdc, 200 + x, 200 - y, RGB(0, 255, 0));
-			SetPixel(hdc, 200 - y, 200 + x, RGB(0, 255, 0));
-		}
+	static void DrawPolygon(HWND hwnd){
+		HDC hdc;
+		hdc = GetDC(hwnd);
+		HBRUSH hbrushNew = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		HBRUSH hbrushOld = (HBRUSH)SelectObject(hdc,hbrushNew);
+		POINT p[] = {
+			50,320,50,350,100,400,200,400,200,350,200,300,150,300,100,280
+		};
+		Polygon(hdc,p,8);
+		SelectObject(hdc, hbrushOld);
+		DeleteObject(hbrushNew);
+		ReleaseDC(hwnd,hdc);
 	}
-	static void DrawLine(HDC hdc, int x0, int y0, int x1, int y1, int style,int width,COLORREF col){
-		HPEN pen = CreatePen(style, width, col);
-		HPEN old=(HPEN)SelectObject(hdc,pen);
-		MoveToEx(hdc,x0,y0,NULL);
-		LineTo(hdc, x1, y1);
+	static void DrawRectangle(HWND hwnd){
+		RECT rc;
+		GetClientRect(hwnd,&rc);
+		HBRUSH hbrush=CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
+		RECT r;
+		auto w = rc.right - rc.left;
+		auto h = rc.bottom - rc.top;
+		SetRect(&r, rand()%w,rand()%h,rand()%w,rand()%h);
+		HDC dc = GetDC(hwnd);
+		FillRect(dc,&r,hbrush);
+		ReleaseDC(hwnd,dc);
+		DeleteObject(hbrush);
 
-		SelectObject(hdc, old);
+	}
+	static void FillCircle(HDC hdc, int x, int y, int d, COLORREF col){
+		HBRUSH brush = CreateSolidBrush(col);
+		HBRUSH oldbrush = (HBRUSH)SelectObject(hdc, brush);
+		HPEN pen = CreatePen(PS_SOLID, 2, 0X000000);
+		HPEN oldpen = (HPEN)SelectObject(hdc, pen);
+		Ellipse(hdc, x - d / 2,y - d / 2, x + d / 2, y + d / 2);
+		SelectObject(hdc, oldpen);
+		SelectObject(hdc, oldbrush);
 		DeleteObject(pen);
+		DeleteObject(brush);
+
 	}
 private:
 	HINSTANCE m_hInst;
