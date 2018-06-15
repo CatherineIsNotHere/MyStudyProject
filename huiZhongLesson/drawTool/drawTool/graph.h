@@ -1,3 +1,4 @@
+#pragma once
 #include <windows.h>
 #include <string>
 using namespace std;
@@ -25,6 +26,8 @@ private:
 		get and set	
 	*/
 public:
+	graph();
+	virtual ~graph();
 	int getNWidth(){
 		return g_nwidth;
 	}

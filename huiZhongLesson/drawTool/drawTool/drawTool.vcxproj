@@ -78,15 +78,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="configuration.hpp" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="squareness.h" />
-    <ClInclude Include="wicket.h" />
+    <ClInclude Include="winEvent.h" />
+    <ClInclude Include="winIni.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="startup.cpp" />
-    <ClCompile Include="wicket.cpp" />
+    <ClCompile Include="winEvent.cpp" />
+    <ClCompile Include="winIni.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="drawTool.rc" />

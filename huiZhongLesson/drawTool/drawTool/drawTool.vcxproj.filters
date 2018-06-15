@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="wicket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -27,15 +24,27 @@
     <ClInclude Include="squareness.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="winIni.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="winEvent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="configuration.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wicket.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="startup.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="winIni.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="winEvent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

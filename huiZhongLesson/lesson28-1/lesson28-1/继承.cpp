@@ -25,7 +25,10 @@ private:
 
 class dad{
 public:
-	dad()
+	dad(){
+	
+	}
+	dad(int len)
 		:len(180)
 		, wei(170)
 		, bor(19910429)
@@ -40,22 +43,25 @@ public:
 	int bor;
 };
 
-class student:private person,dad{//¼Ì³Ğ
+class student:public person,dad{//¼Ì³Ğ
 public:
-	student(){
+	student(int len)
+		:dad(len)
+	{
+		
 		printf("¹¹Ôìstudent");
 	}
 	~student(){
 		printf("Îö¹¹student");
 	}
 	void print(){
-		student s;
-		s.print;
+		student s(20);
+		s.print();
 	}
 
 };
 
 void main(){
-	student s;
+	person* s = new student(10);
 	system("pause");
 }

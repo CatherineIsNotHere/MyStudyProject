@@ -1,6 +1,7 @@
-#include "wicket.h"
+#include "winEvent.h"
 
 INT wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPTSTR lpCmdLine,int nCmdShow){
-	wicket baseWicket(hInstance);
-	baseWicket.Run(800,600);
+	WNDCLASSEX wc;
+	winIni * baseWin = new winEvent(hInstance, &wc);
+	baseWin->Run(800, 600);
 }
