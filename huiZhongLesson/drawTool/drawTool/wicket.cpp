@@ -51,6 +51,7 @@ LRESULT wicket::onEvent(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 	case WM_KEYUP:
 		break;
 	case WM_KEYDOWN:
+
 		break;
 	case WM_SETFOCUS:
 		SetWindowText(hwnd, TEXT("winApp"));

@@ -66,28 +66,40 @@ public:
 		HDC hdc;
 		PAINTSTRUCT ps;
 		TCHAR szText[64] = TEXT("这是测试汉字this is test!");
+		TCHAR swindowText[32] = { 0 };
 		RECT rc;//矩形
 		HFONT hfont;
 		HFONT hOldFont;
 		double y = 0;
 		double r = 100;
+		static POINT apt[4];//构成曲线的四个点
 		switch (msg)
 		{
+		case WM_LBUTTONDOWN:
+			/*hdc = GetDC(m_hWnd);
+			FillCircle(hdc, LOWORD(lParam), HIWORD(lParam), 5, RGB(85,200, 100));
+			ReleaseDC(hwnd, hdc);*/
+		case WM_RBUTTONDOWN:
+		case WM_MOUSEMOVE:
+			if (wParam & MK_LBUTTON){
+				apt[1].x = LOWORD(lParam);
+				apt[1].y = HIWORD(lParam);
+			}
+			if (wParam & MK_RBUTTON){
+				apt[2].x = LOWORD(lParam);
+				apt[2].y = HIWORD(lParam);
+			}
+			InvalidateRect(hwnd, NULL, TRUE);//使窗口无效导致重画
+			break;
 		case WM_CLOSE:
 			break;
 		case WM_DESTROY:
 			::PostQuitMessage(0);
 			break;
-		case WM_MOUSEMOVE:
-			break;
 		case WM_KEYUP:
 			switch (wParam)
 			{
 			case VK_SPACE:
-				//DrawRectangle(m_hWnd);
-				hdc = GetDC(m_hWnd);
-				FillCircle(hdc, rand() % m_nWidth, rand() % m_nHeight, rand() % 300, RGB(rand() % 256, rand() % 256, rand() % 256));
-				ReleaseDC(hwnd, hdc);
 				break;
 			case VK_ESCAPE:
 				PostQuitMessage(0);
@@ -97,15 +109,32 @@ public:
 			}
 			break;
 		case WM_KEYDOWN:
-			DrawPolygon(m_hWnd);
+			//DrawPolygon(m_hWnd);
 			break;
 		case WM_SETFOCUS:
-			SetWindowText(hwnd,TEXT("winApp"));
+			//SetWindowText(hwnd,TEXT("winApp"));
 			break;
 		case WM_KILLFOCUS:
 			SetWindowText(hwnd, TEXT("winApp (未响应)"));
 			break;
 		case WM_PAINT:
+			hdc = BeginPaint(m_hWnd, &ps);
+			bezierCurves(hwnd, hdc, apt);
+			EndPaint(hwnd,&ps);
+			break;
+		case WM_SIZE:
+			setNWidth(LOWORD(lParam));
+			setNHeight(HIWORD(lParam));
+			wsprintf(swindowText,TEXT("x:%d,y:%d"),m_nWidth,m_nHeight);
+			SetWindowText(hwnd, swindowText);//设置标题栏内容
+			apt[0].x = m_nWidth / 4;
+			apt[0].y = m_nHeight / 2;
+			apt[1].x = m_nWidth / 2;
+			apt[1].y = m_nHeight / 4;
+			apt[2].x = m_nWidth / 2;
+			apt[2].y = m_nHeight / 4 * 3;
+			apt[3].x = m_nWidth / 4 * 3;
+			apt[3].y = m_nHeight / 2;
 			break;
 		default:
 			break;
@@ -145,7 +174,7 @@ public:
 		int i = 1;
 		return 0;
 	}
-	static void DrawPolygon(HWND hwnd){
+	static void DrawPolygon(HWND hwnd){//画多边形
 		HDC hdc;
 		hdc = GetDC(hwnd);
 		HBRUSH hbrushNew = (HBRUSH)GetStockObject(WHITE_BRUSH);
@@ -158,7 +187,7 @@ public:
 		DeleteObject(hbrushNew);
 		ReleaseDC(hwnd,hdc);
 	}
-	static void DrawRectangle(HWND hwnd){
+	static void DrawRectangle(HWND hwnd){//画矩形
 		RECT rc;
 		GetClientRect(hwnd,&rc);
 		HBRUSH hbrush=CreateSolidBrush(RGB(rand() % 256, rand() % 256, rand() % 256));
@@ -172,17 +201,29 @@ public:
 		DeleteObject(hbrush);
 
 	}
-	static void FillCircle(HDC hdc, int x, int y, int d, COLORREF col){
+	static void FillCircle(HDC hdc, int x, int y, int d, COLORREF col){//画圆
 		HBRUSH brush = CreateSolidBrush(col);
 		HBRUSH oldbrush = (HBRUSH)SelectObject(hdc, brush);
-		HPEN pen = CreatePen(PS_SOLID, 2, 0X000000);
+		HPEN pen = CreatePen(PS_SOLID, 0.1, 0X000000);
 		HPEN oldpen = (HPEN)SelectObject(hdc, pen);
 		Ellipse(hdc, x - d / 2,y - d / 2, x + d / 2, y + d / 2);
 		SelectObject(hdc, oldpen);
 		SelectObject(hdc, oldbrush);
 		DeleteObject(pen);
 		DeleteObject(brush);
+	}
 
+	static void bezierCurves(HWND hwnd,HDC hdc,POINT apt[]){//贝兹曲线
+
+		PolyBezier(hdc,apt,4);
+		MoveToEx(hdc,apt[0].x,apt[0].y,NULL);
+		LineTo(hdc,apt[1].x,apt[1].y);
+		MoveToEx(hdc, apt[2].x, apt[2].y, NULL);
+		LineTo(hdc, apt[3].x, apt[3].y);
+		FillCircle(hdc,apt[0].x ,apt[0].y , 10, RGB(85, 200, 100));
+		FillCircle(hdc, apt[1].x, apt[1].y, 10, RGB(85, 200, 100));
+		FillCircle(hdc, apt[2].x, apt[2].y, 10, RGB(85, 200, 100));
+		FillCircle(hdc, apt[3].x, apt[3].y, 10, RGB(85, 200, 100));
 	}
 private:
 	HINSTANCE m_hInst;

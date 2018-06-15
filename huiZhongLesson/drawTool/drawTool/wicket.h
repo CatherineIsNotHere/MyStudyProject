@@ -3,6 +3,7 @@
 #include <commctrl.h>
 #pragma comment(lib,"comctl32.lib")
 #include "resource.h"
+#include "squareness.h"
 using namespace std;
 
 class wicket{
