@@ -27,16 +27,16 @@ static char map[23][36] = { { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
 };
-static void beforeGame();//游戏开始打印规则
-static void printMap();//打印地图
-static int fileToWords();//文件初始化单词
-static void printKey();//输入栏
-static void wordMove();//所有单词移动
-static void checkWord(string str);//检查单词是否正确
-static int randBar();//随机栏掉落
-static bool checkOver();//检查是否结束
-static void overGame();//游戏结束打印成绩
-static string intToString(const int);
+static void beforeGame();				//打印游戏规则
+static void printMap();					//打印地图
+static int fileToWords();				//初始化单词
+static void printKey();					//输入栏
+static void wordMove();					//单词移动
+static void checkWord(string str);		//检查单词是否正确
+static int randBar();					//随机栏掉落
+static bool checkOver();				//检查是否结束
+static void overGame();					//游戏结束打印成绩
+static string intToString(const int);	
 static int typeLetterNum = 0;//输入的字母数量
 static int letterNum = 1;//下落单词数量
 static int wordNum = -1;//单词总数，不知道为什么读出来的行数总比实际行数大1
