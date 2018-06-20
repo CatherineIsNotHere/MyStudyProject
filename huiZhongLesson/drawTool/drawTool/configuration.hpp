@@ -1,10 +1,14 @@
 #pragma once;
 #include <windows.h>
+#include <string>
+using namespace std;
+
 
 typedef enum LocationStatusBar
 {
 	LEFT_STATUSBAR = 20
 }LSB;
+
 
 
 static void wndCreateConfig(WNDCLASSEX* wc){
@@ -16,6 +20,6 @@ static void wndCreateConfig(WNDCLASSEX* wc){
 	wc->hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc->hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wc->lpszMenuName = NULL;
-	wc->lpszClassName = TEXT("winApp");
+	wc->lpszClassName = TEXT("´°¿Ú");
 	wc->hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 }
