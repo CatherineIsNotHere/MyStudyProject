@@ -38,10 +38,10 @@ LRESULT winEvent::onEvent(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 
 		break;
 	case WM_SETFOCUS:
-		SetWindowText(hwnd, TEXT("winApp"));
+		//SetWindowText(hwnd, TEXT("winApp"));
 		break;
 	case WM_KILLFOCUS:
-		SetWindowText(hwnd, TEXT("winApp (Œ¥œÏ”¶)"));
+		//SetWindowText(hwnd, TEXT("winApp (Œ¥œÏ”¶)"));
 		break;
 	case WM_CLOSE:
 		break;

@@ -15,7 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinApp.hpp">
+    <ClInclude Include="标头.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mybitmap.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mysprite.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

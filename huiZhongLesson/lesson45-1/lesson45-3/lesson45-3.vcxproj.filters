@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinApp.hpp">
+    <ClInclude Include="winApp3.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

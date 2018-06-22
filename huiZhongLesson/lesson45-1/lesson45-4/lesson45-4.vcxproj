@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0626C030-301B-4C55-885C-A1ADF3F68F19}</ProjectGuid>
+    <ProjectGuid>{9017F529-37C7-40A9-9FDC-4ED043AC4FC5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>lesson452</RootNamespace>
+    <RootNamespace>lesson454</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,10 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="WinApp.hpp" />
+    <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源.cpp" />
+    <ClInclude Include="mybitmap.hpp" />
+    <ClInclude Include="标头.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

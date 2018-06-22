@@ -1,5 +1,6 @@
 #include <windows.h>
-#include "WinApp1.hpp"
+
+#include "БъЭЗ.hpp"
 
 INT WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow){
 	CWinAPP app(hInstance);

@@ -1,5 +1,5 @@
+#pragma once
 #include "winIni.h"
-
 
 
 winIni::winIni(HINSTANCE inst,WNDCLASSEX *wc)
@@ -9,7 +9,7 @@ winIni::winIni(HINSTANCE inst,WNDCLASSEX *wc)
 		wc->hInstance = m_hInst;
 }
 winIni::~winIni(){
-	UnregisterClass(TEXT("winApp"), m_hInst);
+	UnregisterClass(TEXT("´°¿Ú"), m_hInst);
 }
 
 
@@ -17,7 +17,7 @@ int winIni::Run(int w, int h){
 	m_nWidth = w;
 	m_nHeight = h;
 	m_hWnd = CreateWindowEx(
-		NULL, TEXT("winApp"), TEXT("winApp"),
+		NULL, TEXT("´°¿Ú"), TEXT("´°¿Ú"),
 		WS_OVERLAPPEDWINDOW,
 		0,0,w, h,NULL,NULL,m_hInst,this);
 	if (m_hWnd == 0){
