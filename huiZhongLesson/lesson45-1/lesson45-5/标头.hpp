@@ -2,16 +2,21 @@
 #include <windows.h>
 #include "mybitmap.hpp"
 #include "mysprite.hpp"
+#include "myrect.hpp"
+#include "MyObject.hpp"
 #pragma  comment(lib,"msimg32.lib")//¼ÓÔØ¿âÎÄ¼þ
 
 CMySprite spr;
 CMyBitmap bg;
 HWND hwnd;
 HDC hdc;
+CMyObject obj; 
 void Init();
 void Repaint();
 void Destroy();
 int x = 0;
+CMyRect rect1;
+CMyRect rect2;
 
 class CWinAPP
 {
@@ -158,9 +163,12 @@ private:
 };
 
 void Init(){
+	obj.Init(TEXT(".\\moveright.bmp"), 164/4, 48, 4, 0, 0, 0.5f,1.0f);
+	/*rect1.SetRect(200,200,50,50);
+	rect2.SetRect(200, 200, 100, 100);
 	spr.Load(TEXT(".\\moveright.bmp"));
 	spr.setSprite(164/4,48,4);
-	spr.setScale(1.f,2.f);
+	spr.setScale(1.f,2.f);*/
 	RECT rc;
 	GetWindowRect(hwnd, &rc);
 	bg.create(hdc, rc.right - rc.left, rc.bottom - rc.top, RGB(0, 0, 0));
@@ -169,9 +177,15 @@ void Init(){
 }
 
 void Repaint(){
-	bg.Draw(hdc,0,0,0Xff00ff);
-	spr.Draw(hdc, 0, 0, RGB(255,255,255));
-	spr.NextFrame();
+	bg.Draw(hdc, 0, 0, 0Xff00ff);
+	obj.Update();
+	obj.Draw(hdc);
+	//spr.Draw(hdc, 0, 0, RGB(255, 255, 255));
+	//spr.NextFrame();
+	//if (rect1.IntersectWdth(rect2)){
+	//	rect1.Draw(hdc);
+	//	rect2.Draw(hdc);
+	//}
 }
 
 void Destroy(){

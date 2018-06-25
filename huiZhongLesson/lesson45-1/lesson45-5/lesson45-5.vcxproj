@@ -79,6 +79,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="mybitmap.hpp" />
+    <ClInclude Include="MyObject.hpp" />
+    <ClInclude Include="myrect.hpp" />
     <ClInclude Include="mysprite.hpp" />
     <ClInclude Include="标头.hpp" />
   </ItemGroup>

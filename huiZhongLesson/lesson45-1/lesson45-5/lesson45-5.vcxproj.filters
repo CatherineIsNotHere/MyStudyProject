@@ -24,6 +24,12 @@
     <ClInclude Include="mysprite.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="myrect.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyObject.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源.cpp">

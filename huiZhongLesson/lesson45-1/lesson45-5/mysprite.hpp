@@ -41,6 +41,7 @@ public:
 		TransparentBlt(hdc, x, y, m_nWidth*m_nWScale, m_nHeight*m_nHScale, memdc, m_nFrameWidth*m_nCurrent,0, m_nFrameWidth, m_nFrameHeight, keycol);
 		SelectObject(memdc, oldbm);
 		DeleteDC(memdc);
+		this->NextFrame();
 	}
 
 protected:
