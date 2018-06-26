@@ -37,7 +37,6 @@ public:
 		LineTo(dc, nPosX, nPosY+nHeight);
 		LineTo(dc, nPosX, nPosY);
 
-
 		SelectObject(dc, old);
 		DeleteObject(pen);
 	}

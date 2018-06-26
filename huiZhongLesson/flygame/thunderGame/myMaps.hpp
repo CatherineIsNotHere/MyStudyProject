@@ -1,7 +1,6 @@
 #pragma once;
 #include <windows.h>
-#include "MyObject.hpp"
-
+#include "myObject.hpp"
 class CMymaps:public CMyObject{
 public:
 	CMymaps(){
@@ -24,7 +23,7 @@ public:
 		m_spr.Draw(dc, m_nX, m_nY + m_spr.getHeight(), RGB(255, 255, 255));
 	}
 	void Update(){
-		m_nY -= 10;
+		m_nY -= 1;
 		int height = m_spr.getHeight();
 		if (m_nY*(-1) >= height){
 			m_nY = 0;

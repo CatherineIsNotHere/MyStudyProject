@@ -11,10 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5B49571-5084-4846-82E1-2604743C3DEA}</ProjectGuid>
+    <ProjectGuid>{831AB547-C50A-4E9D-B07C-EB8872537182}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>lesson455</RootNamespace>
-    <ProjectName>thunderGame</ProjectName>
+    <RootNamespace>lesson456</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,15 +78,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="mybitmap.hpp" />
-    <ClInclude Include="myEnermy.hpp" />
-    <ClInclude Include="myObject.hpp" />
-    <ClInclude Include="myrect.hpp" />
-    <ClInclude Include="mysprite.hpp" />
     <ClInclude Include="showWindow.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="myMaps.hpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

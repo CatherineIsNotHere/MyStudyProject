@@ -15,31 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mybitmap.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="mysprite.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myrect.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="showWindow.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myEnermy.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myObject.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="源.cpp">
+    <ClCompile Include="类型推导.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="myMaps.hpp">
-      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

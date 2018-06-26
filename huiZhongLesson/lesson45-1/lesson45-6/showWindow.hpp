@@ -1,20 +1,7 @@
 #pragma once//执行一次
 #include <windows.h>
-#include "mybitmap.hpp"
-#include "mysprite.hpp"
-#include "myrect.hpp"
-#include "MyObject.hpp"
-#include "myMaps.hpp"
 #pragma  comment(lib,"msimg32.lib")//加载库文件
 
-HWND hwnd;
-HDC hdc;
-CMyObject obj; 
-CMymaps map;
-void Init();
-void Repaint();
-void Destroy();
-int x = 0;
 
 class CWinAPP
 {
@@ -81,6 +68,11 @@ public:
 				break;
 			}
 			break;
+		case WM_PAINT:
+			hdc = BeginPaint(hwnd,&ps);
+			DrawRgn(hdc);
+			EndPaint(hwnd,&ps);
+			break;
 		case WM_KEYUP:
 			break;
 		case WM_SETFOCUS: //变为后台内存节省 
@@ -95,12 +87,6 @@ public:
 			break;
 		case WM_MOUSEMOVE:
 			break;
-		case WM_PAINT:
-			hdc = BeginPaint(hwnd, &ps);
-			//drawBitmap(hwnd, hdc);
-			EndPaint(hwnd, &ps);
-
-			break;
 		default:
 			return DefWindowProc(hwnd, msg, wParam, lparam);
 		}
@@ -114,9 +100,9 @@ public:
 		m_hWnd = CreateWindowEx(NULL,
 			TEXT("WinApp"),
 			TEXT("WinApp"),
-			NULL,
-			50,
-			50,
+			WS_OVERLAPPEDWINDOW,
+			CW_USEDEFAULT,
+			CW_USEDEFAULT,
 			w,
 			h,
 			NULL,
@@ -128,14 +114,8 @@ public:
 		{
 			return -1;
 		}
-		//显示更新
 		ShowWindow(m_hWnd, SW_SHOW);
 		UpdateWindow(m_hWnd);
-		//CMyBitmap bmp(TEXT("D://nichousha.bmp"));
-		hwnd = m_hWnd;
-		hdc = GetDC(m_hWnd);
-		Init();
-		//bmp.Draw(hdc, 0, 0, RGB(255, 0, 255));
 		MSG msg = { 0 };
 		while (msg.message != WM_QUIT)//退出 
 		{
@@ -150,31 +130,29 @@ public:
 				Sleep(1);
 			}
 		}
-		ReleaseDC(m_hWnd, hdc);
 		return 0;
 	}
 
+	void DrawRgn(HDC hdc){
+		HBITMAP hBitMap = (HBITMAP)LoadImage(NULL, TEXT("JpPlane.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+		BITMAP bitmapinfo;
+		GetObject(hBitMap, sizeof(BITMAP), &bitmapinfo);
+		int r = bitmapinfo.bmHeight;
+		HRGN rgn = CreateEllipticRgn(0, 0, r, r);//创建椭圆裁剪区
+		SelectClipRgn(hdc, rgn);
+		HDC hMemoryDC = CreateCompatibleDC(hdc);
+		HBITMAP hOldBitmap = (HBITMAP)SelectObject(hMemoryDC,hBitMap);
+		BitBlt(hdc, 0, 0, 500, 500, hMemoryDC, 0, 0, SRCCOPY);
+		SelectObject(hMemoryDC,hOldBitmap);
+		DeleteObject(hBitMap);
+		DeleteDC(hMemoryDC);
+		DeleteObject(rgn);
 
+	}
 protected:
 private:
 
 };
 
-void Init(){
-	//obj.Init(TEXT(".\\moveright.bmp"), 164/4, 48, 4, 0, 0, 0.5f,1.0f);
-	map.Init(TEXT("bg1_0.bmp"),520,851,1,0,0,1.0f,1.0f);
-	SetTimer(hwnd, 1, 100, (TIMERPROC)Repaint);
 
-}
 
-void Repaint(){
-	//obj.Update();
-	//obj.Draw(hdc);
-	map.Update();
-	map.Draw(hdc);
-
-}
-
-void Destroy(){
-	KillTimer(hwnd, 1);
-}
