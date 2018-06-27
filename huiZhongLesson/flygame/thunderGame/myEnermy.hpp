@@ -14,9 +14,10 @@ public:
 
 	}
 	void Update(){
-		m_nY += 5;
+		this->m_nY += 5;
 		srand((int)time(NULL));
 		int x=rand() % 10*(rand()%3-1);
-		m_nX += x;
+		this->m_nX += x;
 	}
+	
 };

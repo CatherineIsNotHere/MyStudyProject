@@ -1,28 +1,7 @@
 #pragma once//执行一次
 #include <windows.h>
-#include "mybitmap.hpp"
-#include "mysprite.hpp"
-#include "myrect.hpp"
-#include "MyObject.hpp"
-#include "myMaps.hpp"
-#include "myEnermy.hpp"
 #pragma  comment(lib,"msimg32.lib")//加载库文件
 
-HWND hwnd;
-HDC hdc;
-CMyObject obj; 
-CMymaps map;
-CMyEnermy enms;
-CMyEnermy enms2;
-CMyEnermy enms3;
-CMyEnermy boss;
-int enmsNum = 20;
-int enmNum = 0;
-void Init();
-void Repaint();
-void Destroy();
-void newEnermy();
-int x = 0;
 
 class CWinAPP
 {
@@ -89,6 +68,11 @@ public:
 				break;
 			}
 			break;
+		case WM_PAINT:
+			hdc = BeginPaint(hwnd, &ps);
+			DrawPath(hdc);
+			EndPaint(hwnd, &ps);
+			break;
 		case WM_KEYUP:
 			break;
 		case WM_SETFOCUS: //变为后台内存节省 
@@ -103,12 +87,6 @@ public:
 			break;
 		case WM_MOUSEMOVE:
 			break;
-		case WM_PAINT:
-			hdc = BeginPaint(hwnd, &ps);
-			//drawBitmap(hwnd, hdc);
-			EndPaint(hwnd, &ps);
-
-			break;
 		default:
 			return DefWindowProc(hwnd, msg, wParam, lparam);
 		}
@@ -122,9 +100,9 @@ public:
 		m_hWnd = CreateWindowEx(NULL,
 			TEXT("WinApp"),
 			TEXT("WinApp"),
-			NULL,
-			50,
-			50,
+			WS_OVERLAPPEDWINDOW,
+			CW_USEDEFAULT,
+			CW_USEDEFAULT,
 			w,
 			h,
 			NULL,
@@ -136,14 +114,8 @@ public:
 		{
 			return -1;
 		}
-		//显示更新
 		ShowWindow(m_hWnd, SW_SHOW);
 		UpdateWindow(m_hWnd);
-		//CMyBitmap bmp(TEXT("D://nichousha.bmp"));
-		hwnd = m_hWnd;
-		hdc = GetDC(m_hWnd);
-		Init();
-		//bmp.Draw(hdc, 0, 0, RGB(255, 0, 255));
 		MSG msg = { 0 };
 		while (msg.message != WM_QUIT)//退出 
 		{
@@ -158,52 +130,43 @@ public:
 				Sleep(1);
 			}
 		}
-		ReleaseDC(m_hWnd, hdc);
 		return 0;
 	}
 
-
+	void DrawPath(HDC dc){
+		SetBkMode(dc, TRANSPARENT);
+		RECT rc = {100,100,800,300};
+		HFONT hfont= CreateFont(200, 0, 0, 0, FW_BOLD, 0, 0, 0, ANSI_CHARSET, 0, 0, 0, 0, TEXT("微软雅黑"));
+		HFONT holdFont = (HFONT)SelectObject(dc, hfont);
+		HPEN penl = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+		auto pOldPen = SelectObject(dc, penl);
+		HBRUSH brush1 = CreateSolidBrush(RGB(255,0,0));
+		auto poldBrush = SelectObject(dc, brush1);
+		BeginPath(dc);
+		TCHAR s[] = TEXT("来玩啊...");
+		DrawText(dc,s,wcslen(s),&rc,DT_CENTER|DT_VCENTER);
+		EndPath(dc);
+		//StrokePath(dc);//描边
+		//FillPath(dc);//填充
+		//StrokeAndFillPath(dc);
+		{
+			auto newbrush = CreateHatchBrush(HS_DIAGCROSS,0xff00ff);
+			auto rgn = PathToRegion(dc);
+			//FillRgn(dc,rgn,newbrush);
+			FrameRgn(dc,rgn,newbrush,2,2);
+			DeleteObject(newbrush);
+		}
+		SelectObject(dc,holdFont);
+		SelectObject(dc, pOldPen);
+		SelectObject(dc, poldBrush);
+		DeleteObject(hfont);
+		DeleteObject(penl);
+		DeleteObject(brush1);
+	}
 protected:
 private:
 
 };
 
-void Init(){
-	obj.Init(TEXT(".\\player1.bmp"), 128, 128, 2, 196, 723,0.25f,0.5f);
-	map.Init(TEXT("bg1_0.bmp"),520,851,1,0,0,1.0f,1.0f);
-	//boss.Init(TEXT(".\\enermy1.bmp"), 128, 128, 2, 196, 0, 0.25f, 0.5f);
-	SetTimer(hwnd, 1, 50, (TIMERPROC)Repaint);
-	//SetTimer(hwnd, 2, 1000, (TIMERPROC)newEnermy);
 
-	enms.Init(TEXT(".\\enermy1.bmp"), 128, 128, 2, 0, 0, 0.25f, 0.5f);
-	enms2.Init(TEXT(".\\enermy1.bmp"), 128, 128, 2, 128, 0, 0.25f, 0.5f);
-	enms3.Init(TEXT(".\\enermy1.bmp"), 128, 128, 2, 256, 0, 0.25f, 0.5f);
-	//enms[enmNum].Init(TEXT(".\\enermy1.bmp"), 128, 128, 2, 0, 0, 0.25f, 0.5f);
-}
 
-void Repaint(){
-	map.Update();
-	map.Draw(hdc);
-	obj.Update();
-	obj.Draw(hdc);
-	/*boss.Update();
-	boss.Draw(hdc);*/
-	//for (int i = 0; i <= enmNum;i++){
-	//	enms[i].Update();
-	//	enms[i].Draw(hdc);
-	//}
-	enms.Update();
-	enms.Draw(hdc);
-	enms2.Update();
-	enms2.Draw(hdc);
-	enms3.Update();
-	enms3.Draw(hdc);
-}
-void newEnermy(){
-	
-}
-
-void Destroy(){
-	KillTimer(hwnd, 1);
-	
-}
