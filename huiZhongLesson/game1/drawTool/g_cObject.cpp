@@ -12,6 +12,12 @@ int cObject::getNY(){
 OBJSTATE cObject::getOState(){
 	return o_state;
 }
+
+CSprite cObject::getSpr()
+{
+	return o_spr;
+}
+
 void cObject::setNX(int x){
 	this->o_nX = x;
 }
@@ -20,6 +26,11 @@ void cObject::setNY(int y){
 }
 void cObject::setOState(OBJSTATE os){
 	this->o_state = os;
+}
+
+void cObject::setSpr(CSprite spr)
+{
+	this->o_spr = spr;
 }
 
 /*

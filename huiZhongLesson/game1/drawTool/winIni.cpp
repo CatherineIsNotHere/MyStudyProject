@@ -112,6 +112,16 @@ int winIni::createToolBar(HWND & hwnd, HWND & toolbar){
 	return 1;
 }
 
+void winIni::initResource()
+{
+	SetTimer(m_hWnd, 1, 60, (TIMERPROC)repaintResource);
+}
+
+void CALLBACK winIni::repaintResource(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
+{
+
+}
+
 /*
 	GET AND SET
 */

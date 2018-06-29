@@ -42,8 +42,13 @@ public:
 	参数：HWND主窗口句柄
 	*/
 	static int createStatusBar(HWND & hwnd, HWND & statusBar);
-
-
+	/*
+	名称：createStatusBar
+	功能：创建工具栏
+	参数：HWND主窗口句柄
+	*/
 	static int createToolBar(HWND & hwnd, HWND & toolbar);
 
+	void initResource();
+	static void CALLBACK repaintResource(HWND hWnd,UINT uMsg,UINT idEvent,	DWORD dwTime);
 };

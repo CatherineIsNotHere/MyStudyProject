@@ -36,7 +36,10 @@
     <ClInclude Include="g_cObject.h">
       <Filter>头文件\entity</Filter>
     </ClInclude>
-    <ClInclude Include="g_cSprite.h">
+    <ClInclude Include="g_cBitmap.hpp">
+      <Filter>头文件\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="g_cSprite.hpp">
       <Filter>头文件\entity</Filter>
     </ClInclude>
   </ItemGroup>

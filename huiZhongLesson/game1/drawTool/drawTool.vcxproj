@@ -80,8 +80,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="configuration.hpp" />
+    <ClInclude Include="g_cBitmap.hpp" />
     <ClInclude Include="g_cObject.h" />
-    <ClInclude Include="g_cSprite.h" />
+    <ClInclude Include="g_cSprite.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="winEvent.h" />
     <ClInclude Include="winIni.h" />

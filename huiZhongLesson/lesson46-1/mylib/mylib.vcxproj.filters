@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="mylib.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="mydll.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="源.cpp">
+    <ClCompile Include="mylib.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
