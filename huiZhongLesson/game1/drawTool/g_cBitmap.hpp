@@ -48,7 +48,6 @@ public:
 	//	DeleteObject(brush);
 	//	m_nWidth = w;
 	//	m_nHeight = h;
-
 	//}
 	virtual BOOL Draw(HDC hdc, int x, int y, COLORREF keycol){
 		HDC memdc = CreateCompatibleDC(hdc);
@@ -59,7 +58,7 @@ public:
 		return true;
 	}
 
-	BOOL Load(LPTSTR fname){
+	virtual BOOL Load(LPTSTR fname){
 		m_hBitmap = (HBITMAP)LoadImage(NULL, fname, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 		BITMAP bitmapinfo;
 		GetObject(m_hBitmap, sizeof(BITMAP), &bitmapinfo);
@@ -70,7 +69,6 @@ public:
 	/*
 	get and set
 	*/
-
 	HBITMAP getHBitmap(){
 		return m_hBitmap;
 	}
@@ -83,21 +81,16 @@ public:
 	SCALE getSSC(){
 		return m_ssc;
 	}
-
 	void setHBithmap(HBITMAP hbitmap){
 		this->m_hBitmap = hbitmap;
 	}
-
 	void setNWidth(DWORD width){
 		this->m_nWidth = width;
 	}
-
 	void setNHeight(DWORD height){
 		this->m_nHeight = height;
 	}
 	void setSSC(SCALE ssc){
 		this->m_ssc = ssc;
 	}
-
-
 };

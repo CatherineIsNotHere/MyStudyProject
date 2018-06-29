@@ -8,11 +8,9 @@ class CSprite :public CBitmap{
 public:
 	CSprite()
 	{
-
 	}
 
 	~CSprite(){
-
 	}
 
 	void setSprite(int w, int h, int c){
@@ -30,7 +28,6 @@ public:
 		}
 		m_nCurrent = m;
 	}
-
 	void NextFrame(){
 		if (++m_nCurrent >= m_nFrames){
 			setCurrentFrame(0);
@@ -43,7 +40,9 @@ public:
 		TransparentBlt(hdc, x, y, m_nWidth*m_ssc.w, m_nHeight*m_ssc.h, memdc, m_nFrameWidth*m_nCurrent, 0, m_nFrameWidth, m_nFrameHeight, keycol);
 		SelectObject(memdc, oldbm);
 		DeleteDC(memdc);
-		this->NextFrame();
+		if (m_nFrames>1){
+			this->NextFrame();
+		}
 		return true;
 	}
 

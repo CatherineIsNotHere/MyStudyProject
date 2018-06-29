@@ -1,6 +1,8 @@
 #pragma once
 #include "winIni.h"
 
+cObject mapObject;
+HDC hdc;
 
 winIni::winIni(HINSTANCE inst,WNDCLASSEX *wc)
 	:m_hInst(inst)
@@ -25,7 +27,9 @@ int winIni::Run(int w, int h){
 	}
 	ShowWindow(m_hWnd, SW_SHOW);
 	UpdateWindow(m_hWnd);
+	hdc = GetDC(m_hWnd);
 	initBars(m_hWnd,m_hStatusBar,m_hToolbar);
+	initResuorce();
 	MSG msg = { 0 };
 	while (msg.message != WM_QUIT)
 	{
@@ -37,9 +41,10 @@ int winIni::Run(int w, int h){
 			//Sleep(100);
 		}
 	}
-	int i = 1;
+	ReleaseDC(m_hWnd, hdc);
 	return 0;
 }
+
 
 HWND winIni::initBars(HWND & hwnd,HWND & statusBar,HWND & toolBar){
 	createStatusBar(hwnd, statusBar);
@@ -112,14 +117,21 @@ int winIni::createToolBar(HWND & hwnd, HWND & toolbar){
 	return 1;
 }
 
-void winIni::initResource()
+void winIni::initResuorce()
 {
-	SetTimer(m_hWnd, 1, 60, (TIMERPROC)repaintResource);
+	mapObject.Init(TEXT("bg1_0.bmp"), 520, 851, 1, 0, 0,1.0f,1.0f);
+	SetTimer(m_hWnd, 1, 60, &TimerProc);
 }
 
-void CALLBACK winIni::repaintResource(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
+void winIni::destroy()
 {
+	KillTimer(m_hWnd, 1);
+}
 
+void CALLBACK TimerProc(HWND hWnd, UINT nMsg, UINT nTimerid, DWORD dwTime)
+{
+	mapObject.Update();
+	mapObject.Draw(hdc);
 }
 
 /*
@@ -144,6 +156,8 @@ HWND winIni::getHStatusBar(){
 HWND winIni::getHToolBar(){
 	return m_hToolbar;
 }
+
+
 void winIni::setHInst(HINSTANCE hInstance){
 	this->m_hInst = hInstance;
 }

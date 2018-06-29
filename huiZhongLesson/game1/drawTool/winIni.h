@@ -5,7 +5,10 @@
 #pragma comment(lib,"comctl32.lib")
 #include "configuration.hpp"
 #include "resource.h"
+#include "g_cObject.h"
 using namespace std;
+
+
 
 class winIni{
 private:
@@ -31,8 +34,6 @@ public:
 	void setNHeight(int);
 	void setHStatusBar(HWND);
 	void setHToolBar(HWND);
-	//static LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);
-	//virtual LRESULT onEvent(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	int Run(int w, int h);
 
 	static HWND initBars(HWND & hwnd, HWND & statusBar, HWND & toolBar);
@@ -49,6 +50,8 @@ public:
 	*/
 	static int createToolBar(HWND & hwnd, HWND & toolbar);
 
-	void initResource();
-	static void CALLBACK repaintResource(HWND hWnd,UINT uMsg,UINT idEvent,	DWORD dwTime);
+	void initResuorce();
+	void destroy();
+
 };
+void CALLBACK TimerProc(HWND hWnd, UINT nMsg, UINT nTimerid, DWORD dwTime);

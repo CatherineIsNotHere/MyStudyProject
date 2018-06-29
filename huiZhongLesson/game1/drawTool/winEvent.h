@@ -20,4 +20,6 @@ public:
 	²ÎÊý£ºhstatus×´Ì¬À¸¾ä±ú lParam
 	*/
 	static int printStatusRightBar(HWND, LPARAM);
+private:
+	
 };
