@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	hge->System_SetState(HGE_FRAMEFUNC, FrameFunc);
 	hge->System_SetState(HGE_SHOWSPLASH, false);
 	if (hge->System_Initiate()){//初始化
-		g_tex = hge->Texture_Load("飞机1号.png");
+		g_tex = hge->Texture_Load("飞机1号右翻.png");
 		g_animat = new hgeAnimation(g_tex, 20, 20, 0, 0, 100, 90);
 		g_animat->SetBlendMode(BLEND_COLORMUL | BLEND_ALPHAADD | BLEND_NOZWRITE);
 		g_animat->SetSpeed(10);// 速度
