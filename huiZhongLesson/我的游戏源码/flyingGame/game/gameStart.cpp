@@ -2,19 +2,22 @@
 #include "hge.h"
 #include "hgeanim.h"
 #include "hgeSprite.h" 
+#include "G_Player.cpp"
+
 HGE *hge = 0;
 hgeAnimation* g_animat;
 HTEXTURE g_tex;
+G_Player* player1;
 bool RenderFunc(){//绘制的回调，程序开始后会被不停的回调
 	hge->Gfx_BeginScene();//开始绘图
 	hge->Gfx_Clear(0x00000000);
-	g_animat->Render(100, 200);
+	player1->p_animat[P_COMMON]->Render(100, 200);
 	hge->Gfx_EndScene();
 	return false;//正常应返回false
 }
 bool FrameFunc(){//输入的回调，程序开始后会被不停的回调
 	float dt = hge->Timer_GetDelta();
-	g_animat->Update(dt); // 更新
+	player1->p_animat[0]->Update(dt); // 更新
 	if (hge->Input_GetKeyState(HGEK_ESCAPE))
 	{
 		return true;
@@ -33,14 +36,11 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	hge->System_SetState(HGE_FRAMEFUNC, FrameFunc);
 	hge->System_SetState(HGE_SHOWSPLASH, false);
 	if (hge->System_Initiate()){//初始化
-		g_tex = hge->Texture_Load("飞机1号右翻.png");
-		g_animat = new hgeAnimation(g_tex, 20, 20, 0, 0, 100, 90);
-		g_animat->SetBlendMode(BLEND_COLORMUL | BLEND_ALPHAADD | BLEND_NOZWRITE);
-		g_animat->SetSpeed(10);// 速度
-		g_animat->Play();
+		player1 = new G_Player(hge);
+
 		hge->System_Start();//开始运行
 	}
-	delete g_animat;
+	delete player1;
 	hge->System_Shutdown();//结束程序
 	hge->Release();//释放
 
