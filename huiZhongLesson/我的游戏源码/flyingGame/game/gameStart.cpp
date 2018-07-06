@@ -5,19 +5,18 @@
 #include "G_Player.cpp"
 
 HGE *hge = 0;
-hgeAnimation* g_animat;
-HTEXTURE g_tex;
 G_Player* player1;
 bool RenderFunc(){//绘制的回调，程序开始后会被不停的回调
 	hge->Gfx_BeginScene();//开始绘图
 	hge->Gfx_Clear(0x00000000);
-	player1->p_animat[P_COMMON]->Render(100, 200);
+	//player1->p_animat[player1->p_state]
+	player1->p_animat[player1->p_state]->Render(100, 200);
 	hge->Gfx_EndScene();
 	return false;//正常应返回false
 }
 bool FrameFunc(){//输入的回调，程序开始后会被不停的回调
-	float dt = hge->Timer_GetDelta();
-	player1->p_animat[0]->Update(dt); // 更新
+	player1->PlayerFrame();
+	
 	if (hge->Input_GetKeyState(HGEK_ESCAPE))
 	{
 		return true;
@@ -27,8 +26,8 @@ bool FrameFunc(){//输入的回调，程序开始后会被不停的回调
 
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd){
 	hge = hgeCreate(HGE_VERSION);//创建
-	hge->System_SetState(HGE_SCREENWIDTH, 800);
-	hge->System_SetState(HGE_SCREENHEIGHT, 600);
+	hge->System_SetState(HGE_SCREENWIDTH, 500);
+	hge->System_SetState(HGE_SCREENHEIGHT, 800);
 	hge->System_SetState(HGE_WINDOWED, true);
 	hge->System_SetState(HGE_TITLE, "hello hge");
 	hge->System_SetState(HGE_USESOUND, false);
