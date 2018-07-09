@@ -19,13 +19,10 @@ public:
 	G_Player(HGE *hge)
 		:p_hge(hge)
 	{
-		p_tex = p_hge->Texture_Load("·É»ú1ºÅ.png");
-		p_animat[P_COMMON] = new hgeAnimation(p_tex, 20, 20, 0, 0, 100, 90);
-		p_animat[P_COMMON]->SetFrames(5);
-		p_animat[P_LEFT_0] = new hgeAnimation(p_tex, 20, 20, 0, 90, 100, 90);
-		p_animat[P_LEFT_0]->SetFrames(5);
-		p_animat[P_LEFT_1] = new hgeAnimation(p_tex, 20, 20, 0, 180, 100, 90);
-		p_animat[P_LEFT_1]->SetFrames(5);
+		p_tex = p_hge->Texture_Load("·É»ú1ºÅÈ«.png");
+		p_animat[P_COMMON] = new hgeAnimation(p_tex, 5, 60, 0, 0, 100, 90);
+		p_animat[P_LEFT_0] = new hgeAnimation(p_tex, 10, 60, 0, 90, 100, 90);
+		p_animat[P_LEFT_1] = new hgeAnimation(p_tex, 5, 60, 0, 180, 100, 90);
 		//p_animat[P_RIGHT_0] = new hgeAnimation(p_tex, 20, 20, 0, 0, 100, 90);
 		p_animat[P_COMMON]->SetBlendMode(BLEND_COLORMUL | BLEND_ALPHAADD | BLEND_NOZWRITE);
 		p_animat[P_COMMON]->SetSpeed(10);
