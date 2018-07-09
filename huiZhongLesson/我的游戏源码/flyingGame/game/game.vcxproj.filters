@@ -21,5 +21,8 @@
     <ClCompile Include="G_Player.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="G_Map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
