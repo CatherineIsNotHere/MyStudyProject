@@ -24,5 +24,11 @@
     <ClCompile Include="G_Map.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="G_Bullet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="G_ResourceManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

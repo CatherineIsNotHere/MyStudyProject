@@ -15,7 +15,7 @@ bool RenderFunc(){//绘制的回调，程序开始后会被不停的回调
 	//player1->p_animat[player1->p_state]
 	map1->m_spr->SetHotSpot(0,4096-960);
 	map1->m_spr->Render(0,y+=.1f);
-	player1->p_animat[player1->p_state]->RenderEx(100, 200,0,1.f,1.f);
+	player1->p_animat[player1->p_state]->RenderEx(player1->p_x, player1->p_y,0,1.f,1.f);
 	hge->Gfx_EndScene();
 	return false;//正常应返回false
 }

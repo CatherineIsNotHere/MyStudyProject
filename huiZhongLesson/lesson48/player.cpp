@@ -122,7 +122,7 @@ void MyPlayer::FaceHandle(PLAYER_FACE f)
 			_face = PF_RIGHT;
 			for (auto a : _ani)
 			{
-				a->SetFlip(true, false);
+				a->SetFlip(true, true);
 			}
 		}
 	}
