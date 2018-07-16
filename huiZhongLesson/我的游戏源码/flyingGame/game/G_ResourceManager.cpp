@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 using namespace std;
-//#define resMgr CResourcesManager::Instance();
+#define resMgr CResourcesManager::Instance()
 class CResourcesManager
 {
 public:
@@ -19,7 +19,18 @@ public:
 		return *sh.get();
 	}
 
-	HTEXTURE GetTex(const string&);
+	HTEXTURE GetTex(const string& k){
+		auto it = _mapTex.find(k);
+		if (it != _mapTex.end())
+		{
+			return it->second;
+		}
+		auto t = myhge.LoadTex(k.c_str());
+		_mapTex[k] = t;
+		return t;
+	}
+
+
 	hgeSprite* GetSpr(const string& k, float x, float y, float w, float h){
 		auto it = _mapSpr.find(k);
 		if (it != _mapSpr.end())
@@ -32,6 +43,8 @@ public:
 		_mapSpr[k] = s;
 		return s;
 	}
+
+
 	hgeAnimation* GetAni(const string&, int frames, float fps, float x, float y, float w, float h);
 private:
 	map<string, HTEXTURE> _mapTex;

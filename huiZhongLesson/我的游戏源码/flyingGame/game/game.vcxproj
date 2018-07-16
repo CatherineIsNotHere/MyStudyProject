@@ -43,13 +43,13 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)\temp\$(Configuration)\</IntDir>
-    <IncludePath>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)\temp\$(Configuration)\</IntDir>
-    <IncludePath>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -63,7 +63,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\lib;..\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\chaiyu\tools-poco\poco-1.9.0\lib;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\lib;..\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>hge.lib;hgehelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBC.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -84,7 +84,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\lib;..\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\chaiyu\tools-poco\poco-1.9.0\lib;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\lib;..\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>hge.lib;hgehelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBC.lib</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>

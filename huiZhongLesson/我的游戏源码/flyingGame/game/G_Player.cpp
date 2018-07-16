@@ -2,6 +2,7 @@
 #include "hge.h"
 #include "hgeanim.h"
 #include "hgeSprite.h" 
+#include "G_ResourceManager.cpp"
 enum actionState
 {
 	P_COMMON = 0,

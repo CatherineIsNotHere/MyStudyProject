@@ -17,18 +17,20 @@ public:
 		:b_x(x),
 		b_y(y)
 	{
-		b_spr=CResourcesManager::Instance().GetSpr("飞机1号全.png", 0, 0, 100, 90);
+		b_spr = resMgr.GetSpr("飞机1号全.png", 0, 0, 100, 90);
 	}
 	~G_Bullet(){
 	}
+
 };
+
 class G_BulletManager{
 
 public:
 	list<G_Bullet*> p_bullets;
+
 	void add(int x,int y){
 		G_Bullet* bullet = new G_Bullet(x,y);
 		p_bullets.push_back(bullet);
-
 	}
 };
