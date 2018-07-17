@@ -1,6 +1,8 @@
+#pragma once
 #include "hge.h"
 #include "config.h"
-#include "poco_foundation_include\Poco\SingletonHolder.h"
+#include "Poco\SingletonHolder.h"
+#define myhge dx_hge::Instance()
 
 class dx_hge{
 public:

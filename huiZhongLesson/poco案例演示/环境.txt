@@ -1,0 +1,27 @@
+#include <windows.h>
+// #include "myhge.h"
+// #include "game.h"
+
+#include "Poco/Environment.h"  
+#include <iostream>  
+using Poco::Environment;
+
+
+int main(int argc, char** argv)
+{
+	std::cout
+		<< "windows系统: " << Environment::isWindows() << std::endl
+		<< "操作系统: " << Environment::osName() << std::endl
+		<< "操作系统版本: " << Environment::osVersion() << std::endl
+		<< "操作系统架构: " << Environment::osArchitecture() << std::endl
+		<< "计算机名称: " << Environment::nodeName() << std::endl
+		<< "mac: " << Environment::nodeId() << std::endl
+		<< "处理器数量: " << Environment::processorCount() << std::endl
+		<< "POCO库版本: " << Environment::libraryVersion() << std::endl;
+
+	if (Environment::has("TEMP"))
+		std::cout << "临时文件夹路径: " << Environment::get("TEMP") << std::endl; // 获取环境变量
+	Environment::set("POCO", "foo"); // 设置环境变量
+	getchar();
+	return 0;
+}

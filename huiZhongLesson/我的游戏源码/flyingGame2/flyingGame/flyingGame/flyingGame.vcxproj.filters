@@ -27,6 +27,15 @@
     <ClCompile Include="dx_hge.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="m_game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="g_obstacle.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
+    <ClCompile Include="g_object.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -36,6 +45,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="g_object.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="m_game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_worms.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_obstacle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

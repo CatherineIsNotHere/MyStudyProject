@@ -1,0 +1,85 @@
+#include <windows.h>
+// #include "myhge.h"
+// #include "game.h"
+
+#include <iostream>  
+#include <vector>  
+#include <string>  
+#include <tuple>  
+#include <set>
+using namespace std;
+#include <Poco/Tuple.h>
+
+std::tuple<std::string, int> giveName(void)
+{
+	std::string cw("Caroline");
+	int a(2013);
+	std::tuple<std::string, int> t = std::make_tuple(cw, a);
+	return t;
+}
+
+int main(int argc, char** argv)
+{
+	{
+		typedef Poco::Tuple<short, long, double> MyTupleType;
+		MyTupleType aTuple(1, 2, 3.0);
+		auto num = aTuple.length; // 获取元素数量
+		auto a1 = aTuple.get<0>(); // 取值
+		auto a2 = aTuple.get<1>();
+		auto a3 = aTuple.get<2>();
+	}
+	{
+	typedef Poco::Tuple<std::string, int, long, float> MyTupleType;
+	typedef std::set<MyTupleType> MyTupleSet;
+	MyTupleType aTuple1("1", 1, 111, 1.11f);
+	MyTupleType aTuple2("2", 2, 222, 2.22f);
+	MyTupleType aTuple3("3", 3, 333, 3.33f);
+
+	MyTupleSet testSet;
+	testSet.insert(aTuple3);
+	testSet.insert(aTuple2);
+	testSet.insert(aTuple1);
+	MyTupleSet::iterator itr = testSet.begin();
+	MyTupleSet::iterator itrEnd = testSet.end();
+	int count = 0;
+	while (itr != itrEnd)
+	{
+		auto a1 = itr->get<0>();
+		auto a2 = itr->get<1>();
+		auto a3 = itr->get<2>();
+		auto a4 = itr->get<3>();
+		++itr;
+	}
+	}
+
+	/*
+	// 对std的元组进行测试
+	std::tuple<int, double, std::string> t(64, 128.0, "Caroline");
+	std::tuple<std::string, std::string, int> t2 = 
+		std::make_tuple("Caroline", "Wendy", 1992);
+
+	//返回元素个数  
+	size_t num = std::tuple_size<decltype(t)>::value;
+	std::cout << "num = " << num << std::endl;
+
+	//获取第1个值的元素类型  
+	std::tuple_element<2, decltype(t)>::type cnt = std::get<2>(t);
+	std::cout << "cnt = " << cnt << std::endl;
+
+	//比较  
+	std::tuple<int, int> ti(24, 48);
+	std::tuple<double, double> td(28.0, 56.0);
+	bool b = (ti < td);
+	std::cout << "b = " << b << std::endl;
+
+	//tuple作为返回值  
+	auto a = giveName();
+	std::cout << "name: " << get<0>(a)
+		<< " years: " << get<1>(a) << std::endl;
+*/
+
+// 	mygame.Run();
+// 	mygame.Clean();
+
+	return 0;
+}
