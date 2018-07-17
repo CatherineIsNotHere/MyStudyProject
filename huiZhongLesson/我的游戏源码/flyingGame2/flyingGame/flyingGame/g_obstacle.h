@@ -1,6 +1,6 @@
 #pragma once
 #include "hge.h"
-
+#include "hgesprite.h"
 #include "dx_hge.h"
 #include "g_object.h"
 #include "config.h"
@@ -11,8 +11,8 @@ public:
 	g_obstacle();
 	~g_obstacle();
 	void Render();
-	void PaintRect(bool paintLine);
+	void PaintRect(bool paintLine);//画方块
 private:
-	hgeQuad* rect[O_NUM];//定义n个矩形
+	hgeRect* rect[O_NUM];
 	bool o_paintLine;
 };

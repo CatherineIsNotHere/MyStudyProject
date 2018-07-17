@@ -56,5 +56,8 @@
     <ClInclude Include="g_obstacle.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="g_resourceManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
