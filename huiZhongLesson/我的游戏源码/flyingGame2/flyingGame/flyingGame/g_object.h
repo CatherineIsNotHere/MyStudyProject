@@ -1,4 +1,4 @@
-
+#pragma once
 
 class g_object{
 public:

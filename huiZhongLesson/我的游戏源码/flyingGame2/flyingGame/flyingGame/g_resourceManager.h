@@ -4,7 +4,10 @@
 #include "hgeanim.h"
 #include "string"
 #include "map"
+#include "dx_hge.h"
 using namespace std;
+#define resMgr g_resourceManager::Instance()
+
 class g_resourceManager{
 public:
 	g_resourceManager();
@@ -18,6 +21,6 @@ public:
 	hgeAnimation* getAnimation(const string&,int frames,float fps,float x,float y,float w,float h);
 private:
 	map<string, HTEXTURE> r_textures;
-	map<string, hgeSprite> r_sprite;
-	map<string, hgeAnimation> r_animation;
+	map<string, hgeSprite*> r_sprite;
+	map<string, hgeAnimation*> r_animation;
 };

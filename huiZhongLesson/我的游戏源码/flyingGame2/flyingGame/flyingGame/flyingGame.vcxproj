@@ -67,6 +67,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\lib;..\lib;D:\chaiyu\tools-poco\poco-1.9.0\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>hge.lib;hgehelp.lib;PocoFoundationd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,14 +92,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dx_hge.cpp" />
+    <ClCompile Include="g_maps.cpp" />
+    <ClCompile Include="g_mouse.cpp" />
+    <ClCompile Include="g_mouse.h" />
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />
+    <ClCompile Include="g_resourceManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="m_game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="dx_hge.h" />
+    <ClInclude Include="g_maps.h" />
     <ClInclude Include="g_obstacle.h" />
     <ClInclude Include="g_resourceManager.h" />
     <ClInclude Include="m_game.h" />

@@ -1,3 +1,4 @@
+#pragma once
 #include "m_game.h"
 
 m_game::m_game()
@@ -12,7 +13,10 @@ m_game::~m_game()
 
 void m_game::Init()
 {
-
+	maps = new g_maps();
+	maps->Init();
+	mouse = new g_mouse();
+	mouse->Init();
 }
 
 void m_game::clean()
@@ -22,7 +26,7 @@ void m_game::clean()
 
 bool m_game::Frame()
 {
-
+	mygame.mouse->Frame();
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
 	}
@@ -32,7 +36,9 @@ bool m_game::Frame()
 bool m_game::Render()
 {
 	myhge.BeginRender(0xffffff);
-	mygame.obs.Render();
+	//mygame.obs.Render();
+	mygame.maps->Render();
+	mygame.mouse->Render();
 	myhge.EndRender();
 	return false;
 }

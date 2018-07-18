@@ -36,6 +36,18 @@
     <ClCompile Include="g_object.cpp">
       <Filter>源文件\g_entity</Filter>
     </ClCompile>
+    <ClCompile Include="g_resourceManager.cpp">
+      <Filter>源文件\g_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="g_maps.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
+    <ClCompile Include="g_mouse.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="g_mouse.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -57,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="g_resourceManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_maps.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

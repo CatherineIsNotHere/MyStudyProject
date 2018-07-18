@@ -30,11 +30,11 @@ public:
 		p_animat[P_LEFT_1] = new hgeAnimation(p_tex, 5, 60, 0, 180, 100, 90);
 		p_animat[P_RIGHT_0] = new hgeAnimation(p_tex, 5, 60, 0, 270, 100, 90);
 		p_animat[P_RIGHT_1] = new hgeAnimation(p_tex, 5, 60, 0, 360, 100, 90);
-		p_animat[P_COMMON]->SetSpeed(10);
-		p_animat[P_LEFT_0]->SetSpeed(10);
-		p_animat[P_LEFT_1]->SetSpeed(10);
-		p_animat[P_RIGHT_0]->SetSpeed(10);
-		p_animat[P_RIGHT_1]->SetSpeed(10);
+		p_animat[P_COMMON]->SetSpeed(60);
+		p_animat[P_LEFT_0]->SetSpeed(60);
+		p_animat[P_LEFT_1]->SetSpeed(60);
+		p_animat[P_RIGHT_0]->SetSpeed(60);
+		p_animat[P_RIGHT_1]->SetSpeed(60);
 	};
 
 	void PlayerFrame(){
