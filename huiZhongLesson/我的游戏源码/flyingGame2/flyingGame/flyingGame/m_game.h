@@ -15,7 +15,6 @@ public:
 	static bool Render();
 	static m_game& Instance();
 	void Run();
-
 	g_obstacle obs;
 	g_maps* maps;
 	g_mouse* mouse;

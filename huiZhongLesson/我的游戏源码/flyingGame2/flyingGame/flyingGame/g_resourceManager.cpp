@@ -1,3 +1,4 @@
+#pragma once
 #include "g_resourceManager.h"
 
 g_resourceManager::g_resourceManager()
