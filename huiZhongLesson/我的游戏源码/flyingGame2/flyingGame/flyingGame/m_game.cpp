@@ -41,7 +41,7 @@ bool m_game::Render()
 
 	myhge.EndRender();
 	return false;
-}`
+}
 
 m_game& m_game::Instance()
 {
