@@ -1,9 +1,6 @@
 #pragma once
 #include "hgesprite.h"
 #include "g_object.h"
-#include "g_resourceManager.h"
-#include "string"
-using namespace std;
 
 class g_maps:public g_object{
 public:
@@ -12,6 +9,7 @@ public:
 	void Init();
 	void Render();
 	void setX(float x);
+	float getX();
 	void setY(float y);
 	void setMoveX(float x);
 private:
