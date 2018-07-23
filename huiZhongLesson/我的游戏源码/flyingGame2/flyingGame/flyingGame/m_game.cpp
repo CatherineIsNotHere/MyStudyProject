@@ -1,6 +1,7 @@
 #pragma once
 #include "m_game.h"
 #include "dx_hge.h"
+
 m_game::m_game()
 {
 
@@ -15,6 +16,7 @@ void m_game::Init()
 {
 	maps.Init();
 	mouse.Init();
+	roles.Init();
 }
 
 void m_game::clean()
@@ -25,6 +27,7 @@ void m_game::clean()
 bool m_game::Frame()
 {
 	mygame.mouseDrag();
+	mygame.roles.Frame();
 	mygame.mouse.Frame();
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
@@ -37,8 +40,8 @@ bool m_game::Render()
 	myhge.BeginRender(0xffffff);
 	//mygame.obs.Render();
 	mygame.maps.Render();
+	mygame.roles.Render();
 	mygame.mouse.Render();
-
 	myhge.EndRender();
 	return false;
 }

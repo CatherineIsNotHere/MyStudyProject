@@ -98,6 +98,7 @@
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />
     <ClCompile Include="g_resourceManager.cpp" />
+    <ClCompile Include="g_role.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="m_game.cpp" />
   </ItemGroup>
@@ -110,6 +111,7 @@
     <ClInclude Include="m_game.h" />
     <ClInclude Include="g_object.h" />
     <ClInclude Include="g_worms.h" />
+    <ClInclude Include="g_role.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

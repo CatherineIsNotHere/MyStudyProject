@@ -157,3 +157,11 @@ $RECYCLE.BIN/
 huiZhongLesson/typingGame/.vs/typingGame/v15/Browse.VC.db
 huiZhongLesson/typingGame/.vs/typingGame/v15/Browse.VC.db
 huiZhongLesson/typingGame/typingGame/gameStart.cpp
+huiZhongLesson/我的游戏源码/flyingGame2/flyingGame/temp/Win32/vc120.idb
+*.idb
+huiZhongLesson/我的游戏源码/flyingGame2/flyingGame/temp/Win32/flyingGame.tlog/unsuccessfulbuild
+*.tlog
+*.idb
+*.idb
+huiZhongLesson/我的游戏源码/flyingGame2/flyingGame/temp/Win32/flyingGame.tlog/CL.write.1.tlog
+huiZhongLesson/我的游戏源码/flyingGame2/flyingGame/temp/Win32/vc120.idb

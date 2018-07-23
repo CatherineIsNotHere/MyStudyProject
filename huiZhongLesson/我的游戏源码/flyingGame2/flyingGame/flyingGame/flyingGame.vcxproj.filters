@@ -48,6 +48,9 @@
     <ClCompile Include="g_mouse.cpp">
       <Filter>源文件\g_entity</Filter>
     </ClCompile>
+    <ClCompile Include="g_role.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -72,6 +75,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="g_maps.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_role.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

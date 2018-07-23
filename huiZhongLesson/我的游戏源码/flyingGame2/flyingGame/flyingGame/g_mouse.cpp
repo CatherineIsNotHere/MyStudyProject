@@ -13,8 +13,8 @@ g_mouse::~g_mouse()
 void g_mouse::Init()
 {
 	ms_sprite = resMgr.getSprite("ЪѓБъ.png", 0, 0, 42, 50);
-	ms_x = 0;
-	ms_y = 0;
+//	ms_x = 0;
+//	ms_y = 0;
 }
 
 void g_mouse::Render()
