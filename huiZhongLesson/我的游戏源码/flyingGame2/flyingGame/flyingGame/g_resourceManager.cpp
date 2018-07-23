@@ -68,7 +68,17 @@ hgeAnimation* g_resourceManager::getAnimation(const string& k, int frames, float
 	auto it = r_animation.find(k);
 	if (it!=r_animation.end())
 	{
-		return it->second;
+		float fx=0, fy=0,nw=0, nh=0;
+		it->second->GetTextureRect(&fx, &fy, &nw, &nh);
+		if (fx != x || fy != y || frames != it->second->GetFrames()){
+			auto tex = getTex(k);
+			auto animation = new hgeAnimation(tex, frames, fps, x, y, w, h);
+			r_animation[k] = animation;
+			return animation;
+		}
+		else{
+			return it->second;
+		}
 	}
 	auto tex = getTex(k);
 	auto animation = new hgeAnimation(tex,frames,fps,x,y,w,h);

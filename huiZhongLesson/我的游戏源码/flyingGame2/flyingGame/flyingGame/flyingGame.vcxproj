@@ -98,20 +98,20 @@
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />
     <ClCompile Include="g_resourceManager.cpp" />
-    <ClCompile Include="g_role.cpp" />
+    <ClCompile Include="g_worms.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="m_game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="dx_hge.h" />
+    <ClInclude Include="pys_force.h" />
     <ClInclude Include="g_maps.h" />
     <ClInclude Include="g_obstacle.h" />
     <ClInclude Include="g_resourceManager.h" />
     <ClInclude Include="m_game.h" />
     <ClInclude Include="g_object.h" />
     <ClInclude Include="g_worms.h" />
-    <ClInclude Include="g_role.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

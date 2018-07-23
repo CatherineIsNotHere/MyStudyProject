@@ -4,7 +4,7 @@ class g_object{
 public:
 	g_object();
 	virtual ~g_object();
-	void Init();//初始化
+	virtual void Init();//初始化
 	virtual void Clean();//清理
 	virtual void Frame();//操作更新
 	virtual void Render();//绘制

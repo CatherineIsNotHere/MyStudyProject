@@ -2,7 +2,7 @@
 #include "g_obstacle.h"
 #include "g_maps.h"
 #include "g_mouse.h"
-#include "g_role.h"
+#include "g_worms.h"
 
 #define mygame m_game::Instance() 
 
@@ -20,7 +20,7 @@ public:
 	g_obstacle obs;
 	g_maps maps;
 	g_mouse mouse;
-	g_role roles;
+	g_worms worms;
 private:
 	m_game(const m_game&);//不能类外调用拷贝构造与赋值操作符
 	m_game& operator = (const m_game&);

@@ -41,7 +41,7 @@ public:
 		float dt = p_hge->Timer_GetDelta();
 		if (p_hge->Input_GetKeyState(HGEK_LEFT) && !p_hge->Input_GetKeyState(HGEK_RIGHT)){
 			if (p_x >= 0 - 20){
-				p_x--;
+				//p_x--;
 				if (p_state != P_LEFT_0){
 					p_state = P_LEFT_0;
 				}
@@ -52,7 +52,7 @@ public:
 		}
 		else if (p_hge->Input_GetKeyState(HGEK_RIGHT) && !p_hge->Input_GetKeyState(HGEK_LEFT)){
 			if (p_x <= 640 - 100 + 20){
-				p_x++;
+				//p_x++;
 				if (p_state != P_RIGHT_0){
 					p_state = P_RIGHT_0;
 				}
@@ -66,12 +66,12 @@ public:
 		}
 		if (p_hge->Input_GetKeyState(HGEK_UP)){
 			if (p_y >= 0){
-				p_y--;
+				//p_y--;
 			}
 		}
 		else if (p_hge->Input_GetKeyState(HGEK_DOWN)){
 			if (p_y <= 960 - 90){
-				p_y++;
+				//p_y++;
 			}
 		}
 		if (p_hge->Input_GetKeyState(HGEK_NUMPAD0)){

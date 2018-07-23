@@ -1,12 +1,9 @@
 #pragma once
 #include "hgesprite.h"
-#include "g_object.h"
 
 
-class g_mouse:public g_object{
+class g_mouse{
 public:
-	g_mouse();
-	~g_mouse();
 	void Init();
 	void Render();
 	void Frame();
