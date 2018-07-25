@@ -24,10 +24,13 @@ public:
 	void setX(float x);
 	void setMoveX(float x);
 	float getX();
-	void keyFrame();
+	void keyFrame();//键盘控制
+	void impactFrame();//碰撞控制
+	void updateWormDragRect();//鼠标拖动后更新虫子碰撞框
 private:
 	hgeAnimation* w_anime[RS_COUNT];
 	hgeAnimation* w_cur;
+	hgeRect* w_rc;
 	int w_state;
 	float w_x;
 	float w_y;

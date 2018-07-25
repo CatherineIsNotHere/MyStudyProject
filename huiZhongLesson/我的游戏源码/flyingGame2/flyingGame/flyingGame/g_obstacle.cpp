@@ -19,6 +19,7 @@ g_obstacle::g_obstacle()
 	rect[5] = r5;
 	rect[6] = r6;
 	rect[7] = r7;
+	o_move_x = .0f;
 }
 
 g_obstacle::~g_obstacle()
@@ -40,10 +41,38 @@ void g_obstacle::PaintRect(bool paintLine)
 	if (!paintLine)
 		return;
 	for (auto r:rect){
-		myhge.getHGE()->Gfx_RenderLine(r->x1, r->y1, r->x2, r->y1, 0xffff00ff);
-		myhge.getHGE()->Gfx_RenderLine(r->x2, r->y1, r->x2, r->y2, 0xffff00ff);
-		myhge.getHGE()->Gfx_RenderLine(r->x2, r->y2, r->x1, r->y2, 0xffff00ff);
-		myhge.getHGE()->Gfx_RenderLine(r->x1, r->y2, r->x1, r->y1, 0xffff00ff);
+		myhge.getHGE()->Gfx_RenderLine(r->x1+o_move_x, r->y1, r->x2+o_move_x, r->y1, 0xffff00ff);
+		myhge.getHGE()->Gfx_RenderLine(r->x2+o_move_x, r->y1, r->x2+o_move_x, r->y2, 0xffff00ff);
+		myhge.getHGE()->Gfx_RenderLine(r->x2+o_move_x, r->y2, r->x1+o_move_x, r->y2, 0xffff00ff);
+		myhge.getHGE()->Gfx_RenderLine(r->x1+o_move_x, r->y2, r->x1+o_move_x, r->y1, 0xffff00ff);
 	}
 	return;
+}
+
+void g_obstacle::setMoveX(float x)
+{
+	o_move_x = x;
+}
+
+void g_obstacle::updateMove()
+{
+	for (auto r : rect){
+		r->x1 += o_move_x;
+		r->x2 += o_move_x;
+	}
+}
+
+hgeRect* g_obstacle::getRects()
+{
+	return rect[0];
+}
+
+void g_obstacle::setPaintLine(bool b)
+{
+	o_paintLine = b;
+}
+
+bool g_obstacle::getPaintLine()
+{
+	return o_paintLine;
 }

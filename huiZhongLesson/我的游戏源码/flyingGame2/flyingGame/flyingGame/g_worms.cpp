@@ -30,6 +30,7 @@ void g_worms::Init()
 	w_anime[RS_JUMP_RIGHT]->SetSpeed(10);
 	w_x = 250;
 	w_y = 705 - 70 + 10;//705地面高度 70像素图片高度 10 像素图空白高度
+	w_rc = new hgeRect(w_x+20,w_y+12,w_x-25+90,w_y-10+70);
 	w_move_x = 0;
 	wp.w_velocityX = 50.0f;
 	wp.w_velocityY = 400.0f;//跳跃速度400
@@ -61,14 +62,21 @@ float g_worms::getX()
 void g_worms::Render()
 {
 	w_cur->Render(w_x + w_move_x, w_y);
+	myhge.getHGE()->Gfx_RenderLine(w_rc->x1 + w_move_x, w_rc->y1, w_rc->x2 + w_move_x, w_rc->y1, 0xffff00ff);
+	myhge.getHGE()->Gfx_RenderLine(w_rc->x2 + w_move_x, w_rc->y1, w_rc->x2 + w_move_x, w_rc->y2, 0xffff00ff);
+	myhge.getHGE()->Gfx_RenderLine(w_rc->x2 + w_move_x, w_rc->y2, w_rc->x1 + w_move_x, w_rc->y2, 0xffff00ff);
+	myhge.getHGE()->Gfx_RenderLine(w_rc->x1 + w_move_x, w_rc->y2, w_rc->x1 + w_move_x, w_rc->y1, 0xffff00ff);
 }
 
 void g_worms::Frame()
 {
 	float dt = myhge.getHGE()->Timer_GetDelta();
 	keyFrame();
+
 	w_cur->Update(dt);
 }
+
+
 
 void g_worms::keyFrame()
 {
@@ -79,7 +87,11 @@ void g_worms::keyFrame()
 			w_cur = w_anime[w_state];
 			w_cur->Play();
 		}
-		w_x += myhge.getDelta()*wp.w_velocityX;
+		float distanceX = myhge.getDelta()*wp.w_velocityX;
+		w_x += distanceX;
+		w_rc->x1 += distanceX;
+		w_rc->x2 += distanceX;
+
 	}
 	if (myhge.getHGE()->Input_GetKeyState(HGEK_LEFT)){
 		if (w_state != RS_WALK_LEFT && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){
@@ -88,15 +100,18 @@ void g_worms::keyFrame()
 			w_cur = w_anime[w_state];
 			w_cur->Play();
 		}
-		w_x -= myhge.getDelta()*wp.w_velocityX;
+		float distanceX = myhge.getDelta()*wp.w_velocityX;
+		w_x -= distanceX;
+		w_rc->x1 -= distanceX;
+		w_rc->x2 -= distanceX;
 	}
-	if (myhge.getHGE()->Input_KeyUp(HGEK_RIGHT)){
+	if (myhge.getHGE()->Input_KeyUp(HGEK_RIGHT) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){
 		w_state = RS_IDLE_RIGHT;
 		w_cur->Stop();
 		w_cur = w_anime[w_state];
 		w_cur->Play();
 	}
-	if (myhge.getHGE()->Input_KeyUp(HGEK_LEFT)){
+	if (myhge.getHGE()->Input_KeyUp(HGEK_LEFT) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){
 		w_state = RS_IDLE_LEFT;
 		w_cur->Stop();
 		w_cur = w_anime[w_state];
@@ -120,6 +135,20 @@ void g_worms::keyFrame()
 		float t = myhge.getDelta();//飞跃的某时间段
 		float velocityNext = getVelocity(wp.w_velocityOldY, -98 * 6, t);//重力加速度6*98
 		wp.w_velocityOldY = velocityNext;
-		w_y -= getDistanceY(velocityNext, t);
+		float distanceY = getDistanceY(velocityNext, t);
+		w_y -= distanceY;
+		w_rc->y1 -= distanceY;
+		w_rc->y2 -= distanceY;
 	}
+}
+
+void g_worms::impactFrame()
+{
+	
+}
+
+void g_worms::updateWormDragRect()
+{
+	w_rc->x1 += w_move_x;
+	w_rc->x2 += w_move_x;
 }

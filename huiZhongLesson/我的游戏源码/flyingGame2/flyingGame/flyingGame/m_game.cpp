@@ -37,6 +37,13 @@ bool m_game::Frame()
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
 	}
+	if (myhge.getKeyState(HGEK_O)){
+		mygame.obs.setPaintLine(false);
+	}
+	if (myhge.getKeyState(HGEK_P)){
+		mygame.obs.setPaintLine(true);
+	}
+	
 	return false;
 }
 
@@ -68,6 +75,7 @@ void m_game::Run()
 void m_game::mouseDrag()
 {
 	if (myhge.getHGE()->Input_KeyDown(HGEK_LBUTTON)){//鼠标按下记录按下坐标
+		
 		gms.gms_overmove_x = .0f;
 		gms.gms_move_x = .0f;
 		myhge.getHGE()->Input_GetMousePos(&gms.gms_x, &gms.gms_y);
@@ -78,13 +86,18 @@ void m_game::mouseDrag()
 		gms.gms_move_x = gms.gms_x - gms.gms_click_x;
 		mygame.maps.setMoveX(gms.gms_move_x);
 		mygame.worms.setMoveX(gms.gms_move_x);
+		mygame.obs.setMoveX(gms.gms_move_x);
 	}
 	if (myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){//鼠标拖动结束将真实坐标传入对象
 		gms.gms_overmove_x=gms.gms_move_x;
 		mygame.maps.setX(mygame.maps.getX()+gms.gms_overmove_x);
 		mygame.maps.setMoveX(0);
 		mygame.worms.setX(mygame.worms.getX() + gms.gms_overmove_x);
+		mygame.worms.updateWormDragRect();
 		mygame.worms.setMoveX(0);
+		mygame.obs.updateMove();
+		mygame.obs.setMoveX(0);
+		
 	}
 
 }
