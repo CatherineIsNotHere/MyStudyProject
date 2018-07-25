@@ -24,7 +24,13 @@ public:
 private:
 	m_game(const m_game&);//不能类外调用拷贝构造与赋值操作符
 	m_game& operator = (const m_game&);
-	float ms_click_x;//鼠标点击时记录x在屏幕中的坐标
-	float ms_move_x;//鼠标拖动时记录x拖动距离
-	float ms_overmove_x;//鼠标结束拖动时记录总共拖动的距离
+	struct gms_for_moveMap
+	{
+		float gms_x;
+		float gms_y;
+		float gms_click_x;//鼠标点击时记录x在屏幕中的坐标
+		float gms_move_x;//鼠标拖动时记录x拖动距离
+		float gms_overmove_x;//鼠标结束拖动时记录总共拖动的距离
+	}gms;
+	
 };

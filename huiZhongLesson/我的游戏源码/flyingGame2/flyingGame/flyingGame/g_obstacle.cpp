@@ -3,8 +3,22 @@
 g_obstacle::g_obstacle()
 :o_paintLine(O_LINE)
 {
-	hgeRect* r=new hgeRect(0,0,5,570);
-	rect[0] = r;
+	hgeRect* r0=new hgeRect(0,705,766,960);
+	hgeRect* r1 = new hgeRect(817, 835, 1496, 960);
+	hgeRect* r2 = new hgeRect(1592, 748, 1842, 960);
+	hgeRect* r3 = new hgeRect(1894, 835, 2142, 960);
+	hgeRect* r4 = new hgeRect(2142, 707, 2560, 960);
+	hgeRect* r5 = new hgeRect(482, 331, 988, 374);
+	hgeRect* r6 = new hgeRect(1088, 446, 1514, 490);
+	hgeRect* r7 = new hgeRect(1942, 264, 2450, 440);
+	rect[0] = r0;
+	rect[1] = r1;
+	rect[2] = r2;
+	rect[3] = r3;
+	rect[4] = r4;
+	rect[5] = r5;
+	rect[6] = r6;
+	rect[7] = r7;
 }
 
 g_obstacle::~g_obstacle()

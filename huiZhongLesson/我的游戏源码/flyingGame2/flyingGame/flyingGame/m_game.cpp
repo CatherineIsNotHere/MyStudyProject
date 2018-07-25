@@ -14,6 +14,11 @@ m_game::~m_game()
 
 void m_game::Init()
 {
+	gms.gms_click_x = .0f;
+	gms.gms_move_x = .0f;
+	gms.gms_overmove_x = .0f;
+	gms.gms_x = .0f;
+	gms.gms_y = .0f;
 	maps.Init();
 	mouse.Init();
 	worms.Init();
@@ -38,10 +43,11 @@ bool m_game::Frame()
 bool m_game::Render()
 {
 	myhge.BeginRender(0xffffff);
-	//mygame.obs.Render();
+	
 	mygame.maps.Render();
 	mygame.worms.Render();
 	mygame.mouse.Render();
+	mygame.obs.Render();
 	myhge.EndRender();
 	return false;
 }
@@ -62,20 +68,22 @@ void m_game::Run()
 void m_game::mouseDrag()
 {
 	if (myhge.getHGE()->Input_KeyDown(HGEK_LBUTTON)){//鼠标按下记录按下坐标
-		ms_overmove_x = .0f;
-		ms_move_x = .0f;
-		ms_click_x = mygame.mouse.getX();
+		gms.gms_overmove_x = .0f;
+		gms.gms_move_x = .0f;
+		myhge.getHGE()->Input_GetMousePos(&gms.gms_x, &gms.gms_y);
+		gms.gms_click_x = gms.gms_x;
 	}
 	if (myhge.getHGE()->Input_GetKeyState(HGEK_LBUTTON)){//鼠标拖动记录位移距离
-		ms_move_x = mygame.mouse.getX()-ms_click_x;
-		mygame.maps.setMoveX(ms_move_x);
-		mygame.worms.setMoveX(ms_move_x);
+		myhge.getHGE()->Input_GetMousePos(&gms.gms_x, &gms.gms_y);
+		gms.gms_move_x = gms.gms_x - gms.gms_click_x;
+		mygame.maps.setMoveX(gms.gms_move_x);
+		mygame.worms.setMoveX(gms.gms_move_x);
 	}
 	if (myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){//鼠标拖动结束将真实坐标传入对象
-		ms_overmove_x=ms_move_x;
-		mygame.maps.setX(mygame.maps.getX()+ms_overmove_x);
+		gms.gms_overmove_x=gms.gms_move_x;
+		mygame.maps.setX(mygame.maps.getX()+gms.gms_overmove_x);
 		mygame.maps.setMoveX(0);
-		mygame.worms.setX(mygame.worms.getX() + ms_overmove_x);
+		mygame.worms.setX(mygame.worms.getX() + gms.gms_overmove_x);
 		mygame.worms.setMoveX(0);
 	}
 

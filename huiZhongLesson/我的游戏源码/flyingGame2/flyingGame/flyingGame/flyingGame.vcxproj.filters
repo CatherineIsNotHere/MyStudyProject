@@ -19,6 +19,9 @@
     <Filter Include="源文件\g_manager">
       <UniqueIdentifier>{aafd26ca-2fdd-4847-af2d-02aa3fed6f9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\physics">
+      <UniqueIdentifier>{027d7057-427c-41eb-b9b3-525b699bd518}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="g_worms.cpp">
       <Filter>源文件\g_entity</Filter>
     </ClCompile>
+    <ClCompile Include="pys_asvt.cpp">
+      <Filter>源文件\physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -77,7 +83,7 @@
     <ClInclude Include="g_maps.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="pys_force.h">
+    <ClInclude Include="pys_asvt.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

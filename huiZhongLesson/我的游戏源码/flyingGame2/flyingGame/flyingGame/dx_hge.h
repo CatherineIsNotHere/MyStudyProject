@@ -16,7 +16,7 @@ public:
 	void Start();//开始程序
 	HTEXTURE LoadTex(const char*);//加载纹理
 	void FreeTex(HTEXTURE);//释放纹理
-	float getDelta();//获取时间戳
+	float getDelta();//获取最后一次调用框架的时间
 	bool getKeyState(int k);//获取键盘状态
 private:
 	dx_hge(const dx_hge&);// 不能类外调用拷贝构造与赋值操作符

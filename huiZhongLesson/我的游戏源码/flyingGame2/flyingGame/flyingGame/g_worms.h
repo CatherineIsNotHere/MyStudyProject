@@ -24,6 +24,7 @@ public:
 	void setX(float x);
 	void setMoveX(float x);
 	float getX();
+	void keyFrame();
 private:
 	hgeAnimation* w_anime[RS_COUNT];
 	hgeAnimation* w_cur;
@@ -32,6 +33,14 @@ private:
 	float w_y;
 	float w_move_x;
 	float w_jump_time;
-	float w_weight;//虫子质量
+	struct wormPys
+	{
+		float w_weight;//虫子质量
+		float w_velocityX;//虫子移动速度
+		float w_velocityY;//虫子跳跃速度
+		float w_distanceOldY = .0f;//虫子y移动距离
+		float w_distanceOldX = .0f;//虫子x移动距离
+		float w_velocityOldY = .0f;//虫子在某时间间隔内的初始速度
+	}wp;
 };
 
