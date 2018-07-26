@@ -21,12 +21,16 @@ public:
 	void Init();
 	void Render();
 	void Frame();
+	void PaintRect();//画线
 	void setX(float x);
 	void setMoveX(float x);
 	float getX();
+	void commonFrame();//非人为控制
 	void keyFrame();//键盘控制
 	void impactFrame();//碰撞控制
-	void updateWormDragRect();//鼠标拖动后更新虫子碰撞框
+	void updateDragMove();//鼠标拖动后更新虫子碰撞框
+	int checkMove(float,float);//检测碰撞
+	void wormmove(float,float);//虫子移动
 private:
 	hgeAnimation* w_anime[RS_COUNT];
 	hgeAnimation* w_cur;
@@ -41,8 +45,8 @@ private:
 		float w_weight;//虫子质量
 		float w_velocityX;//虫子移动速度
 		float w_velocityY;//虫子跳跃速度
-		float w_distanceOldY = .0f;//虫子y移动距离
-		float w_distanceOldX = .0f;//虫子x移动距离
+		float w_distanceY = .0f;//虫子y移动距离
+		float w_distanceX = .0f;//虫子x移动距离
 		float w_velocityOldY = .0f;//虫子在某时间间隔内的初始速度
 	}wp;
 };

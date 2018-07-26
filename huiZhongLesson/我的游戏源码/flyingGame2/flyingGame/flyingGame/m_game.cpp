@@ -1,6 +1,7 @@
 #pragma once
 #include "m_game.h"
 #include "dx_hge.h"
+#include "g_object.h"
 
 m_game::m_game()
 {
@@ -37,20 +38,22 @@ bool m_game::Frame()
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
 	}
-	if (myhge.getKeyState(HGEK_O)){
-		mygame.obs.setPaintLine(false);
+	if (myhge.getHGE()->Input_KeyUp(HGEK_P)){
+		if (mygame.obs.getPaintLine())
+			mygame.obs.setPaintLine(false);
+		else
+			mygame.obs.setPaintLine(true);
+		if (mygame.worms.getPaintLine())
+			mygame.worms.setPaintLine(false);
+		else
+			mygame.worms.setPaintLine(true);
 	}
-	if (myhge.getKeyState(HGEK_P)){
-		mygame.obs.setPaintLine(true);
-	}
-	
 	return false;
 }
 
 bool m_game::Render()
 {
 	myhge.BeginRender(0xffffff);
-	
 	mygame.maps.Render();
 	mygame.worms.Render();
 	mygame.mouse.Render();
@@ -93,11 +96,10 @@ void m_game::mouseDrag()
 		mygame.maps.setX(mygame.maps.getX()+gms.gms_overmove_x);
 		mygame.maps.setMoveX(0);
 		mygame.worms.setX(mygame.worms.getX() + gms.gms_overmove_x);
-		mygame.worms.updateWormDragRect();
+		mygame.worms.updateDragMove();
 		mygame.worms.setMoveX(0);
-		mygame.obs.updateMove();
+		mygame.obs.updateDragMove();
 		mygame.obs.setMoveX(0);
-		
 	}
 
 }
