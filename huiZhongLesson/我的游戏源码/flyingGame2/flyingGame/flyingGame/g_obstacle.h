@@ -15,6 +15,7 @@ public:
 	void setMoveX(float x);
 	void updateDragMove();
 	int beImpacted(const hgeRect*);
+	int checkRect(const hgeRect*);
 	hgeRect* o_rect[O_NUM];
 private:
 	

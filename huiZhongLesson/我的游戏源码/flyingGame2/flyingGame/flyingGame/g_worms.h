@@ -31,6 +31,7 @@ public:
 	void updateDragMove();//鼠标拖动后更新虫子碰撞框
 	int checkMove(float,float);//检测碰撞
 	void wormmove(float,float);//虫子移动
+	void checkWorms();//矫正虫子位置
 private:
 	hgeAnimation* w_anime[RS_COUNT];
 	hgeAnimation* w_cur;

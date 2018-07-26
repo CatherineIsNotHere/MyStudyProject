@@ -71,7 +71,7 @@ void g_worms::Frame()
 {
 	float dt = myhge.getHGE()->Timer_GetDelta();
 	commonFrame();
-	//keyFrame();
+	keyFrame();
 	w_cur->Update(dt);
 }
 
@@ -81,9 +81,21 @@ void g_worms::commonFrame()
 	float t = myhge.getDelta();
 	float velocityNext = getVelocity(0, 98 * 6, t);//重力加速度6*98
 	wp.w_distanceY = getDistanceY(velocityNext, t);
-	if (checkMove(wp.w_distanceX, wp.w_distanceY)){
+	int impactMove = checkMove(wp.w_distanceX, wp.w_distanceY);
+	if (impactMove!= IM_DOWN){
 		wormmove(wp.w_distanceX, wp.w_distanceY);
+	}else{
+		if (w_state == RS_JUMP_RIGHT){
+			w_state = RS_IDLE_RIGHT;
+		}
+		if (w_state == RS_JUMP_LEFT){
+			w_state = RS_IDLE_LEFT;
+		}
+		//矫正方块
+		checkWorms();
 	}
+	velocityNext = 0;
+	wp.w_distanceY = 0;
 	//如果跳跃中遇到碰撞物则动画还原
 
 }
@@ -98,7 +110,7 @@ void g_worms::keyFrame()
 			w_cur->Play();
 		}
 		wp.w_distanceX = myhge.getDelta()*wp.w_velocityX;
-		if (checkMove(wp.w_distanceX, wp.w_distanceY)){
+		if (checkMove(wp.w_distanceX, wp.w_distanceY)!=IM_RIGHT){
 			wormmove(wp.w_distanceX, wp.w_distanceY);
 		}
 	}
@@ -110,7 +122,7 @@ void g_worms::keyFrame()
 			w_cur->Play();
 		}
 		wp.w_distanceX = myhge.getDelta()*wp.w_velocityX*(-1);
-		if (checkMove(wp.w_distanceX, wp.w_distanceY)){
+		if (checkMove(wp.w_distanceX, wp.w_distanceY)!=IM_LEFT){
 			wormmove(wp.w_distanceX, wp.w_distanceY);
 		}
 	}
@@ -145,7 +157,8 @@ void g_worms::keyFrame()
 		float velocityNext = getVelocity(wp.w_velocityOldY, 98 * 6, t);//重力加速度6*98
 		wp.w_velocityOldY = velocityNext;
 		wp.w_distanceY = getDistanceY(velocityNext, t);
-		if (checkMove(wp.w_distanceX, wp.w_distanceY)){
+		velocityNext = .0f;
+		if (checkMove(wp.w_distanceX, wp.w_distanceY)!=IM_UP){
 			wormmove(wp.w_distanceX, wp.w_distanceY);
 		}
 	}
@@ -171,8 +184,7 @@ int g_worms::checkMove(float distanceX,float distanceY)
 	rc.x2 += distanceX;
 	rc.y1 += distanceY;
 	rc.y2 += distanceY;
-	mygame.obs.beImpacted(&rc);
-	return ;
+	return mygame.obs.beImpacted(&rc);
 }
 
 void g_worms::PaintRect()
@@ -195,4 +207,18 @@ void g_worms::wormmove(float distanceX, float distanceY)
 	w_rc->y2 += distanceY;
 	w_rc->x1 += distanceX;
 	w_rc->x2 += distanceX;
+}
+
+void g_worms::checkWorms()
+{
+	hgeRect rc(*w_rc);
+	int check=mygame.obs.checkRect(&rc);
+	if (check >= 10000 && check < 20000){
+		if (check){
+
+		}
+	}
+	else if (check>=20000){
+	
+	}
 }

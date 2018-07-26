@@ -1,6 +1,7 @@
 #pragma once
 #include "g_obstacle.h"
 #include "pys_asvt.h"
+#include "config.h"
 
 g_obstacle::g_obstacle()
 {
@@ -66,12 +67,29 @@ void g_obstacle::updateDragMove()
 
 int g_obstacle::beImpacted(const hgeRect* other)
 {
-	//for (auto rc : o_rect)
-	//{
-	//	myIntersect(other, rc);
-	//}
-	//return false;
+	int impactedState = IM_NONE;
+	for (auto rc : o_rect)
+	{
+		impactedState = myIntersect(other, rc);
+		if (impactedState != IM_NONE)
+			return impactedState;
+	}
+	return IM_NONE;
 }
-
+//ºÏ≤È «∑Ò«∂»Î
+int g_obstacle::checkRect(const hgeRect* other)
+{
+	int rectlr=0;
+	int rectud = 0;
+	for (auto rc:o_rect)
+	{
+		rectlr = inRectLR(other,rc);
+		rectud = inRectUD(other, rc);
+		if (rectlr!=0||rectud!=0){
+			return rectlr + rectud;
+		}
+	}
+	return IN_NONE;
+}
 
 

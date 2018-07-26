@@ -12,3 +12,9 @@
 #define IM_RIGHT 2
 #define IM_UP 3
 #define IM_DOWN 4
+
+#define IN_NONE 0
+#define IN_LEFT 100
+#define IN_RIGHT 200
+#define IN_UP 10000
+#define IN_DOWN 20000
