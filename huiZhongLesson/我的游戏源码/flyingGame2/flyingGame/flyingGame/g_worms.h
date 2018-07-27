@@ -49,6 +49,7 @@ private:
 		float w_distanceY = .0f;//虫子y移动距离
 		float w_distanceX = .0f;//虫子x移动距离
 		float w_velocityOldY = .0f;//虫子在某时间间隔内的初始速度
+		float w_velocityFall;
 	}wp;
 };
 

@@ -13,6 +13,7 @@ g_obstacle::g_obstacle()
 	hgeRect* r5 = new hgeRect(482, 331, 988, 374);
 	hgeRect* r6 = new hgeRect(1088, 446, 1514, 490);
 	hgeRect* r7 = new hgeRect(1942, 264, 2450, 440);
+	hgeRect* r8 = new hgeRect(-10, 0, 0, 960);
 	o_rect[0] = r0;
 	o_rect[1] = r1;
 	o_rect[2] = r2;
@@ -21,6 +22,7 @@ g_obstacle::g_obstacle()
 	o_rect[5] = r5;
 	o_rect[6] = r6;
 	o_rect[7] = r7;
+	o_rect[8] = r8;
 	o_move_x = .0f;
 }
 
@@ -76,20 +78,20 @@ int g_obstacle::beImpacted(const hgeRect* other)
 	}
 	return IM_NONE;
 }
-//检查是否嵌入
-int g_obstacle::checkRect(const hgeRect* other)
-{
-	int rectlr=0;
-	int rectud = 0;
-	for (auto rc:o_rect)
-	{
-		rectlr = inRectLR(other,rc);
-		rectud = inRectUD(other, rc);
-		if (rectlr!=0||rectud!=0){
-			return rectlr + rectud;
-		}
-	}
-	return IN_NONE;
-}
-
+////检查是否嵌入
+//int g_obstacle::checkRect(const hgeRect* other)
+//{
+//	int rectlr=0;
+//	int rectud = 0;
+//	for (auto rc:o_rect)
+//	{
+//		rectlr = inRectLR(other,rc);
+//		rectud = inRectUD(other, rc);
+//		if (rectlr!=0||rectud!=0){
+//			return rectlr + rectud;
+//		}
+//	}
+//	return IN_NONE;
+//}
+//
 
