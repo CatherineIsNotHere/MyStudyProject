@@ -3,6 +3,7 @@
 #include "g_maps.h"
 #include "g_mouse.h"
 #include "g_worms.h"
+#include "g_weapon.h"
 
 #define mygame m_game::Instance() 
 
@@ -17,10 +18,12 @@ public:
 	static m_game& Instance();
 	void Run();//运行
 	void mouseDrag();//鼠标拖动
+	void checkRect();
 	g_obstacle obs;
 	g_maps maps;
 	g_mouse mouse;
 	g_worms worms;
+	g_weapon weapon;
 private:
 	m_game(const m_game&);//不能类外调用拷贝构造与赋值操作符
 	m_game& operator = (const m_game&);

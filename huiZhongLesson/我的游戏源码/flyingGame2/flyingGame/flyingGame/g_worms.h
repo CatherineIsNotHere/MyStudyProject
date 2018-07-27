@@ -23,15 +23,23 @@ public:
 	void Frame();
 	void PaintRect();//画线
 	void setX(float x);
+	void setY(float y);
 	void setMoveX(float x);
 	float getX();
+	float getY();
+	int getState();
+	hgeRect* getRect();
 	void commonFrame();//非人为控制
 	void keyFrame();//键盘控制
-	void impactFrame();//碰撞控制
 	void updateDragMove();//鼠标拖动后更新虫子碰撞框
 	int checkMove(float,float);//检测碰撞
 	void wormmove(float,float);//虫子移动
-	void checkWorms();//矫正虫子位置
+	//调用完checkMove方法后需要解析在何方向碰撞
+	bool wImpactLeft(int);
+	bool wImpactRight(int);
+	bool wImpactUp(int);
+	bool wImpactDown(int);
+
 private:
 	hgeAnimation* w_anime[RS_COUNT];
 	hgeAnimation* w_cur;
@@ -40,7 +48,7 @@ private:
 	float w_x;
 	float w_y;
 	float w_move_x;
-	float w_jump_time;
+	bool canJumpATT;
 	struct wormPys
 	{
 		float w_weight;//虫子质量

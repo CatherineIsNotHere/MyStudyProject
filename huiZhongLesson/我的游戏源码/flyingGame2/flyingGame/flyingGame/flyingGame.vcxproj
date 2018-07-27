@@ -98,6 +98,7 @@
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />
     <ClCompile Include="g_resourceManager.cpp" />
+    <ClCompile Include="g_weapon.cpp" />
     <ClCompile Include="g_worms.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="m_game.cpp" />
@@ -106,6 +107,7 @@
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="dx_hge.h" />
+    <ClInclude Include="g_weapon.h" />
     <ClInclude Include="pys_asvt.h" />
     <ClInclude Include="g_maps.h" />
     <ClInclude Include="g_obstacle.h" />

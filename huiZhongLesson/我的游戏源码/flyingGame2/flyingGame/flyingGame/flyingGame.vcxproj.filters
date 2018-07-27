@@ -57,6 +57,9 @@
     <ClCompile Include="pys_asvt.cpp">
       <Filter>源文件\physics</Filter>
     </ClCompile>
+    <ClCompile Include="g_weapon.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -84,6 +87,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="pys_asvt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_weapon.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

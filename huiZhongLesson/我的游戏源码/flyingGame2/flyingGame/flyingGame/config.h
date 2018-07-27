@@ -4,14 +4,14 @@
 
 //obstacle
 #define O_LINE true//是否划线
-#define O_NUM 9//障碍物数量
+#define O_NUM 10//障碍物数量
 
 //impact
 #define IM_NONE 0
-#define IM_LEFT 1
-#define IM_RIGHT 2
-#define IM_UP 3
-#define IM_DOWN 4
+#define IM_LEFT 9
+#define IM_RIGHT 90
+#define IM_UP 900
+#define IM_DOWN 9000
 
 #define IN_NONE 0
 #define IN_LEFT 100

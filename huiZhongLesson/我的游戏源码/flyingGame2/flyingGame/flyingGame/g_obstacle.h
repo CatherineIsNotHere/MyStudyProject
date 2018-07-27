@@ -18,6 +18,6 @@ public:
 	int checkRect(const hgeRect*);
 	hgeRect* o_rect[O_NUM];
 private:
-	
+	int o_wormstay;
 	float o_move_x;
 };

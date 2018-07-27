@@ -23,6 +23,7 @@ void m_game::Init()
 	maps.Init();
 	mouse.Init();
 	worms.Init();
+	weapon.Init();
 }
 
 void m_game::clean()
@@ -35,6 +36,7 @@ bool m_game::Frame()
 	mygame.worms.Frame();
 	mygame.mouse.Frame();
 	mygame.mouseDrag();
+	mygame.weapon.Frame();
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
 	}
@@ -48,6 +50,7 @@ bool m_game::Frame()
 		else
 			mygame.worms.setPaintLine(true);
 	}
+	//mygame.checkRect();
 	return false;
 }
 
@@ -56,6 +59,7 @@ bool m_game::Render()
 	myhge.BeginRender(0xffffff);
 	mygame.maps.Render();
 	mygame.worms.Render();
+	mygame.weapon.Render();
 	mygame.mouse.Render();
 	mygame.obs.Render();
 	myhge.EndRender();
@@ -102,4 +106,33 @@ void m_game::mouseDrag()
 		mygame.obs.setMoveX(0);
 	}
 
+}
+
+void m_game::checkRect()
+{
+	int checkResult = mygame.obs.checkRect(mygame.worms.getRect());
+	//int resultLR = checkResult % 1000;
+	int resultUD = checkResult / 1000;
+	//int moveLR = 0;
+	int moveUD = 0;
+	//if (resultLR >= 100 && resultLR < 200){//左嵌入
+	//	moveLR = resultLR % 100;
+	//}
+	//else if (resultLR >= 200 && resultLR < 300)//右嵌入
+	//{
+	//	moveLR = resultLR % 100 * (-1);
+	//}
+	if (resultUD>=100&&resultUD<200){//上嵌入
+		moveUD = resultUD % 100;
+	}
+	else if (resultUD>=200&&resultUD<300){//下嵌入
+		moveUD = resultUD % 100 * (-1);
+	}
+	hgeRect* rc = mygame.worms.getRect();
+	/*rc->x1 += (float)moveLR;
+	rc->x2 += (float)moveLR;*/
+	rc->y1 += (float)moveUD;
+	rc->y2 += (float)moveUD;
+	//mygame.worms.setX(mygame.worms.getX()+moveLR);
+	mygame.worms.setY(mygame.worms.getY() + moveUD);
 }
