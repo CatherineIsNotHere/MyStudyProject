@@ -12,8 +12,8 @@ g_maps::~g_maps()
 
 void g_maps::Init()
 {
-	m_sprites = resMgr.getSprite("百战天虫初稿.png", 0, 0, 2560, 960);
-	m_x = 0;
+	m_sprites = resMgr.getSprite("百战天虫初稿.png", 0, 0, 2760, 960);
+	m_x = -100;
 	m_y = 0;
 	m_move_x = 0;
 }
@@ -41,5 +41,10 @@ void g_maps::setY(float y)
 void g_maps::setMoveX(float x)
 {
 	m_move_x = x;
+}
+
+float g_maps::getMoveX()
+{
+	return m_move_x;
 }
 

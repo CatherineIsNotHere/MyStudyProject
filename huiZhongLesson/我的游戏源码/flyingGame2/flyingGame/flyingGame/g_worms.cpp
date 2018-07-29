@@ -33,7 +33,7 @@ void g_worms::Init()
 	w_anime[RS_JUMP_RIGHT]->SetSpeed(10);
 	w_x = 250;
 	w_y = 705 - 70 + 10;//705地面高度 70像素图片高度 10 像素图空白高度
-	w_rc = new hgeRect(w_x+20,w_y+12,w_x-25+90,w_y-10+70);
+	w_rc = new hgeRect(w_x+20,w_y+12,w_x-19+90,w_y-10+70);
 	w_move_x = 0;
 	canJumpATT = false;
 	wp.w_velocityX = 50.0f;
@@ -76,6 +76,18 @@ float g_worms::getY()
 
 int g_worms::getState(){
 	return w_state;
+}
+
+void g_worms::setState(int state)
+{
+	w_state = state;
+}
+
+void g_worms::compelFlush()
+{
+	w_cur->Stop();
+	w_cur = w_anime[w_state];
+	w_cur->Play();
 }
 
 hgeRect* g_worms::getRect()

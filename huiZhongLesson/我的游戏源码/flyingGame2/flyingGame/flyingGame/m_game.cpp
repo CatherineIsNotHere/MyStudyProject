@@ -2,6 +2,8 @@
 #include "m_game.h"
 #include "dx_hge.h"
 #include "g_object.h"
+#include "m_gmouse.h"
+#include "pys_asvt.h"
 
 m_game::m_game()
 {
@@ -20,10 +22,13 @@ void m_game::Init()
 	gms.gms_overmove_x = .0f;
 	gms.gms_x = .0f;
 	gms.gms_y = .0f;
+	gms.gms_stopVelocity = 600.0f;
+	gms.gms_borderDistance = .0f;
+	gms.gms_isOutOfBorder = MO_NONE;
 	maps.Init();
-	mouse.Init();
 	worms.Init();
 	weapon.Init();
+	mymouse.Init();
 }
 
 void m_game::clean()
@@ -33,9 +38,10 @@ void m_game::clean()
 
 bool m_game::Frame()
 {
+	mymouse.Frame();
 	mygame.worms.Frame();
-	mygame.mouse.Frame();
-	mygame.mouseDrag();
+	mygame.mouseDragStart();
+	mygame.mouseDragOver();
 	mygame.weapon.Frame();
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
@@ -60,8 +66,8 @@ bool m_game::Render()
 	mygame.maps.Render();
 	mygame.worms.Render();
 	mygame.weapon.Render();
-	mygame.mouse.Render();
 	mygame.obs.Render();
+	mymouse.Render();
 	myhge.EndRender();
 	return false;
 }
@@ -79,10 +85,9 @@ void m_game::Run()
 	myhge.Start();
 }
 
-void m_game::mouseDrag()
+void m_game::mouseDragStart()
 {
 	if (myhge.getHGE()->Input_KeyDown(HGEK_LBUTTON)){//鼠标按下记录按下坐标
-		
 		gms.gms_overmove_x = .0f;
 		gms.gms_move_x = .0f;
 		myhge.getHGE()->Input_GetMousePos(&gms.gms_x, &gms.gms_y);
@@ -90,22 +95,71 @@ void m_game::mouseDrag()
 	}
 	if (myhge.getHGE()->Input_GetKeyState(HGEK_LBUTTON)){//鼠标拖动记录位移距离
 		myhge.getHGE()->Input_GetMousePos(&gms.gms_x, &gms.gms_y);
-		gms.gms_move_x = gms.gms_x - gms.gms_click_x;
-		mygame.maps.setMoveX(gms.gms_move_x);
-		mygame.worms.setMoveX(gms.gms_move_x);
-		mygame.obs.setMoveX(gms.gms_move_x);
+		if (((mygame.maps.getX() + gms.gms_x - gms.gms_click_x) <= 0) && (mygame.maps.getX() + gms.gms_x - gms.gms_click_x)>=-2760+B_SCREEN_W){
+			gms.gms_move_x = gms.gms_x - gms.gms_click_x;
+			mygame.maps.setMoveX(gms.gms_move_x);
+			mygame.worms.setMoveX(gms.gms_move_x);
+			mygame.obs.setMoveX(gms.gms_move_x);
+			mygame.weapon.setMoveX(gms.gms_move_x);
+		}
 	}
 	if (myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){//鼠标拖动结束将真实坐标传入对象
-		gms.gms_overmove_x=gms.gms_move_x;
-		mygame.maps.setX(mygame.maps.getX()+gms.gms_overmove_x);
-		mygame.maps.setMoveX(0);
-		mygame.worms.setX(mygame.worms.getX() + gms.gms_overmove_x);
-		mygame.worms.updateDragMove();
-		mygame.worms.setMoveX(0);
-		mygame.obs.updateDragMove();
-		mygame.obs.setMoveX(0);
+		mygame.mouseDragclear();
+		gms.gms_borderDistance = mygame.maps.getX();
+		if (gms.gms_borderDistance > -100){//左出界
+			gms.gms_isOutOfBorder = MO_LEFT;
+		}
+		else if (gms.gms_borderDistance>-2760 + B_SCREEN_W && gms.gms_borderDistance<-2660 + B_SCREEN_W){
+			gms.gms_isOutOfBorder = MO_RIGHT;
+		}
 	}
+}
 
+void m_game::mouseDragclear()
+{
+	gms.gms_overmove_x = gms.gms_move_x;
+	mygame.maps.setX(mygame.maps.getX() + gms.gms_overmove_x);
+	mygame.maps.setMoveX(0);
+	mygame.worms.setX(mygame.worms.getX() + gms.gms_overmove_x);
+	mygame.worms.updateDragMove();
+	mygame.worms.setMoveX(0);
+	mygame.weapon.setX(mygame.weapon.getX() + gms.gms_overmove_x);
+	mygame.weapon.setMoveX(0);
+	mygame.obs.updateDragMove();
+	mygame.obs.setMoveX(0);
+}
+
+void m_game::mouseDragOver()
+{
+	if (gms.gms_isOutOfBorder == MO_LEFT&&!myhge.getHGE()->Input_KeyDown(HGEK_LBUTTON) && !myhge.getHGE()->Input_GetKeyState(HGEK_LBUTTON) && !myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){
+		float dt = myhge.getDelta();
+		float moveDistance = getDistanceX(gms.gms_stopVelocity*(-1),dt);
+		mygame.mouseDragBorderMove(moveDistance);
+		if (mygame.maps.getX()<=-100){
+			gms.gms_isOutOfBorder = MO_NONE;
+		}
+	}
+	else if (gms.gms_isOutOfBorder == MO_RIGHT&&!myhge.getHGE()->Input_KeyDown(HGEK_LBUTTON) && !myhge.getHGE()->Input_GetKeyState(HGEK_LBUTTON) && !myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){
+		float dt = myhge.getDelta();
+		float moveDistance = getDistanceX(gms.gms_stopVelocity, dt);
+		mygame.mouseDragBorderMove(moveDistance);
+		if (mygame.maps.getX() >= -2660 + B_SCREEN_W){
+			gms.gms_isOutOfBorder = MO_NONE;
+		}
+	}
+}
+
+void m_game::mouseDragBorderMove(float distanceX)
+{
+	mygame.maps.setX(mygame.maps.getX() + distanceX);
+	mygame.worms.setMoveX(distanceX);
+	mygame.worms.setX(mygame.worms.getX() + distanceX);
+	mygame.worms.updateDragMove();
+	mygame.weapon.setX(mygame.weapon.getX() + distanceX);
+	mygame.obs.setMoveX(distanceX);
+	mygame.obs.updateDragMove();
+	mygame.obs.setMoveX(0);
+	mygame.worms.setMoveX(0);
 }
 
 void m_game::checkRect()

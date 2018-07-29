@@ -1,3 +1,4 @@
+#pragma once
 #include "dx_hge.h"
 
 dx_hge::dx_hge()
@@ -52,6 +53,8 @@ void dx_hge::EndRender()
 {
 	hge->Gfx_EndScene();
 }
+
+
 /*
 	函数名：Start
 	参数：无
@@ -59,6 +62,7 @@ void dx_hge::EndRender()
 void dx_hge::Start()
 {
 	hge->System_Start();//如果没有问题，则使用System_Start方法，开始程序。 
+
 }
 /*
 	函数名：LoadTex

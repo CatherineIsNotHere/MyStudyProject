@@ -45,12 +45,6 @@
     <ClCompile Include="g_maps.cpp">
       <Filter>源文件\g_entity</Filter>
     </ClCompile>
-    <ClCompile Include="g_mouse.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="g_mouse.cpp">
-      <Filter>源文件\g_entity</Filter>
-    </ClCompile>
     <ClCompile Include="g_worms.cpp">
       <Filter>源文件\g_entity</Filter>
     </ClCompile>
@@ -59,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="g_weapon.cpp">
       <Filter>源文件\g_entity</Filter>
+    </ClCompile>
+    <ClCompile Include="m_gmouse.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +87,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="g_weapon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="m_gmouse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="g_bullet.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -43,15 +43,15 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\temp\$(Platform)</IntDir>
-    <IncludePath>C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\poco-1.9.0\Foundation\include;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\poco-1.9.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\temp\$(Platform)</IntDir>
-    <IncludePath>D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\poco-1.9.0\Foundation\include;C:\Users\chaiyu\Documents\Visual Studio 2013\Projects\poco-1.9.0\Foundation\include;D:\chaiyu\tools-poco\poco-1.9.0\Foundation\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\poco-1.9.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,8 +93,6 @@
   <ItemGroup>
     <ClCompile Include="dx_hge.cpp" />
     <ClCompile Include="g_maps.cpp" />
-    <ClCompile Include="g_mouse.cpp" />
-    <ClCompile Include="g_mouse.h" />
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />
     <ClCompile Include="g_resourceManager.cpp" />
@@ -102,12 +100,15 @@
     <ClCompile Include="g_worms.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="m_game.cpp" />
+    <ClCompile Include="m_gmouse.cpp" />
     <ClCompile Include="pys_asvt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="dx_hge.h" />
+    <ClInclude Include="g_bullet.h" />
     <ClInclude Include="g_weapon.h" />
+    <ClInclude Include="m_gmouse.h" />
     <ClInclude Include="pys_asvt.h" />
     <ClInclude Include="g_maps.h" />
     <ClInclude Include="g_obstacle.h" />

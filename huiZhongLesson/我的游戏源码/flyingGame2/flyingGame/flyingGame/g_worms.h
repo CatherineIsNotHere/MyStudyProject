@@ -28,6 +28,8 @@ public:
 	float getX();
 	float getY();
 	int getState();
+	void setState(int);
+	void compelFlush();//强制刷新
 	hgeRect* getRect();
 	void commonFrame();//非人为控制
 	void keyFrame();//键盘控制
@@ -48,15 +50,15 @@ private:
 	float w_x;
 	float w_y;
 	float w_move_x;
-	bool canJumpATT;
+	bool canJumpATT;//can jump all the time
 	struct wormPys
 	{
 		float w_weight;//虫子质量
 		float w_velocityX;//虫子移动速度
 		float w_velocityY;//虫子跳跃速度
-		float w_distanceY = .0f;//虫子y移动距离
-		float w_distanceX = .0f;//虫子x移动距离
-		float w_velocityOldY = .0f;//虫子在某时间间隔内的初始速度
+		float w_distanceY;//虫子y移动距离
+		float w_distanceX;//虫子x移动距离
+		float w_velocityOldY;//虫子在某时间间隔内的初始速度
 		float w_velocityFall;
 	}wp;
 };

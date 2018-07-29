@@ -18,3 +18,6 @@
 #define IN_RIGHT 200
 #define IN_UP 100000
 #define IN_DOWN 200000
+
+//physics
+#define PI 3.14

@@ -12,6 +12,7 @@ public:
 	float getX();
 	void setY(float y);
 	void setMoveX(float x);
+	float getMoveX();
 private:
 	hgeSprite* m_sprites;
 	float m_x;
