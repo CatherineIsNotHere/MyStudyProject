@@ -57,6 +57,9 @@
     <ClCompile Include="m_gmouse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="g_bullet.cpp">
+      <Filter>源文件\g_entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">

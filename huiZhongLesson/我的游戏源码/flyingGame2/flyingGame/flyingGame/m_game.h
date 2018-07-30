@@ -3,6 +3,7 @@
 #include "g_maps.h"
 #include "g_worms.h"
 #include "g_weapon.h"
+#include "g_bullet.h"
 
 #define mygame m_game::Instance() 
 
@@ -31,6 +32,7 @@ public:
 	g_maps maps;
 	g_worms worms;
 	g_weapon weapon;
+	g_bullet bullet;
 private:
 	m_game(const m_game&);//不能类外调用拷贝构造与赋值操作符
 	m_game& operator = (const m_game&);

@@ -3,7 +3,8 @@
 #include "hgeanim.h"
 
 enum BULLET_STATE{
-	BS_IDLE,
+	BS_NONE,
+	BS_FLY
 };
 
 class g_bullet:public g_object{
@@ -19,9 +20,12 @@ public:
 	void setX(float);
 	void setMoveX(float);
 private:
+	hgeAnimation* bl_animation;
 	float bl_x;
 	float bl_y;
 	float bl_move_x;
+	float bl_rot;
+	int bl_state;
 	struct bulletPys{
 		float bl_velocity;
 		float bl_velocityY;

@@ -28,6 +28,7 @@ void m_game::Init()
 	maps.Init();
 	worms.Init();
 	weapon.Init();
+	bullet.Init();
 	mymouse.Init();
 }
 
@@ -43,6 +44,7 @@ bool m_game::Frame()
 	mygame.mouseDragStart();
 	mygame.mouseDragOver();
 	mygame.weapon.Frame();
+	mygame.bullet.Frame();
 	if (myhge.getKeyState(HGEK_ESCAPE)){
 		return true;
 	}
@@ -66,6 +68,7 @@ bool m_game::Render()
 	mygame.maps.Render();
 	mygame.worms.Render();
 	mygame.weapon.Render();
+	mygame.bullet.Render();
 	mygame.obs.Render();
 	mymouse.Render();
 	myhge.EndRender();

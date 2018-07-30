@@ -21,6 +21,7 @@ public:
 	void Frame();
 	void setX(float);
 	float getX();
+	int getWPState();
 	void setMoveX(float);
 	void compelFlush();
 private:

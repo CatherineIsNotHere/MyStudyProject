@@ -92,6 +92,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dx_hge.cpp" />
+    <ClCompile Include="g_bullet.cpp" />
     <ClCompile Include="g_maps.cpp" />
     <ClCompile Include="g_object.cpp" />
     <ClCompile Include="g_obstacle.cpp" />

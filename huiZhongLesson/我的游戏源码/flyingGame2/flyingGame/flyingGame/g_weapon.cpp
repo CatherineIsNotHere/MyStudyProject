@@ -36,7 +36,6 @@ void g_weapon::Init()
 	wp_anime[WPS_WALK_RIGHT]->SetSpeed(10);
 	wp_anime[WPS_WALK_RIGHT]->SetHotSpot(wp_hotpotX, wp_hotpotY);
 	wp_cur = wp_anime[WPS_IDLE_LEFT];
-	
 }
 
 void g_weapon::Render()
@@ -180,6 +179,11 @@ void g_weapon::setX(float x)
 float g_weapon::getX()
 {
 	return wp_x;
+}
+
+int g_weapon::getWPState()
+{
+	return wp_state;
 }
 
 void g_weapon::setMoveX(float moveX)
