@@ -181,9 +181,19 @@ float g_weapon::getX()
 	return wp_x;
 }
 
+float g_weapon::getY()
+{
+	return wp_y;
+}
+
 int g_weapon::getWPState()
 {
 	return wp_state;
+}
+
+float g_weapon::getWPRot()
+{
+	return wp_rot;
 }
 
 void g_weapon::setMoveX(float moveX)

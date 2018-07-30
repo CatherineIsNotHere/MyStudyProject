@@ -104,6 +104,7 @@ void m_game::mouseDragStart()
 			mygame.worms.setMoveX(gms.gms_move_x);
 			mygame.obs.setMoveX(gms.gms_move_x);
 			mygame.weapon.setMoveX(gms.gms_move_x);
+			mygame.bullet.setMoveX(gms.gms_move_x);
 		}
 	}
 	if (myhge.getHGE()->Input_KeyUp(HGEK_LBUTTON)){//鼠标拖动结束将真实坐标传入对象
@@ -128,6 +129,9 @@ void m_game::mouseDragclear()
 	mygame.worms.setMoveX(0);
 	mygame.weapon.setX(mygame.weapon.getX() + gms.gms_overmove_x);
 	mygame.weapon.setMoveX(0);
+	mygame.bullet.setX(mygame.bullet.getX() + gms.gms_overmove_x);
+	mygame.bullet.updateDragMove();
+	mygame.bullet.setMoveX(0);
 	mygame.obs.updateDragMove();
 	mygame.obs.setMoveX(0);
 }
@@ -159,10 +163,14 @@ void m_game::mouseDragBorderMove(float distanceX)
 	mygame.worms.setX(mygame.worms.getX() + distanceX);
 	mygame.worms.updateDragMove();
 	mygame.weapon.setX(mygame.weapon.getX() + distanceX);
+	mygame.bullet.setX(mygame.bullet.getX()+distanceX);
+	mygame.bullet.setMoveX(distanceX);
+	mygame.bullet.updateDragMove();
 	mygame.obs.setMoveX(distanceX);
 	mygame.obs.updateDragMove();
 	mygame.obs.setMoveX(0);
 	mygame.worms.setMoveX(0);
+	mygame.bullet.setMoveX(0);
 }
 
 void m_game::checkRect()

@@ -21,7 +21,9 @@ public:
 	void Frame();
 	void setX(float);
 	float getX();
+	float getY();
 	int getWPState();
+	float getWPRot();
 	void setMoveX(float);
 	void compelFlush();
 private:

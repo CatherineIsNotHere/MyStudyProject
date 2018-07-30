@@ -1,6 +1,8 @@
 #pragma once
 #include "g_maps.h"
 #include "g_resourceManager.h"
+#include "config.h"
+
 g_maps::g_maps()
 {
 }
@@ -12,8 +14,8 @@ g_maps::~g_maps()
 
 void g_maps::Init()
 {
-	m_sprites = resMgr.getSprite("百战天虫初稿.png", 0, 0, 2760, 960);
-	m_x = -100;
+	m_sprites = resMgr.getSprite("百战天虫初稿.png", 0, 0, M_SCREEN_W, M_SCREEN_H);
+	m_x = -M_WALL_W;
 	m_y = 0;
 	m_move_x = 0;
 }

@@ -4,6 +4,7 @@
 #include "g_resourceManager.h"
 #include "pys_asvt.h"
 #include "m_game.h"
+#include "config.h"
 
 
 g_worms::g_worms()
@@ -19,25 +20,25 @@ g_worms::~g_worms()
 void g_worms::Init()
 {
 
-	w_anime[RS_IDLE_LEFT] = resMgr.getAnimation("虫子.png", 1, 20, 0, 280, 90, 70);
+	w_anime[RS_IDLE_LEFT] = resMgr.getAnimation("虫子.png", W_IDLE_FRAMES, W_FPS, W_LEFT_WALKX, W_LEFT_WALKY, WORMS_W, WORMS_H);
 	w_anime[RS_IDLE_LEFT]->SetSpeed(10);
-	w_anime[RS_IDLE_RIGHT] = resMgr.getAnimation("虫子.png", 1, 20, 0, 350, 90, 70);
+	w_anime[RS_IDLE_RIGHT] = resMgr.getAnimation("虫子.png", W_IDLE_FRAMES, W_FPS, W_RIGHT_WALKX, W_RIGHT_WALKY, WORMS_W, WORMS_H);
 	w_anime[RS_IDLE_RIGHT]->SetSpeed(10);
-	w_anime[RS_WALK_LEFT] = resMgr.getAnimation("虫子.png", 6, 20, 0, 280, 90, 70);
+	w_anime[RS_WALK_LEFT] = resMgr.getAnimation("虫子.png", W_WALK_FRAMES, W_FPS, W_LEFT_WALKX, W_LEFT_WALKY, WORMS_W, WORMS_H);
 	w_anime[RS_WALK_LEFT]->SetSpeed(10);
-	w_anime[RS_WALK_RIGHT] = resMgr.getAnimation("虫子.png", 6, 20, 0, 350, 90, 70);
+	w_anime[RS_WALK_RIGHT] = resMgr.getAnimation("虫子.png", W_WALK_FRAMES, W_FPS, W_RIGHT_WALKX, W_RIGHT_WALKY, WORMS_W, WORMS_H);
 	w_anime[RS_WALK_RIGHT]->SetSpeed(10);
-	w_anime[RS_JUMP_LEFT] = resMgr.getAnimation("虫子.png", 4, 20, 0, 0, 90, 70);
+	w_anime[RS_JUMP_LEFT] = resMgr.getAnimation("虫子.png", W_JUMP_FRAMES, W_FPS, W_LEFT_JUMPX, W_LEFT_JUMPY, WORMS_W, WORMS_H);
 	w_anime[RS_JUMP_LEFT]->SetSpeed(10);
-	w_anime[RS_JUMP_RIGHT] = resMgr.getAnimation("虫子.png", 4, 20, 0, 70, 90, 70);
+	w_anime[RS_JUMP_RIGHT] = resMgr.getAnimation("虫子.png", W_JUMP_FRAMES, W_FPS, W_RIGHT_JUMPX, W_RIGHT_JUMPY, WORMS_W, WORMS_H);
 	w_anime[RS_JUMP_RIGHT]->SetSpeed(10);
-	w_x = 250;
-	w_y = 705 - 70 + 10;//705地面高度 70像素图片高度 10 像素图空白高度
+	w_x = W_INITIALX;
+	w_y = W_INITIALY;//705地面高度 70像素图片高度 10 像素图空白高度
 	w_rc = new hgeRect(w_x+20,w_y+12,w_x-19+90,w_y-10+70);
 	w_move_x = 0;
 	canJumpATT = false;
-	wp.w_velocityX = 50.0f;
-	wp.w_velocityY = -400.0f;//跳跃速度400
+	wp.w_velocityX = W_WALK_VELOCITY;
+	wp.w_velocityY = W_JUMP_VELOCITY;//跳跃速度400
 	wp.w_distanceX = .0f;
 	wp.w_distanceY = .0f;
 	wp.w_velocityOldY = wp.w_velocityY;
