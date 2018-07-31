@@ -14,6 +14,7 @@
     <ProjectGuid>{412E7A9D-BA3D-45B3-BA02-9B6E5F3AC4D0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>flyingGame</RootNamespace>
+    <ProjectName>worms</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

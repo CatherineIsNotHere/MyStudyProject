@@ -41,7 +41,7 @@ void g_bullet::Init()
 	bl_animation = resMgr.getAnimation("×Óµ¯.png",4,20,0,0,50,20);
 	bl_animation->SetSpeed(10);
 	bl_animation->SetHotSpot(bl_hotpotX, bl_hotpotY);
-	bl_bowlAni = resMgr.getAnimation("±¬Õ¨.png", 6, 20, 0, 0, 50, 50);
+	bl_bowlAni = resMgr.getAnimation("±¬Õ¨.png", 5, 20, 0, 0, 50, 50);
 	bl_bowlAni->SetSpeed(10);
 	bl_bowlAni->SetHotSpot(25.0f, 25.0f);
 	bl_bowlAni->Play();

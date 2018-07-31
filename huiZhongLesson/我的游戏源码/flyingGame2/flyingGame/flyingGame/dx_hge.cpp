@@ -6,7 +6,7 @@ dx_hge::dx_hge()
 	hge = hgeCreate(HGE_VERSION);// 使用hgeCreate函数创建HGE接口，参数必须传递正确的HGE_VERSION,它是在hge.h中定义的 
 	hge->System_SetState(HGE_SCREENWIDTH, B_SCREEN_W);//设置屏幕宽度
 	hge->System_SetState(HGE_SCREENHEIGHT, B_SCREEN_H);//设置屏幕高度
-	hge->System_SetState(HGE_TITLE, "flyingGame");//设置窗口标题
+	hge->System_SetState(HGE_TITLE, "worms");//设置窗口标题
 	hge->System_SetState(HGE_WINDOWED, true);//设置使用窗口模式 
 	hge->System_SetState(HGE_USESOUND, false);//设置不使用声音（第一个程序我们先不讲解声音和图像的知识） 
 	hge->System_SetState(HGE_SHOWSPLASH, false); // 解除掉程序开头HGE的LOGO
