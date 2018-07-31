@@ -57,6 +57,10 @@ bool m_game::Frame()
 			mygame.worms.setPaintLine(false);
 		else
 			mygame.worms.setPaintLine(true);
+		if (mygame.bullet.getPaintLine())
+			mygame.bullet.setPaintLine(false);
+		else
+			mygame.bullet.setPaintLine(true);
 	}
 	//mygame.checkRect();
 	return false;

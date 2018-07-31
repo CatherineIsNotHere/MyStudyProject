@@ -37,5 +37,4 @@ private:
 	float wp_hotpotX;
 	float wp_hotpotY;
 	bool wp_radReversal;
-
 };
