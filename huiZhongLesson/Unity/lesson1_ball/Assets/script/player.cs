@@ -18,6 +18,10 @@ public class player : MonoBehaviour {
         }
 	}
     void OnCollisionEnter(Collision collision) {
-        is_landing = true;
+        if (collision.gameObject.tag=="floor")
+        {
+         is_landing = true;
+        }
+       
     }
 }

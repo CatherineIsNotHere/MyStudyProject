@@ -146,7 +146,7 @@ void g_worms::commonFrame()
 
 void g_worms::keyFrame()
 {
-	if (myhge.getHGE()->Input_GetKeyState(HGEK_RIGHT)){
+	if (myhge.getHGE()->Input_GetKeyState(HGEK_D)){
 		if (w_state != RS_WALK_RIGHT && w_state != RS_JUMP_LEFT && w_state != RS_JUMP_RIGHT){//非跳跃正常右走
 			w_state = RS_WALK_RIGHT;
 			w_cur->Stop();
@@ -162,7 +162,7 @@ void g_worms::keyFrame()
 			return;
 		}
 	}
-	if (myhge.getHGE()->Input_GetKeyState(HGEK_LEFT)){
+	if (myhge.getHGE()->Input_GetKeyState(HGEK_A)){
 		if (w_state != RS_WALK_LEFT && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){//非跳跃正常左走
 			w_state = RS_WALK_LEFT;
 			w_cur->Stop();
@@ -175,13 +175,13 @@ void g_worms::keyFrame()
 			wormmove(wp.w_distanceX, wp.w_distanceY);
 		}
 	}
-	if (myhge.getHGE()->Input_KeyUp(HGEK_RIGHT) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){//正常松键（右）
+	if (myhge.getHGE()->Input_KeyUp(HGEK_D) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){//正常松键（右）
 		w_state = RS_IDLE_RIGHT;
 		w_cur->Stop();
 		w_cur = w_anime[w_state];
 		w_cur->Play();
 	}
-	if (myhge.getHGE()->Input_KeyUp(HGEK_LEFT) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){//正常松键（左）
+	if (myhge.getHGE()->Input_KeyUp(HGEK_A) && w_state != RS_JUMP_LEFT&&w_state != RS_JUMP_RIGHT){//正常松键（左）
 		w_state = RS_IDLE_LEFT;
 		w_cur->Stop();
 		w_cur = w_anime[w_state];

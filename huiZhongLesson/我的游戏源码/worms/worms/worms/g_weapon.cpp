@@ -74,7 +74,7 @@ void g_weapon::Frame()
 		wp_cur->Stop();
 		wp_cur->Play();
 	}
-	else if (myhge.getHGE()->Input_GetKeyState(HGEK_UP) && !myhge.getHGE()->Input_GetKeyState(HGEK_LEFT) && !myhge.getHGE()->Input_GetKeyState(HGEK_RIGHT)){
+	else if (myhge.getHGE()->Input_GetKeyState(HGEK_W) && !myhge.getHGE()->Input_GetKeyState(HGEK_A) && !myhge.getHGE()->Input_GetKeyState(HGEK_D)){
 		if (wp_state == WPS_IDLE_LEFT){
 			if (wp_rot >= PI / 2){//如果角度超过90度则扭身
 				mygame.worms.setState(RS_IDLE_RIGHT);
@@ -101,7 +101,7 @@ void g_weapon::Frame()
 			}
 		}
 	}
-	else if (myhge.getHGE()->Input_GetKeyState(HGEK_DOWN) && !myhge.getHGE()->Input_GetKeyState(HGEK_LEFT) && !myhge.getHGE()->Input_GetKeyState(HGEK_RIGHT)){
+	else if (myhge.getHGE()->Input_GetKeyState(HGEK_S) && !myhge.getHGE()->Input_GetKeyState(HGEK_A) && !myhge.getHGE()->Input_GetKeyState(HGEK_D)){
 		if (wp_state == WPS_IDLE_LEFT){
 			if (wp_rot <= PI / 2 * (-1)){
 				mygame.worms.setState(RS_IDLE_RIGHT);
