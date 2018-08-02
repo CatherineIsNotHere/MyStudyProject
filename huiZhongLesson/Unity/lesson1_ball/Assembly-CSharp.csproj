@@ -50,6 +50,7 @@
      <Compile Include="Assets\script\luncher.cs" />
      <Compile Include="Assets\script\player.cs" />
      <Compile Include="Assets\script\playerSphere.cs" />
+     <Compile Include="Assets\script\test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/chaiyu/tools-U3D/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
