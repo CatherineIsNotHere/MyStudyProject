@@ -1,0 +1,6 @@
+<config>
+	<size>3</size>
+	<rectangles id="0" x1="577" x2="708" y1="209" y2="242"/>
+	<rectangles id="1" x1="671" x2="744" y1="173" y2="215"/>
+	<rectangles id="2" x1="705" x2="822" y1="113" y2="193"/>
+</config>
